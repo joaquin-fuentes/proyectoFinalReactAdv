@@ -1,0 +1,22 @@
+/* PERFIL ALUMNO */
+.avatarPerfil {
+  width: 150px;
+}
+.perfil-card {
+  width: 100%; /* Para que ocupe el 100% del ancho disponible */
+  max-width: 600px; /* Ajusta el valor según necesites, para limitar el ancho máximo */
+  min-width: 300px; /* Ajusta el valor según necesites, para definir el ancho mínimo */
+  transition: all 0.3s ease; /* Transición suave para cambios de tamaño */
+}
+
+@media (min-width: 768px) {
+  .perfil-card {
+    width: 80%; /* Más ancho en pantallas medianas y grandes */
+  }
+}
+
+@media (min-width: 992px) {
+  .perfil-card {
+    width: 70%; /* Más ancho en pantallas grandes */
+  }
+}
