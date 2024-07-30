@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 /* Estilos generales */
 * {
   padding: 0;
@@ -7,17 +10,17 @@
 
 :root {
   --color-fondo: #071f40;
-  --color-primario: #04325b;
+  --color-primario: #f2f2f2;
   --color-primarioDos: #038587;
   --color-secundario: #015a95;
-  --color-secundarioDos: #f2f2f2;
+  --color-secundarioDos: #04325b;
   --fuente-color-primario: #ffffff;
   --fuente-color-secundario: #000;
-  --fuente-color-secundarioDos: #;
+  --fuente-color-secundarioDos: #bbb;
   --btn-color: #071f40;
   --btn-colorDos: #038587;
-  --fuente-principal: ;
-  --fuente-secundaria: ;
+  --fuente-principal: "Roboto", sans-serif;
+  --fuente-secundaria: "Rubik", sans-serif;
   --fuente-tamanio-titulo: 2rem;
   --fuente-tamanio-titulo-tablet: 2.5rem;
   --fuente-tamanio-titulo-desktop: 3rem;
