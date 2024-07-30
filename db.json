@@ -1,0 +1,18 @@
+{
+    "usuarios": [],
+    "roles": [
+        {
+            "id": 1,
+            "nombre": "alumno"
+        },
+        {
+            "id": 2,
+            "nombre": "docente"
+        },
+        {
+            "id": 3,
+            "nombre": "administrador"
+        }
+    ],
+    "materias": []
+}
