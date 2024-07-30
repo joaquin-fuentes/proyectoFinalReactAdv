@@ -6,16 +6,16 @@
 }
 
 :root {
-  --color-fondo: #;
-  --color-primario: #;
-  --color-primarioDos: #;
-  --color-secundario: #;
-  --color-secundarioDos: #;
+  --color-fondo: #071f40;
+  --color-primario: #04325b;
+  --color-primarioDos: #038587;
+  --color-secundario: #015a95;
+  --color-secundarioDos: #f2f2f2;
   --fuente-color-primario: #ffffff;
   --fuente-color-secundario: #000;
   --fuente-color-secundarioDos: #;
-  --btn-color: #;
-  --btn-colorDos: #;
+  --btn-color: #071f40;
+  --btn-colorDos: #038587;
   --fuente-principal: ;
   --fuente-secundaria: ;
   --fuente-tamanio-titulo: 2rem;
