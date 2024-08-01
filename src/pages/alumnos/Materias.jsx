@@ -5,7 +5,7 @@ import "./Alumnos.css";
 
 const Materias = () => {
   return (
-    <Container className="text-center px-md-5">
+    <Container className="text-center px-md-5 py-md-2">
       <h4 className="my-3 titulo">Listado de materias en curso</h4>
 
       <Form.Group className="d-flex align-items-center justify-content-center w-md-50 ms-3">

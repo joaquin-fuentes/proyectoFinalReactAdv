@@ -1,11 +1,18 @@
 import React from "react";
+import imgPerfil from "../assets/imagenes/avatarPerfil.jpeg";
+import { MdLogout } from "react-icons/md";
 
 const Header = () => {
   return (
-    <div className=" p-3 text-end d-flex align-items-center  justify-content-around justify-content-md-end ">
-      <span className="me-md-4 bg-dark rounded-circle text-light p-2 ">M</span>
-      <span className="me-md-4">Nombre Usuario</span>
-      <span className="me-md-4">Salir</span>
+    <div className="bg-azulOscuro text-light p-3 text-end d-flex align-items-center  justify-content-around justify-content-md-end">
+      <span className="me-md-5  rounded-circle text-light  ">
+        <img src={imgPerfil} alt="avatar" className="imgAvatarHeader" />
+      </span>
+      <span className="me-md-5">Nombre Usuario</span>
+      <span className="me-md-5">
+        <MdLogout className="me-1" />
+        Salir
+      </span>
     </div>
   );
 };

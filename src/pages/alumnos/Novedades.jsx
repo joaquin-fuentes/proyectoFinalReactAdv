@@ -4,7 +4,7 @@ import "./Alumnos.css";
 
 const Novedades = () => {
   return (
-    <Container>
+    <Container className="p-md-4">
       <h4 className="mt-3 text-center titulo">Novedades</h4>
       <Row className="d-flex justify-content-center">
         <Col md={6} lg={4}>

@@ -5,7 +5,7 @@ import "./Alumnos.css";
 
 const Perfil = () => {
   return (
-    <Container className="d-flex flex-column align-items-center justify-content-center">
+    <Container className="d-flex flex-column align-items-center justify-content-cente py-md-3">
       <img src={avatar} alt="avatar" className="avatarPerfil" />
       <article className="perfil-card rounded py-2 mt-3 bg-azulOscuro text-light">
         <div className="d-flex justify-content-md-between align-items-center px-2 px-md-5 py-2">
