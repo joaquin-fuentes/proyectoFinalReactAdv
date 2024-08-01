@@ -1,43 +1,55 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { IoPersonSharp } from "react-icons/io5";
+import { IoMdSchool } from "react-icons/io";
+import { LiaSchoolSolid } from "react-icons/lia";
+import { IoNewspaper } from "react-icons/io5";
 
 const Sidebar = ({ handleClose }) => {
   return (
     <div className="sidebar text-center d-flex flex-column">
       <div className="sidebar-content flex-grow-1">
-        <h2 className="mt-3">Logo</h2>
-        <nav className="navbar w-100">
+        <h2 className="logoSidebar m-0">Logo</h2>
+        <nav className="navbar w-100 p-0">
           {/*  if alumnos */}
           {/* <ul className="navbar-nav w-100">
-            <li className="nav-item text-center py-2 border ">
-              <NavLink to="/perfil" className="nav-link" onClick={handleClose}>
+            <li className="nav-item text-center">
+              <NavLink
+                to="alumnos/perfil"
+                className="nav-link text-light fw-bold btnSidebar py-3 d-flex justify-content-center align-items-center"
+                onClick={handleClose}
+              >
+                <IoPersonSharp className="me-2" />
                 Perfl
               </NavLink>
             </li>
-            <li className="nav-item text-center py-2 border ">
+            <li className="nav-item text-center">
               <NavLink
-                to="/materias"
-                className="nav-link"
+                to="alumnos/materias"
+                className="nav-link text-light fw-bold btnSidebar py-3 d-flex justify-content-center align-items-center"
                 onClick={handleClose}
               >
+                <LiaSchoolSolid className="me-2" />
                 Materias
               </NavLink>
             </li>
-            <li className="nav-item text-center py-2 border ">
+            <li className="nav-item text-center">
               <NavLink
-                to="/asistencias"
-                className="nav-link"
+                to="alumnos/asistencias"
+                className="nav-link text-light fw-bold btnSidebar py-3 d-flex justify-content-center align-items-center"
                 onClick={handleClose}
               >
+                <IoMdSchool className="me-2" />
                 Asistencias
               </NavLink>
             </li>
-            <li className="nav-item text-center py-2 border ">
+            <li className="nav-item text-center">
               <NavLink
-                to="/novedades"
-                className="nav-link"
+                to="alumnos/novedades"
+                className="nav-link text-light fw-bold btnSidebar py-3 d-flex justify-content-center align-items-center"
                 onClick={handleClose}
               >
+                <IoNewspaper className="me-2" />
                 Novedades
               </NavLink>
             </li>
@@ -48,7 +60,7 @@ const Sidebar = ({ handleClose }) => {
           {/* Deben copar el sidebar que esta arriba y pegar aqui con los enlaces que necesiten, despues haremos el filtro */}
         </nav>
       </div>
-      <footer className="bg-dark text-light py-3">Footer</footer>
+      <footer className="bg-dark py-3">Footer</footer>
     </div>
   );
 };

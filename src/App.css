@@ -40,16 +40,50 @@ html {
 body {
   background-color: var(--color-fondo);
 }
-
 .titulo {
   font-family: var(--fuente-principal);
   font-size: var(--fuente-tamanio-titulo);
   color: var(--color-primario);
 }
+/* HEADER */
+.imgAvatarHeader{
+  width: 30px;
+  border-radius: 50%;
+}
 /* Estilos del sidebar */
 .sidebar {
-  background-color: #f8f9fa;
-  border-right: 1px solid #dee2e6;
+  background-color: var(--color-fondo);
+  color: var(--fuente-color-primario);
+  height: 100vh;
+}
+.bg-azulOscuro {
+  background-color: var(--color-fondo);
+}
+.logoSidebar{
+  height: 62px;
+  padding: 10px;
+}
+/* OFFCANVAS */
+.offcanvas-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.offcanvas-header .btn-close {
+  filter: invert(1);
+}
+.sidebar-full-height {
+  flex: 1;
+  overflow-y: auto;
+
+}
+.btnSidebar:hover {
+  color: var(--btn-color)!important;
+  background-color: var(--color-primario);
+  width: 100%;
+}
+.navBarMenu{
+  background-color: var(--color-fondo)!important;
 }
 /* Sidebar para pantallas grandes */
 @media (min-width: 992px) {

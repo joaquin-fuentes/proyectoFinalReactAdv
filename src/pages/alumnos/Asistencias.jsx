@@ -4,43 +4,41 @@ import "./Alumnos.css";
 
 const Asistencias = () => {
   return (
-    <Container>
-      <h4 className="text-center my-3">Asistencias</h4>
-      <Row>
-        <Col md={3}>
-          <article className="border rounded p-4 mb-3 text-center">
-            <p className="fw-bold">Total dias de clases</p>
-            <p className="fs-1">150</p>
+    <Container className="asistencias-container pt-md-3">
+      <h4 className="text-center my-2 titulo">Asistencias</h4>
+      <Row className="row-asistencias d-flex justify-content-center">
+        <Col xs={12} md={6} lg={5}>
+          <article className="mb-3 p-3 p-lg-2 asistencia-card text-center">
+            <p className=" text-light my-2 my-lg-1">Total días de clases</p>
+            <p className="fs-1 text-light my-2 my-lg-1">150</p>
+          </article>
+          <article className="mb-3 p-3 p-lg-2 asistencia-card text-center">
+            <p className=" text-light my-2 my-lg-1">Total inasistencias</p>
+            <p className="fs-1 text-light my-2 my-lg-1">10</p>
+          </article>
+          <article className="mb-3 p-3 p-lg-2 asistencia-card text-center">
+            <p className=" text-light my-2 my-lg-1">Inasistencias justificadas</p>
+            <p className="fs-1 text-light my-2 my-lg-1">2</p>
           </article>
         </Col>
-        <Col md={3}>
-          <article className="border rounded p-4 mb-3 text-center">
-            <p className="fw-bold">Total inasistencias</p>
-            <p className="fs-1">10</p>
-          </article>
-        </Col>
-        <Col md={3}>
-          <article className="border rounded p-4 mb-3 text-center">
-            <p className="fw-bold">Inasisencias justificadas</p>
-            <p className="fs-1">2</p>
-          </article>
-        </Col>
-        <Col md={3}>
-          <article className="border rounded  p-4 mb-3 d-flex flex-column align-items-center">
-            <p className="me-5">Fechas inasistencias:</p>
-            <ol>
-              <li className="">26/07/2024</li>
-              <li className="">26/07/2024</li>
-              <li className="">26/07/2024 (justificada)</li>
-              <li className="">26/07/2024 (justificada)</li>
-              <li className="">26/07/2024</li>
-              <li className="">26/07/2024</li>
-              <li className="">26/07/2024</li>
-              <li className="">26/07/2024</li>
-              <li className="">26/07/2024</li>
-              <li className="">26/07/2024</li>
-            </ol>
-          </article>
+        <Col xs={12} md={6} lg={5}>
+          <div className="d-flex justify-content-center ">
+            <article className="mb-3 p-3 p-lg-2  asistencia-card  inasistencias-fechas text-center">
+              <p className="fechas-titulo">Fechas inasistencias:</p>
+              <ol>
+                <li>26/07/2024</li>
+                <li>26/07/2024</li>
+                <li>26/07/2024 (justificada)</li>
+                <li>26/07/2024 (justificada)</li>
+                <li>26/07/2024</li>
+                <li>26/07/2024</li>
+                <li>26/07/2024</li>
+                <li>26/07/2024</li>
+                <li>26/07/2024</li>
+                <li>26/07/2024</li>
+              </ol>
+            </article>
+          </div>
         </Col>
       </Row>
     </Container>
