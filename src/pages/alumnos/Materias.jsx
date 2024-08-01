@@ -5,10 +5,10 @@ import "./Alumnos.css";
 
 const Materias = () => {
   return (
-    <Container className="text-center">
-      <h4 className="mt-3">Listado de materias en curso</h4>
+    <Container className="text-center px-md-5">
+      <h4 className="my-3 titulo">Listado de materias en curso</h4>
 
-      <Form.Group className="d-flex align-items-center w-50 ms-3">
+      <Form.Group className="d-flex align-items-center justify-content-center w-md-50 ms-3">
         <Form.Label className="m-0 p-2">Buscar Materia:</Form.Label>
         <Form.Control
           type="text"
@@ -18,81 +18,162 @@ const Materias = () => {
       </Form.Group>
       <Table
         striped
-        bordered
         hover
         responsive
-        variant="dark"
         className="mt-3 rounded"
       >
         <thead>
-          <tr>
-            <th>Materia</th>
-            <th>Año</th>
-            <th>Docente</th>
-            <th>1er trimestre</th>
-            <th>2do trimestre</th>
-            <th>3er trimestre</th>
-            <th>Nota Final</th>
-            <th>Estado</th>
+          <tr className="">
+            <th className="tableMaterias fw-bold">Materia</th>
+            <th className="tableMaterias fw-bold">Año</th>
+            <th className="tableMaterias fw-bold">Docente</th>
+            <th className="tableMaterias fw-bold">1er trimestre</th>
+            <th className="tableMaterias fw-bold">2do trimestre</th>
+            <th className="tableMaterias fw-bold">3er trimestre</th>
+            <th className="tableMaterias fw-bold">Nota Final</th>
+            <th className="tableMaterias fw-bold">Estado</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Matemáticas</td>
-            <td>2°B</td>
-            <td>Prof. Juan Perez</td>
-            <td>6</td>
-            <td>9</td>
-            <td>7</td>
-            <td>7.3</td>
-            <td className="text-success">Aprobado</td>
+            <td className="tableMaterias">Matemáticas</td>
+            <td className="tableMaterias">2°B</td>
+            <td className="tableMaterias">Prof. Juan Perez</td>
+            <td className="tableMaterias">6</td>
+            <td className="tableMaterias">9</td>
+            <td className="tableMaterias">7</td>
+            <td className="tableMaterias">7.3</td>
+            <td className="tableMaterias text-success">Aprobado</td>
           </tr>
           <tr>
-            <td>Matemáticas</td>
-            <td>2°B</td>
-            <td>Prof. Juan Perez</td>
-            <td>6</td>
-            <td>9</td>
-            <td>7</td>
-            <td>7.3</td>
-            <td className="text-success">Aprobado</td>
+            <td className="tableMaterias">Matemáticas</td>
+            <td className="tableMaterias">2°B</td>
+            <td className="tableMaterias">Prof. Juan Perez</td>
+            <td className="tableMaterias">6</td>
+            <td className="tableMaterias">9</td>
+            <td className="tableMaterias">7</td>
+            <td className="tableMaterias">7.3</td>
+            <td className="tableMaterias text-success">Aprobado</td>
           </tr>
           <tr>
-            <td>Matemáticas</td>
-            <td>2°B</td>
-            <td>Prof. Juan Perez</td>
-            <td>4</td>
-            <td>4</td>
-            <td>7</td>
-            <td>5</td>
-            <td className="text-danger">Desaprobado</td>
+            <td className="tableMaterias">Matemáticas</td>
+            <td className="tableMaterias">2°B</td>
+            <td className="tableMaterias">Prof. Juan Perez</td>
+            <td className="tableMaterias">6</td>
+            <td className="tableMaterias">9</td>
+            <td className="tableMaterias">7</td>
+            <td className="tableMaterias">7.3</td>
+            <td className="tableMaterias text-success">Aprobado</td>
+          </tr>
+          <tr>
+            <td className="tableMaterias">Matemáticas</td>
+            <td className="tableMaterias">2°B</td>
+            <td className="tableMaterias">Prof. Juan Perez</td>
+            <td className="tableMaterias">6</td>
+            <td className="tableMaterias">9</td>
+            <td className="tableMaterias">7</td>
+            <td className="tableMaterias">7.3</td>
+            <td className="tableMaterias text-success">Aprobado</td>
+          </tr>
+          <tr>
+            <td className="tableMaterias">Matemáticas</td>
+            <td className="tableMaterias">2°B</td>
+            <td className="tableMaterias">Prof. Juan Perez</td>
+            <td className="tableMaterias">6</td>
+            <td className="tableMaterias">9</td>
+            <td className="tableMaterias">7</td>
+            <td className="tableMaterias">7.3</td>
+            <td className="tableMaterias text-success">Aprobado</td>
+          </tr>
+          <tr>
+            <td className="tableMaterias">Matemáticas</td>
+            <td className="tableMaterias">2°B</td>
+            <td className="tableMaterias">Prof. Juan Perez</td>
+            <td className="tableMaterias">6</td>
+            <td className="tableMaterias">9</td>
+            <td className="tableMaterias">7</td>
+            <td className="tableMaterias">7.3</td>
+            <td className="tableMaterias text-success">Aprobado</td>
+          </tr>
+          <tr>
+            <td className="tableMaterias">Matemáticas</td>
+            <td className="tableMaterias">2°B</td>
+            <td className="tableMaterias">Prof. Juan Perez</td>
+            <td className="tableMaterias">6</td>
+            <td className="tableMaterias">9</td>
+            <td className="tableMaterias">7</td>
+            <td className="tableMaterias">7.3</td>
+            <td className="tableMaterias text-success">Aprobado</td>
+          </tr>
+          <tr>
+            <td className="tableMaterias">Matemáticas</td>
+            <td className="tableMaterias">2°B</td>
+            <td className="tableMaterias">Prof. Juan Perez</td>
+            <td className="tableMaterias">6</td>
+            <td className="tableMaterias">9</td>
+            <td className="tableMaterias">7</td>
+            <td className="tableMaterias">7.3</td>
+            <td className="tableMaterias text-success">Aprobado</td>
+          </tr>
+          <tr>
+            <td className="tableMaterias">Matemáticas</td>
+            <td className="tableMaterias">2°B</td>
+            <td className="tableMaterias">Prof. Juan Perez</td>
+            <td className="tableMaterias">6</td>
+            <td className="tableMaterias">9</td>
+            <td className="tableMaterias">7</td>
+            <td className="tableMaterias">7.3</td>
+            <td className="tableMaterias text-success">Aprobado</td>
+          </tr>
+          <tr>
+            <td className="tableMaterias">Matemáticas</td>
+            <td className="tableMaterias">2°B</td>
+            <td className="tableMaterias">Prof. Juan Perez</td>
+            <td className="tableMaterias">6</td>
+            <td className="tableMaterias">9</td>
+            <td className="tableMaterias">7</td>
+            <td className="tableMaterias">7.3</td>
+            <td className="tableMaterias text-success">Aprobado</td>
+          </tr>
+          <tr>
+            <td className="tableMaterias">Matemáticas</td>
+            <td className="tableMaterias">2°B</td>
+            <td className="tableMaterias">Prof. Juan Perez</td>
+            <td className="tableMaterias">6</td>
+            <td className="tableMaterias">9</td>
+            <td className="tableMaterias">7</td>
+            <td className="tableMaterias">7.3</td>
+            <td className="tableMaterias text-success">Aprobado</td>
+          </tr>
+          <tr>
+            <td className="tableMaterias">Matemáticas</td>
+            <td className="tableMaterias">2°B</td>
+            <td className="tableMaterias">Prof. Juan Perez</td>
+            <td className="tableMaterias">6</td>
+            <td className="tableMaterias">9</td>
+            <td className="tableMaterias">7</td>
+            <td className="tableMaterias">7.3</td>
+            <td className="tableMaterias text-success">Aprobado</td>
           </tr>
         </tbody>
       </Table>
       <section className="mt-4">
-        <h6>Listado Materias previas de año anterior (en caso de tener)</h6>
-        <Table
-          striped
-          bordered
-          hover
-          responsive
-          variant="dark"
-          className="mt-3 rounded"
-        >
-          <thead>
+        <h6 className="fs-5 text-primary-emphasis">Listado Materias previas de año anterior (en caso de tener)</h6>
+        <Table hover responsive className="my-3 rounded ">
+          <thead className="">
             <tr>
-              <th>Materia</th>
-              <th>Año</th>
-              <th>Docente</th>
-              <th>Estado</th>
+              <th className="tableMaterias">Materia</th>
+              <th className="tableMaterias">Año</th>
+              <th className="tableMaterias">Docente</th>
+              <th className="tableMaterias">Estado</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Quimica</td>
-              <td>1°B</td>
-              <td>Prof. Juan Perez</td>
-              <th className="text-warning">Previa</th>
+              <td className="tableMaterias">Quimica</td>
+              <td className="tableMaterias">1°B</td>
+              <td className="tableMaterias">Prof. Juan Perez</td>
+              <th className="text-warning tableMaterias">Previa</th>
             </tr>
           </tbody>
         </Table>

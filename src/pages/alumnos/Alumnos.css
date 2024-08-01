@@ -25,6 +25,11 @@
 .bg-azulOscuro {
   background-color: var(--color-fondo);
 }
+.titulo {
+  font-family: var(--fuente-principal);
+  font-size: var(--fuente-tamanio-titulo);
+  color: var(--color-fondo);
+}
 
 /* PERFIL ALUMNO */
 .avatarPerfil {
@@ -36,6 +41,11 @@
   width: 100%; /* Para dispositivos pequeños */
   font-family: var(--fuente-principal);
   font-size: 14px;
+}
+/* MATERIAS */
+.tableMaterias{
+  background-color: var(--color-fondo)!important;
+  color: var(--fuente-color-primario)!important;
 }
 
 /* Dispositivos medianos (mínimo 769px) */
