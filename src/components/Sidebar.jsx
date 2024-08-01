@@ -12,7 +12,7 @@ const Sidebar = ({ handleClose }) => {
         <h2 className="logoSidebar m-0">Logo</h2>
         <nav className="navbar w-100 p-0">
           {/*  if alumnos */}
-          {/* <ul className="navbar-nav w-100">
+          <ul className="navbar-nav w-100">
             <li className="nav-item text-center">
               <NavLink
                 to="alumnos/perfil"
@@ -53,7 +53,7 @@ const Sidebar = ({ handleClose }) => {
                 Novedades
               </NavLink>
             </li>
-          </ul> */}
+          </ul>
           {/*  if docentes */}
           {/* Deben copar el sidebar que esta arriba y pegar aqui con los enlaces que necesiten, despues haremos el filtro */}
           {/*  if administrador */}
