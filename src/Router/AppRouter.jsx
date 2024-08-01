@@ -8,7 +8,7 @@ import Novedades from "../pages/alumnos/Novedades";
 import Header from "../components/Header";
 import Asistencias from "../pages/alumnos/Asistencias";
 import NavBarSmall from "../components/NavBarSmall";
-import Error404 from "../pages/Error404";
+import Error404 from "../pages/error404/Error404";
 import Home from "../pages/home/Home";
 import Docentes from "../pages/docentes/Docentes";
 import Administrador from "../pages/administrador/Administrador";
