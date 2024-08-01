@@ -8,15 +8,15 @@ const Sidebar = ({ handleClose }) => {
         <h2 className="mt-3">Logo</h2>
         <nav className="navbar w-100">
           {/*  if alumnos */}
-          {/* <ul className="navbar-nav w-100">
+          <ul className="navbar-nav w-100">
             <li className="nav-item text-center py-2 border ">
-              <NavLink to="/perfil" className="nav-link" onClick={handleClose}>
+              <NavLink to="alumnos/perfil" className="nav-link" onClick={handleClose}>
                 Perfl
               </NavLink>
             </li>
             <li className="nav-item text-center py-2 border ">
               <NavLink
-                to="/materias"
+                to="alumnos/materias"
                 className="nav-link"
                 onClick={handleClose}
               >
@@ -25,7 +25,7 @@ const Sidebar = ({ handleClose }) => {
             </li>
             <li className="nav-item text-center py-2 border ">
               <NavLink
-                to="/asistencias"
+                to="alumnos/asistencias"
                 className="nav-link"
                 onClick={handleClose}
               >
@@ -34,14 +34,14 @@ const Sidebar = ({ handleClose }) => {
             </li>
             <li className="nav-item text-center py-2 border ">
               <NavLink
-                to="/novedades"
+                to="alumnos/novedades"
                 className="nav-link"
                 onClick={handleClose}
               >
                 Novedades
               </NavLink>
             </li>
-          </ul> */}
+          </ul>
           {/*  if docentes */}
           {/* Deben copar el sidebar que esta arriba y pegar aqui con los enlaces que necesiten, despues haremos el filtro */}
           {/*  if administrador */}
