@@ -54,11 +54,6 @@
   font-family: var(--fuente-principal);
 }
 
-.asistencias-titulo {
-  font-size: var(--fuente-tamanio-titulo);
-  color: var(--color-fondo);
-  margin-bottom: 20px;
-}
 
 .asistencia-card {
   background-color: var(--color-fondo);
@@ -68,15 +63,9 @@
   transition: transform 0.3s ease;
 }
 
-.asistencia-valor {
-  font-size: 36px;
-  color: var(--color-primario);
-}
-
 .inasistencias-fechas {
   width: 100%;
 }
-
 .inasistencias-fechas .fechas-titulo {
   font-size: 16px;
   color: var(--color-primario);
@@ -90,7 +79,7 @@
 .inasistencias-fechas li {
   font-size: 15px;
   color: var(--color-primario);
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 /* NOVEDADES */
 .cardNovedad{
