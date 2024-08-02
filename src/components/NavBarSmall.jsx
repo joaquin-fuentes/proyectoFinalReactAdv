@@ -2,13 +2,14 @@ import React from "react";
 import { Container, Navbar, Offcanvas } from "react-bootstrap";
 import Sidebar from "./Sidebar";
 import { IoMenu } from "react-icons/io5";
+import logo from "../assets/imagenes/logo-sge-circle.png";
 
 const NavBarSmall = ({ show, handleClose, handleShow }) => {
   return (
     <Navbar bg="light" expand="lg" className="d-lg-none p-0">
       <Container fluid className="navBarMenu">
         <Navbar.Brand href="#" className="text-light">
-          Logo
+          <img src={logo} alt="imagen logo" className="logoOfCanvas" />
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="offcanvasNavbar"
@@ -27,9 +28,10 @@ const NavBarSmall = ({ show, handleClose, handleShow }) => {
           placement="start"
           className="navBarMenu "
         >
-          <Offcanvas.Header closeButton  className="text-light">
-       
-          </Offcanvas.Header>
+          <Offcanvas.Header
+            closeButton
+            className="text-light"
+          ></Offcanvas.Header>
           <Offcanvas.Body className="offcanvas-body">
             <Sidebar
               handleClose={handleClose}
