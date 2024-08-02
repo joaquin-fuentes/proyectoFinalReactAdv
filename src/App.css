@@ -60,10 +60,14 @@ body {
   background-color: var(--color-fondo);
 }
 .logoSidebar{
-  height: 62px;
-  padding: 10px;
+  /* height: 62px; */
+  height: 120px;
+  width: 50%;
 }
 /* OFFCANVAS */
+.logoOfCanvas{
+  height: 55px;
+}
 .offcanvas-body {
   display: flex;
   flex-direction: column;

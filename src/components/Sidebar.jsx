@@ -4,12 +4,13 @@ import { IoPersonSharp } from "react-icons/io5";
 import { IoMdSchool } from "react-icons/io";
 import { LiaSchoolSolid } from "react-icons/lia";
 import { IoNewspaper } from "react-icons/io5";
+import logo from "../assets/imagenes/logo-sge-circle.png";
 
 const Sidebar = ({ handleClose }) => {
   return (
     <div className="sidebar text-center d-flex flex-column">
       <div className="sidebar-content flex-grow-1">
-        <h2 className="logoSidebar m-0">Logo</h2>
+        <img src={logo} alt="imagen logo" className="logoSidebar" />
         <nav className="navbar w-100 p-0">
           {/*  if alumnos */}
           <ul className="navbar-nav w-100">
