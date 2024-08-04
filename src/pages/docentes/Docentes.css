@@ -47,13 +47,13 @@
     background-color: var(--color-secundario);
   }
 
-  /* MATERIAS */
+  /* MATERIAS DOCENTE */
   .tableMaterias {
-    background-color: var(--color-fondo) !important;
-    color: var(--fuente-color-primario) !important;
+    background-color: var(--color-fondo) ;
+    color: var(--fuente-color-primario) ;
   }
   
-  /* ASISTENCIAS */
+  /* ASISTENCIAS DOCENTE*/
   
   .asistencias-container {
     font-family: var(--fuente-principal);
