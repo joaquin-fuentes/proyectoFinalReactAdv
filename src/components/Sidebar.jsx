@@ -21,7 +21,7 @@ const Sidebar = ({ handleClose }) => {
                 onClick={handleClose}
               >
                 <IoPersonSharp className="me-2" />
-                Perfl
+                Perfil
               </NavLink>
             </li>
             <li className="nav-item text-center">
