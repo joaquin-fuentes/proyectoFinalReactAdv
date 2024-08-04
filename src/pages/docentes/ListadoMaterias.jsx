@@ -5,7 +5,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 const ListadoMaterias = () => {
   return (
     <Container className="text-center px-md-5 py-md-2">
-      <h4 className="mt-5 mb-3 titulo">MIS MATERIAS</h4>
+      <h4 className="my-5 titulo">MIS MATERIAS</h4>
 
       <Form.Group className="d-flex align-items-center justify-content-center w-md-50 ms-3">
         <Form.Label className="m-0 p-2">Buscar Materia:</Form.Label>
@@ -15,7 +15,7 @@ const ListadoMaterias = () => {
           className="w-50"
         />
       </Form.Group>
-      <Table striped hover responsive className="mt-3 rounded">
+      <Table striped hover responsive className="mt-3 rounded fuenteTabla">
         <thead>
           <tr className="">
             <th className="tableMaterias fw-bold">Materia</th>

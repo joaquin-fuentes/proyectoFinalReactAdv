@@ -41,7 +41,7 @@ const PerfilDocente = () => {
       </Container>
 
       <Container className="mb-4">
-        <h3 className="my-4 text-center titulo">PORCENTAJE DE ASISTENCIA</h3>
+        <h4 className="my-4 text-center titulo">PORCENTAJE DE ASISTENCIA</h4>
         <div className="d-flex justify-content-center">
           <ProgressBar
             animated

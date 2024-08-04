@@ -4,7 +4,7 @@ import "./Docentes.css";
 const AsistenciasDocente = () => {
   return (
     <Container className="asistencias-container pt-md-3">
-      <h4 className="text-center my-2 titulo my-4">ASISTENCIAS</h4>
+      <h4 className="text-center my-5 titulo">ASISTENCIAS</h4>
       <Row className="row-asistencias d-flex justify-content-center">
         <Col xs={12} md={6} lg={5}>
           <article className="mb-3 p-3 p-lg-2 asistencia-card text-center">
