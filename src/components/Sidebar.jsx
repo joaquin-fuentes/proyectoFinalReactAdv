@@ -4,6 +4,8 @@ import { IoPersonSharp } from "react-icons/io5";
 import { IoMdSchool } from "react-icons/io";
 import { LiaSchoolSolid } from "react-icons/lia";
 import { IoNewspaper } from "react-icons/io5";
+import { BiSolidMessageAltDetail } from "react-icons/bi";
+
 import logo from "../assets/imagenes/logo-sge-circle.png";
 
 const Sidebar = ({ handleClose }) => {
@@ -52,6 +54,16 @@ const Sidebar = ({ handleClose }) => {
               >
                 <IoNewspaper className="me-2" />
                 Novedades
+              </NavLink>
+            </li>
+            <li className="nav-item text-center">
+              <NavLink
+                to="alumnos/contacto"
+                className="nav-link text-light fw-bold btnSidebar py-3 d-flex justify-content-center align-items-center"
+                onClick={handleClose}
+              >
+                <BiSolidMessageAltDetail className="me-2" />
+                Contacto
               </NavLink>
             </li>
           </ul>
