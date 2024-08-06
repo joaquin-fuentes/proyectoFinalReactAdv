@@ -89,6 +89,12 @@ body {
 .navBarMenu{
   background-color: var(--color-fondo)!important;
 }
+
+/* CONTACTO */
+.formularioContacto{
+  background-color: var(--color-fondo);
+  color: var(--color-primario);
+}
 /* Sidebar para pantallas grandes */
 @media (min-width: 992px) {
   .sidebar {

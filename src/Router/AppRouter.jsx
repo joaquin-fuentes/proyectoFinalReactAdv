@@ -16,6 +16,7 @@ import ListadoMaterias from "../pages/docentes/ListadoMaterias";
 import AsistenciasDocente from "../pages/docentes/AsistenciasDocente";
 import ListadoAlumnos from "../pages/docentes/ListadoAlumnos";
 import SeccionNovedades from "../pages/docentes/SeccionNovedades";
+import Contacto from "../components/Contacto";
 
 const AppRouter = () => {
   const [show, setShow] = useState(false);
@@ -56,6 +57,7 @@ const AppRouter = () => {
             <Route path="alumnos/materias" element={<Materias />} />
             <Route path="alumnos/asistencias" element={<Asistencias />} />
             <Route path="alumnos/novedades" element={<Novedades />} />
+            <Route path="alumnos/contacto" element={<Contacto />} />
             {/* Docentes */}
             <Route path="docentes" element={<PerfilDocente/>}></Route>
             <Route path="docentes/perfil" element={<PerfilDocente/>}></Route>
