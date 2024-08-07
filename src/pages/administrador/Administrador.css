@@ -1,49 +1,69 @@
 .bg-azulOscuro {
   background-color: var(--color-fondo);
 }
-.bg-datosAdmin{
-    background-color: var(--color-primarioDos);
+.bg-datosAdmin {
+  background-color: var(--color-primarioDos);
 }
 .titulo {
   font-family: var(--fuente-principal);
   font-size: var(--fuente-tamanio-titulo);
   color: var(--color-fondo);
 }
-
 /* PERFIL ADMINISTRADOR */
 .avatarPerfil {
   margin-top: 60px;
   width: 150px;
 }
-
 .perfil-card {
   width: 100%; /* Para dispositivos pequeños */
   font-family: var(--fuente-principal);
   font-size: 14px;
 }
-
-/* MATERIAS DOCENTE */
-.tableMaterias {
+/* LISTADO DE USUARIOS */
+.tabsRoles .nav-link {
   background-color: var(--color-fondo);
   color: var(--fuente-color-primario);
-}
-.fuenteTabla {
-  font-family: var(--fuente-principal);
+  border-radius: 4px;
+  margin: 0 5px;
+  padding: 10px 15px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/*LISTADO DE ALUMNOS*/
+.tabsRoles .nav-link:hover {
+  background-color: var(--color-secundario);
+  color: white;
+}
 
+.iconoCrear {
+  background-color: var(--color-secundarioDos);
+  color: white;
+  border: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+.iconoCrear:hover {
+  background-color: var(--btn-colorDos);
+  color: var(--color-fondo);
+}
+.iconoVer {
+  color: var(--color-primario);
+}
+.iconoVer:hover {
+  color: var(--color-primarioDos);
+}
 .iconoEditar {
   color: var(--color-primario);
 }
 .iconoEditar:hover {
-  color: var(--color-primarioDos);
+  color: yellow;
 }
-.buscarAlumno {
+.iconoBorrar {
+  color: var(--color-primario);
+}
+.iconoBorrar:hover {
+  color: red;
+}
+.buscarUsuario {
   color: var(--btn-color);
-  font-family: var(--fuente-principal);
-}
-.tablaAlumnos {
   font-family: var(--fuente-principal);
 }
 
