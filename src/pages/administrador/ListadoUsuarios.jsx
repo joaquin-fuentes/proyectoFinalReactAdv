@@ -4,6 +4,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "./Administrador.css";
 import ModalCrear from "../../components/AdminComponents/ModalCrear";
 import ModalEditar from "../../components/AdminComponents/ModalEditar";
+import ModalInfo from "../../components/AdminComponents/ModalInfo";
 
 const ListadoUsuarios = () => {
   return (
@@ -62,9 +63,7 @@ const ListadoUsuarios = () => {
             <td className="tableMaterias">juanperez@gmail.com</td>
             <td className="tableMaterias">
               {" "}
-              <button className="btn">
-                <i className="bi bi-eye iconoVer"></i>
-              </button>
+              <ModalInfo />
               <ModalEditar />
               <button className="btn">
                 <i className="bi bi-trash3 iconoBorrar"></i>
@@ -78,9 +77,7 @@ const ListadoUsuarios = () => {
             <td className="tableMaterias">juanperez@gmail.com</td>
             <td className="tableMaterias">
               {" "}
-              <button className="btn">
-                <i className="bi bi-eye iconoVer"></i>
-              </button>
+              <ModalInfo />
               <ModalEditar />
               <button className="btn">
                 <i className="bi bi-trash3 iconoBorrar"></i>
@@ -94,9 +91,7 @@ const ListadoUsuarios = () => {
             <td className="tableMaterias">juanperez@gmail.com</td>
             <td className="tableMaterias">
               {" "}
-              <button className="btn">
-                <i className="bi bi-eye iconoVer"></i>
-              </button>
+              <ModalInfo />
               <ModalEditar />
               <button className="btn">
                 <i className="bi bi-trash3 iconoBorrar"></i>
@@ -110,9 +105,7 @@ const ListadoUsuarios = () => {
             <td className="tableMaterias">juanperez@gmail.com</td>
             <td className="tableMaterias">
               {" "}
-              <button className="btn">
-                <i className="bi bi-eye iconoVer"></i>
-              </button>
+              <ModalInfo />
               <ModalEditar />
               <button className="btn">
                 <i className="bi bi-trash3 iconoBorrar"></i>
@@ -126,9 +119,7 @@ const ListadoUsuarios = () => {
             <td className="tableMaterias">juanperez@gmail.com</td>
             <td className="tableMaterias">
               {" "}
-              <button className="btn">
-                <i className="bi bi-eye iconoVer"></i>
-              </button>
+              <ModalInfo />
               <ModalEditar />
               <button className="btn">
                 <i className="bi bi-trash3 iconoBorrar"></i>

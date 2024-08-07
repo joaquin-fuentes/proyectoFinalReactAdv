@@ -2,7 +2,7 @@
   background-color: var(--color-fondo);
 }
 .bg-datosAdmin {
-  background-color: var(--color-primarioDos);
+  background-color: var(--color-fondo);
 }
 .titulo {
   font-family: var(--fuente-principal);
