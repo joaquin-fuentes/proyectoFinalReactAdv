@@ -41,7 +41,7 @@ const Home = () => {
         </article>
         <Row className="my-3">
           <Col xs={12} lg={6}> <p className="parrafo">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt esse, nam consequatur obcaecati dolorum yarum deleniti vitae repellat alias ut molestiae quis soluptso et pariatur ullam id quidem possimus nostrum!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt esse, nam consequatur obcaecati dolorum yarum deleniti vitae repellat alias ut molestiae quis soluptso et pariatur uliam id quidem possimus nostrum!
               </p></Col>
           <Col xs={12} lg={6} className="bgRosa">
             <div id="cajaRosa" className="parrafo">
