@@ -15,11 +15,40 @@
   width: 150px;
 }
 .perfil-card {
-  width: 100%; /* Para dispositivos pequeños */
+  width: 100%;
   font-family: var(--fuente-principal);
   font-size: 14px;
 }
 /* LISTADO DE USUARIOS */
+.modalUsuario {
+  font-family: var(--fuente-principal);
+}
+.btnCancelar {
+  background-color: var(--fuente-color-secundarioDos);
+  border-color: var(--fuente-color-secundarioDos);
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: none;
+  border-width: 1px;
+}
+.btnCancelar:hover {
+  background-color: var(--fuente-color-secundario);
+  border-color: var(--fuente-color-secundario);
+  color: white;
+  box-shadow: none;
+  border-width: 1px;
+}
+.btnGuardar {
+  background-color: var(--color-secundarioDos);
+  border-color: var(--color-secundarioDos);
+  color: white;
+  transition: background-color 0.3s, color 0.3s;
+}
+.btnGuardar:hover {
+  background-color: var(--color-primarioDos);
+  border-color: var(--color-primarioDos);
+  color: white;
+}
 .tabsRoles .nav-link {
   background-color: var(--color-fondo);
   color: var(--fuente-color-primario);
@@ -28,12 +57,10 @@
   padding: 10px 15px;
   transition: background-color 0.3s, color 0.3s;
 }
-
 .tabsRoles .nav-link:hover {
   background-color: var(--color-secundario);
   color: white;
 }
-
 .iconoCrear {
   background-color: var(--color-secundarioDos);
   color: white;

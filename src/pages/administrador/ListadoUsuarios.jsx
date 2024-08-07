@@ -2,6 +2,8 @@ import { Container, Form, Table } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./Administrador.css";
+import ModalCrear from "../../components/AdminComponents/ModalCrear";
+import ModalEditar from "../../components/AdminComponents/ModalEditar";
 
 const ListadoUsuarios = () => {
   return (
@@ -20,9 +22,7 @@ const ListadoUsuarios = () => {
       </Form.Group>
 
       <div className="m-2 d-flex justify-content-start">
-        <button className="p-2 rounded iconoCrear">
-          <i className="bi bi-file-earmark-plus-fill "></i>
-        </button>
+        <ModalCrear />
       </div>
 
       <Nav
@@ -40,7 +40,7 @@ const ListadoUsuarios = () => {
           <Nav.Link eventKey="link-3">Alumnos</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-4">Administradores</Nav.Link>
+          <Nav.Link eventKey="link-4">Admins</Nav.Link>
         </Nav.Item>
       </Nav>
 
@@ -65,9 +65,7 @@ const ListadoUsuarios = () => {
               <button className="btn">
                 <i className="bi bi-eye iconoVer"></i>
               </button>
-              <button className="btn">
-                <i className="bi bi-pencil-square iconoEditar"></i>
-              </button>
+              <ModalEditar />
               <button className="btn">
                 <i className="bi bi-trash3 iconoBorrar"></i>
               </button>
@@ -83,9 +81,7 @@ const ListadoUsuarios = () => {
               <button className="btn">
                 <i className="bi bi-eye iconoVer"></i>
               </button>
-              <button className="btn">
-                <i className="bi bi-pencil-square iconoEditar"></i>
-              </button>
+              <ModalEditar />
               <button className="btn">
                 <i className="bi bi-trash3 iconoBorrar"></i>
               </button>
@@ -101,9 +97,7 @@ const ListadoUsuarios = () => {
               <button className="btn">
                 <i className="bi bi-eye iconoVer"></i>
               </button>
-              <button className="btn">
-                <i className="bi bi-pencil-square iconoEditar"></i>
-              </button>
+              <ModalEditar />
               <button className="btn">
                 <i className="bi bi-trash3 iconoBorrar"></i>
               </button>
@@ -119,9 +113,7 @@ const ListadoUsuarios = () => {
               <button className="btn">
                 <i className="bi bi-eye iconoVer"></i>
               </button>
-              <button className="btn">
-                <i className="bi bi-pencil-square iconoEditar"></i>
-              </button>
+              <ModalEditar />
               <button className="btn">
                 <i className="bi bi-trash3 iconoBorrar"></i>
               </button>
@@ -137,9 +129,7 @@ const ListadoUsuarios = () => {
               <button className="btn">
                 <i className="bi bi-eye iconoVer"></i>
               </button>
-              <button className="btn">
-                <i className="bi bi-pencil-square iconoEditar"></i>
-              </button>
+              <ModalEditar />
               <button className="btn">
                 <i className="bi bi-trash3 iconoBorrar"></i>
               </button>

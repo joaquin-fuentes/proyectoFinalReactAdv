@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InfoModal = () => {
+const ModalInfo = () => {
     return (
         <div>
             Modal con info
@@ -8,4 +8,4 @@ const InfoModal = () => {
     );
 };
 
-export default InfoModal;
+export default ModalInfo;
