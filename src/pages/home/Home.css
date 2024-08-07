@@ -36,10 +36,11 @@
   height: 100%;  
 
   /* background: rgb(235, 6, 216); */
+  
   position: fixed;
   top: 0px;
   right: 0px;
-  z-index: -2;
+  z-index: -1;
 }
 
 #cajaRoja,#btnForm {
@@ -72,23 +73,37 @@
 
 }
 
+/* 
 @media (min-width: 1600px) and (max-width: 2800px) {
   #cajaRosa {
     margin-bottom: 10px;
     width: 38%;
     height: 100%;  
   
-    /* background: rgb(235, 6, 216); */
     position: fixed;
     top: 150px;
     right: 0px;
     z-index: -2;
   }
 }
+ */
 
 @media (min-width: 1020px) and (max-width: 1025px) {
   .tituloHome {
     margin-top: 15vh;
+  }
+  .formularioLogin {
+    margin-top: 9vh;
+  }
+}
+
+
+@media (min-width: 992px) and (max-width: 2800px) {
+  .container-fluid {
+    background: var(--color-secundario);
+    background-image: url(../../assets/imagenes/home.png);
+    margin-top: 0px;
+    padding-top: 0;
   }
 }
 
