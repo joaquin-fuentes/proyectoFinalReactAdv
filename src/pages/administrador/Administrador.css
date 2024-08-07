@@ -1,0 +1,73 @@
+.bg-azulOscuro {
+  background-color: var(--color-fondo);
+}
+.bg-datosAdmin{
+    background-color: var(--color-primarioDos);
+}
+.titulo {
+  font-family: var(--fuente-principal);
+  font-size: var(--fuente-tamanio-titulo);
+  color: var(--color-fondo);
+}
+
+/* PERFIL ADMINISTRADOR */
+.avatarPerfil {
+  margin-top: 60px;
+  width: 150px;
+}
+
+.perfil-card {
+  width: 100%; /* Para dispositivos pequeños */
+  font-family: var(--fuente-principal);
+  font-size: 14px;
+}
+
+/* MATERIAS DOCENTE */
+.tableMaterias {
+  background-color: var(--color-fondo);
+  color: var(--fuente-color-primario);
+}
+.fuenteTabla {
+  font-family: var(--fuente-principal);
+}
+
+/*LISTADO DE ALUMNOS*/
+
+.iconoEditar {
+  color: var(--color-primario);
+}
+.iconoEditar:hover {
+  color: var(--color-primarioDos);
+}
+.buscarAlumno {
+  color: var(--btn-color);
+  font-family: var(--fuente-principal);
+}
+.tablaAlumnos {
+  font-family: var(--fuente-principal);
+}
+
+/* Dispositivos medianos (mínimo 769px) */
+@media (min-width: 767px) {
+  /* PERFIL */
+  .avatarPerfil {
+    margin-top: 80px;
+    width: 200px;
+  }
+  .perfil-card {
+    width: 95%;
+    font-size: 16px;
+  }
+}
+
+/* Dispositivos grandes (mínimo 993px) */
+@media (min-width: 993px) {
+  /* PERFIL */
+  .avatarPerfil {
+    margin-top: 0;
+    width: 130px;
+  }
+  .perfil-card {
+    width: 70%;
+  }
+}

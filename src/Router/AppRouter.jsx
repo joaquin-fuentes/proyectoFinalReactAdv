@@ -10,13 +10,14 @@ import Asistencias from "../pages/alumnos/Asistencias";
 import NavBarSmall from "../components/NavBarSmall";
 import Error404 from "../pages/error404/Error404";
 import Home from "../pages/home/Home";
-import Administrador from "../pages/administrador/Administrador";
 import PerfilDocente from "../pages/docentes/PerfilDocente";
 import ListadoMaterias from "../pages/docentes/ListadoMaterias";
 import AsistenciasDocente from "../pages/docentes/AsistenciasDocente";
 import ListadoAlumnos from "../pages/docentes/ListadoAlumnos";
 import SeccionNovedades from "../pages/docentes/SeccionNovedades";
 import Contacto from "../components/Contacto";
+import PerfilAdmin from "../pages/administrador/PerfilAdmin";
+import ListadoUsuarios from "../pages/administrador/ListadoUsuarios";
 
 const AppRouter = () => {
   const [show, setShow] = useState(false);
@@ -66,7 +67,8 @@ const AppRouter = () => {
             <Route path="docentes/alumnos" element={<ListadoAlumnos/>}></Route>
             <Route path="docentes/novedades" element={<SeccionNovedades/>}></Route>
             {/* Administradores */}
-            <Route path="administrador" element={<Administrador />}></Route>
+            <Route path="administrador" element={<PerfilAdmin/>}></Route>
+            <Route path="administrador/usuarios" element={<ListadoUsuarios/>}></Route>
             {/* RUTA DeSCONOCIDA */}
             <Route path="*" element={<Error404></Error404>}></Route>
           </Routes>
