@@ -21,7 +21,6 @@
   margin-bottom: 10px;
   width: 51%;
   height: 100%;
-  /* border-radius: 10px; */
 
   background: var(--color-primario);
   position: fixed;
@@ -34,8 +33,6 @@
   margin-bottom: 10px;
   width: 49%;
   height: 100%;
-
-  /* background: rgb(235, 6, 216); */
 
   position: fixed;
   top: 0px;
@@ -72,21 +69,6 @@
   color: var(--color-fondo);
   font-weight: bold;
 }
-
-/* 
-@media (min-width: 1600px) and (max-width: 2800px) {
-  #cajaRosa {
-    margin-bottom: 10px;
-    width: 38%;
-    height: 100%;  
-  
-    position: fixed;
-    top: 150px;
-    right: 0px;
-    z-index: -2;
-  }
-}
- */
 
 @media (min-width: 1020px) and (max-width: 1025px) {
   .tituloHome {

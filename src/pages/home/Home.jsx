@@ -62,9 +62,6 @@ const Home = () => {
             </div>
           </Col>
           <Col xs={12} lg={6} className="bgRosa">
-            {/* <div id="cajaRosa" className="parrafo">
-              <img src={home} alt="imagen de bienvenida" className="img-fluid" />
-            </div> */}
             <div>
               <h1 className="tituloHome display-2 text-center text-light parrafo">
                 Bienvenidos a SGE
