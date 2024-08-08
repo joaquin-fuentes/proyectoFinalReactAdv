@@ -47,10 +47,19 @@ const Home = () => {
         <Row>
           <Col xs={12} lg={6}>
             {" "}
-            <p className="parrafo">
-              
-            El Sistema Académico Web es una herramienta avanzada diseñada para mejorar la gestión educativa. Ofrece funciones esenciales para administrar inscripciones, horarios y calificaciones de manera eficiente. Los administradores pueden gestionar registros.
-            </p>
+            <div className="parrafo">
+              <div>
+                <h1 className="tituloHome display-2 text-center text-light parrafo">
+                  Bienvenidos a SGE
+                </h1>
+                <h2 className="text-center text-light tituloSecundario parrafo">
+                  Sistema de Gestión Educativa
+                </h2>
+                <h3 className="text-center text-light tituloSecundario parrafo">
+                  Sistema Académico
+                </h3>
+              </div>
+            </div>
           </Col>
           <Col xs={12} lg={6} className="bgRosa">
             {/* <div id="cajaRosa" className="parrafo">
