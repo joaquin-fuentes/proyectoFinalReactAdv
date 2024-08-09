@@ -90,6 +90,12 @@ body {
 .navBarMenu{
   background-color: var(--color-fondo)!important;
 }
+.tituloFooter{
+  font-size: small;
+}
+.copyFooter{
+  font-size: x-small;
+}
 
 /* CONTACTO */
 .formularioContacto{

@@ -57,9 +57,9 @@ const ListadoAlumnos = () => {
         </div>
       </div>
 
-      <Table striped hover responsive className="mt-3 rounded tablaAlumnos">
+      <Table striped hover responsive className="mt-3 rounded">
         <thead>
-          <tr className="">
+          <tr>
             <th className="tableMaterias fw-bold">Nombre</th>
             <th className="tableMaterias fw-bold">Materia</th>
             <th className="tableMaterias fw-bold">Año</th>
