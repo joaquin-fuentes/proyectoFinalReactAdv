@@ -73,7 +73,7 @@ const Sidebar = ({ handleClose }) => {
           {/* Deben copar el sidebar que esta arriba y pegar aqui con los enlaces que necesiten, despues haremos el filtro */}
         </nav>
       </div>
-      <footer className="bg-dark py-3">Footer</footer>
+      <footer className="bg-dark py-3"><p className="tituloFooter">Sistema de Gestión Educativa</p><p className="copyFooter">Todos los derechos reservados &copy;</p></footer>
     </div>
   );
 };

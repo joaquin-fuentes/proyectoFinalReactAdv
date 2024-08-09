@@ -1,0 +1,120 @@
+.bg-azulOscuro {
+  background-color: var(--color-fondo);
+}
+.bg-datosAdmin {
+  background-color: var(--color-fondo);
+}
+.titulo {
+  font-family: var(--fuente-principal);
+  font-size: var(--fuente-tamanio-titulo);
+  color: var(--color-fondo);
+}
+/* PERFIL ADMINISTRADOR */
+.avatarPerfil {
+  margin-top: 60px;
+  width: 150px;
+}
+.perfil-card {
+  width: 100%;
+  font-family: var(--fuente-principal);
+  font-size: 14px;
+}
+/* LISTADO DE USUARIOS */
+.modalUsuario {
+  font-family: var(--fuente-principal);
+}
+.btnCancelar {
+  background-color: var(--fuente-color-secundarioDos);
+  border-color: var(--fuente-color-secundarioDos);
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: none;
+  border-width: 1px;
+}
+.btnCancelar:hover {
+  background-color: var(--fuente-color-secundario);
+  border-color: var(--fuente-color-secundario);
+  color: white;
+  box-shadow: none;
+  border-width: 1px;
+}
+.btnGuardar {
+  background-color: var(--color-secundarioDos);
+  border-color: var(--color-secundarioDos);
+  color: white;
+  transition: background-color 0.3s, color 0.3s;
+}
+.btnGuardar:hover {
+  background-color: var(--color-primarioDos);
+  border-color: var(--color-primarioDos);
+  color: white;
+}
+.tabsRoles .nav-link {
+  background-color: var(--color-fondo);
+  color: var(--fuente-color-primario);
+  border-radius: 4px;
+  margin: 0 5px;
+  padding: 10px 15px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.tabsRoles .nav-link:hover {
+  background-color: var(--color-secundario);
+  color: white;
+}
+.iconoCrear {
+  background-color: var(--color-secundarioDos);
+  color: white;
+  border: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+.iconoCrear:hover {
+  background-color: var(--btn-colorDos);
+  color: var(--color-fondo);
+}
+.iconoVer {
+  color: var(--color-primario);
+}
+.iconoVer:hover {
+  color: var(--color-primarioDos);
+}
+.iconoEditar {
+  color: var(--color-primario);
+}
+.iconoEditar:hover {
+  color: yellow;
+}
+.iconoBorrar {
+  color: var(--color-primario);
+}
+.iconoBorrar:hover {
+  color: red;
+}
+.buscarUsuario {
+  color: var(--btn-color);
+  font-family: var(--fuente-principal);
+}
+
+/* Dispositivos medianos (mínimo 769px) */
+@media (min-width: 767px) {
+  /* PERFIL */
+  .avatarPerfil {
+    margin-top: 80px;
+    width: 200px;
+  }
+  .perfil-card {
+    width: 95%;
+    font-size: 16px;
+  }
+}
+
+/* Dispositivos grandes (mínimo 993px) */
+@media (min-width: 993px) {
+  /* PERFIL */
+  .avatarPerfil {
+    margin-top: 0;
+    width: 130px;
+  }
+  .perfil-card {
+    width: 70%;
+  }
+}
