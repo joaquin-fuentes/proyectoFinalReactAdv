@@ -1,18 +1,59 @@
 {
-  "usuarios": [],
-  "roles": [
+  "usuarios": [
     {
       "id": 1,
-      "nombre": "alumno"
+      "direccion": "España 2456",
+      "nombre": "Joaquin Fuentes",
+      "email": "joaquin@gmail.com",
+      "dni": "37423893",
+      "password": "123456",
+      "telefono": "3816097754",
+      "rol": "alumno"
     },
     {
       "id": 2,
-      "nombre": "docente"
+      "direccion": "direccion123",
+      "nombre": "georgina",
+      "email": "georgina@gmail.com",
+      "dni": "38256525",
+      "password": "123456",
+      "telefono": "3815426254",
+      "rol": "administrador"
     },
     {
       "id": 3,
-      "nombre": "administrador"
+      "direccion": "direccion123",
+      "nombre": "andres",
+      "email": "andres@gmail.com",
+      "dni": "39252525",
+      "password": "123456",
+      "telefono": "3814564564",
+      "rol": "docente"
     }
   ],
-  "materias": []
+  "materias": [
+    {
+      "id": 1,
+      "nombre": "matematicas",
+      "año": "1",
+      "division": "A",
+      "horario": {
+        "dia": "lunes",
+        "modulo": "1, 2, 3, 4",
+        "turno": "mañana, tarde"
+      },
+      "docenteID": "3",
+      "listadoAlumnos": [
+        {
+          "alumnoID": "1"
+        },
+        {
+          "alumnoID": "2"
+        },
+        {
+          "alumnoID": "3"
+        }
+      ]
+    }
+  ]
 }

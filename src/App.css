@@ -46,10 +46,30 @@ body {
   color: var(--color-primario);
 }
 /* HEADER */
-.imgAvatarHeader{
+.imgAvatarHeader {
   width: 30px;
   border-radius: 50%;
 }
+.logout-btn {
+  cursor: pointer;
+  color: var(--fuente-color-primario); /* Color por defecto */
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.logout-btn:hover {
+  color: rgb(190, 188, 188); /* Cambia el color al hacer hover */
+}
+
+.logout-btn svg {
+  margin-right: 4px; /* Espacio entre el icono y el texto */
+}
+
+.logout-btn:active {
+  color: #e0e0e0; /* Cambia ligeramente el color cuando se presiona */
+}
+
 /* Estilos del sidebar */
 .sidebar {
   background-color: var(--color-fondo);
@@ -59,13 +79,14 @@ body {
 .bg-azulOscuro {
   background-color: var(--color-fondo);
 }
-.logoSidebar{
+.logoSidebar {
   /* height: 62px; */
   height: 120px;
   width: 50%;
+  filter: drop-shadow(1px 1px rgba(255, 255, 255, 0.6));
 }
 /* OFFCANVAS */
-.logoOfCanvas{
+.logoOfCanvas {
   height: 60px;
 }
 .offcanvas-body {
@@ -79,25 +100,24 @@ body {
 .sidebar-full-height {
   flex: 1;
   overflow-y: auto;
-
 }
 .btnSidebar:hover {
-  color: var(--btn-color)!important;
+  color: var(--btn-color) !important;
   background-color: var(--color-primario);
   width: 100%;
 }
-.navBarMenu{
-  background-color: var(--color-fondo)!important;
+.navBarMenu {
+  background-color: var(--color-fondo) !important;
 }
-.tituloFooter{
+.tituloFooter {
   font-size: small;
 }
-.copyFooter{
+.copyFooter {
   font-size: x-small;
 }
 
 /* CONTACTO */
-.formularioContacto{
+.formularioContacto {
   background-color: var(--color-fondo);
   color: var(--color-primario);
 }
@@ -122,7 +142,7 @@ body {
   .main-content {
     margin-left: 0;
   }
-  .logoSidebar{
+  .logoSidebar {
     /* height: 62px; */
     height: 150px;
     width: 50%;
