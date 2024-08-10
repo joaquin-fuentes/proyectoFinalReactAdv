@@ -3,45 +3,15 @@ import "./Home.css";
 import home from "../../assets/imagenes/home.png";
 import logo from "../../assets/imagenes/logo-sge-dark-circle.png";
 import SeccionNovedades from "../docentes/SeccionNovedades";
+import FormLogin from "./FormLogin";
 
 const Home = () => {
   return (
     <>
       <div className="container-fluid">
-        <article id="contenedorPadre">
-          <div id="cajaRoja">
-            <Form className="formularioLogin">
-              <div>
-                <div className="d-flex justify-content-center">
-                  <img src={logo} alt="" width={200} />
-                </div>
-                <h2 className="mt-4 mb-4 text-center tituloForm">
-                  Iniciar Sesión
-                </h2>
-              </div>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label className="tituloSecundario">Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="Ingrese su email"
-                  className="border border-dark"
-                />
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label className="tituloSecundario">Contraseña</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Ingrese su contraseña"
-                  className="border border-dark"
-                />
-              </Form.Group>
-              <div id="btnForm">
-                <button type="submit" className="btnFormulario">
-                  Ingresar
-                </button>
-              </div>
-            </Form>
+        <article id="contenedorPadre" >
+          <div id="cajaRoja" >
+           <FormLogin></FormLogin>
           </div>
         </article>
         <Row>

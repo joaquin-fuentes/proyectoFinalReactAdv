@@ -1,5 +1,36 @@
 {
-  "usuarios": [],
+  "usuarios": [
+    {
+      "id": 1,
+      "direccion": "España 2456",
+      "nombre": "Joaquin Fuentes",
+      "email": "joaquin@gmail.com",
+      "dni": "37423893",
+      "password": "123456",
+      "telefono": "3816097754",
+      "rol": "alumno"
+    },
+    {
+      "id": 2,
+      "direccion": "direccion123",
+      "nombre": "georgina",
+      "email": "georgina@gmail.com",
+      "dni": "38256525",
+      "password": "123456",
+      "telefono": "3815426254",
+      "rol": "administrador"
+    },
+    {
+      "id": 3,
+      "direccion": "direccion123",
+      "nombre": "andres",
+      "email": "andres@gmail.com",
+      "dni": "39252525",
+      "password": "123456",
+      "telefono": "3814564564",
+      "rol": "docente"
+    }
+  ],
   "roles": [
     {
       "id": 1,
