@@ -31,19 +31,29 @@
       "rol": "docente"
     }
   ],
-  "roles": [
+  "materias": [
     {
       "id": 1,
-      "nombre": "alumno"
-    },
-    {
-      "id": 2,
-      "nombre": "docente"
-    },
-    {
-      "id": 3,
-      "nombre": "administrador"
+      "nombre": "matematicas",
+      "año": "1",
+      "division": "A",
+      "horario": {
+        "dia": "lunes",
+        "modulo": "1, 2, 3, 4",
+        "turno": "mañana, tarde"
+      },
+      "docenteID": "3",
+      "listadoAlumnos": [
+        {
+          "alumnoID": "1"
+        },
+        {
+          "alumnoID": "2"
+        },
+        {
+          "alumnoID": "3"
+        }
+      ]
     }
-  ],
-  "materias": []
+  ]
 }

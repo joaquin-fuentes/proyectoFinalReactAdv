@@ -22,7 +22,7 @@ const RutasAdministrador = () => {
 
   // Redirigir si el usuario no es admin
   if (user?.rol !== "administrador") {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/error" replace />;
   }
 
   return (

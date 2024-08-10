@@ -1,8 +1,23 @@
 import React from "react";
 import "./Error404.css";
 import { Link } from "react-router-dom";
+import useAuth from "../../stores/Auth-Store";
 
 const Error404 = () => {
+  const {user} = useAuth()
+
+  const buscarRuta =(usuario)=>{
+    console.log(usuario)
+    if(usuario.rol === "alumno"){
+      return "/alumnos" 
+    }
+    if(usuario.rol === "docente"){
+      return "/docentes" 
+    }
+    if(usuario.rol === "administrador"){
+      return "/administrador" 
+    }
+  }
   return (
     <div className="error-container">
       <img
@@ -10,7 +25,7 @@ const Error404 = () => {
         alt="404 Page Not Found"
         className="error-image"
       />
-      <Link to={"/"} className="btn btn-outline-light">
+      <Link to={buscarRuta(user)} className="btn btn-outline-light">
         Volver a la página de inicio
       </Link>
     </div>

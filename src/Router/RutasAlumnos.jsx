@@ -32,7 +32,7 @@ const RutasAlumnos = () => {
 
   // Redirigir si el usuario no es alumno
   if (user?.rol !== "alumno") {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/error" replace />;
   }
 
   return (
