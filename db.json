@@ -29,31 +29,284 @@
       "password": "123456",
       "telefono": "3814564564",
       "rol": "docente"
+    },
+    {
+      "id": 4,
+      "direccion": "San Martín 1234",
+      "nombre": "María López",
+      "email": "maria.lopez@gmail.com",
+      "dni": "40123456",
+      "password": "abcdef",
+      "telefono": "3816543210",
+      "rol": "alumno"
+    },
+    {
+      "id": 5,
+      "direccion": "Av. Mitre 5678",
+      "nombre": "Carlos Pérez",
+      "email": "carlos.perez@gmail.com",
+      "dni": "39876543",
+      "password": "password1",
+      "telefono": "3819876543",
+      "rol": "docente"
+    },
+    {
+      "id": 6,
+      "direccion": "Belgrano 789",
+      "nombre": "Laura García",
+      "email": "laura.garcia@gmail.com",
+      "dni": "37564321",
+      "password": "securepass",
+      "telefono": "3811234567",
+      "rol": "administrador"
+    },
+    {
+      "id": 7,
+      "direccion": "Rivadavia 456",
+      "nombre": "Fernando Díaz",
+      "email": "fernando.diaz@gmail.com",
+      "dni": "38456231",
+      "password": "qwerty123",
+      "telefono": "3817654321",
+      "rol": "alumno"
+    },
+    {
+      "id": 8,
+      "direccion": "Alvear 987",
+      "nombre": "Ana Torres",
+      "email": "ana.torres@gmail.com",
+      "dni": "40234567",
+      "password": "pass1234",
+      "telefono": "3818765432",
+      "rol": "docente"
+    },
+    {
+      "id": 9,
+      "direccion": "Alsina 234",
+      "nombre": "Luis González",
+      "email": "luis.gonzalez@gmail.com",
+      "dni": "39987654",
+      "password": "mypassword",
+      "telefono": "3812345678",
+      "rol": "administrador"
+    },
+    {
+      "id": 10,
+      "direccion": "Sarmiento 456",
+      "nombre": "Valeria Castillo",
+      "email": "valeria.castillo@gmail.com",
+      "dni": "37891234",
+      "password": "valeria123",
+      "telefono": "3813456789",
+      "rol": "alumno"
+    },
+    {
+      "id": 11,
+      "direccion": "Independencia 654",
+      "nombre": "Santiago Medina",
+      "email": "santiago.medina@gmail.com",
+      "dni": "38765432",
+      "password": "santi2024",
+      "telefono": "3814567890",
+      "rol": "docente"
+    },
+    {
+      "id": 12,
+      "direccion": "Colon 123",
+      "nombre": "Marta Silva",
+      "email": "marta.silva@gmail.com",
+      "dni": "37984512",
+      "password": "marta2024",
+      "telefono": "3815678901",
+      "rol": "administrador"
+    },
+    {
+      "id": 13,
+      "direccion": "Urquiza 321",
+      "nombre": "Gabriel Romero",
+      "email": "gabriel.romero@gmail.com",
+      "dni": "38654321",
+      "password": "gabriel123",
+      "telefono": "3816789012",
+      "rol": "alumno"
+    },
+    {
+      "id": 14,
+      "direccion": "Lavalle 987",
+      "nombre": "Isabel Mendez",
+      "email": "isabel.mendez@gmail.com",
+      "dni": "39543210",
+      "password": "isabel2024",
+      "telefono": "3817890123",
+      "rol": "docente"
+    }
+  ],
+  "cursos": [
+    {
+      "id": 1,
+      "anio": "2",
+      "division": "A",
+      "turno": "mañana",
+      "horarios": [
+        {
+          "dia": "Lunes",
+          "modulo": "1",
+          "materiaID": 2
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "2",
+          "materiaID": 2
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "3",
+          "materiaID": 5
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "4",
+          "materiaID": 3
+        },
+        {
+          "dia": "Martes",
+          "modulo": "1",
+          "materiaID": 1
+        },
+        {
+          "dia": "Martes",
+          "modulo": "2",
+          "materiaID": 4
+        },
+        {
+          "dia": "Martes",
+          "modulo": "3",
+          "materiaID": 1
+        },
+        {
+          "dia": "Martes",
+          "modulo": "4",
+          "materiaID": 1
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "1",
+          "materiaID": 1
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "2",
+          "materiaID": 1
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "3",
+          "materiaID": 1
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "4",
+          "materiaID": 1
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "1",
+          "materiaID": 1
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "2",
+          "materiaID": 1
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "3",
+          "materiaID": 1
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "4",
+          "materiaID": 1
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "1",
+          "materiaID": 1
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "2",
+          "materiaID": 1
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "3",
+          "materiaID": 1
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "4",
+          "materiaID": 1
+        }
+      ],
+      "alumnos": [
+        {
+          "alumnoID": 1
+        },
+        {
+          "alumnoID": 4
+        },
+        {
+          "alumnoID": 7
+        },
+        {
+          "alumnoID": 13
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "anio": "2",
+      "division": "A",
+      "turno": "mañana"
+    },
+    {
+      "id": 3,
+      "anio": "6",
+      "division": "A",
+      "turno": "tarde"
     }
   ],
   "materias": [
     {
       "id": 1,
-      "nombre": "matematicas",
-      "año": "1",
-      "division": "A",
-      "horario": {
-        "dia": "lunes",
-        "modulo": "1, 2, 3, 4",
-        "turno": "mañana, tarde"
-      },
-      "docenteID": "3",
-      "listadoAlumnos": [
-        {
-          "alumnoID": "1"
-        },
-        {
-          "alumnoID": "2"
-        },
-        {
-          "alumnoID": "3"
-        }
-      ]
+      "nombre": "Matemáticas",
+      "anio": "1"
+    },
+    {
+      "id": 2,
+      "nombre": "Lenguas",
+      "anio": "1"
+    },
+    {
+      "id": 3,
+      "nombre": "Física",
+      "anio": "1"
+    },
+    {
+      "id": 4,
+      "nombre": "Geografía",
+      "anio": "1"
+    },
+    {
+      "id": 5,
+      "nombre": "Ed. Física",
+      "anio": "1"
+    },
+    {
+      "id": 6,
+      "nombre": "tst edicion",
+      "anio": "5"
     }
   ]
 }

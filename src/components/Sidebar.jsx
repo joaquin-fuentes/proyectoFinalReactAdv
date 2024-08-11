@@ -5,6 +5,8 @@ import { IoMdSchool } from "react-icons/io";
 import { LiaSchoolSolid } from "react-icons/lia";
 import { IoNewspaper } from "react-icons/io5";
 import { BiSolidMessageAltDetail } from "react-icons/bi";
+import { ImProfile } from "react-icons/im";
+import { IoSchool } from "react-icons/io5";
 
 import logo from "../assets/imagenes/logo-sge-circle.png";
 
@@ -15,7 +17,6 @@ const Sidebar = ({ handleClose }) => {
     const user = JSON.parse(sessionStorage.getItem("usuario"));
     setUserSession(user);
   }, []);
-
 
   return (
     <div className="sidebar text-center d-flex flex-column">
@@ -31,7 +32,7 @@ const Sidebar = ({ handleClose }) => {
                   className="nav-link text-light fw-bold btnSidebar py-3 d-flex justify-content-center align-items-center"
                   onClick={handleClose}
                 >
-                  <IoPersonSharp className="me-2" />
+                  <ImProfile className="me-2" />
                   Perfil
                 </NavLink>
               </li>
@@ -86,7 +87,7 @@ const Sidebar = ({ handleClose }) => {
                   className="nav-link text-light fw-bold btnSidebar py-3 d-flex justify-content-center align-items-center"
                   onClick={handleClose}
                 >
-                  <IoPersonSharp className="me-2" />
+                  <ImProfile className="me-2" />
                   Perfil
                 </NavLink>
               </li>
@@ -141,7 +142,7 @@ const Sidebar = ({ handleClose }) => {
                   className="nav-link text-light fw-bold btnSidebar py-3 d-flex justify-content-center align-items-center"
                   onClick={handleClose}
                 >
-                  <IoPersonSharp className="me-2" />
+                  <ImProfile className="me-2" />
                   Perfil
                 </NavLink>
               </li>
@@ -153,6 +154,26 @@ const Sidebar = ({ handleClose }) => {
                 >
                   <IoPersonSharp className="me-2" />
                   Usuarios
+                </NavLink>
+              </li>
+              <li className="nav-item text-center">
+                <NavLink
+                  to="/administrador/materias"
+                  className="nav-link text-light fw-bold btnSidebar py-3 d-flex justify-content-center align-items-center"
+                  onClick={handleClose}
+                >
+                  <LiaSchoolSolid className="me-2" />
+                  Materias
+                </NavLink>
+              </li>
+              <li className="nav-item text-center">
+                <NavLink
+                  to="/administrador/cursos"
+                  className="nav-link text-light fw-bold btnSidebar py-3 d-flex justify-content-center align-items-center"
+                  onClick={handleClose}
+                >
+                  <IoSchool className="me-2" />
+                  Cursos
                 </NavLink>
               </li>
               <li className="nav-item text-center">

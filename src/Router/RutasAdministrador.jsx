@@ -8,6 +8,8 @@ import NavBarSmall from "../components/NavBarSmall";
 import Error404 from "../pages/error404/Error404";
 import useAuth from "../stores/Auth-Store";
 import Novedades from "../pages/alumnos/Novedades";
+import Materias from "../pages/administrador/Materias";
+import Cursos from "../pages/administrador/Cursos";
 
 const RutasAdministrador = () => {
   const { user } = useAuth();
@@ -17,7 +19,13 @@ const RutasAdministrador = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const validRoutes = ["/administrador", "/administrador/usuarios", "/administrador/novedades"];
+  const validRoutes = [
+    "/administrador",
+    "/administrador/usuarios",
+    "/administrador/novedades",
+    "/administrador/materias",
+    "/administrador/cursos",
+  ];
   const showSidebarAndHeader = validRoutes.includes(location.pathname);
 
   // Redirigir si el usuario no es admin
@@ -44,6 +52,8 @@ const RutasAdministrador = () => {
         <Routes>
           <Route path="/" element={<PerfilAdmin />} />
           <Route path="/usuarios" element={<ListadoUsuarios />} />
+          <Route path="/materias" element={<Materias />} />
+          <Route path="/cursos" element={<Cursos />} />
           <Route path="/novedades" element={<Novedades />} />
           <Route path="*" element={<Error404 />} />
         </Routes>

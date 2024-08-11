@@ -93,6 +93,17 @@
   color: var(--btn-color);
   font-family: var(--fuente-principal);
 }
+.btn-crear{
+  background-color: var(--btn-color);
+  color: var(--fuente-color-primario);
+  padding: 8px 10px; 
+  border-radius: 10px;
+  border: none;
+}
+.btn-crear:hover{
+  background-color: var(--btn-colorDos);
+  color: var(--fuente-color-primario);
+}
 
 /* Dispositivos medianos (mínimo 769px) */
 @media (min-width: 767px) {
