@@ -105,7 +105,7 @@ const ListadoUsuarios = () => {
                 <td className="tableMaterias">{usuario.email}</td>
                 <td className="tableMaterias">
                   <ModalInfo usuario={usuario} />
-                  <ModalEditar />
+                  <ModalEditar usuario={usuario}/>
                   <button className="btn">
                     <i className="bi bi-trash3 iconoBorrar"></i>
                   </button>

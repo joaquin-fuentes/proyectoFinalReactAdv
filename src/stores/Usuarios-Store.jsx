@@ -56,8 +56,11 @@ const useUsuarios = create((set) => ({
         ),
         loading: false,
       }));
+      //devuelvo true o false para saber si el usuario se edita o no, creo que se lo puede hacer manejando el error directamente, A MODIFICAR
+      return true;
     } catch (error) {
       set({ error: error.message, loading: false });
+      return false;
     }
   },
 

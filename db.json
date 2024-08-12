@@ -94,7 +94,7 @@
       "id": 8
     },
     {
-      "rol": "Docente",
+      "rol": "Administrador",
       "apellido": "Santamarina",
       "nombre": "Andrés",
       "dni": "41275066",
@@ -106,15 +106,15 @@
       "id": 9
     },
     {
-      "rol": "Administrador",
-      "apellido": "Santamarina",
-      "nombre": "Andrés",
-      "dni": "41275066",
-      "telefono": "3865608565",
-      "direccion": "Amancay 1683",
-      "email": "santamarina@gmail.com",
-      "password": "123",
-      "passwordConfirm": "123",
+      "rol": "Docente",
+      "apellido": "Pérez",
+      "nombre": "Enzo",
+      "dni": "012121",
+      "telefono": "565484",
+      "direccion": "Lavalle 100",
+      "email": "perez@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
       "id": 10
     }
   ],
