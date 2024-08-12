@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Modal, Table } from "react-bootstrap";
 import useAlumnoStore from "../../../stores/Alumnos-Store";
+import { FaEye } from "react-icons/fa";
 
 const ListadoAlumnos = ({ curso }) => {
   const [show, setShow] = useState(false);
@@ -19,6 +20,7 @@ const ListadoAlumnos = ({ curso }) => {
   useEffect(() => {
     if (!loading && alumnos.length > 0 && curso.alumnos) {
       // Filtra los alumnos del curso actual
+      console.log(alumnos)
       const alumnosIdsCurso = curso.alumnos.map((a) => a.alumnoID);
       const alumnosFiltrados = alumnos.filter((alumno) =>
         alumnosIdsCurso.includes(alumno.id)
@@ -34,7 +36,7 @@ const ListadoAlumnos = ({ curso }) => {
         variant="outline-success"
         className="m-1 d-flex justify-content-center align-items-center flex-column"
       >
-        Listado Alumnos
+        <FaEye />
       </Button>
       <Modal show={show} onHide={handleClose} dialogClassName="modal-md">
         <Modal.Header closeButton>

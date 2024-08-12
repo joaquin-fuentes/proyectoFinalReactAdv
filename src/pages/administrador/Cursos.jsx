@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import CrearCurso from "./ModalesCursos/CrearCurso";
 import ListadoHorarios from "./ModalesCursos/ListadoHorarios";
 import ListadoAlumnos from "./ModalesCursos/ListadoAlumnos";
+import EditarHorarios from "./ModalesCursos/EditarHorarios";
 
 const Cursos = () => {
   const { cursos, obtenerCursos, borrarCurso } = useCursosStore();
@@ -92,6 +93,7 @@ const Cursos = () => {
                   <td className="tableMaterias">{curso.turno}</td>
                   <td className="tableMaterias d-flex justify-content-center">
                     <ListadoHorarios curso={curso}></ListadoHorarios>
+                    <EditarHorarios curso={curso}></EditarHorarios>
                   </td>
                   <td className="tableMaterias">
                     <ListadoAlumnos curso={curso}></ListadoAlumnos>

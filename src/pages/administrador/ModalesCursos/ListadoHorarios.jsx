@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Modal, Table } from "react-bootstrap";
 import useMateriasStore from "../../../stores/Materias-Store";
+import { FaEye } from "react-icons/fa";
 
 const ListadoHorarios = ({ curso }) => {
   const [show, setShow] = useState(false);
@@ -42,7 +43,7 @@ const ListadoHorarios = ({ curso }) => {
         variant="outline-primary"
         className="m-1 d-flex justify-content-center align-items-center flex-column"
       >
-        Ver horarios
+        <FaEye />
       </Button>
 
       <Modal show={show} onHide={handleClose} dialogClassName="modal-xl">

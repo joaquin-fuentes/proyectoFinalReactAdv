@@ -3,7 +3,8 @@
     {
       "id": 1,
       "direccion": "España 2456",
-      "nombre": "Joaquin Fuentes",
+      "nombre": "Joaquin",
+      "apellido": "Fuentes",
       "email": "joaquin@gmail.com",
       "dni": "37423893",
       "password": "123456",
@@ -13,7 +14,8 @@
     {
       "id": 2,
       "direccion": "direccion123",
-      "nombre": "georgina",
+      "nombre": "Georgina",
+      "apellido": "Costilla",
       "email": "georgina@gmail.com",
       "dni": "38256525",
       "password": "123456",
@@ -23,7 +25,8 @@
     {
       "id": 3,
       "direccion": "direccion123",
-      "nombre": "andres",
+      "nombre": "Andrés",
+      "apellido": "Santamarina",
       "email": "andres@gmail.com",
       "dni": "39252525",
       "password": "123456",
@@ -33,7 +36,8 @@
     {
       "id": 4,
       "direccion": "San Martín 1234",
-      "nombre": "María López",
+      "nombre": "María",
+      "apellido": "López",
       "email": "maria.lopez@gmail.com",
       "dni": "40123456",
       "password": "abcdef",
@@ -41,189 +45,57 @@
       "rol": "alumno"
     },
     {
-      "id": 5,
-      "direccion": "Av. Mitre 5678",
-      "nombre": "Carlos Pérez",
-      "email": "carlos.perez@gmail.com",
-      "dni": "39876543",
-      "password": "password1",
-      "telefono": "3819876543",
-      "rol": "docente"
+      "rol": "administrador",
+      "apellido": "Santamarina",
+      "nombre": "Andrés",
+      "dni": "41275066",
+      "telefono": "3865608565",
+      "direccion": "Amancay 1683",
+      "email": "santamarina@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "id": 5
     },
     {
-      "id": 6,
-      "direccion": "Belgrano 789",
-      "nombre": "Laura García",
-      "email": "laura.garcia@gmail.com",
-      "dni": "37564321",
-      "password": "securepass",
-      "telefono": "3811234567",
-      "rol": "administrador"
+      "rol": "alumno",
+      "apellido": "Santamarina",
+      "nombre": "Andrés",
+      "dni": "41275066",
+      "telefono": "3865608565",
+      "direccion": "Amancay 1683",
+      "email": "santamarina@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "id": 6
     },
     {
-      "id": 7,
-      "direccion": "Rivadavia 456",
-      "nombre": "Fernando Díaz",
-      "email": "fernando.diaz@gmail.com",
-      "dni": "38456231",
-      "password": "qwerty123",
-      "telefono": "3817654321",
-      "rol": "alumno"
+      "rol": "docente",
+      "apellido": "Santamarina",
+      "nombre": "Andrés",
+      "dni": "41275066",
+      "telefono": "3865608565",
+      "direccion": "Amancay 1683",
+      "email": "santamarina@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "id": 7
     },
     {
-      "id": 8,
-      "direccion": "Alvear 987",
-      "nombre": "Ana Torres",
-      "email": "ana.torres@gmail.com",
-      "dni": "40234567",
-      "password": "pass1234",
-      "telefono": "3818765432",
-      "rol": "docente"
-    },
-    {
-      "id": 9,
-      "direccion": "Alsina 234",
-      "nombre": "Luis González",
-      "email": "luis.gonzalez@gmail.com",
-      "dni": "39987654",
-      "password": "mypassword",
-      "telefono": "3812345678",
-      "rol": "administrador"
-    },
-    {
-      "id": 10,
-      "direccion": "Sarmiento 456",
-      "nombre": "Valeria Castillo",
-      "email": "valeria.castillo@gmail.com",
-      "dni": "37891234",
-      "password": "valeria123",
-      "telefono": "3813456789",
-      "rol": "alumno"
-    },
-    {
-      "id": 11,
-      "direccion": "Independencia 654",
-      "nombre": "Santiago Medina",
-      "email": "santiago.medina@gmail.com",
-      "dni": "38765432",
-      "password": "santi2024",
-      "telefono": "3814567890",
-      "rol": "docente"
-    },
-    {
-      "id": 12,
-      "direccion": "Colon 123",
-      "nombre": "Marta Silva",
-      "email": "marta.silva@gmail.com",
-      "dni": "37984512",
-      "password": "marta2024",
-      "telefono": "3815678901",
-      "rol": "administrador"
-    },
-    {
-      "id": 13,
-      "direccion": "Urquiza 321",
-      "nombre": "Gabriel Romero",
-      "email": "gabriel.romero@gmail.com",
-      "dni": "38654321",
-      "password": "gabriel123",
-      "telefono": "3816789012",
-      "rol": "alumno"
-    },
-    {
-      "id": 14,
-      "direccion": "Lavalle 987",
-      "nombre": "Isabel Mendez",
-      "email": "isabel.mendez@gmail.com",
-      "dni": "39543210",
-      "password": "isabel2024",
-      "telefono": "3817890123",
-      "rol": "docente"
-    },
-    {
-      "id": 15,
-      "direccion": "Calle Falsa 123",
-      "nombre": "Luis Martínez",
-      "email": "luis.martinez@gmail.com",
-      "dni": "40156789",
-      "password": "password15",
-      "telefono": "3812345679",
-      "rol": "alumno"
-    },
-    {
-      "id": 16,
-      "direccion": "Calle Verdadera 456",
-      "nombre": "Sofía Gómez",
-      "email": "sofia.gomez@gmail.com",
-      "dni": "40567890",
-      "password": "password16",
-      "telefono": "3813456780",
-      "rol": "alumno"
-    },
-    {
-      "id": 17,
-      "direccion": "Avenida Siempre Viva 789",
-      "nombre": "Miguel Fernández",
-      "email": "miguel.fernandez@gmail.com",
-      "dni": "40678901",
-      "password": "password17",
-      "telefono": "3814567891",
-      "rol": "alumno"
-    },
-    {
-      "id": 18,
-      "direccion": "Calle Principal 101",
-      "nombre": "María Fernández",
-      "email": "maria.fernandez@gmail.com",
-      "dni": "40789012",
-      "password": "password18",
-      "telefono": "3815678902",
-      "rol": "alumno"
-    },
-    {
-      "id": 19,
-      "direccion": "Boulevard del Sol 202",
-      "nombre": "Carlos Rodríguez",
-      "email": "carlos.rodriguez@gmail.com",
-      "dni": "40890123",
-      "password": "password19",
-      "telefono": "3816789013",
-      "rol": "alumno"
-    },
-    {
-      "id": 20,
-      "direccion": "Calle Luna 303",
-      "nombre": "Paola Morales",
-      "email": "paola.morales@gmail.com",
-      "dni": "40901234",
-      "password": "password20",
-      "telefono": "3817890124",
-      "rol": "alumno"
-    },
-    {
-      "id": 21,
-      "direccion": "Avenida del Río 404",
-      "nombre": "Tomás López",
-      "email": "tomas.lopez@gmail.com",
-      "dni": "41012345",
-      "password": "password21",
-      "telefono": "3818901235",
-      "rol": "alumno"
-    },
-    {
-      "id": 22,
-      "direccion": "Calle del Mar 505",
-      "nombre": "Natalia González",
-      "email": "natalia.gonzalez@gmail.com",
-      "dni": "41123456",
-      "password": "password22",
-      "telefono": "3819012346",
-      "rol": "alumno"
+      "rol": "Alumno",
+      "apellido": "Santamarina",
+      "nombre": "Andrés",
+      "dni": "41275066",
+      "telefono": "3865608565",
+      "direccion": "Amancay 1683",
+      "email": "santamarina@gmail.com",
+      "password": "12",
+      "passwordConfirm": "12",
+      "id": 8
     }
   ],
   "cursos": [
     {
-      "id": 1,
+      "id": "1",
       "anio": "2",
       "division": "A",
       "turno": "mañana",
@@ -291,27 +163,27 @@
         {
           "dia": "Jueves",
           "modulo": "1",
-          "materiaID": 1
+          "materiaID": 3
         },
         {
           "dia": "Jueves",
           "modulo": "2",
-          "materiaID": 1
+          "materiaID": 4
         },
         {
           "dia": "Jueves",
           "modulo": "3",
-          "materiaID": 1
+          "materiaID": 4
         },
         {
           "dia": "Jueves",
           "modulo": "4",
-          "materiaID": 1
+          "materiaID": 4
         },
         {
           "dia": "Viernes",
           "modulo": "1",
-          "materiaID": 1
+          "materiaID": 2
         },
         {
           "dia": "Viernes",
@@ -345,48 +217,62 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "anio": "2",
       "division": "A",
       "turno": "mañana"
-    },
-    {
-      "id": 3,
-      "anio": "6",
-      "division": "A",
-      "turno": "tarde"
     }
   ],
   "materias": [
     {
-      "id": 1,
+      "id": "1",
       "nombre": "Matemáticas",
       "anio": "1"
     },
     {
-      "id": 2,
+      "id": "2",
       "nombre": "Lenguas",
       "anio": "1"
     },
     {
-      "id": 3,
+      "id": "3",
       "nombre": "Física",
       "anio": "1"
     },
     {
-      "id": 4,
+      "id": "4",
       "nombre": "Geografía",
       "anio": "1"
     },
     {
-      "id": 5,
+      "id": "5",
       "nombre": "Ed. Física",
       "anio": "1"
     },
     {
-      "id": 6,
+      "id": "6",
       "nombre": "tst edicion",
       "anio": "5"
+    }
+  ],
+  "novedades": [
+    {
+      "id": "1",
+      "titulo": "Nueva reunión de docentes",
+      "url_img": "",
+      "destinatario": "docentes"
+    },
+    {
+      "id": "2",
+      "titulo": "Día de la bandera",
+      "url_img": "",
+      "destinatario": "alumnos"
+    },
+    {
+      "id": "3",
+      "titulo": "Actualización de Normativas",
+      "url_img": "",
+      "destinatario": "todos"
     }
   ]
 }
