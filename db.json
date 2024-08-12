@@ -104,18 +104,6 @@
       "password": "123",
       "passwordConfirm": "123",
       "id": 9
-    },
-    {
-      "rol": "Docente",
-      "apellido": "Pérez",
-      "nombre": "Enzo",
-      "dni": "012121",
-      "telefono": "565484",
-      "direccion": "Lavalle 100",
-      "email": "perez@gmail.com",
-      "password": "123456",
-      "passwordConfirm": "123456",
-      "id": 10
     }
   ],
   "materias": [

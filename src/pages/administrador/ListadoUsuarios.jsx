@@ -7,10 +7,12 @@ import ModalEditar from "../../components/AdminComponents/ModalEditar";
 import ModalInfo from "../../components/AdminComponents/ModalInfo";
 import useUsuarios from "../../stores/Usuarios-Store";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const ListadoUsuarios = () => {
   const usuarios = useUsuarios((state) => state.usuarios || []);
   const getUsuarios = useUsuarios((state) => state.getUsuarios);
+  const deleteUsuario = useUsuarios((state) => state.deleteUsuario);
 
   const [tabSeleccionada, setTabSeleccionada] = useState("Todos");
 
@@ -26,6 +28,40 @@ const ListadoUsuarios = () => {
     if (tabSeleccionada === "Todos") return true;
     return usuario.rol === tabSeleccionada;
   });
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "¿Está seguro?",
+      text: "Esta acción no se puede deshacer.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#004b81",
+      confirmButtonText: "Eliminar",
+      cancelButtonText: "Cancelar",
+    }).then(async (resultado) => {
+      if (resultado.isConfirmed) {
+        try {
+          await deleteUsuario(id);
+          Swal.fire({
+            title: "¡Eliminado!",
+            text: "El usuario ha sido eliminado.",
+            icon: "success",
+            confirmButtonColor: "#004b81",
+            confirmButtonText: "Aceptar",
+          });
+        } catch (error) {
+          Swal.fire({
+            title: "Ocurrió un error",
+            text: "No se pudo eliminar el usuario. Intenta nuevamente.",
+            icon: "error",
+            confirmButtonColor: "#004b81",
+            confirmButtonText: "Aceptar",
+          });
+        }
+      }
+    });
+  };
 
   return (
     <Container className="text-center px-md-5 py-md-2">
@@ -105,8 +141,11 @@ const ListadoUsuarios = () => {
                 <td className="tableMaterias">{usuario.email}</td>
                 <td className="tableMaterias">
                   <ModalInfo usuario={usuario} />
-                  <ModalEditar usuario={usuario}/>
-                  <button className="btn">
+                  <ModalEditar usuario={usuario} />
+                  <button
+                    className="btn"
+                    onClick={() => handleDelete(usuario.id)}
+                  >
                     <i className="bi bi-trash3 iconoBorrar"></i>
                   </button>
                 </td>
