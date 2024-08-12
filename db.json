@@ -55,5 +55,25 @@
         }
       ]
     }
+  ],
+  "novedades": [
+    {
+      "id": 1,
+      "titulo": "Nueva reunión de docentes",
+      "url_img": "",
+      "destinatario": "docentes"
+    },
+    {
+      "id": 2,
+      "titulo": "Día de la bandera",
+      "url_img": "",
+      "destinatario": "alumnos"
+    },
+    {
+      "id": 3,
+      "titulo": "Actualización de Normativas",
+      "url_img": "",
+      "destinatario": "todos"
+    }
   ]
 }
