@@ -92,18 +92,6 @@
       "password": "12",
       "passwordConfirm": "12",
       "id": 8
-    },
-    {
-      "rol": "Administrador",
-      "apellido": "Santamarina",
-      "nombre": "Andrés",
-      "dni": "41275066",
-      "telefono": "3865608565",
-      "direccion": "Amancay 1683",
-      "email": "santamarina@gmail.com",
-      "password": "123",
-      "passwordConfirm": "123",
-      "id": 9
     }
   ],
   "materias": [

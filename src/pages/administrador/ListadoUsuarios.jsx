@@ -15,6 +15,7 @@ const ListadoUsuarios = () => {
   const deleteUsuario = useUsuarios((state) => state.deleteUsuario);
 
   const [tabSeleccionada, setTabSeleccionada] = useState("Todos");
+  const [busqueda, setBusqueda] = useState("");
 
   useEffect(() => {
     getUsuarios();
@@ -24,9 +25,25 @@ const ListadoUsuarios = () => {
     setTabSeleccionada(tab);
   };
 
+  const handleBusqueda = (e) => {
+    setBusqueda(e.target.value.toLowerCase());
+  };
+
+  const normalizarTexto = (texto) => {
+    return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  };
+
   const filtrarUsuarios = usuarios.filter((usuario) => {
-    if (tabSeleccionada === "Todos") return true;
-    return usuario.rol === tabSeleccionada;
+    const busquedaNormalizada = normalizarTexto(busqueda);
+    const nombreNormalizado = normalizarTexto(usuario.nombre);
+    const apellidoNormalizado = normalizarTexto(usuario.apellido);
+    const categoriaSeleccionada =
+      tabSeleccionada === "Todos" || usuario.rol === tabSeleccionada;
+    const busquedaRealizada =
+      nombreNormalizado.toLowerCase().includes(busquedaNormalizada) ||
+      apellidoNormalizado.toLowerCase().includes(busquedaNormalizada);
+
+    return categoriaSeleccionada && busquedaRealizada;
   });
 
   const handleDelete = (id) => {
@@ -75,6 +92,8 @@ const ListadoUsuarios = () => {
           type="text"
           placeholder="Ingrese un nombre"
           className="w-50"
+          value={busqueda}
+          onChange={handleBusqueda}
         />
       </Form.Group>
 
