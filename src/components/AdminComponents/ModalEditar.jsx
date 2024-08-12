@@ -36,6 +36,10 @@ const ModalEditar = () => {
                       <option value="3">Administrador</option>
                     </Form.Select>
                   </Form.Group>
+                  <Form.Group className="mb-3" controlId="formApellido">
+                    <Form.Label>Apellido</Form.Label>
+                    <Form.Control type="text" placeholder="Ingresar apellido" />
+                  </Form.Group>
                   <Form.Group className="mb-3" controlId="formNombre">
                     <Form.Label>Nombre</Form.Label>
                     <Form.Control type="text" placeholder="Ingresar nombre" />

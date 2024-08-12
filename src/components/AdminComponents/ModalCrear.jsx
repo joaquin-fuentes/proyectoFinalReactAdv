@@ -3,12 +3,61 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import "../../pages/administrador/Administrador.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import useUsuarios from "../../stores/Usuarios-Store";
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const ModalCrear = () => {
   const [show, setShow] = useState(false);
+  const { createUsuario } = useUsuarios();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    watch,
+  } = useForm();
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    reset();
+  };
+
   const handleShow = () => setShow(true);
+
+  const onSubmit = async (data) => {
+    try {
+      const respuesta = await createUsuario(data);
+      if (respuesta) {
+        Swal.fire({
+          title: "¡Listo!",
+          text: "El usuario ha sido creado con éxito.",
+          icon: "success",
+          confirmButtonColor: "#004b81",
+          confirmButtonText: "Aceptar",
+        });
+      } else {
+        Swal.fire({
+          title: "Ocurrió un error",
+          text: "No se pudo crear el usuario. Intenta nuevamente.",
+          icon: "error",
+          confirmButtonColor: "#004b81",
+          confirmButtonText: "Aceptar",
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        title: "Ocurrió un error",
+        text: "No se pudo crear el usuario. Intenta nuevamente.",
+        icon: "error",
+        confirmButtonColor: "#004b81",
+        confirmButtonText: "Aceptar",
+      });
+    }
+    handleClose();
+  };
+
+  const password = watch("password");
 
   return (
     <>
@@ -23,58 +72,135 @@ const ModalCrear = () => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form onSubmit={handleSubmit(onSubmit)}>
             <div className="container">
               <div className="row">
                 <div className="col">
                   {" "}
-                  <Form.Group className="mb-3" controlId="formCategoria">
+                  <Form.Group className="mb-3" controlId="formRol">
                     <Form.Label>Categoría</Form.Label>
-                    <Form.Select aria-label="Select categoria">
-                      <option>Seleccione una categoría</option>
-                      <option value="1">Docente</option>
-                      <option value="2">Alumno</option>
-                      <option value="3">Administrador</option>
+                    <Form.Select
+                      aria-label="Select categoria"
+                      {...register("rol", {
+                        required: "La categoría es obligatoria",
+                      })}
+                    >
+                      <option value="">Seleccione una categoría</option>
+                      <option value="docente">Docente</option>
+                      <option value="alumno">Alumno</option>
+                      <option value="administrador">Administrador</option>
                     </Form.Select>
+                    <Form.Text className="text-danger">
+                      {errors.rol?.message}
+                    </Form.Text>
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formApellido">
+                    <Form.Label>Apellido</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Ingresar apellido"
+                      {...register("apellido", {
+                        required: "El apellido es obligatorio",
+                      })}
+                    />
+                    <Form.Text className="text-danger">
+                      {errors.apellido?.message}
+                    </Form.Text>
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formNombre">
                     <Form.Label>Nombre</Form.Label>
-                    <Form.Control type="text" placeholder="Ingresar nombre" />
+                    <Form.Control
+                      type="text"
+                      placeholder="Ingresar nombre"
+                      {...register("nombre", {
+                        required: "El nombre es obligatorio",
+                      })}
+                    />
+                    <Form.Text className="text-danger">
+                      {errors.nombre?.message}
+                    </Form.Text>
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formDNI">
                     <Form.Label>DNI</Form.Label>
-                    <Form.Control type="text" placeholder="Ingresar DNI" />
+                    <Form.Control
+                      type="text"
+                      placeholder="Ingresar DNI"
+                      {...register("dni", {
+                        required: "El DNI es obligatorio",
+                      })}
+                    />
+                    <Form.Text className="text-danger">
+                      {errors.dni?.message}
+                    </Form.Text>
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formTelefono">
                     <Form.Label>Teléfono</Form.Label>
-                    <Form.Control type="tel" placeholder="3865123456" />
+                    <Form.Control
+                      type="tel"
+                      placeholder="3865123456"
+                      {...register("telefono", {
+                        required: "El teléfono es obligatorio",
+                      })}
+                    />
+                    <Form.Text className="text-danger">
+                      {errors.telefono?.message}
+                    </Form.Text>
                   </Form.Group>
                 </div>
                 <div className="col">
                   <Form.Group className="mb-3" controlId="formDireccion">
                     <Form.Label>Dirección</Form.Label>
-                    <Form.Control type="text" placeholder="Calle 123" />
+                    <Form.Control
+                      type="text"
+                      placeholder="Calle 123"
+                      {...register("direccion", {
+                        required: "La dirección es obligatoria",
+                      })}
+                    />
+                    <Form.Text className="text-danger">
+                      {errors.direccion?.message}
+                    </Form.Text>
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formEmail">
                     <Form.Label>Email</Form.Label>
                     <Form.Control
                       type="email"
                       placeholder="ejemplo@gmail.com"
+                      {...register("email", {
+                        required: "El email es obligatorio",
+                      })}
                     />
+                    <Form.Text className="text-danger">
+                      {errors.email?.message}
+                    </Form.Text>
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formPassword">
                     <Form.Label>Contraseña</Form.Label>
                     <Form.Control
                       type="password"
                       placeholder="Ingresar contraseña"
+                      {...register("password", {
+                        required: "Contraseña obligatoria",
+                      })}
                     />
+                    <Form.Text className="text-danger">
+                      {errors.password?.message}
+                    </Form.Text>
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formPasswordConfirm">
                     <Form.Label>Confirmar</Form.Label>
                     <Form.Control
                       type="password"
                       placeholder="Repetir contraseña"
+                      {...register("passwordConfirm", {
+                        required: "Confirmación de contraseña obligatoria",
+                        validate: (value) =>
+                          value === password || "Las contraseñas no coinciden",
+                      })}
                     />
+                    <Form.Text className="text-danger">
+                      {errors.passwordConfirm?.message}
+                    </Form.Text>
                   </Form.Group>
                 </div>
               </div>
@@ -82,16 +208,13 @@ const ModalCrear = () => {
 
             <div className="d-flex justify-content-center">
               <button
+                type="button"
                 onClick={handleClose}
                 className="m-2 p-2 rounded btnCancelar"
               >
                 Cancelar
               </button>
-              <button
-                type="submit"
-                onClick={handleClose}
-                className="m-2 p-2 rounded btnGuardar"
-              >
+              <button type="submit" className="m-2 p-2 rounded btnGuardar">
                 Guardar
               </button>
             </div>

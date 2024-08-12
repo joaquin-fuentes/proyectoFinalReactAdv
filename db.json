@@ -3,7 +3,8 @@
     {
       "id": 1,
       "direccion": "España 2456",
-      "nombre": "Joaquin Fuentes",
+      "nombre": "Joaquin",
+      "apellido": "Fuentes",
       "email": "joaquin@gmail.com",
       "dni": "37423893",
       "password": "123456",
@@ -13,7 +14,8 @@
     {
       "id": 2,
       "direccion": "direccion123",
-      "nombre": "georgina",
+      "nombre": "Georgina",
+      "apellido": "Costilla",
       "email": "georgina@gmail.com",
       "dni": "38256525",
       "password": "123456",
@@ -23,12 +25,49 @@
     {
       "id": 3,
       "direccion": "direccion123",
-      "nombre": "andres",
+      "nombre": "Andrés",
+      "apellido": "Santamarina",
       "email": "andres@gmail.com",
       "dni": "39252525",
       "password": "123456",
       "telefono": "3814564564",
       "rol": "docente"
+    },
+    {
+      "rol": "administrador",
+      "apellido": "Santamarina",
+      "nombre": "Andrés",
+      "dni": "41275066",
+      "telefono": "3865608565",
+      "direccion": "Amancay 1683",
+      "email": "santamarina@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "id": 4
+    },
+    {
+      "rol": "administrador",
+      "apellido": "Santamarina",
+      "nombre": "Andrés",
+      "dni": "41275066",
+      "telefono": "3865608565",
+      "direccion": "Amancay 1683",
+      "email": "santamarina@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "id": 5
+    },
+    {
+      "rol": "alumno",
+      "apellido": "Santamarina",
+      "nombre": "Andrés",
+      "dni": "41275066",
+      "telefono": "3865608565",
+      "direccion": "Amancay 1683",
+      "email": "santamarina@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "id": 6
     }
   ],
   "materias": [

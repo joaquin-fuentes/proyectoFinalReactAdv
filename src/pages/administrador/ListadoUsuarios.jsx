@@ -48,6 +48,7 @@ const ListadoUsuarios = () => {
       <Table striped hover responsive className="rounded">
         <thead>
           <tr>
+            <th className="tableMaterias fw-bold">Apellido</th>
             <th className="tableMaterias fw-bold">Nombre</th>
             <th className="tableMaterias fw-bold">Categoría</th>
             <th className="tableMaterias fw-bold">DNI</th>
@@ -57,7 +58,8 @@ const ListadoUsuarios = () => {
         </thead>
         <tbody>
           <tr>
-            <td className="tableMaterias">Juan Pérez</td>
+            <td className="tableMaterias">Pérez</td>
+            <td className="tableMaterias">Juan</td>
             <td className="tableMaterias">Administrador</td>
             <td className="tableMaterias">12345678</td>
             <td className="tableMaterias">juanperez@gmail.com</td>
@@ -71,7 +73,8 @@ const ListadoUsuarios = () => {
             </td>
           </tr>
           <tr>
-            <td className="tableMaterias">Juan Pérez</td>
+            <td className="tableMaterias">Pérez</td>
+            <td className="tableMaterias">Juan</td>
             <td className="tableMaterias">Docente</td>
             <td className="tableMaterias">12345678</td>
             <td className="tableMaterias">juanperez@gmail.com</td>
@@ -85,7 +88,8 @@ const ListadoUsuarios = () => {
             </td>
           </tr>
           <tr>
-            <td className="tableMaterias">Juan Pérez</td>
+            <td className="tableMaterias">Pérez</td>
+            <td className="tableMaterias">Juan</td>
             <td className="tableMaterias">Docente</td>
             <td className="tableMaterias">12345678</td>
             <td className="tableMaterias">juanperez@gmail.com</td>
@@ -99,7 +103,8 @@ const ListadoUsuarios = () => {
             </td>
           </tr>
           <tr>
-            <td className="tableMaterias">Juan Pérez</td>
+            <td className="tableMaterias">Pérez</td>
+            <td className="tableMaterias">Juan</td>
             <td className="tableMaterias">Alumno</td>
             <td className="tableMaterias">12345678</td>
             <td className="tableMaterias">juanperez@gmail.com</td>
@@ -113,7 +118,8 @@ const ListadoUsuarios = () => {
             </td>
           </tr>
           <tr>
-            <td className="tableMaterias">Juan Pérez</td>
+            <td className="tableMaterias">Pérez</td>
+            <td className="tableMaterias">Juan</td>
             <td className="tableMaterias">Alumno</td>
             <td className="tableMaterias">12345678</td>
             <td className="tableMaterias">juanperez@gmail.com</td>
