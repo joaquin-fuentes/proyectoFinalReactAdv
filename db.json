@@ -139,6 +139,86 @@
       "password": "isabel2024",
       "telefono": "3817890123",
       "rol": "docente"
+    },
+    {
+      "id": 15,
+      "direccion": "Calle Falsa 123",
+      "nombre": "Luis Martínez",
+      "email": "luis.martinez@gmail.com",
+      "dni": "40156789",
+      "password": "password15",
+      "telefono": "3812345679",
+      "rol": "alumno"
+    },
+    {
+      "id": 16,
+      "direccion": "Calle Verdadera 456",
+      "nombre": "Sofía Gómez",
+      "email": "sofia.gomez@gmail.com",
+      "dni": "40567890",
+      "password": "password16",
+      "telefono": "3813456780",
+      "rol": "alumno"
+    },
+    {
+      "id": 17,
+      "direccion": "Avenida Siempre Viva 789",
+      "nombre": "Miguel Fernández",
+      "email": "miguel.fernandez@gmail.com",
+      "dni": "40678901",
+      "password": "password17",
+      "telefono": "3814567891",
+      "rol": "alumno"
+    },
+    {
+      "id": 18,
+      "direccion": "Calle Principal 101",
+      "nombre": "María Fernández",
+      "email": "maria.fernandez@gmail.com",
+      "dni": "40789012",
+      "password": "password18",
+      "telefono": "3815678902",
+      "rol": "alumno"
+    },
+    {
+      "id": 19,
+      "direccion": "Boulevard del Sol 202",
+      "nombre": "Carlos Rodríguez",
+      "email": "carlos.rodriguez@gmail.com",
+      "dni": "40890123",
+      "password": "password19",
+      "telefono": "3816789013",
+      "rol": "alumno"
+    },
+    {
+      "id": 20,
+      "direccion": "Calle Luna 303",
+      "nombre": "Paola Morales",
+      "email": "paola.morales@gmail.com",
+      "dni": "40901234",
+      "password": "password20",
+      "telefono": "3817890124",
+      "rol": "alumno"
+    },
+    {
+      "id": 21,
+      "direccion": "Avenida del Río 404",
+      "nombre": "Tomás López",
+      "email": "tomas.lopez@gmail.com",
+      "dni": "41012345",
+      "password": "password21",
+      "telefono": "3818901235",
+      "rol": "alumno"
+    },
+    {
+      "id": 22,
+      "direccion": "Calle del Mar 505",
+      "nombre": "Natalia González",
+      "email": "natalia.gonzalez@gmail.com",
+      "dni": "41123456",
+      "password": "password22",
+      "telefono": "3819012346",
+      "rol": "alumno"
     }
   ],
   "cursos": [
