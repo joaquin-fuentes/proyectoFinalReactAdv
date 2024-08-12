@@ -7,7 +7,7 @@ import Sidebar from "../components/Sidebar";
 import NavBarSmall from "../components/NavBarSmall";
 import Error404 from "../pages/error404/Error404";
 import useAuth from "../stores/Auth-Store";
-import Novedades from "../pages/alumnos/Novedades";
+import PanelAdminNovedades from "../pages/administrador/PanelAdminNovedades";
 
 const RutasAdministrador = () => {
   const { user } = useAuth();
@@ -44,7 +44,7 @@ const RutasAdministrador = () => {
         <Routes>
           <Route path="/" element={<PerfilAdmin />} />
           <Route path="/usuarios" element={<ListadoUsuarios />} />
-          <Route path="/novedades" element={<Novedades />} />
+          <Route path="/novedades" element={<PanelAdminNovedades />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </div>
