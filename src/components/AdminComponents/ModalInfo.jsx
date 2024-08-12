@@ -5,7 +5,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { Container } from "react-bootstrap";
 import avatar from "../../assets/imagenes/avatarPerfil.jpeg";
 
-const ModalInfo = () => {
+const ModalInfo = ({usuario}) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -28,29 +28,34 @@ const ModalInfo = () => {
             <article className="perfil-card-admin rounded py-2 mt-3 bg-datosAdmin text-light contenedorDatos">
               <div className="d-flex justify-content-md-between align-items-center px-2 px-md-5 py-2">
                 <h6 className="me-1 my-0 fw-bold">DNI</h6>
-                <span className="ms-auto my-0">12345678</span>
+                <span className="ms-auto my-0">{usuario.dni}</span>
               </div>
               <hr className="my-1 mx-2" />
               <div className="d-flex justify-content-md-between align-items-center px-2 px-md-5 py-2">
-                <h6 className="me-1 my-0 fw-bold">Nombre Completo</h6>
-                <span className="ms-auto my-0">Enzo Pérez</span>
+                <h6 className="me-1 my-0 fw-bold">Apellido</h6>
+                <span className="ms-auto my-0">{usuario.apellido}</span>
+              </div>
+              <hr className="my-1 mx-2" />
+              <div className="d-flex justify-content-md-between align-items-center px-2 px-md-5 py-2">
+                <h6 className="me-1 my-0 fw-bold">Nombre</h6>
+                <span className="ms-auto my-0">{usuario.nombre}</span>
               </div>
               <hr className="my-1 mx-2" />
               <div className="d-flex justify-content-md-between align-items-center px-2 px-md-5 py-2">
                 <h6 className="me-1 my-0 fw-bold">Correo Electrónico</h6>
-                <span className="ms-auto my-0">enzoperez@gmail.com</span>
+                <span className="ms-auto my-0">{usuario.email}</span>
               </div>
               <hr className="my-1 mx-2" />
               <div className="d-flex justify-content-md-between align-items-center px-2 px-md-5 py-2">
                 <h6 className="me-1 my-0 fw-bold">Dirección</h6>
                 <span className="ms-auto my-0">
-                  Lavalle 100 - San Miguel de Tucumán
+                  {usuario.direccion}
                 </span>
               </div>
               <hr className="my-1 mx-2" />
               <div className="d-flex justify-content-md-between align-items-center px-2 px-md-5 py-2">
                 <h6 className="me-1 my-0 fw-bold">Número de Teléfono</h6>
-                <span className="ms-auto my-0">381565656</span>
+                <span className="ms-auto my-0">{usuario.telefono}</span>
               </div>
             </article>
           </Container>

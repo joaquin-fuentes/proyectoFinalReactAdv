@@ -102,6 +102,16 @@ const Sidebar = ({ handleClose }) => {
               </li>
               <li className="nav-item text-center">
                 <NavLink
+                  to="/docentes/alumnos"
+                  className="nav-link text-light fw-bold btnSidebar py-3 d-flex justify-content-center align-items-center"
+                  onClick={handleClose}
+                >
+                  <LiaSchoolSolid className="me-2" />
+                  Alumnos
+                </NavLink>
+              </li>
+              <li className="nav-item text-center">
+                <NavLink
                   to="/docentes/asistencias"
                   className="nav-link text-light fw-bold btnSidebar py-3 d-flex justify-content-center align-items-center"
                   onClick={handleClose}
