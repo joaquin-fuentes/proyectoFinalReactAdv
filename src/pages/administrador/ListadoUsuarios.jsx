@@ -5,8 +5,28 @@ import "./Administrador.css";
 import ModalCrear from "../../components/AdminComponents/ModalCrear";
 import ModalEditar from "../../components/AdminComponents/ModalEditar";
 import ModalInfo from "../../components/AdminComponents/ModalInfo";
+import useUsuarios from "../../stores/Usuarios-Store";
+import { useEffect, useState } from "react";
 
 const ListadoUsuarios = () => {
+  const usuarios = useUsuarios((state) => state.usuarios || []);
+  const getUsuarios = useUsuarios((state) => state.getUsuarios);
+
+  const [tabSeleccionada, setTabSeleccionada] = useState("Todos");
+
+  useEffect(() => {
+    getUsuarios();
+  }, [getUsuarios]);
+
+  const handleTabSeleccionada = (tab) => {
+    setTabSeleccionada(tab);
+  };
+
+  const filtrarUsuarios = usuarios.filter((usuario) => {
+    if (tabSeleccionada === "Todos") return true;
+    return usuario.rol === tabSeleccionada;
+  });
+
   return (
     <Container className="text-center px-md-5 py-md-2">
       <h4 className="my-5 titulo">USUARIOS</h4>
@@ -30,18 +50,30 @@ const ListadoUsuarios = () => {
         variant="tabs"
         defaultActiveKey="/home"
         className="mt-4 mb-1 tabsRoles"
+        onSelect={(key) => handleTabSeleccionada(key)}
       >
         <Nav.Item>
-          <Nav.Link eventKey="link-1 tabRol">Todos</Nav.Link>
+          <Nav.Link eventKey="Todos" active={tabSeleccionada === "Todos"}>
+            Todos
+          </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-2">Docentes</Nav.Link>
+          <Nav.Link eventKey="Docente" active={tabSeleccionada === "Docente"}>
+            Docentes
+          </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-3">Alumnos</Nav.Link>
+          <Nav.Link eventKey="Alumno" active={tabSeleccionada === "Alumno"}>
+            Alumnos
+          </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-4">Admins</Nav.Link>
+          <Nav.Link
+            eventKey="Administrador"
+            active={tabSeleccionada === "Admin"}
+          >
+            Admins
+          </Nav.Link>
         </Nav.Item>
       </Nav>
 
@@ -57,81 +89,30 @@ const ListadoUsuarios = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td className="tableMaterias">Pérez</td>
-            <td className="tableMaterias">Juan</td>
-            <td className="tableMaterias">Administrador</td>
-            <td className="tableMaterias">12345678</td>
-            <td className="tableMaterias">juanperez@gmail.com</td>
-            <td className="tableMaterias">
-              {" "}
-              <ModalInfo />
-              <ModalEditar />
-              <button className="btn">
-                <i className="bi bi-trash3 iconoBorrar"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td className="tableMaterias">Pérez</td>
-            <td className="tableMaterias">Juan</td>
-            <td className="tableMaterias">Docente</td>
-            <td className="tableMaterias">12345678</td>
-            <td className="tableMaterias">juanperez@gmail.com</td>
-            <td className="tableMaterias">
-              {" "}
-              <ModalInfo />
-              <ModalEditar />
-              <button className="btn">
-                <i className="bi bi-trash3 iconoBorrar"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td className="tableMaterias">Pérez</td>
-            <td className="tableMaterias">Juan</td>
-            <td className="tableMaterias">Docente</td>
-            <td className="tableMaterias">12345678</td>
-            <td className="tableMaterias">juanperez@gmail.com</td>
-            <td className="tableMaterias">
-              {" "}
-              <ModalInfo />
-              <ModalEditar />
-              <button className="btn">
-                <i className="bi bi-trash3 iconoBorrar"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td className="tableMaterias">Pérez</td>
-            <td className="tableMaterias">Juan</td>
-            <td className="tableMaterias">Alumno</td>
-            <td className="tableMaterias">12345678</td>
-            <td className="tableMaterias">juanperez@gmail.com</td>
-            <td className="tableMaterias">
-              {" "}
-              <ModalInfo />
-              <ModalEditar />
-              <button className="btn">
-                <i className="bi bi-trash3 iconoBorrar"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td className="tableMaterias">Pérez</td>
-            <td className="tableMaterias">Juan</td>
-            <td className="tableMaterias">Alumno</td>
-            <td className="tableMaterias">12345678</td>
-            <td className="tableMaterias">juanperez@gmail.com</td>
-            <td className="tableMaterias">
-              {" "}
-              <ModalInfo />
-              <ModalEditar />
-              <button className="btn">
-                <i className="bi bi-trash3 iconoBorrar"></i>
-              </button>
-            </td>
-          </tr>
+          {filtrarUsuarios.length === 0 ? (
+            <tr>
+              <td colSpan="6" className="text-center">
+                No hay usuarios para mostrar
+              </td>
+            </tr>
+          ) : (
+            filtrarUsuarios.map((usuario) => (
+              <tr key={usuario.id}>
+                <td className="tableMaterias">{usuario.apellido}</td>
+                <td className="tableMaterias">{usuario.nombre}</td>
+                <td className="tableMaterias">{usuario.rol}</td>
+                <td className="tableMaterias">{usuario.dni}</td>
+                <td className="tableMaterias">{usuario.email}</td>
+                <td className="tableMaterias">
+                  <ModalInfo usuario={usuario} />
+                  <ModalEditar />
+                  <button className="btn">
+                    <i className="bi bi-trash3 iconoBorrar"></i>
+                  </button>
+                </td>
+              </tr>
+            ))
+          )}
         </tbody>
       </Table>
     </Container>

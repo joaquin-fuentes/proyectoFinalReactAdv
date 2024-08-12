@@ -68,6 +68,54 @@
       "password": "123456",
       "passwordConfirm": "123456",
       "id": 6
+    },
+    {
+      "rol": "docente",
+      "apellido": "Santamarina",
+      "nombre": "Andrés",
+      "dni": "41275066",
+      "telefono": "3865608565",
+      "direccion": "Amancay 1683",
+      "email": "santamarina@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "id": 7
+    },
+    {
+      "rol": "Alumno",
+      "apellido": "Santamarina",
+      "nombre": "Andrés",
+      "dni": "41275066",
+      "telefono": "3865608565",
+      "direccion": "Amancay 1683",
+      "email": "santamarina@gmail.com",
+      "password": "12",
+      "passwordConfirm": "12",
+      "id": 8
+    },
+    {
+      "rol": "Docente",
+      "apellido": "Santamarina",
+      "nombre": "Andrés",
+      "dni": "41275066",
+      "telefono": "3865608565",
+      "direccion": "Amancay 1683",
+      "email": "santamarina@gmail.com",
+      "password": "123",
+      "passwordConfirm": "123",
+      "id": 9
+    },
+    {
+      "rol": "Administrador",
+      "apellido": "Santamarina",
+      "nombre": "Andrés",
+      "dni": "41275066",
+      "telefono": "3865608565",
+      "direccion": "Amancay 1683",
+      "email": "santamarina@gmail.com",
+      "password": "123",
+      "passwordConfirm": "123",
+      "id": 10
     }
   ],
   "materias": [

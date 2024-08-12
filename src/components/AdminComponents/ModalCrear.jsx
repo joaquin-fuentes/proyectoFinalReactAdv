@@ -86,9 +86,9 @@ const ModalCrear = () => {
                       })}
                     >
                       <option value="">Seleccione una categoría</option>
-                      <option value="docente">Docente</option>
-                      <option value="alumno">Alumno</option>
-                      <option value="administrador">Administrador</option>
+                      <option value="Docente">Docente</option>
+                      <option value="Alumno">Alumno</option>
+                      <option value="Administrador">Administrador</option>
                     </Form.Select>
                     <Form.Text className="text-danger">
                       {errors.rol?.message}

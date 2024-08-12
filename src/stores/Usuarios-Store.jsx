@@ -14,7 +14,7 @@ const useUsuarios = create((set) => ({
     try {
       const resp = await axios.get(`${URL_USUARIO}`);
       console.log(resp.data);
-      set({ usuarios: resp.data.data, loading: false });
+      set({ usuarios: resp.data, loading: false });
     } catch (error) {
       set({ error: error.message, loading: false });
     }
