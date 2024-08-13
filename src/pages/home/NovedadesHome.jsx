@@ -37,7 +37,7 @@ const NovedadesHome = () => {
       <h4 className="my-5 text-center titulo">NOVEDADES</h4>
       <Row className="d-flex justify-content-center">
         {novedadesHome.map((novedad) => (
-          <Col md={6} lg={4} key={novedad.id}>
+          <Col md={6} lg={6} key={novedad.id}>
             <article className="p-3 my-2 mx-1 bg-azulOscuro cardNovedad rounded text-light">
               <h6 className="text-center">{novedad.titulo}</h6>
               <div className="mt-4 mb-1">
