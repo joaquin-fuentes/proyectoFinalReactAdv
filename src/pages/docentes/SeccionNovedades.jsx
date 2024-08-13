@@ -44,7 +44,7 @@ const SeccionNovedades = () => {
                 <img
                   className="imgNovedad"
                   src={novedad.url_img}
-                  alt="fechasExamenes"
+                  alt={"imagen de "+novedad.titulo}
                 />
               </div>
             </article>
