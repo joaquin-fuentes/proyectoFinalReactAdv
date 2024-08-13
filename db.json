@@ -426,20 +426,20 @@
     {
       "id": "1",
       "titulo": "Nueva reunión de Docentes",
-      "url_img": "",
+      "url_img": "https://i.pinimg.com/736x/9b/74/9f/9b749f29fcabb450db3043216c0c8663.jpg",
       "destinatario": "Docentes"
     },
     {
       "id": "2",
       "titulo": "Día de la bandera",
-      "url_img": "",
-      "destinatario": "alumnos"
+      "url_img": "https://www.epet1.edu.ar/wp-content/uploads/2015/06/Poster-20-de-Junio-1024x640.jpg",
+      "destinatario": "Alumnos"
     },
     {
       "id": "3",
       "titulo": "Actualización de Normativas",
-      "url_img": "",
-      "destinatario": "todos"
+      "url_img": "https://des-ers.infd.edu.ar/sitio/wp-content/uploads/2022/05/IMG-20220530-WA0048.jpg",
+      "destinatario": "Todos"
     }
   ]
 }
