@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import { Formik, Field, Form as FormikForm, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import useCursosStore from "../../../stores/Cursos-Store";
 import Swal from "sweetalert2";
 import { RiFileAddLine } from "react-icons/ri";
+import useMateriasStore from "../../../stores/Materias-Store";
 
 const CrearCurso = () => {
   const [show, setShow] = useState(false);
@@ -12,6 +13,11 @@ const CrearCurso = () => {
   const handleShow = () => setShow(true);
 
   const { crearCurso } = useCursosStore();
+  const { materias, obtenerMaterias } = useMateriasStore();
+
+  useEffect(() => {
+    obtenerMaterias();
+  }, [obtenerMaterias]);
 
   // Esquema de validación con Yup
   const validationSchema = Yup.object().shape({
@@ -29,9 +35,42 @@ const CrearCurso = () => {
 
   // Manejo del envío del formulario
   const handleSubmit = async (values, { resetForm }) => {
-    console.log(values);
+    // Filtrar materias que coinciden con el año seleccionado
+    const materiasCurso = materias.filter(
+      (materia) => materia.anio === values.anio
+    );
+
+    // Crear un nuevo curso con los valores del formulario y las materias filtradas
+    const nuevoCurso = {
+      ...values,
+      materias: materiasCurso,
+      horarios: [
+        { dia: "Lunes", modulo: "1", materiaID: "" },
+        { dia: "Lunes", modulo: "2", materiaID: "" },
+        { dia: "Lunes", modulo: "3", materiaID: "" },
+        { dia: "Lunes", modulo: "4", materiaID: "" },
+        { dia: "Martes", modulo: "1", materiaID: "" },
+        { dia: "Martes", modulo: "2", materiaID: "" },
+        { dia: "Martes", modulo: "3", materiaID: "" },
+        { dia: "Martes", modulo: "4", materiaID: "" },
+        { dia: "Miércoles", modulo: "1", materiaID: "" },
+        { dia: "Miércoles", modulo: "2", materiaID: "" },
+        { dia: "Miércoles", modulo: "3", materiaID: "" },
+        { dia: "Miércoles", modulo: "4", materiaID: "" },
+        { dia: "Jueves", modulo: "1", materiaID: "" },
+        { dia: "Jueves", modulo: "2", materiaID: "" },
+        { dia: "Jueves", modulo: "3", materiaID: "" },
+        { dia: "Jueves", modulo: "4", materiaID: "" },
+        { dia: "Viernes", modulo: "1", materiaID: "" },
+        { dia: "Viernes", modulo: "2", materiaID: "" },
+        { dia: "Viernes", modulo: "3", materiaID: "" },
+        { dia: "Viernes", modulo: "4", materiaID: "" },
+      ],
+      alumnos: [{ alumnoID: "" }],
+    };
+    console.log(nuevoCurso);
     try {
-      await crearCurso(values); // Aquí puedes enviar los datos al store o hacer alguna otra acción
+      await crearCurso(nuevoCurso); // Enviar los datos al store o realizar otra acción
       handleClose(); // Cerrar el modal después del envío
 
       // Mostrar SweetAlert de éxito

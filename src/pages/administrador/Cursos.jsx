@@ -9,6 +9,7 @@ import CrearCurso from "./ModalesCursos/CrearCurso";
 import ListadoHorarios from "./ModalesCursos/ListadoHorarios";
 import ListadoAlumnos from "./ModalesCursos/ListadoAlumnos";
 import EditarHorarios from "./ModalesCursos/EditarHorarios";
+import EditarAlumnos from "./ModalesCursos/EditarAlumnos";
 
 const Cursos = () => {
   const { cursos, obtenerCursos, borrarCurso } = useCursosStore();
@@ -91,17 +92,22 @@ const Cursos = () => {
                     {curso.anio}° {curso.division}
                   </td>
                   <td className="tableMaterias">{curso.turno}</td>
-                  <td className="tableMaterias d-flex justify-content-center">
-                    <ListadoHorarios curso={curso}></ListadoHorarios>
-                    <EditarHorarios curso={curso}></EditarHorarios>
+                  <td className="tableMaterias">
+                    <div className="d-flex justify-content-center">
+                      <ListadoHorarios curso={curso}></ListadoHorarios>
+                      <EditarHorarios curso={curso}></EditarHorarios>
+                    </div>
                   </td>
                   <td className="tableMaterias">
-                    <ListadoAlumnos curso={curso}></ListadoAlumnos>
+                    <div className="d-flex justify-content-center">
+                      <ListadoAlumnos curso={curso}></ListadoAlumnos>
+                      <EditarAlumnos curso={curso}></EditarAlumnos>
+                    </div>
                   </td>
-                  <td className="tableMaterias d-flex justify-content-center">
+                  <td className="tableMaterias ">
                     {/* <EditarCurso curso={curso} /> */}
                     <button
-                      className="btn text-danger fs-6"
+                      className="btn btn-outline-danger fs-6"
                       onClick={() => eliminarCurso(curso.id)}
                     >
                       <MdDelete />

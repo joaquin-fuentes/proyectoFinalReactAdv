@@ -36,11 +36,11 @@ const FormLogin = () => {
         showConfirmButton: false, // Oculta el botón de confirmación
         willClose: () => {
           // Redirecciona según el rol después de que se cierra el SweetAlert
-          if (user.rol === "alumno") {
+          if (user.rol === "Alumno") {
             navigate("/alumnos/perfil");
-          } else if (user.rol === "docente") {
+          } else if (user.rol === "Docente") {
             navigate("/docentes/perfil");
-          } else if (user.rol === "administrador") {
+          } else if (user.rol === "Administrador") {
             navigate("/administrador");
           }
         }

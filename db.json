@@ -1,7 +1,7 @@
 {
   "usuarios": [
     {
-      "id": 1,
+      "id": "1",
       "direccion": "España 2456",
       "nombre": "Joaquin",
       "apellido": "Fuentes",
@@ -9,10 +9,10 @@
       "dni": "37423893",
       "password": "123456",
       "telefono": "3816097754",
-      "rol": "alumno"
+      "rol": "Alumno"
     },
     {
-      "id": 2,
+      "id": "2",
       "direccion": "direccion123",
       "nombre": "Georgina",
       "apellido": "Costilla",
@@ -20,10 +20,10 @@
       "dni": "38256525",
       "password": "123456",
       "telefono": "3815426254",
-      "rol": "administrador"
+      "rol": "Administrador"
     },
     {
-      "id": 3,
+      "id": "3",
       "direccion": "direccion123",
       "nombre": "Andrés",
       "apellido": "Santamarina",
@@ -31,21 +31,22 @@
       "dni": "39252525",
       "password": "123456",
       "telefono": "3814564564",
-      "rol": "docente"
+      "rol": "Docente"
     },
     {
-      "id": 4,
-      "direccion": "San Martín 1234",
-      "nombre": "María",
+      "rol": "Alumno",
       "apellido": "López",
-      "email": "maria.lopez@gmail.com",
+      "nombre": "María",
       "dni": "40123456",
-      "password": "abcdef",
       "telefono": "3816543210",
-      "rol": "alumno"
+      "direccion": "San Martín 1234",
+      "email": "maria.lopez@gmail.com",
+      "password": "1234",
+      "passwordConfirm": "1234",
+      "id": "4"
     },
     {
-      "rol": "administrador",
+      "rol": "Administrador",
       "apellido": "Santamarina",
       "nombre": "Andrés",
       "dni": "41275066",
@@ -54,31 +55,7 @@
       "email": "santamarina@gmail.com",
       "password": "123456",
       "passwordConfirm": "123456",
-      "id": 5
-    },
-    {
-      "rol": "alumno",
-      "apellido": "Santamarina",
-      "nombre": "Andrés",
-      "dni": "41275066",
-      "telefono": "3865608565",
-      "direccion": "Amancay 1683",
-      "email": "santamarina@gmail.com",
-      "password": "123456",
-      "passwordConfirm": "123456",
-      "id": 6
-    },
-    {
-      "rol": "docente",
-      "apellido": "Santamarina",
-      "nombre": "Andrés",
-      "dni": "41275066",
-      "telefono": "3865608565",
-      "direccion": "Amancay 1683",
-      "email": "santamarina@gmail.com",
-      "password": "123456",
-      "passwordConfirm": "123456",
-      "id": 7
+      "id": "5"
     },
     {
       "rol": "Alumno",
@@ -88,139 +65,324 @@
       "telefono": "3865608565",
       "direccion": "Amancay 1683",
       "email": "santamarina@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "id": "6"
+    },
+    {
+      "rol": "Alumno",
+      "apellido": "Santamarina",
+      "nombre": "Andrés",
+      "dni": "41275066",
+      "telefono": "3865608565",
+      "direccion": "Amancay 1683",
+      "email": "santamarina@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "id": "7"
+    },
+    {
+      "rol": "Alumno",
+      "apellido": "Santamarina",
+      "nombre": "Ruben",
+      "dni": "41275066",
+      "telefono": "3865608565",
+      "direccion": "Amancay 1683",
+      "email": "santamarina@gmail.com",
       "password": "12",
       "passwordConfirm": "12",
-      "id": 8
+      "id": "8"
     }
   ],
   "cursos": [
     {
-      "id": "1",
-      "anio": "2",
+      "id": "edc0",
+      "anio": "1",
       "division": "A",
       "turno": "mañana",
+      "materias": [
+        {
+          "id": "1",
+          "nombre": "Matemáticas",
+          "anio": "1"
+        },
+        {
+          "id": "2",
+          "nombre": "Lenguas",
+          "anio": "1"
+        },
+        {
+          "id": "3",
+          "nombre": "Física",
+          "anio": "1"
+        },
+        {
+          "id": "4",
+          "nombre": "Geografía",
+          "anio": "1"
+        },
+        {
+          "id": "5",
+          "nombre": "Ed. Física",
+          "anio": "1"
+        }
+      ],
       "horarios": [
         {
           "dia": "Lunes",
           "modulo": "1",
-          "materiaID": 2
+          "materiaID": ""
         },
         {
           "dia": "Lunes",
           "modulo": "2",
-          "materiaID": 2
+          "materiaID": "2"
         },
         {
           "dia": "Lunes",
           "modulo": "3",
-          "materiaID": 5
+          "materiaID": "4"
         },
         {
           "dia": "Lunes",
           "modulo": "4",
-          "materiaID": 3
+          "materiaID": "5"
         },
         {
           "dia": "Martes",
           "modulo": "1",
-          "materiaID": 1
+          "materiaID": "1"
         },
         {
           "dia": "Martes",
           "modulo": "2",
-          "materiaID": 4
+          "materiaID": "2"
         },
         {
           "dia": "Martes",
           "modulo": "3",
-          "materiaID": 1
+          "materiaID": "3"
         },
         {
           "dia": "Martes",
           "modulo": "4",
-          "materiaID": 1
+          "materiaID": "5"
         },
         {
           "dia": "Miércoles",
           "modulo": "1",
-          "materiaID": 1
+          "materiaID": "1"
         },
         {
           "dia": "Miércoles",
           "modulo": "2",
-          "materiaID": 1
+          "materiaID": "2"
         },
         {
           "dia": "Miércoles",
           "modulo": "3",
-          "materiaID": 1
+          "materiaID": "2"
         },
         {
           "dia": "Miércoles",
           "modulo": "4",
-          "materiaID": 1
+          "materiaID": "5"
         },
         {
           "dia": "Jueves",
           "modulo": "1",
-          "materiaID": 3
+          "materiaID": "1"
         },
         {
           "dia": "Jueves",
           "modulo": "2",
-          "materiaID": 4
+          "materiaID": "2"
         },
         {
           "dia": "Jueves",
           "modulo": "3",
-          "materiaID": 4
+          "materiaID": "1"
         },
         {
           "dia": "Jueves",
           "modulo": "4",
-          "materiaID": 4
+          "materiaID": "5"
         },
         {
           "dia": "Viernes",
           "modulo": "1",
-          "materiaID": 2
+          "materiaID": "1"
         },
         {
           "dia": "Viernes",
           "modulo": "2",
-          "materiaID": 1
+          "materiaID": "2"
         },
         {
           "dia": "Viernes",
           "modulo": "3",
-          "materiaID": 1
+          "materiaID": "5"
         },
         {
           "dia": "Viernes",
           "modulo": "4",
-          "materiaID": 1
+          "materiaID": "4"
         }
       ],
       "alumnos": [
         {
-          "alumnoID": 1
+          "alumnoID": "1"
         },
         {
-          "alumnoID": 4
+          "alumnoID": "4"
         },
         {
-          "alumnoID": 7
-        },
-        {
-          "alumnoID": 13
+          "alumnoID": "8"
         }
       ]
     },
     {
-      "id": "2",
-      "anio": "2",
-      "division": "A",
-      "turno": "mañana"
+      "id": "bee3",
+      "anio": "1",
+      "division": "B",
+      "turno": "mañana",
+      "materias": [
+        {
+          "id": "1",
+          "nombre": "Matemáticas",
+          "anio": "1"
+        },
+        {
+          "id": "2",
+          "nombre": "Lenguas",
+          "anio": "1"
+        },
+        {
+          "id": "3",
+          "nombre": "Física",
+          "anio": "1"
+        },
+        {
+          "id": "4",
+          "nombre": "Geografía",
+          "anio": "1"
+        },
+        {
+          "id": "5",
+          "nombre": "Ed. Física",
+          "anio": "1"
+        }
+      ],
+      "horarios": [
+        {
+          "dia": "Lunes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "2",
+          "materiaID": "1"
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "2",
+          "materiaID": "1"
+        },
+        {
+          "dia": "Martes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "2",
+          "materiaID": "2"
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "2",
+          "materiaID": "2"
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "4",
+          "materiaID": ""
+        }
+      ],
+      "alumnos": [
+        {
+          "alumnoID": ""
+        },
+        {
+          "alumnoID": "7"
+        }
+      ]
     }
   ],
   "materias": [
@@ -253,14 +415,19 @@
       "id": "6",
       "nombre": "tst edicion",
       "anio": "5"
+    },
+    {
+      "id": "b66d",
+      "nombre": "Matematicas",
+      "anio": "2"
     }
   ],
   "novedades": [
     {
       "id": "1",
-      "titulo": "Nueva reunión de docentes",
+      "titulo": "Nueva reunión de Docentes",
       "url_img": "",
-      "destinatario": "docentes"
+      "destinatario": "Docentes"
     },
     {
       "id": "2",

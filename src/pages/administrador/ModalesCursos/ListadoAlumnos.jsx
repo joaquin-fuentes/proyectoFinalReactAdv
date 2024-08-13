@@ -19,15 +19,16 @@ const ListadoAlumnos = ({ curso }) => {
 
   useEffect(() => {
     if (!loading && alumnos.length > 0 && curso.alumnos) {
-      // Filtra los alumnos del curso actual
-      console.log(alumnos)
-      const alumnosIdsCurso = curso.alumnos.map((a) => a.alumnoID);
+      // Extraer los IDs de alumnos del curso actual
+      const idsCurso = curso.alumnos.map((alumno) => alumno.alumnoID);
+      // Filtrar los alumnos cuya ID coincida con algún ID en idsCurso
       const alumnosFiltrados = alumnos.filter((alumno) =>
-        alumnosIdsCurso.includes(alumno.id)
+        idsCurso.includes(alumno.id)
       );
       setAlumnosCurso(alumnosFiltrados);
     }
   }, [alumnos, curso, loading]);
+
 
   return (
     <>

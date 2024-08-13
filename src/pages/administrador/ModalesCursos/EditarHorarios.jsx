@@ -8,17 +8,14 @@ import Swal from "sweetalert2";
 const EditarHorarios = ({ curso }) => {
   const [show, setShow] = useState(false);
   const [horarios, setHorarios] = useState([]);
+  const [materias, setMaterias] = useState([]);
 
-  const { materias, obtenerMaterias, loading, error } = useMateriasStore();
   const { actualizarCurso, obtenerCursos } = useCursosStore();
 
   useEffect(() => {
     setHorarios(curso.horarios || []);
+    setMaterias(curso.materias);
   }, [curso]);
-
-  useEffect(() => {
-    obtenerMaterias();
-  }, [obtenerMaterias]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -29,7 +26,7 @@ const EditarHorarios = ({ curso }) => {
     setHorarios((prevHorarios) =>
       prevHorarios.map((h) =>
         h.dia === dia && h.modulo === modulo
-          ? { ...h, materiaID: +materiaID } // Convertir a número
+          ? { ...h, materiaID: materiaID }
           : h
       )
     );
@@ -53,7 +50,6 @@ const EditarHorarios = ({ curso }) => {
       </Form.Control>
     );
   };
-
   const handleGuardar = async () => {
     try {
       await actualizarCurso(curso.id, { ...curso, horarios });
@@ -78,8 +74,8 @@ const EditarHorarios = ({ curso }) => {
     }
   };
 
-  if (loading) return <p>Cargando materias...</p>;
-  if (error) return <p>Error al cargar materias: {error}</p>;
+  // if (loading) return <p>Cargando materias...</p>;
+  // if (error) return <p>Error al cargar materias: {error}</p>;
 
   return (
     <>

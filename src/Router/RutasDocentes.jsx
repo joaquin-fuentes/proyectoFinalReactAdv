@@ -33,7 +33,7 @@ const RutasDocentes = () => {
   const showSidebarAndHeader = validRoutes.includes(location.pathname);
 
   // Redirigir si el usuario no es docente
-  if (user?.rol !== "docente") {
+  if (user?.rol !== "Docente") {
     return <Navigate to="/error" replace />;
   }
 

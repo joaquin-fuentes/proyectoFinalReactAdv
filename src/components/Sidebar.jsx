@@ -24,7 +24,7 @@ const Sidebar = ({ handleClose }) => {
         <img src={logo} alt="imagen logo" className="logoSidebar" />
         <nav className="navbar w-100 p-0">
           {/* Mostrar opciones según el rol del usuario */}
-          {userSession.rol === "alumno" && (
+          {userSession.rol === "Alumno" && (
             <ul className="navbar-nav w-100">
               <li className="nav-item text-center">
                 <NavLink
@@ -79,7 +79,7 @@ const Sidebar = ({ handleClose }) => {
             </ul>
           )}
 
-          {userSession.rol === "docente" && (
+          {userSession.rol === "Docente" && (
             <ul className="navbar-nav w-100">
               <li className="nav-item text-center">
                 <NavLink
@@ -144,7 +144,7 @@ const Sidebar = ({ handleClose }) => {
             </ul>
           )}
 
-          {userSession.rol === "administrador" && (
+          {userSession.rol === "Administrador" && (
             <ul className="navbar-nav w-100">
               <li className="nav-item text-center">
                 <NavLink

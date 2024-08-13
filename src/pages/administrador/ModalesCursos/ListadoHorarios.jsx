@@ -24,11 +24,10 @@ const ListadoHorarios = ({ curso }) => {
 
   const obtenerNombreDeMateria = (id) => {
     const materia = materias.find((m) => m.id == id);
-    return materia ? materia.nombre : "Materia no encontrada";
+    return materia ? materia.nombre : "Libre";
   };
 
   const renderHorario = (dia, modulo) => {
-    // Convertir el día a minúsculas para la búsqueda
     const horario = horarios.find((h) => h.dia === dia && h.modulo === modulo);
     return horario ? obtenerNombreDeMateria(horario.materiaID) : "Libre";
   };
