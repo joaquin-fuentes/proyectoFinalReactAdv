@@ -2,8 +2,8 @@ import { Button, Col, Form, Row } from "react-bootstrap";
 import "./Home.css";
 import home from "../../assets/imagenes/home.png";
 import logo from "../../assets/imagenes/logo-sge-dark-circle.png";
-import SeccionNovedades from "../docentes/SeccionNovedades";
 import FormLogin from "./FormLogin";
+import NovedadesHome from "./NovedadesHome";
 
 const Home = () => {
   return (
@@ -49,7 +49,7 @@ const Home = () => {
                 <i className="bi bi-arrow-bar-down"></i>
               </h4>
 
-              <SeccionNovedades></SeccionNovedades>
+              <NovedadesHome />
             </div>
           </Col>
         </Row>
