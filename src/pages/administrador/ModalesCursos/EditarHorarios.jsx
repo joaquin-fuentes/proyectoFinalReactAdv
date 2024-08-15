@@ -74,8 +74,6 @@ const EditarHorarios = ({ curso }) => {
     }
   };
 
-  // if (loading) return <p>Cargando materias...</p>;
-  // if (error) return <p>Error al cargar materias: {error}</p>;
 
   return (
     <>

@@ -130,7 +130,7 @@ const EditarAlumnos = ({ curso }) => {
                 <thead>
                   <tr>
                     <th>Orden</th>
-                    <th>Nombre</th>
+                    <th>Nombre y apellido</th>
                     <th>Acciones</th>
                   </tr>
                 </thead>
@@ -139,7 +139,9 @@ const EditarAlumnos = ({ curso }) => {
                     alumnosCurso.map((alumno, index) => (
                       <tr key={alumno.id}>
                         <td>{index + 1}</td>
-                        <td>{alumno.nombre}</td>
+                        <td>
+                          {alumno.nombre} {alumno.apellido}
+                        </td>
                         <td>
                           <div className>
                             <button
@@ -165,7 +167,7 @@ const EditarAlumnos = ({ curso }) => {
                   <option value="">Seleccionar Alumno...</option>
                   {alumnosDisponibles.map((alumno) => (
                     <option key={alumno.id} value={alumno.id}>
-                      {alumno.nombre}
+                      {alumno.nombre} {alumno.apellido}
                     </option>
                   ))}
                 </Form.Control>

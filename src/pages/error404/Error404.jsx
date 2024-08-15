@@ -8,13 +8,13 @@ const Error404 = () => {
 
   const buscarRuta =(usuario)=>{
     console.log(usuario)
-    if(usuario.rol === "alumno"){
+    if(usuario.rol === "Alumno"){
       return "/alumnos" 
     }
-    if(usuario.rol === "docente"){
+    if(usuario.rol === "Docente"){
       return "/docentes" 
     }
-    if(usuario.rol === "administrador"){
+    if(usuario.rol === "Administrador"){
       return "/administrador" 
     }
   }

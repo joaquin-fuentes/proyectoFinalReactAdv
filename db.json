@@ -12,15 +12,16 @@
       "rol": "Alumno"
     },
     {
-      "id": "2",
-      "direccion": "direccion123",
-      "nombre": "Georgina",
+      "rol": "Administrador",
       "apellido": "Costilla",
-      "email": "georgina@gmail.com",
-      "dni": "38256525",
-      "password": "123456",
+      "nombre": "Georgina",
+      "dni": "381212112",
       "telefono": "3815426254",
-      "rol": "Administrador"
+      "direccion": "direccion123",
+      "email": "georgina@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "id": "2"
     },
     {
       "id": "3",
@@ -92,6 +93,142 @@
       "password": "12",
       "passwordConfirm": "12",
       "id": "8"
+    },
+    {
+      "id": "9",
+      "direccion": "Belgrano 458",
+      "nombre": "Carlos",
+      "apellido": "García",
+      "email": "carlos.garcia@gmail.com",
+      "dni": "40345678",
+      "password": "abcd1234",
+      "telefono": "3811234567",
+      "rol": "Alumno"
+    },
+    {
+      "id": "10",
+      "direccion": "Alem 789",
+      "nombre": "Valentina",
+      "apellido": "Rossi",
+      "email": "valentina.rossi@gmail.com",
+      "dni": "41567890",
+      "password": "abcd1234",
+      "telefono": "3812345678",
+      "rol": "Alumno"
+    },
+    {
+      "id": "11",
+      "direccion": "Urquiza 1478",
+      "nombre": "Esteban",
+      "apellido": "Martínez",
+      "email": "esteban.martinez@gmail.com",
+      "dni": "42789012",
+      "password": "abcd1234",
+      "telefono": "3813456789",
+      "rol": "Alumno"
+    },
+    {
+      "id": "12",
+      "direccion": "San Juan 345",
+      "nombre": "Luciana",
+      "apellido": "Fernández",
+      "email": "luciana.fernandez@gmail.com",
+      "dni": "43890123",
+      "password": "abcd1234",
+      "telefono": "3814567890",
+      "rol": "Alumno"
+    },
+    {
+      "id": "13",
+      "direccion": "Mitre 123",
+      "nombre": "Pablo",
+      "apellido": "Rodríguez",
+      "email": "pablo.rodriguez@gmail.com",
+      "dni": "45678901",
+      "password": "admin123",
+      "passwordConfirm": "admin123",
+      "telefono": "3815678901",
+      "rol": "Administrador"
+    },
+    {
+      "id": "14",
+      "direccion": "Rivadavia 456",
+      "nombre": "Camila",
+      "apellido": "Pérez",
+      "email": "camila.perez@gmail.com",
+      "dni": "46789012",
+      "password": "admin123",
+      "passwordConfirm": "admin123",
+      "telefono": "3816789012",
+      "rol": "Administrador"
+    },
+    {
+      "id": "15",
+      "direccion": "Lavalle 789",
+      "nombre": "Martín",
+      "apellido": "González",
+      "email": "martin.gonzalez@gmail.com",
+      "dni": "47890123",
+      "password": "admin123",
+      "passwordConfirm": "admin123",
+      "telefono": "3817890123",
+      "rol": "Administrador"
+    },
+    {
+      "id": "16",
+      "direccion": "Independencia 101",
+      "nombre": "Sofía",
+      "apellido": "López",
+      "email": "sofia.lopez@gmail.com",
+      "dni": "48901234",
+      "password": "admin123",
+      "passwordConfirm": "admin123",
+      "telefono": "3818901234",
+      "rol": "Administrador"
+    },
+    {
+      "id": "17",
+      "direccion": "Colón 202",
+      "nombre": "Miguel",
+      "apellido": "Torres",
+      "email": "miguel.torres@gmail.com",
+      "dni": "49876543",
+      "password": "docente123",
+      "telefono": "3819012345",
+      "rol": "Docente"
+    },
+    {
+      "id": "18",
+      "direccion": "Sarmiento 304",
+      "nombre": "Natalia",
+      "apellido": "Ruiz",
+      "email": "natalia.ruiz@gmail.com",
+      "dni": "50987654",
+      "password": "docente123",
+      "telefono": "3810123456",
+      "rol": "Docente"
+    },
+    {
+      "id": "19",
+      "direccion": "Saavedra 506",
+      "nombre": "Diego",
+      "apellido": "Ramírez",
+      "email": "diego.ramirez@gmail.com",
+      "dni": "52098765",
+      "password": "docente123",
+      "telefono": "3811234568",
+      "rol": "Docente"
+    },
+    {
+      "id": "20",
+      "direccion": "San Lorenzo 708",
+      "nombre": "Laura",
+      "apellido": "Moreno",
+      "email": "laura.moreno@gmail.com",
+      "dni": "53109876",
+      "password": "docente123",
+      "telefono": "3812345679",
+      "rol": "Docente"
     }
   ],
   "cursos": [
@@ -104,7 +241,24 @@
         {
           "id": "1",
           "nombre": "Matemáticas",
-          "anio": "1"
+          "anio": "1",
+          "docenteID": "1",
+          "notas": [
+            {
+              "trimestre1": {
+                "alumnoId": "1",
+                "nota": 10
+              },
+              "trimestre2": {
+                "alumnoId": "1",
+                "nota": 10
+              },
+              "trimestre3": {
+                "alumnoId": "1",
+                "nota": 10
+              }
+            }
+          ]
         },
         {
           "id": "2",
@@ -131,7 +285,7 @@
         {
           "dia": "Lunes",
           "modulo": "1",
-          "materiaID": ""
+          "materiaID": "1"
         },
         {
           "dia": "Lunes",
@@ -238,6 +392,12 @@
         },
         {
           "alumnoID": "8"
+        },
+        {
+          "alumnoID": "6"
+        },
+        {
+          "alumnoID": "7"
         }
       ]
     },
@@ -383,6 +543,381 @@
           "alumnoID": "7"
         }
       ]
+    },
+    {
+      "id": "90c2",
+      "anio": "3",
+      "division": "A",
+      "turno": "mañana",
+      "materias": [
+        {
+          "id": "6ae1",
+          "nombre": "Economia",
+          "anio": "3"
+        },
+        {
+          "id": "e4c8",
+          "nombre": "Programacion",
+          "anio": "3"
+        }
+      ],
+      "horarios": [
+        {
+          "dia": "Lunes",
+          "modulo": "1",
+          "materiaID": "6ae1"
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "1",
+          "materiaID": "e4c8"
+        },
+        {
+          "dia": "Martes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "4",
+          "materiaID": ""
+        }
+      ],
+      "alumnos": [
+        {
+          "alumnoID": ""
+        },
+        {
+          "alumnoID": "1"
+        },
+        {
+          "alumnoID": "4"
+        }
+      ]
+    },
+    {
+      "id": "e84f",
+      "anio": "2",
+      "division": "B",
+      "turno": "mañana",
+      "materias": [
+        {
+          "id": "b66d",
+          "nombre": "Matematicas",
+          "anio": "2"
+        },
+        {
+          "id": "89b8",
+          "nombre": "Lenguas",
+          "anio": "2"
+        },
+        {
+          "id": "60e0",
+          "nombre": "Geografia",
+          "anio": "2"
+        }
+      ],
+      "horarios": [
+        {
+          "dia": "Lunes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "4",
+          "materiaID": ""
+        }
+      ],
+      "alumnos": [
+        {
+          "alumnoID": ""
+        }
+      ]
+    },
+    {
+      "id": "3079",
+      "anio": "4",
+      "division": "A",
+      "turno": "mañana",
+      "materias": [],
+      "horarios": [
+        {
+          "dia": "Lunes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "4",
+          "materiaID": ""
+        }
+      ],
+      "alumnos": [
+        {
+          "alumnoID": ""
+        }
+      ]
     }
   ],
   "materias": [
@@ -420,6 +955,26 @@
       "id": "b66d",
       "nombre": "Matematicas",
       "anio": "2"
+    },
+    {
+      "id": "89b8",
+      "nombre": "Lenguas",
+      "anio": "2"
+    },
+    {
+      "id": "60e0",
+      "nombre": "Geografia",
+      "anio": "2"
+    },
+    {
+      "id": "6ae1",
+      "nombre": "Economia",
+      "anio": "3"
+    },
+    {
+      "id": "e4c8",
+      "nombre": "Programacion",
+      "anio": "3"
     }
   ],
   "novedades": [
@@ -440,6 +995,21 @@
       "titulo": "Actualización de Normativas",
       "url_img": "https://des-ers.infd.edu.ar/sitio/wp-content/uploads/2022/05/IMG-20220530-WA0048.jpg",
       "destinatario": "Todos"
+    }
+  ],
+  "asistencias": [
+    {
+      "dia": "12/208/2024",
+      "alumnosPresentes": [
+        {
+          "alumnoID": 1
+        }
+      ],
+      "docentesPresentes": [
+        {
+          "docenteId": 1
+        }
+      ]
     }
   ]
 }

@@ -56,7 +56,7 @@ const ListadoAlumnos = ({ curso }) => {
               <thead>
                 <tr>
                   <th>Orden</th>
-                  <th>Nombre</th>
+                  <th>Nombre y apellido</th>
                 </tr>
               </thead>
               <tbody>
@@ -64,7 +64,7 @@ const ListadoAlumnos = ({ curso }) => {
                   alumnosCurso.map((alumno, index) => (
                     <tr key={alumno.id}>
                       <td>{index + 1}</td>
-                      <td>{alumno.nombre}</td>
+                      <td>{alumno.nombre} {alumno.apellido}</td>
                     </tr>
                   ))
                 ) : (

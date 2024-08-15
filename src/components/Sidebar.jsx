@@ -7,6 +7,7 @@ import { IoNewspaper } from "react-icons/io5";
 import { BiSolidMessageAltDetail } from "react-icons/bi";
 import { ImProfile } from "react-icons/im";
 import { IoSchool } from "react-icons/io5";
+import { FaClipboardCheck } from "react-icons/fa6";
 
 import logo from "../assets/imagenes/logo-sge-circle.png";
 
@@ -184,6 +185,16 @@ const Sidebar = ({ handleClose }) => {
                 >
                   <IoSchool className="me-2" />
                   Cursos
+                </NavLink>
+              </li>
+              <li className="nav-item text-center">
+                <NavLink
+                  to="/administrador/asistencias"
+                  className="nav-link text-light fw-bold btnSidebar py-3 d-flex justify-content-center align-items-center"
+                  onClick={handleClose}
+                >
+                  <FaClipboardCheck className="me-2" />
+                  Asistencias
                 </NavLink>
               </li>
               <li className="nav-item text-center">
