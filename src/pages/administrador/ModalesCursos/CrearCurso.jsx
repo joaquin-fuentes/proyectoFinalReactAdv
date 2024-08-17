@@ -22,7 +22,7 @@ const CrearCurso = () => {
   // Esquema de validación con Yup
   const validationSchema = Yup.object().shape({
     anio: Yup.string().required("El año es obligatorio"),
-    division: Yup.string().required("La division es obligatoria"),
+    division: Yup.string().required("La división es obligatoria"),
     turno: Yup.string().required("El turno es obligatorio"),
   });
 
@@ -35,15 +35,21 @@ const CrearCurso = () => {
 
   // Manejo del envío del formulario
   const handleSubmit = async (values, { resetForm }) => {
-    // Filtrar materias que coinciden con el año seleccionado
-    const materiasCurso = materias.filter(
-      (materia) => materia.anio === values.anio
-    );
+    // Filtrar materias que coinciden con el año y división seleccionados
+    const materiasCurso = materias
+      .filter(
+        (materia) =>
+          materia.anio === values.anio &&
+          materia.division === values.division &&
+          materia.turno === values.turno
+      )
+      .map((materia) => materia.id); // Extraer solo los IDs de las materias
 
-    // Crear un nuevo curso con los valores del formulario y las materias filtradas
+    // Crear un nuevo curso con los valores del formulario y los IDs de las materias filtradas
+    console.log(materiasCurso);
     const nuevoCurso = {
       ...values,
-      materias: materiasCurso,
+      materias: materiasCurso, // Aquí solo se almacenan los IDs de las materias
       horarios: [
         { dia: "Lunes", modulo: "1", materiaID: "" },
         { dia: "Lunes", modulo: "2", materiaID: "" },
@@ -66,8 +72,9 @@ const CrearCurso = () => {
         { dia: "Viernes", modulo: "3", materiaID: "" },
         { dia: "Viernes", modulo: "4", materiaID: "" },
       ],
-      alumnos: [{ alumnoID: "" }],
+      alumnos: [],
     };
+
     console.log(nuevoCurso);
     try {
       await crearCurso(nuevoCurso); // Enviar los datos al store o realizar otra acción
@@ -169,8 +176,8 @@ const CrearCurso = () => {
                     }`}
                   >
                     <option value="">Seleccione un turno</option>
-                    <option value="mañana">Mañana</option>
-                    <option value="tarde">Tarde</option>
+                    <option value="Mañana">Mañana</option>
+                    <option value="Tarde">Tarde</option>
                   </Field>
                   <ErrorMessage
                     name="turno"

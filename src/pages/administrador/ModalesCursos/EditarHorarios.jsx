@@ -8,14 +8,27 @@ import Swal from "sweetalert2";
 const EditarHorarios = ({ curso }) => {
   const [show, setShow] = useState(false);
   const [horarios, setHorarios] = useState([]);
-  const [materias, setMaterias] = useState([]);
+  const [materiasCompletas, setMateriasCompletas] = useState([]);
 
   const { actualizarCurso, obtenerCursos } = useCursosStore();
+  const { obtenerMateriaPorId } = useMateriasStore(); // Obtener la función para obtener materias por ID
 
   useEffect(() => {
     setHorarios(curso.horarios || []);
-    setMaterias(curso.materias);
-  }, [curso]);
+
+    const fetchMaterias = async () => {
+      try {
+        const materiasData = await Promise.all(
+          curso.materias.map((id) => obtenerMateriaPorId(id))
+        );
+        setMateriasCompletas(materiasData);
+      } catch (error) {
+        console.error("Error al obtener materias:", error.message);
+      }
+    };
+
+    fetchMaterias();
+  }, [curso, obtenerMateriaPorId]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -42,7 +55,7 @@ const EditarHorarios = ({ curso }) => {
         onChange={(e) => handleMateriaChange(dia, modulo, e.target.value)}
       >
         <option value="">Seleccionar Materia</option>
-        {materias.map((materia) => (
+        {materiasCompletas.map((materia) => (
           <option key={materia.id} value={materia.id}>
             {materia.nombre}
           </option>
@@ -50,6 +63,7 @@ const EditarHorarios = ({ curso }) => {
       </Form.Control>
     );
   };
+
   const handleGuardar = async () => {
     try {
       await actualizarCurso(curso.id, { ...curso, horarios });
@@ -73,7 +87,6 @@ const EditarHorarios = ({ curso }) => {
       });
     }
   };
-
 
   return (
     <>

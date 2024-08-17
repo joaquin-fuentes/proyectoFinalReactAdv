@@ -23,6 +23,7 @@ const CrearMateria = () => {
     nombre: Yup.string().required("El nombre es obligatorio"),
     anio: Yup.string().required("El año es obligatorio"),
     division: Yup.string().required("La división es obligatoria"),
+    turno: Yup.string().required("El turno es obligatorio"),
   });
 
   // Valores iniciales del formulario
@@ -30,6 +31,7 @@ const CrearMateria = () => {
     nombre: "",
     anio: "",
     division: "",
+    turno: "",
     docenteId: "",
   };
 
@@ -49,7 +51,7 @@ const CrearMateria = () => {
       ],
     };
     try {
-      await crearMateria(values); // Aquí puedes enviar los datos al store o hacer alguna otra acción
+      await crearMateria(newData); // Aquí puedes enviar los datos al store o hacer alguna otra acción
       handleClose(); // Cerrar el modal después del envío
 
       // Mostrar SweetAlert de éxito
@@ -151,6 +153,25 @@ const CrearMateria = () => {
                   </Field>
                   <ErrorMessage
                     name="division"
+                    component="div"
+                    className="invalid-feedback"
+                  />
+                </Form.Group>
+                <Form.Group className="col-12 mb-3" controlId="formTurno">
+                  <Form.Label>Turno</Form.Label>
+                  <Field
+                    as="select"
+                    name="turno"
+                    className={`form-control ${
+                      touched.turno && errors.turno ? "is-invalid" : ""
+                    }`}
+                  >
+                    <option value="">Seleccione un Turno</option>
+                    <option value="Mañana">Mañana</option>
+                    <option value="Tarde">Tarde</option>
+                  </Field>
+                  <ErrorMessage
+                    name="turno"
                     component="div"
                     className="invalid-feedback"
                   />

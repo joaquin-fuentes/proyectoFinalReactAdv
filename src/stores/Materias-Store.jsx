@@ -1,12 +1,10 @@
-import axios from 'axios';
+import axios from "axios";
 
-import { create } from 'zustand';
-const URL_MATERIA= import.meta.env.VITE_API_MATERIA;
-
+import { create } from "zustand";
+const URL_MATERIA = import.meta.env.VITE_API_MATERIA;
 
 const useMateriasStore = create((set) => ({
   materias: [],
-  materia: null,
   loading: false,
   error: null,
 
@@ -21,12 +19,11 @@ const useMateriasStore = create((set) => ({
   },
 
   obtenerMateriaPorId: async (id) => {
-    set({ loading: true, error: null });
     try {
       const resp = await axios.get(`${URL_MATERIA}/${id}`);
-      set({ materia: resp.data, loading: false });
+      return resp.data; // Devolver la materia en lugar de actualizar el estado
     } catch (error) {
-      set({ error: error.message, loading: false });
+      throw new Error(error.message);
     }
   },
 
