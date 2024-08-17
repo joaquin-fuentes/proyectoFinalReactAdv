@@ -5,15 +5,19 @@ import CrearMateria from "./ModalesMaterias/CrearMateria";
 import useMateriasStore from "../../stores/Materias-Store";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
+import useDocenteStore from "../../stores/Docentes-Store";
 
 const Materias = () => {
   const { materias, obtenerMaterias, borrarMateria } = useMateriasStore();
   const [filtroNombre, setFiltroNombre] = useState("");
   const [filtroAnio, setFiltroAnio] = useState("");
 
+  const { docentes, obtenerDocentes } = useDocenteStore();
+
   useEffect(() => {
     obtenerMaterias();
-  }, []);
+    obtenerDocentes();
+  }, [obtenerMaterias, obtenerDocentes]);
 
   const eliminarMateria = (id) => {
     Swal.fire({
@@ -51,6 +55,13 @@ const Materias = () => {
       : true;
     return coincideNombre && coincideAnio;
   });
+
+  const obtenerNombreDocente = (id) => {
+    // Utilizamos find para buscar el docente con el ID correspondiente
+    const docente = docentes.find((docente) => docente.id === id);
+    // Si se encuentra el docente, devolvemos su nombre; de lo contrario, devolvemos "Libre"
+    return docente ? docente.nombre + " " + docente.apellido : "Libre";
+  };
 
   return (
     <Container className="text-center px-md-5 py-md-2">
@@ -92,6 +103,8 @@ const Materias = () => {
             <tr>
               <th className="tableMaterias fw-bold">Nombre</th>
               <th className="tableMaterias fw-bold">Año</th>
+              <th className="tableMaterias fw-bold">División</th>
+              <th className="tableMaterias fw-bold">Docente a Cargo</th>
               <th className="tableMaterias fw-bold">Acciones</th>
             </tr>
           </thead>
@@ -101,6 +114,10 @@ const Materias = () => {
                 <tr key={materia.id}>
                   <td className="tableMaterias">{materia.nombre}</td>
                   <td className="tableMaterias">{materia.anio}°</td>
+                  <td className="tableMaterias">{materia.division}</td>
+                  <td className="tableMaterias">
+                    {obtenerNombreDocente(materia.docenteId)}
+                  </td>
                   <td className="tableMaterias d-flex justify-content-center">
                     <EditarMateria materia={materia} />
                     <button

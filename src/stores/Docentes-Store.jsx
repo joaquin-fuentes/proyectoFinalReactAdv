@@ -1,27 +1,48 @@
-import axios from 'axios';
-import { create } from 'zustand';
+import axios from "axios";
+import { create } from "zustand";
+const URL_USUARIO = import.meta.env.VITE_API_USUARIO;
 
 const useDocenteStore = create((set) => ({
   docentes: [],
-  docente: null,
+  docente: {},
   loading: false,
   error: null,
 
-  getDocentes: async () => {
+  obtenerDocentes: async () => {
     set({ loading: true, error: null });
     try {
-      const resp = await axios.get('');
-      set({ docentes: resp.data, loading: false });
+      const resp = await axios.get(URL_USUARIO);
+      // Verifica si la propiedad 'usuarios' existe y es un array
+      if (Array.isArray(resp.data)) {
+        const docentes = resp.data.filter((user) => user.rol === "Docente");
+        set({ docentes, loading: false });
+      } else {
+        set({
+          error:
+            "La propiedad 'usuarios' no está definida en la respuesta de la API",
+          loading: false,
+        });
+      }
     } catch (error) {
       set({ error: error.message, loading: false });
     }
   },
 
-  getDocente: async (id) => {
+  obtenerDocente: async (id) => {
     set({ loading: true, error: null });
     try {
-      const resp = await axios.get(`${id}`);
-      set({ docente: resp.data, loading: false });
+      const resp = await axios.get(`${URL_USUARIO}/${id}`);
+      const usuario = resp.data;
+
+      // Verifica si el usuario tiene el rol "Docente"
+      if (usuario && usuario.rol === "Docente") {
+        set({ docente: usuario, loading: false });
+      } else {
+        set({
+          error: "El usuario no es un docente o no existe.",
+          loading: false,
+        });
+      }
     } catch (error) {
       set({ error: error.message, loading: false });
     }
@@ -30,7 +51,7 @@ const useDocenteStore = create((set) => ({
   createDocente: async (newDocente) => {
     set({ loading: true, error: null });
     try {
-      const resp = await axios.post('', newDocente);
+      const resp = await axios.post("", newDocente);
       set((state) => ({
         docentes: [...state.docentes, resp.data],
         loading: false,
