@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Modal, Table, Form } from "react-bootstrap";
 import useAlumnoStore from "../../../stores/Alumnos-Store";
-import { FaEdit, FaTrash, FaPlus } from "react-icons/fa";
+import { FaEdit, FaTrash } from "react-icons/fa";
 import useCursosStore from "../../../stores/Cursos-Store";
 import Swal from "sweetalert2";
 
@@ -22,17 +22,14 @@ const EditarAlumnos = ({ curso }) => {
 
   useEffect(() => {
     if (!loading && alumnos.length > 0 && curso.alumnos) {
-      // Extraer los IDs de alumnos del curso actual
-      const idsCurso = curso.alumnos.map((alumno) => alumno.alumnoID);
-
-      // Filtrar los alumnos que ya están en el curso
+      // Filtrar los alumnos que ya están en el curso usando los IDs en curso.alumnos
       const alumnosFiltrados = alumnos.filter((alumno) =>
-        idsCurso.includes(alumno.id)
+        curso.alumnos.includes(alumno.id)
       );
 
-      // Filtrar los alumnos que no están en el curso para mostrarlos en el select
+      // Filtrar los alumnos que no están en el curso
       const alumnosNoAsignados = alumnos.filter(
-        (alumno) => !idsCurso.includes(alumno.id)
+        (alumno) => !curso.alumnos.includes(alumno.id)
       );
 
       setAlumnosCurso(alumnosFiltrados);
@@ -53,20 +50,25 @@ const EditarAlumnos = ({ curso }) => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          // Filtra el alumno que se va a eliminar del listado del curso
-          const nuevosAlumnos = alumnosCurso.filter(
-            (alumno) => alumno.id !== alumnoID
-          );
-          setAlumnosCurso(nuevosAlumnos);
+          // Eliminar el ID del alumno de la lista de IDs en curso.alumnos
+          const nuevosAlumnos = curso.alumnos.filter((id) => id !== alumnoID);
 
-          // Actualiza el curso para reflejar la eliminación
+          // Actualizar el curso con los nuevos IDs de alumnos
           const cursoActualizado = {
             ...curso,
-            alumnos: curso.alumnos.filter(
-              (alumno) => alumno.alumnoID !== alumnoID
-            ),
+            alumnos: nuevosAlumnos,
           };
-          actualizarCurso(curso.id, cursoActualizado);
+          await actualizarCurso(curso.id, cursoActualizado);
+
+          // Actualizar el estado local
+          setAlumnosCurso(
+            alumnosCurso.filter((alumno) => alumno.id !== alumnoID)
+          );
+          setAlumnosDisponibles([
+            ...alumnosDisponibles,
+            alumnos.find((alumno) => alumno.id === alumnoID),
+          ]);
+
           Swal.fire("Eliminado", "El alumno ha sido eliminado.", "success");
         } catch (error) {
           Swal.fire(
@@ -84,22 +86,20 @@ const EditarAlumnos = ({ curso }) => {
     const alumnoSeleccionado = alumnos.find((alumno) => alumno.id === alumnoID);
 
     if (alumnoSeleccionado) {
-      // Agrega el alumno seleccionado al listado del curso
-      setAlumnosCurso([...alumnosCurso, alumnoSeleccionado]);
-
-      // Actualiza el curso para reflejar la adición
+      // Agrega el ID del alumno seleccionado al listado del curso
       const cursoActualizado = {
         ...curso,
-        alumnos: [...curso.alumnos, { alumnoID: alumnoSeleccionado.id }],
+        alumnos: [...curso.alumnos, alumnoSeleccionado.id],
       };
       actualizarCurso(curso.id, cursoActualizado);
-      Swal.fire("Agregado", "El alumno ha sido agregado con éxito.", "success");
-      // Elimina el alumno de la lista de alumnos disponibles
+
+      // Actualizar el estado local
+      setAlumnosCurso([...alumnosCurso, alumnoSeleccionado]);
       setAlumnosDisponibles(
-        alumnosDisponibles.filter(
-          (alumno) => alumno.id !== alumnoSeleccionado.id
-        )
+        alumnosDisponibles.filter((alumno) => alumno.id !== alumnoID)
       );
+
+      Swal.fire("Agregado", "El alumno ha sido agregado con éxito.", "success");
     }
   };
 
@@ -143,14 +143,12 @@ const EditarAlumnos = ({ curso }) => {
                           {alumno.nombre} {alumno.apellido}
                         </td>
                         <td>
-                          <div className>
-                            <button
-                              className="btn btn-outline-danger"
-                              onClick={() => eliminarAlumno(alumno.id)}
-                            >
-                              <FaTrash />
-                            </button>
-                          </div>
+                          <button
+                            className="btn btn-outline-danger"
+                            onClick={() => eliminarAlumno(alumno.id)}
+                          >
+                            <FaTrash />
+                          </button>
                         </td>
                       </tr>
                     ))

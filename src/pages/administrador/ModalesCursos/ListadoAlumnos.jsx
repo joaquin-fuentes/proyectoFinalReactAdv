@@ -6,7 +6,6 @@ import { FaEye } from "react-icons/fa";
 const ListadoAlumnos = ({ curso }) => {
   const [show, setShow] = useState(false);
   const [alumnosCurso, setAlumnosCurso] = useState([]);
-
   const { alumnos, obtenerAlumnos, loading, error } = useAlumnoStore();
 
   const handleClose = () => setShow(false);
@@ -19,16 +18,13 @@ const ListadoAlumnos = ({ curso }) => {
 
   useEffect(() => {
     if (!loading && alumnos.length > 0 && curso.alumnos) {
-      // Extraer los IDs de alumnos del curso actual
-      const idsCurso = curso.alumnos.map((alumno) => alumno.alumnoID);
-      // Filtrar los alumnos cuya ID coincida con algún ID en idsCurso
+      // Filtrar los alumnos cuya ID coincida con algún ID en curso.alumnos
       const alumnosFiltrados = alumnos.filter((alumno) =>
-        idsCurso.includes(alumno.id)
+        curso.alumnos.includes(alumno.id)
       );
       setAlumnosCurso(alumnosFiltrados);
     }
-  }, [alumnos, curso, loading]);
-
+  }, [alumnos, curso.alumnos, loading]);
 
   return (
     <>
@@ -64,7 +60,9 @@ const ListadoAlumnos = ({ curso }) => {
                   alumnosCurso.map((alumno, index) => (
                     <tr key={alumno.id}>
                       <td>{index + 1}</td>
-                      <td>{alumno.nombre} {alumno.apellido}</td>
+                      <td>
+                        {alumno.nombre} {alumno.apellido}
+                      </td>
                     </tr>
                   ))
                 ) : (

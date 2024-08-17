@@ -126,6 +126,116 @@
       "password": "abcd1234",
       "telefono": "3813456789",
       "rol": "Alumno"
+    },
+    {
+      "id": "12",
+      "direccion": "Mitre 1234",
+      "nombre": "Lucía",
+      "apellido": "Pérez",
+      "email": "lucia.perez@gmail.com",
+      "dni": "43901234",
+      "password": "lucia123",
+      "telefono": "3814567890",
+      "rol": "Alumno"
+    },
+    {
+      "id": "13",
+      "direccion": "Rivadavia 567",
+      "nombre": "Matías",
+      "apellido": "Gómez",
+      "email": "matias.gomez@gmail.com",
+      "dni": "44123456",
+      "password": "matias456",
+      "telefono": "3815678901",
+      "rol": "Alumno"
+    },
+    {
+      "id": "14",
+      "direccion": "San Juan 891",
+      "nombre": "Sofía",
+      "apellido": "Ramírez",
+      "email": "sofia.ramirez@gmail.com",
+      "dni": "45345678",
+      "password": "sofia789",
+      "telefono": "3816789012",
+      "rol": "Alumno"
+    },
+    {
+      "id": "15",
+      "direccion": "Lavalle 345",
+      "nombre": "Gabriel",
+      "apellido": "Fernández",
+      "email": "gabriel.fernandez@gmail.com",
+      "dni": "46567890",
+      "password": "gabriel123",
+      "telefono": "3817890123",
+      "rol": "Alumno"
+    },
+    {
+      "id": "16",
+      "direccion": "Sarmiento 678",
+      "nombre": "Laura",
+      "apellido": "Mendoza",
+      "email": "laura.mendoza@gmail.com",
+      "dni": "47789012",
+      "password": "laura456",
+      "telefono": "3818901234",
+      "rol": "Alumno"
+    },
+    {
+      "id": "17",
+      "direccion": "Independencia 123",
+      "nombre": "Federico",
+      "apellido": "Gutiérrez",
+      "email": "federico.gutierrez@gmail.com",
+      "dni": "42345678",
+      "password": "fede123",
+      "telefono": "3819123456",
+      "rol": "Docente"
+    },
+    {
+      "id": "18",
+      "direccion": "Libertad 456",
+      "nombre": "Ana",
+      "apellido": "Moreno",
+      "email": "ana.moreno@gmail.com",
+      "dni": "43567890",
+      "password": "ana456",
+      "telefono": "3819234567",
+      "rol": "Docente"
+    },
+    {
+      "id": "19",
+      "direccion": "San Lorenzo 789",
+      "nombre": "Pablo",
+      "apellido": "Rodríguez",
+      "email": "pablo.rodriguez@gmail.com",
+      "dni": "44789012",
+      "password": "pablo789",
+      "telefono": "3819345678",
+      "rol": "Docente"
+    },
+    {
+      "id": "20",
+      "direccion": "Mitre 910",
+      "nombre": "Carolina",
+      "apellido": "Vázquez",
+      "email": "carolina.vazquez@gmail.com",
+      "dni": "45901234",
+      "password": "caro123",
+      "telefono": "3819456789",
+      "rol": "Docente"
+    },
+    {
+      "id": "21",
+      "direccion": "Belgrano 112",
+      "nombre": "Javier",
+      "apellido": "Martín",
+      "email": "javier.martin@gmail.com",
+      "dni": "46123456",
+      "password": "javi456",
+      "telefono": "3819567890",
+      "rol": "Docente"
     }
   ],
   "cursos": [
@@ -241,7 +351,13 @@
           "materiaID": ""
         }
       ],
-      "alumnos": []
+      "alumnos": [
+        "12",
+        "13",
+        "14",
+        "15",
+        "1"
+      ]
     }
   ],
   "materias": [
@@ -252,7 +368,6 @@
       "division": "A",
       "turno": "Mañana",
       "docenteId": "3",
-      "cursoId": "",
       "notas": [
         {
           "alumnoId": "",

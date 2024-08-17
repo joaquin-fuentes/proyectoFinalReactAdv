@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Form, Table } from "react-bootstrap";
+import { Button, Container, Form, Table } from "react-bootstrap";
 // import EditarCurso from "./ModalesCursos/EditarCurso";
 // import CrearCurso from "./ModalesCursos/CrearCurso";
 import useCursosStore from "../../stores/Cursos-Store";
@@ -10,6 +10,7 @@ import ListadoHorarios from "./ModalesCursos/ListadoHorarios";
 import ListadoAlumnos from "./ModalesCursos/ListadoAlumnos";
 import EditarHorarios from "./ModalesCursos/EditarHorarios";
 import EditarAlumnos from "./ModalesCursos/EditarAlumnos";
+import EditarCurso from "./ModalesCursos/EditarCurso";
 
 const Cursos = () => {
   const { cursos, obtenerCursos, borrarCurso } = useCursosStore();
@@ -105,13 +106,16 @@ const Cursos = () => {
                     </div>
                   </td>
                   <td className="tableMaterias ">
-                    {/* <EditarCurso curso={curso} /> */}
-                    <button
-                      className="btn btn-outline-danger fs-6"
-                      onClick={() => eliminarCurso(curso.id)}
-                    >
-                      <MdDelete />
-                    </button>
+                    <div className="d-flex justify-content-center">
+                      <Button
+                        variant="outline-danger"
+                        className="m-1 d-flex justify-content-center align-items-center flex-column"
+                        onClick={() => eliminarCurso(curso.id)}
+                      >
+                        <MdDelete />
+                      </Button>
+                      <EditarCurso curso={curso}></EditarCurso>
+                    </div>
                   </td>
                 </tr>
               );
