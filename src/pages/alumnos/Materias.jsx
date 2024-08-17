@@ -2,26 +2,59 @@ import React, { useEffect, useState } from "react";
 import { Container, Form, Table } from "react-bootstrap";
 import useAuth from "../../stores/Auth-Store";
 import useCursosStore from "../../stores/Cursos-Store";
+import useMateriasStore from "../../stores/Materias-Store";
+import useDocenteStore from "../../stores/Docentes-Store";
 
 const Materias = () => {
-  const { user } = useAuth();
-  const { cursos, obtenerCursos } = useCursosStore();
-  const [materias, setMaterias] = useState([]);
+  const { user } = useAuth(); // Obtener el usuario autenticado
+  const { cursos, obtenerCursos } = useCursosStore(); // Obtener cursos del store
+  const { obtenerMateriasPorIds, materiasCurso } = useMateriasStore(); // Obtener materias por IDs
+  const { docentes, obtenerDocentes } = useDocenteStore(); // Obtener docentes del store
+  const [busqueda, setBusqueda] = useState(""); // Estado para la búsqueda
 
   useEffect(() => {
-    const fetchCursos = async () => {
-      await obtenerCursos();
+    const fetchCursosYMaterias = async () => {
+      await obtenerCursos(); // Obtener los cursos del store
+      await obtenerDocentes(); // Obtener la lista de docentes
+
+      // Filtrar cursos donde el alumno está inscrito
       const cursosFiltrados = cursos.filter((curso) =>
-        curso.alumnos.some((alumno) => alumno.alumnoID === user.id)
+        curso.alumnos.some((alumnoID) => alumnoID === user.id)
       );
-      const materiasFiltradas = cursosFiltrados.flatMap(
-        (curso) => curso.materias
-      );
-      setMaterias(materiasFiltradas);
+
+      // Obtener los IDs de las materias de los cursos filtrados
+      const materiasIDs = cursosFiltrados.flatMap((curso) => curso.materias);
+      if (materiasIDs.length > 0) {
+        // Obtener detalles de las materias usando sus IDs
+        await obtenerMateriasPorIds(materiasIDs);
+      }
     };
 
-    fetchCursos();
-  }, [obtenerCursos, cursos, user.id]);
+    fetchCursosYMaterias();
+  }, [obtenerCursos, obtenerDocentes, obtenerMateriasPorIds, cursos, user.id]);
+
+  const handleSearch = (e) => {
+    setBusqueda(e.target.value);
+  };
+
+  const materiasFiltradas = materiasCurso.filter((materia) =>
+    materia.nombre.toLowerCase().includes(busqueda.toLowerCase())
+  );
+
+  const obtenerNombreDocente = (docenteId) => {
+    const docente = docentes.find((doc) => doc.id === docenteId);
+    return docente
+      ? `${docente.nombre} ${docente.apellido}`
+      : "Docente no encontrado";
+  };
+
+  const obtenerNotasAlumno = (materia) => {
+    if (!materia.notas) {
+      return {}; // Retornar un objeto vacío si no hay notas
+    }
+    const notaAlumno = materia.notas.find((nota) => nota.alumnoId === user.id);
+    return notaAlumno || {}; // Retornar un objeto vacío si no encuentra la nota del alumno
+  };
 
   return (
     <Container className="text-center px-md-5 py-md-2">
@@ -33,6 +66,8 @@ const Materias = () => {
           type="text"
           placeholder="Nombre materia"
           className="w-50"
+          value={busqueda}
+          onChange={handleSearch}
         />
       </Form.Group>
 
@@ -50,27 +85,40 @@ const Materias = () => {
           </tr>
         </thead>
         <tbody>
-          {materias.length > 0 ? (
-            materias.map((materia, index) => (
-              <tr key={index}>
-                <td className="tableMaterias">{materia.nombre}</td>
-                <td className="tableMaterias">{materia.anio}°</td>
-                <td className="tableMaterias">{materia.docente}Docente a cargo</td>
-                <td className="tableMaterias">{materia.trimestre1}</td>
-                <td className="tableMaterias">{materia.trimestre2}</td>
-                <td className="tableMaterias">{materia.trimestre3}</td>
-                <td className="tableMaterias">{materia.notaFinal}</td>
-                <td
-                  className={`tableMaterias ${
-                    materia.estado === "Aprobado"
-                      ? "text-success"
-                      : "text-danger"
-                  }`}
-                >
-                  {materia.estado}
-                </td>
-              </tr>
-            ))
+          {materiasFiltradas.length > 0 ? (
+            materiasFiltradas.map((materia, index) => {
+              const notasAlumno = obtenerNotasAlumno(materia);
+              return (
+                <tr key={index}>
+                  <td className="tableMaterias">{materia.nombre}</td>
+                  <td className="tableMaterias">{materia.anio}°</td>
+                  <td className="tableMaterias">
+                    {obtenerNombreDocente(materia.docenteId)}
+                  </td>
+                  <td className="tableMaterias">
+                    {notasAlumno.trimestre1 || "-"}
+                  </td>
+                  <td className="tableMaterias">
+                    {notasAlumno.trimestre2 || "-"}
+                  </td>
+                  <td className="tableMaterias">
+                    {notasAlumno.trimestre3 || "-"}
+                  </td>
+                  <td className="tableMaterias">
+                    {notasAlumno.notaFinal || "-"}
+                  </td>
+                  <td
+                    className={`tableMaterias ${
+                      notasAlumno.notaFinal >= 6
+                        ? "text-success"
+                        : "text-danger"
+                    }`}
+                  >
+                    {notasAlumno.notaFinal >= 6 ? "Aprobado" : "Reprobado"}
+                  </td>
+                </tr>
+              );
+            })
           ) : (
             <tr>
               <td colSpan="8">No se encontraron materias.</td>
@@ -83,7 +131,7 @@ const Materias = () => {
         <h6 className="fs-5 text-primary-emphasis">
           Listado Materias previas de año anterior (en caso de tener)
         </h6>
-        <Table hover responsive className="my-3 rounded ">
+        <Table hover responsive className="my-3 rounded">
           <thead>
             <tr>
               <th className="tableMaterias">Materia</th>
@@ -92,7 +140,7 @@ const Materias = () => {
               <th className="tableMaterias">Estado</th>
             </tr>
           </thead>
-          <tbody>{/* Similar logic for previas */}</tbody>
+          <tbody>{/* Lógica similar para materias previas */}</tbody>
         </Table>
       </section>
     </Container>

@@ -1,12 +1,14 @@
 import axios from "axios";
-
 import { create } from "zustand";
+
 const URL_MATERIA = import.meta.env.VITE_API_MATERIA;
 
 const useMateriasStore = create((set) => ({
   materias: [],
   loading: false,
   error: null,
+  materia: {},
+  materiasCurso: [],
 
   obtenerMaterias: async () => {
     set({ loading: true, error: null });
@@ -21,7 +23,21 @@ const useMateriasStore = create((set) => ({
   obtenerMateriaPorId: async (id) => {
     try {
       const resp = await axios.get(`${URL_MATERIA}/${id}`);
-      return resp.data; // Devolver la materia en lugar de actualizar el estado
+      return resp.data;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  },
+
+  obtenerMateriasPorIds: async (ids) => {
+    try {
+      const resp = await axios.get(URL_MATERIA);
+      // Filtramos las materias que coincidan con los IDs proporcionados
+      const materiasFiltradas = resp.data.filter((materia) =>
+        ids.includes(materia.id)
+      );
+      // Guardamos las materias filtradas en el estado `materiasCurso`
+      set({ materiasCurso: materiasFiltradas });
     } catch (error) {
       throw new Error(error.message);
     }
