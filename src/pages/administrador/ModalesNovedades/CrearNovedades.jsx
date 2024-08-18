@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Modal, Form, Button } from "react-bootstrap";
+import { Modal, Form } from "react-bootstrap";
 import useNovedadesStore from "../../../stores/Novedades-Store";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
@@ -59,7 +59,8 @@ const CrearNovedades = () => {
   return (
     <>
       <button className="p-2 rounded iconoCrear" onClick={handleShow}>
-        <i className="bi bi-file-earmark-plus-fill"></i>
+        <i className="bi bi-file-earmark-plus-fill p-1"></i>
+        Nueva novedad
       </button>
 
       <Modal show={show} onHide={handleCerrar} className="modalUsuario">

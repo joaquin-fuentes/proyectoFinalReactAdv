@@ -82,7 +82,7 @@ const ListadoUsuarios = () => {
 
   return (
     <Container className="text-center px-md-5 py-md-2">
-      <h4 className="my-5 titulo">Usuarios</h4>
+      <h2 className="my-5 disenoTitulo">Usuarios</h2>
 
       <Form.Group className="d-flex align-items-center justify-content-center w-md-50 ms-3">
         <Form.Label className="m-0 p-2">

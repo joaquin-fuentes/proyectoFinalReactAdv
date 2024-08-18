@@ -62,7 +62,8 @@ const ModalCrear = () => {
   return (
     <>
       <button className="p-2 rounded iconoCrear" onClick={handleShow}>
-        <i className="bi bi-file-earmark-plus-fill "></i>
+        <i className="bi bi-file-earmark-plus-fill p-1"></i>
+        Nuevo usuario
       </button>
 
       <Modal show={show} onHide={handleClose} className="modalUsuario">

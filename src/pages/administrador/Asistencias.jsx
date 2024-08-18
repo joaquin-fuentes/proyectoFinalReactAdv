@@ -2,9 +2,9 @@ import React from 'react';
 
 const Asistencias = () => {
     return (
-        <div>
-            assitencias
-        </div>
+        <>
+            <h2 className="my-5 disenoTitulo">Asistencias</h2>
+        </>
     );
 };
 
