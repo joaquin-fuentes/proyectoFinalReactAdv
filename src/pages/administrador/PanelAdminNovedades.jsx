@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { Container, Table, Form } from 'react-bootstrap';
 import useNovedadesStore from '../../stores/Novedades-Store.jsx';
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 import CrearNovedades from './ModalesNovedades/CrearNovedades.jsx';
 import EditarNovedades from './ModalesNovedades/EditarNovedades.jsx';
+import useFilterByTitle from '../../hooks/useFilterByTitle.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './Administrador.css';
 
@@ -15,6 +16,8 @@ const PanelAdminNovedades = () => {
   const getNovedades = useNovedadesStore((state) => state.getNovedades);
   const deleteNovedad = useNovedadesStore((state) => state.deleteNovedad);
 
+  const { filterNovedades, setTitleFilter } = useFilterByTitle(novedades);
+
   useEffect(() => {
     getNovedades();
   }, [getNovedades]);
@@ -22,7 +25,7 @@ const PanelAdminNovedades = () => {
   if (loading) {
     return (
       <section className="vh-100 d-flex flex-column justify-content-center">
-        <div class="spinner"></div>
+        <div className="spinner"></div>
       </section>
     );
   }
@@ -71,16 +74,17 @@ const PanelAdminNovedades = () => {
 
   return (
     <Container className="text-center px-md-5 py-md-2">
-      <h2 class="disenoTitulo my-5">Novedades</h2>
+      <h2 className="disenoTitulo my-5">Novedades</h2>
 
       <Form.Group className="d-flex align-items-center justify-content-center w-md-50 ms-3">
         <Form.Label className="m-0 p-2">
-          <span className="fw-bold buscarUsuario">Buscar novedades:</span>
+          <span className="fw-bold buscarUsuario">Buscar novedad:</span>
         </Form.Label>
         <Form.Control
           type="text"
           placeholder="Ingrese un título"
           className="w-50"
+          onChange={(e) => setTitleFilter(e.target.value)}
         />
       </Form.Group>
 
@@ -98,7 +102,7 @@ const PanelAdminNovedades = () => {
           </tr>
         </thead>
         <tbody>
-          {novedades.map((novedad) => (
+          {filterNovedades.map((novedad) => (
             <tr key={novedad.id}>
               <td className="tableMaterias">{novedad.titulo}</td>
               <td className="tableMaterias">

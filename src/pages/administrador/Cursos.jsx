@@ -53,7 +53,7 @@ const Cursos = () => {
 
       <Form.Group className="d-flex align-items-center justify-content-center w-md-50 ms-3">
         <Form.Label className="m-0 p-2">
-          <span className="fw-bold buscarUsuario">BUSCAR:</span>
+          <span className="fw-bold buscarUsuario">Buscar curso:</span>
         </Form.Label>
         <Form.Select
           className="w-25"

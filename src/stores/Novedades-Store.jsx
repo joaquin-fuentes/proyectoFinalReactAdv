@@ -24,6 +24,8 @@ const useNovedadesStore = create((set, get) => ({
 		set({ novedad });
 	},
 
+	setTypeTitle: (type) => set({ typeTitle: type }),
+
 	addNovedad: async (novedad) => {
 		try {
 			const response = await axios.post(URL_NOVEDADES, novedad);

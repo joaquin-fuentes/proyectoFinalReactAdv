@@ -1,13 +1,13 @@
 import { Container, Form, Table } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
-import "bootstrap-icons/font/bootstrap-icons.css";
-import "./Administrador.css";
 import ModalCrear from "../../components/AdminComponents/ModalCrear";
 import ModalEditar from "../../components/AdminComponents/ModalEditar";
 import ModalInfo from "../../components/AdminComponents/ModalInfo";
 import useUsuarios from "../../stores/Usuarios-Store";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "./Administrador.css";
 
 const ListadoUsuarios = () => {
   const usuarios = useUsuarios((state) => state.usuarios || []);
@@ -86,7 +86,7 @@ const ListadoUsuarios = () => {
 
       <Form.Group className="d-flex align-items-center justify-content-center w-md-50 ms-3">
         <Form.Label className="m-0 p-2">
-          <span className="fw-bold buscarUsuario">BUSCAR:</span>
+          <span className="fw-bold buscarUsuario">Buscar usuario:</span>
         </Form.Label>
         <Form.Control
           type="text"
