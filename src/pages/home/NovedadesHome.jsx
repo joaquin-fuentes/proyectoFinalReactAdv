@@ -29,7 +29,7 @@ const NovedadesHome = () => {
     );
   }
   const novedadesHome = novedades.filter(
-    (novedad) => novedad.destinatario ===  "todos"
+    (novedad) => novedad.destinatario ===  "Todos"
   );
 
   return (

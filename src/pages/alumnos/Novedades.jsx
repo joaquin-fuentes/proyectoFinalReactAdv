@@ -30,7 +30,7 @@ const Novedades = () => {
     );
   }
   const novedadesAlumno = novedades.filter(
-    (novedad) => novedad.destinatario != "docentes"
+    (novedad) => novedad.destinatario != "Docentes"
   );
 
   return (

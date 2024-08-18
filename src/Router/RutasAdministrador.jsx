@@ -7,7 +7,10 @@ import Sidebar from "../components/Sidebar";
 import NavBarSmall from "../components/NavBarSmall";
 import Error404 from "../pages/error404/Error404";
 import useAuth from "../stores/Auth-Store";
+import Materias from "../pages/administrador/Materias";
+import Cursos from "../pages/administrador/Cursos";
 import PanelAdminNovedades from "../pages/administrador/PanelAdminNovedades";
+import Asistencias from "../pages/administrador/Asistencias";
 
 const RutasAdministrador = () => {
   const { user } = useAuth();
@@ -17,11 +20,18 @@ const RutasAdministrador = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const validRoutes = ["/administrador", "/administrador/usuarios", "/administrador/novedades"];
+  const validRoutes = [
+    "/administrador",
+    "/administrador/usuarios",
+    "/administrador/novedades",
+    "/administrador/materias",
+    "/administrador/cursos",
+    "/administrador/asistencias",
+  ];
   const showSidebarAndHeader = validRoutes.includes(location.pathname);
 
   // Redirigir si el usuario no es admin
-  if (user?.rol !== "administrador") {
+  if (user?.rol !== "Administrador") {
     return <Navigate to="/error" replace />;
   }
 
@@ -44,6 +54,9 @@ const RutasAdministrador = () => {
         <Routes>
           <Route path="/" element={<PerfilAdmin />} />
           <Route path="/usuarios" element={<ListadoUsuarios />} />
+          <Route path="/materias" element={<Materias />} />
+          <Route path="/cursos" element={<Cursos />} />
+          <Route path="/asistencias" element={<Asistencias />} />
           <Route path="/novedades" element={<PanelAdminNovedades />} />
           <Route path="*" element={<Error404 />} />
         </Routes>

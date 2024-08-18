@@ -1,7 +1,7 @@
 {
   "usuarios": [
     {
-      "id": 1,
+      "id": "1",
       "direccion": "España 2456",
       "nombre": "Joaquin",
       "apellido": "Fuentes",
@@ -9,21 +9,22 @@
       "dni": "37423893",
       "password": "123456",
       "telefono": "3816097754",
-      "rol": "alumno"
+      "rol": "Alumno"
     },
     {
-      "id": 2,
-      "direccion": "direccion123",
-      "nombre": "Georgina",
+      "rol": "Administrador",
       "apellido": "Costilla",
-      "email": "georgina@gmail.com",
-      "dni": "38256525",
-      "password": "123456",
+      "nombre": "Georgina",
+      "dni": "381212112",
       "telefono": "3815426254",
-      "rol": "administrador"
+      "direccion": "direccion123",
+      "email": "georgina@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "id": "2"
     },
     {
-      "id": 3,
+      "id": "3",
       "direccion": "direccion123",
       "nombre": "Andrés",
       "apellido": "Santamarina",
@@ -31,10 +32,22 @@
       "dni": "39252525",
       "password": "123456",
       "telefono": "3814564564",
-      "rol": "docente"
+      "rol": "Docente"
     },
     {
-      "rol": "administrador",
+      "rol": "Alumno",
+      "apellido": "López",
+      "nombre": "María",
+      "dni": "40123456",
+      "telefono": "3816543210",
+      "direccion": "San Martín 1234",
+      "email": "maria.lopez@gmail.com",
+      "password": "1234",
+      "passwordConfirm": "1234",
+      "id": "4"
+    },
+    {
+      "rol": "Administrador",
       "apellido": "Santamarina",
       "nombre": "Andrés",
       "dni": "41275066",
@@ -43,10 +56,10 @@
       "email": "santamarina@gmail.com",
       "password": "123456",
       "passwordConfirm": "123456",
-      "id": 4
+      "id": "5"
     },
     {
-      "rol": "administrador",
+      "rol": "Docente",
       "apellido": "Santamarina",
       "nombre": "Andrés",
       "dni": "41275066",
@@ -55,31 +68,7 @@
       "email": "santamarina@gmail.com",
       "password": "123456",
       "passwordConfirm": "123456",
-      "id": 5
-    },
-    {
-      "rol": "alumno",
-      "apellido": "Santamarina",
-      "nombre": "Andrés",
-      "dni": "41275066",
-      "telefono": "3865608565",
-      "direccion": "Amancay 1683",
-      "email": "santamarina@gmail.com",
-      "password": "123456",
-      "passwordConfirm": "123456",
-      "id": 6
-    },
-    {
-      "rol": "docente",
-      "apellido": "Santamarina",
-      "nombre": "Andrés",
-      "dni": "41275066",
-      "telefono": "3865608565",
-      "direccion": "Amancay 1683",
-      "email": "santamarina@gmail.com",
-      "password": "123456",
-      "passwordConfirm": "123456",
-      "id": 7
+      "id": "6"
     },
     {
       "rol": "Alumno",
@@ -89,54 +78,433 @@
       "telefono": "3865608565",
       "direccion": "Amancay 1683",
       "email": "santamarina@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "id": "7"
+    },
+    {
+      "rol": "Alumno",
+      "apellido": "Santamarina",
+      "nombre": "Ruben",
+      "dni": "41275066",
+      "telefono": "3865608565",
+      "direccion": "Amancay 1683",
+      "email": "santamarina@gmail.com",
       "password": "12",
       "passwordConfirm": "12",
-      "id": 8
+      "id": "8"
+    },
+    {
+      "id": "9",
+      "direccion": "Belgrano 458",
+      "nombre": "Carlos",
+      "apellido": "García",
+      "email": "carlos.garcia@gmail.com",
+      "dni": "40345678",
+      "password": "abcd1234",
+      "telefono": "3811234567",
+      "rol": "Docente"
+    },
+    {
+      "id": "10",
+      "direccion": "Alem 789",
+      "nombre": "Valentina",
+      "apellido": "Rossi",
+      "email": "valentina.rossi@gmail.com",
+      "dni": "41567890",
+      "password": "abcd1234",
+      "telefono": "3812345678",
+      "rol": "Alumno"
+    },
+    {
+      "id": "11",
+      "direccion": "Urquiza 1478",
+      "nombre": "Esteban",
+      "apellido": "Martínez",
+      "email": "esteban.martinez@gmail.com",
+      "dni": "42789012",
+      "password": "abcd1234",
+      "telefono": "3813456789",
+      "rol": "Alumno"
+    },
+    {
+      "id": "12",
+      "direccion": "Mitre 1234",
+      "nombre": "Lucía",
+      "apellido": "Pérez",
+      "email": "lucia.perez@gmail.com",
+      "dni": "43901234",
+      "password": "lucia123",
+      "telefono": "3814567890",
+      "rol": "Alumno"
+    },
+    {
+      "id": "13",
+      "direccion": "Rivadavia 567",
+      "nombre": "Matías",
+      "apellido": "Gómez",
+      "email": "matias.gomez@gmail.com",
+      "dni": "44123456",
+      "password": "matias456",
+      "telefono": "3815678901",
+      "rol": "Alumno"
+    },
+    {
+      "id": "14",
+      "direccion": "San Juan 891",
+      "nombre": "Sofía",
+      "apellido": "Ramírez",
+      "email": "sofia.ramirez@gmail.com",
+      "dni": "45345678",
+      "password": "sofia789",
+      "telefono": "3816789012",
+      "rol": "Alumno"
+    },
+    {
+      "id": "15",
+      "direccion": "Lavalle 345",
+      "nombre": "Gabriel",
+      "apellido": "Fernández",
+      "email": "gabriel.fernandez@gmail.com",
+      "dni": "46567890",
+      "password": "gabriel123",
+      "telefono": "3817890123",
+      "rol": "Alumno"
+    },
+    {
+      "id": "16",
+      "direccion": "Sarmiento 678",
+      "nombre": "Laura",
+      "apellido": "Mendoza",
+      "email": "laura.mendoza@gmail.com",
+      "dni": "47789012",
+      "password": "laura456",
+      "telefono": "3818901234",
+      "rol": "Alumno"
+    },
+    {
+      "id": "17",
+      "direccion": "Independencia 123",
+      "nombre": "Federico",
+      "apellido": "Gutiérrez",
+      "email": "federico.gutierrez@gmail.com",
+      "dni": "42345678",
+      "password": "fede123",
+      "telefono": "3819123456",
+      "rol": "Docente"
+    },
+    {
+      "id": "18",
+      "direccion": "Libertad 456",
+      "nombre": "Ana",
+      "apellido": "Moreno",
+      "email": "ana.moreno@gmail.com",
+      "dni": "43567890",
+      "password": "ana456",
+      "telefono": "3819234567",
+      "rol": "Docente"
+    },
+    {
+      "id": "19",
+      "direccion": "San Lorenzo 789",
+      "nombre": "Pablo",
+      "apellido": "Rodríguez",
+      "email": "pablo.rodriguez@gmail.com",
+      "dni": "44789012",
+      "password": "pablo789",
+      "telefono": "3819345678",
+      "rol": "Docente"
+    },
+    {
+      "id": "20",
+      "direccion": "Mitre 910",
+      "nombre": "Carolina",
+      "apellido": "Vázquez",
+      "email": "carolina.vazquez@gmail.com",
+      "dni": "45901234",
+      "password": "caro123",
+      "telefono": "3819456789",
+      "rol": "Docente"
+    },
+    {
+      "id": "21",
+      "direccion": "Belgrano 112",
+      "nombre": "Javier",
+      "apellido": "Martín",
+      "email": "javier.martin@gmail.com",
+      "dni": "46123456",
+      "password": "javi456",
+      "telefono": "3819567890",
+      "rol": "Docente"
+    }
+  ],
+  "cursos": [
+    {
+      "id": "aec8",
+      "anio": "1",
+      "division": "A",
+      "turno": "Mañana",
+      "materias": [
+        "2c07",
+        "b06e",
+        "db57"
+      ],
+      "horarios": [
+        {
+          "dia": "Lunes",
+          "modulo": "1",
+          "materiaID": "2c07"
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "1",
+          "materiaID": "b06e"
+        },
+        {
+          "dia": "Martes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "1",
+          "materiaID": "db57"
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "1",
+          "materiaID": "b06e"
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "1",
+          "materiaID": "2c07"
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "4",
+          "materiaID": ""
+        }
+      ],
+      "alumnos": [
+        "12",
+        "13",
+        "14",
+        "15",
+        "1"
+      ]
     }
   ],
   "materias": [
     {
-      "id": 1,
-      "nombre": "matematicas",
-      "año": "1",
+      "id": "2c07",
+      "nombre": "Matematicas",
+      "anio": "1",
       "division": "A",
-      "horario": {
-        "dia": "lunes",
-        "modulo": "1, 2, 3, 4",
-        "turno": "mañana, tarde"
-      },
-      "docenteID": "3",
-      "listadoAlumnos": [
+      "turno": "Mañana",
+      "docenteId": "3",
+      "notas": [
         {
-          "alumnoID": "1"
-        },
+          "alumnoId": "1",
+          "trimestre1": 6,
+          "trimestre2": 6,
+          "trimestre3": 8,
+          "notaFinal": 7
+        }
+      ]
+    },
+    {
+      "id": "b06e",
+      "nombre": "Fisica",
+      "anio": "1",
+      "division": "A",
+      "turno": "Mañana",
+      "docenteId": "9",
+      "cursoId": "",
+      "notas": [
         {
-          "alumnoID": "2"
-        },
+          "alumnoId": "",
+          "trimestre1": 0,
+          "trimestre2": 0,
+          "trimestre3": 0,
+          "notaFinal": 0
+        }
+      ]
+    },
+    {
+      "nombre": "Geografia",
+      "anio": "1",
+      "division": "A",
+      "docenteId": "18",
+      "id": "db57"
+    },
+    {
+      "nombre": "Matematicas",
+      "anio": "1",
+      "division": "B",
+      "docenteId": "21",
+      "id": "6511"
+    },
+    {
+      "id": "71b9",
+      "nombre": "Geografia",
+      "anio": "1",
+      "division": "B",
+      "turno": "Mañana",
+      "docenteId": "6",
+      "cursoId": "",
+      "notas": [
         {
-          "alumnoID": "3"
+          "alumnoId": "",
+          "trimestre1": 0,
+          "trimestre2": 0,
+          "trimestre3": 0,
+          "notaFinal": 0
+        }
+      ]
+    },
+    {
+      "id": "f8ca",
+      "nombre": "Dibujo",
+      "anio": "1",
+      "division": "C",
+      "turno": "Mañana",
+      "docenteId": "6",
+      "cursoId": "",
+      "notas": [
+        {
+          "alumnoId": "",
+          "trimestre1": 0,
+          "trimestre2": 0,
+          "trimestre3": 0,
+          "notaFinal": 0
+        }
+      ]
+    },
+    {
+      "nombre": "Matematicas",
+      "anio": "2",
+      "division": "B",
+      "docenteId": "21",
+      "id": "11ae"
+    },
+    {
+      "id": "5aaa",
+      "nombre": "Quimica",
+      "anio": "3",
+      "division": "A",
+      "turno": "Mañana",
+      "docenteId": "20",
+      "cursoId": "",
+      "notas": [
+        {
+          "alumnoId": "",
+          "trimestre1": 0,
+          "trimestre2": 0,
+          "trimestre3": 0,
+          "notaFinal": 0
         }
       ]
     }
   ],
   "novedades": [
     {
-      "id": 1,
-      "titulo": "Nueva reunión de docentes",
-      "url_img": "https://img.cronista.com/files/image/755/755407/65e75a12cf161_360_202!.webp?s=7c4586decbed712c6ef8026da51496b1&d=1709692543&oe=jpg",
-      "destinatario": "docentes"
+      "id": "1",
+      "titulo": "Nueva reunión de Docentes",
+      "url_img": "https://i.pinimg.com/736x/9b/74/9f/9b749f29fcabb450db3043216c0c8663.jpg",
+      "destinatario": "Docentes"
     },
     {
-      "id": 2,
+      "id": "2",
       "titulo": "Día de la bandera",
       "url_img": "https://www.epet1.edu.ar/wp-content/uploads/2015/06/Poster-20-de-Junio-1024x640.jpg",
-      "destinatario": "alumnos"
+      "destinatario": "Alumnos"
     },
     {
-      "id": 3,
+      "id": "3",
       "titulo": "Actualización de Normativas",
       "url_img": "https://des-ers.infd.edu.ar/sitio/wp-content/uploads/2022/05/IMG-20220530-WA0048.jpg",
-      "destinatario": "todos"
+      "destinatario": "Todos"
+    }
+  ],
+  "asistencias": [
+    {
+      "dia": "12/208/2024",
+      "alumnosPresentes": [
+        {
+          "alumnoID": 1
+        }
+      ],
+      "docentesPresentes": [
+        {
+          "docenteId": 1
+        }
+      ]
     }
   ]
 }
