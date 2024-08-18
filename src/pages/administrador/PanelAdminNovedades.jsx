@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import { Container, Table, Form } from 'react-bootstrap';
 import useNovedadesStore from '../../stores/Novedades-Store.jsx';
+import Swal from 'sweetalert2';
+import CrearNovedades from './ModalesNovedades/CrearNovedades.jsx';
+import EditarNovedades from './ModalesNovedades/EditarNovedades.jsx';
+import useFilterByTitle from '../../hooks/useFilterByTitle.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './Administrador.css';
 
@@ -10,6 +14,9 @@ const PanelAdminNovedades = () => {
   const loading = useNovedadesStore((state) => state.loading);
   const error = useNovedadesStore((state) => state.error);
   const getNovedades = useNovedadesStore((state) => state.getNovedades);
+  const deleteNovedad = useNovedadesStore((state) => state.deleteNovedad);
+
+  const { filterNovedades, setTitleFilter } = useFilterByTitle(novedades);
 
   useEffect(() => {
     getNovedades();
@@ -18,7 +25,7 @@ const PanelAdminNovedades = () => {
   if (loading) {
     return (
       <section className="vh-100 d-flex flex-column justify-content-center">
-        <p className="text-light">Cargando novedades..</p>
+        <div className="spinner"></div>
       </section>
     );
   }
@@ -31,36 +38,71 @@ const PanelAdminNovedades = () => {
     );
   }
 
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "¿Está seguro?",
+      text: "Esta acción no se puede deshacer.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#004b81",
+      confirmButtonText: "Eliminar",
+      cancelButtonText: "Cancelar",
+    }).then(async (resultado) => {
+      if (resultado.isConfirmed) {
+        try {
+          await deleteNovedad(id);
+          Swal.fire({
+            title: "¡Eliminada!",
+            text: "La novedad ha sido eliminada.",
+            icon: "success",
+            confirmButtonColor: "#004b81",
+            confirmButtonText: "Aceptar",
+          });
+        } catch (error) {
+          Swal.fire({
+            title: "Ocurrió un error",
+            text: "No se pudo eliminar la novedad. Intenta nuevamente.",
+            icon: "error",
+            confirmButtonColor: "#004b81",
+            confirmButtonText: "Aceptar",
+          });
+        }
+      }
+    });
+  };
+
   return (
     <Container className="text-center px-md-5 py-md-2">
-      <h4 className="my-5 titulo">Novedades</h4>
+      <h2 className="disenoTitulo my-5">Novedades</h2>
 
       <Form.Group className="d-flex align-items-center justify-content-center w-md-50 ms-3">
         <Form.Label className="m-0 p-2">
-          <span className="fw-bold buscarUsuario">Buscar novedades:</span>
+          <span className="fw-bold buscarUsuario">Buscar novedad:</span>
         </Form.Label>
         <Form.Control
           type="text"
           placeholder="Ingrese un título"
           className="w-50"
+          onChange={(e) => setTitleFilter(e.target.value)}
         />
       </Form.Group>
 
       <div className="m-2 d-flex justify-content-start">
-        {/* <ModalCrear /> */}
+        <CrearNovedades />
       </div>
 
       <Table striped hover responsive className="rounded">
         <thead>
           <tr>
             <th className="tableMaterias fw-bold">Título</th>
-            <th className="tableMaterias fw-bold">Url de la Imagen</th>
-            <th className="tableMaterias fw-bold">Destinatario</th>
+            <th className="tableMaterias fw-bold">Imagen</th>
+            <th className="tableMaterias fw-bold">Destinatarios</th>
             <th className="tableMaterias fw-bold">Opciones</th>
           </tr>
         </thead>
         <tbody>
-          {novedades.map((novedad) => (
+          {filterNovedades.map((novedad) => (
             <tr key={novedad.id}>
               <td className="tableMaterias">{novedad.titulo}</td>
               <td className="tableMaterias">
@@ -68,10 +110,11 @@ const PanelAdminNovedades = () => {
               </td>
               <td className="tableMaterias">{novedad.destinatario}</td>
               <td className="tableMaterias">
-                {" "}
-                {/* <ModalInfo />
-              <ModalEditar /> */}
-                <button className="btn">
+                <EditarNovedades novedad={novedad} />
+                <button
+                  className="btn"
+                  onClick={() => handleDelete(novedad.id)}
+                >
                   <i className="bi bi-trash3 iconoBorrar"></i>
                 </button>
               </td>

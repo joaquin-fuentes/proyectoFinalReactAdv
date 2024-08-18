@@ -65,11 +65,11 @@ const Materias = () => {
 
   return (
     <Container className="text-center px-md-5 py-md-2">
-      <h4 className="my-5 titulo">MATERIAS</h4>
+      <h2 className="my-5 disenoTitulo">Materias</h2>
 
       <Form.Group className="d-flex align-items-center justify-content-center w-md-50 ms-3">
         <Form.Label className="m-0 p-2">
-          <span className="fw-bold buscarUsuario">BUSCAR:</span>
+          <span className="fw-bold buscarUsuario">Buscar materia:</span>
         </Form.Label>
         <Form.Control
           type="text"

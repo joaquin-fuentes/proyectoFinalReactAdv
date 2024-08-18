@@ -1,28 +1,34 @@
 .bg-azulOscuro {
   background-color: var(--color-fondo);
 }
+
 .bg-datosAdmin {
   background-color: var(--color-fondo);
 }
+
 .titulo {
   font-family: var(--fuente-principal);
   font-size: var(--fuente-tamanio-titulo);
   color: var(--color-fondo);
 }
+
 /* PERFIL ADMINISTRADOR */
 .avatarPerfil {
   margin-top: 60px;
   width: 150px;
 }
+
 .perfil-card {
   width: 100%;
   font-family: var(--fuente-principal);
   font-size: 14px;
 }
+
 /* LISTADO DE USUARIOS */
 .modalUsuario {
   font-family: var(--fuente-principal);
 }
+
 .btnCancelar {
   background-color: var(--fuente-color-secundarioDos);
   border-color: var(--fuente-color-secundarioDos);
@@ -31,6 +37,7 @@
   box-shadow: none;
   border-width: 1px;
 }
+
 .btnCancelar:hover {
   background-color: var(--fuente-color-secundario);
   border-color: var(--fuente-color-secundario);
@@ -38,17 +45,20 @@
   box-shadow: none;
   border-width: 1px;
 }
+
 .btnGuardar {
   background-color: var(--color-secundarioDos);
   border-color: var(--color-secundarioDos);
   color: white;
   transition: background-color 0.3s, color 0.3s;
 }
+
 .btnGuardar:hover {
   background-color: var(--color-primarioDos);
   border-color: var(--color-primarioDos);
   color: white;
 }
+
 .tabsRoles .nav-link {
   background-color: var(--color-fondo);
   color: var(--fuente-color-primario);
@@ -57,61 +67,152 @@
   padding: 10px 15px;
   transition: background-color 0.3s, color 0.3s;
 }
+
 .tabsRoles .nav-link:hover {
   background-color: var(--color-secundario);
   color: white;
 }
+
 .iconoCrear {
   background-color: var(--color-secundarioDos);
   color: white;
   border: none;
   transition: background-color 0.3s, color 0.3s;
 }
+
 .iconoCrear:hover {
   background-color: var(--btn-colorDos);
   color: var(--color-fondo);
 }
+
 .iconoVer {
   color: var(--color-primario);
 }
+
 .iconoVer:hover {
   color: var(--color-primarioDos);
 }
+
 .iconoEditar {
   color: var(--color-primario);
 }
+
 .iconoEditar:hover {
   color: yellow;
 }
+
 .iconoBorrar {
   color: var(--color-primario);
 }
+
 .iconoBorrar:hover {
   color: red;
 }
+
 .buscarUsuario {
   color: var(--btn-color);
   font-family: var(--fuente-principal);
 }
-.btn-crear{
+
+.btn-crear {
   background-color: var(--btn-color);
   color: var(--fuente-color-primario);
-  padding: 8px 10px; 
+  padding: 8px 10px;
   border-radius: 10px;
   border: none;
 }
-.btn-crear:hover{
+
+.btn-crear:hover {
   background-color: var(--btn-colorDos);
   color: var(--fuente-color-primario);
 }
 
+/* Cargador */
+.spinner {
+  --size: 30px;
+  --first-block-clr: #005bba;
+  --second-block-clr: #fed500;
+  --clr: #111;
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.spinner::after,
+.spinner::before {
+  box-sizing: border-box;
+  position: absolute;
+  content: "";
+  width: var(--size);
+  height: var(--size);
+  top: 50%;
+  animation: up 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
+  left: 50%;
+  background: var(--first-block-clr);
+}
+
+.spinner::after {
+  background: var(--second-block-clr);
+  top: calc(50% - var(--size));
+  left: calc(50% - var(--size));
+  animation: down 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
+}
+
+.disenoTitulo {
+  color: var(--btn-colorDos);
+  text-shadow: -3px 3px #ffffff, -3px -3px #ffffff, 3px -3px #ffffff, 3px 3px #f3f3f2, 5px 5px #6ac7c2;
+  font-size: 40px;
+}
+
+@keyframes down {
+
+  0%,
+  100% {
+    transform: none;
+  }
+
+  25% {
+    transform: translateX(100%);
+  }
+
+  50% {
+    transform: translateX(100%) translateY(100%);
+  }
+
+  75% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes up {
+
+  0%,
+  100% {
+    transform: none;
+  }
+
+  25% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(-100%) translateY(-100%);
+  }
+
+  75% {
+    transform: translateY(-100%);
+  }
+}
+
 /* Dispositivos medianos (mínimo 769px) */
 @media (min-width: 767px) {
+
   /* PERFIL */
   .avatarPerfil {
     margin-top: 80px;
     width: 200px;
   }
+
   .perfil-card {
     width: 95%;
     font-size: 16px;
@@ -120,11 +221,13 @@
 
 /* Dispositivos grandes (mínimo 993px) */
 @media (min-width: 993px) {
+
   /* PERFIL */
   .avatarPerfil {
     margin-top: 0;
     width: 130px;
   }
+
   .perfil-card {
     width: 70%;
   }

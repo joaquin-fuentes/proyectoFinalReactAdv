@@ -1,5 +1,6 @@
 import axios from "axios";
 import { create } from "zustand";
+
 const URL_USUARIO = import.meta.env.VITE_API_USUARIO;
 
 const useDocenteStore = create((set) => ({
