@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Container, Table, Form } from 'react-bootstrap';
 import useNovedadesStore from '../../stores/Novedades-Store.jsx';
+import Swal from "sweetalert2";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './Administrador.css';
 
@@ -10,6 +11,7 @@ const PanelAdminNovedades = () => {
   const loading = useNovedadesStore((state) => state.loading);
   const error = useNovedadesStore((state) => state.error);
   const getNovedades = useNovedadesStore((state) => state.getNovedades);
+  const deleteNovedad = useNovedadesStore((state) => state.deleteNovedad);
 
   useEffect(() => {
     getNovedades();
@@ -30,6 +32,40 @@ const PanelAdminNovedades = () => {
       </section>
     );
   }
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "¿Está seguro?",
+      text: "Esta acción no se puede deshacer.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#004b81",
+      confirmButtonText: "Eliminar",
+      cancelButtonText: "Cancelar",
+    }).then(async (resultado) => {
+      if (resultado.isConfirmed) {
+        try {
+          await deleteNovedad(id);
+          Swal.fire({
+            title: "¡Eliminado!",
+            text: "La novedad ha sido eliminado.",
+            icon: "success",
+            confirmButtonColor: "#004b81",
+            confirmButtonText: "Aceptar",
+          });
+        } catch (error) {
+          Swal.fire({
+            title: "Ocurrió un error",
+            text: "No se pudo eliminar la novedad. Intenta nuevamente.",
+            icon: "error",
+            confirmButtonColor: "#004b81",
+            confirmButtonText: "Aceptar",
+          });
+        }
+      }
+    });
+  };
 
   return (
     <Container className="text-center px-md-5 py-md-2">
@@ -54,8 +90,8 @@ const PanelAdminNovedades = () => {
         <thead>
           <tr>
             <th className="tableMaterias fw-bold">Título</th>
-            <th className="tableMaterias fw-bold">Url de la Imagen</th>
-            <th className="tableMaterias fw-bold">Destinatario</th>
+            <th className="tableMaterias fw-bold">Imagen</th>
+            <th className="tableMaterias fw-bold">Destinatarios</th>
             <th className="tableMaterias fw-bold">Opciones</th>
           </tr>
         </thead>
@@ -71,7 +107,10 @@ const PanelAdminNovedades = () => {
                 {" "}
                 {/* <ModalInfo />
               <ModalEditar /> */}
-                <button className="btn">
+                <button
+                  className="btn"
+                  onClick={() => handleDelete(novedad.id)}
+                >
                   <i className="bi bi-trash3 iconoBorrar"></i>
                 </button>
               </td>

@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import axios from 'axios';
 
-const JSON_SERVER_URL = 'http://localhost:3000/novedades';
+const URL_NOVEDADES = import.meta.env.VITE_API_NOVEDAD;
 
 const useNovedadesStore = create((set, get) => ({
 	novedades: [],
@@ -12,7 +12,7 @@ const useNovedadesStore = create((set, get) => ({
 	getNovedades: async () => {
 		set({ loading: true });
 		try {
-			const response = await axios.get(JSON_SERVER_URL);
+			const response = await axios.get(URL_NOVEDADES);
 			set({ novedades: response.data, loading: false });
 		} catch (error) {
 			set({ error: error.message, loading: false });
@@ -26,7 +26,7 @@ const useNovedadesStore = create((set, get) => ({
 
 	addNovedad: async (novedad) => {
 		try {
-			const response = await axios.post(JSON_SERVER_URL, novedad);
+			const response = await axios.post(URL_NOVEDADES, novedad);
 			set((state) => ({
 				novedades: [...state.novedades, response.data],
 			}));
@@ -37,7 +37,7 @@ const useNovedadesStore = create((set, get) => ({
 
 	updateNovedad: async (id, updatedNovedad) => {
 		try {
-			const response = await axios.put(`${JSON_SERVER_URL}/${id}`, updatedNovedad);
+			const response = await axios.put(`${URL_NOVEDADES}/${id}`, updatedNovedad);
 			set((state) => ({
 				novedades: state.novedades.map((novedad) =>
 					novedad.id === id ? response.data : novedad
@@ -50,7 +50,7 @@ const useNovedadesStore = create((set, get) => ({
 
 	deleteNovedad: async (id) => {
 		try {
-			await axios.delete(`${JSON_SERVER_URL}/${id}`);
+			await axios.delete(`${URL_NOVEDADES}/${id}`);
 			set((state) => ({
 				novedades: state.novedades.filter((novedad) => novedad.id !== id),
 			}));

@@ -65,7 +65,7 @@ const Materias = () => {
 
   return (
     <Container className="text-center px-md-5 py-md-2">
-      <h4 className="my-5 titulo">MATERIAS</h4>
+      <h4 className="my-5 titulo">Materias</h4>
 
       <Form.Group className="d-flex align-items-center justify-content-center w-md-50 ms-3">
         <Form.Label className="m-0 p-2">
