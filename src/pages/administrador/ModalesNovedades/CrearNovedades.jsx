@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { Modal, Form } from "react-bootstrap";
-import useNovedadesStore from "../../../stores/Novedades-Store";
-import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
-import "../Administrador.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
+import { useState } from 'react';
+import { Modal, Form } from 'react-bootstrap';
+import useNovedadesStore from '../../../stores/Novedades-Store';
+import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
+import '../Administrador.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const CrearNovedades = () => {
   const [show, setShow] = useState(false);

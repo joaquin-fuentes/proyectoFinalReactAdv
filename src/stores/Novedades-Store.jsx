@@ -45,8 +45,10 @@ const useNovedadesStore = create((set, get) => ({
 					novedad.id === id ? response.data : novedad
 				),
 			}));
+			return response.data;
 		} catch (error) {
 			set({ error: error.message });
+			return null;
 		}
 	},
 

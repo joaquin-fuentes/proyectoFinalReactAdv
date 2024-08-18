@@ -3,6 +3,7 @@ import { Container, Table, Form } from 'react-bootstrap';
 import useNovedadesStore from '../../stores/Novedades-Store.jsx';
 import Swal from "sweetalert2";
 import CrearNovedades from './ModalesNovedades/CrearNovedades.jsx';
+import EditarNovedades from './ModalesNovedades/EditarNovedades.jsx';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './Administrador.css';
 
@@ -49,8 +50,8 @@ const PanelAdminNovedades = () => {
         try {
           await deleteNovedad(id);
           Swal.fire({
-            title: "¡Eliminado!",
-            text: "La novedad ha sido eliminado.",
+            title: "¡Eliminada!",
+            text: "La novedad ha sido eliminada.",
             icon: "success",
             confirmButtonColor: "#004b81",
             confirmButtonText: "Aceptar",
@@ -105,9 +106,7 @@ const PanelAdminNovedades = () => {
               </td>
               <td className="tableMaterias">{novedad.destinatario}</td>
               <td className="tableMaterias">
-                {" "}
-                {/* <ModalInfo />
-              <ModalEditar /> */}
+                <EditarNovedades novedad={novedad} />
                 <button
                   className="btn"
                   onClick={() => handleDelete(novedad.id)}
