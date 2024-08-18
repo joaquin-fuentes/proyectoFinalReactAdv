@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Container, Table, Form } from 'react-bootstrap';
 import useNovedadesStore from '../../stores/Novedades-Store.jsx';
 import Swal from "sweetalert2";
+import CrearNovedades from './ModalesNovedades/CrearNovedades.jsx';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './Administrador.css';
 
@@ -83,7 +84,7 @@ const PanelAdminNovedades = () => {
       </Form.Group>
 
       <div className="m-2 d-flex justify-content-start">
-        {/* <ModalCrear /> */}
+        <CrearNovedades />
       </div>
 
       <Table striped hover responsive className="rounded">

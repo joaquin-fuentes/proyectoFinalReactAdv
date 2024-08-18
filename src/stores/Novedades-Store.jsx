@@ -30,8 +30,10 @@ const useNovedadesStore = create((set, get) => ({
 			set((state) => ({
 				novedades: [...state.novedades, response.data],
 			}));
+			return true;
 		} catch (error) {
 			set({ error: error.message });
+			return false;
 		}
 	},
 
