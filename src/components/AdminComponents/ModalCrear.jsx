@@ -203,6 +203,23 @@ const ModalCrear = () => {
                       {errors.passwordConfirm?.message}
                     </Form.Text>
                   </Form.Group>
+                  <Form.Group className="mb-3" controlId="formImagen">
+                    <Form.Label>Imagen</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Ingresar la URL de la imagen"
+                      {...register("url_img", {
+                        required: "La URL de la imagen es obligatoria",
+                        pattern: {
+                          value: /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp))$/i,
+                          message: "Debes ingresar una URL de imagen válida",
+                        },
+                      })}
+                    />
+                    <Form.Text className="text-danger">
+                      {errors.url_img?.message}
+                    </Form.Text>
+                  </Form.Group>
                 </div>
               </div>
             </div>

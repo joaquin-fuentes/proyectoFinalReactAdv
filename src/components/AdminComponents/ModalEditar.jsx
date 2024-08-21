@@ -33,6 +33,7 @@ const ModalEditar = ({ usuario }) => {
       setValue("email", usuario.email);
       setValue("password", usuario.password);
       setValue("passwordConfirm", usuario.passwordConfirm);
+      setValue("url_img", usuario.url_img);
     }
   }, [usuario, setValue]);
 
@@ -211,6 +212,23 @@ const ModalEditar = ({ usuario }) => {
                     />
                     <Form.Text className="text-danger">
                       {errors.passwordConfirm?.message}
+                    </Form.Text>
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formImagen">
+                    <Form.Label>URL de la Imagen</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Ingresar la URL de la imagen"
+                      {...register("url_img", {
+                        required: "La URL de la imagen es obligatoria",
+                        pattern: {
+                          value: /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp))$/i,
+                          message: "Debes ingresar una URL de imagen válida",
+                        },
+                      })}
+                    />
+                    <Form.Text className="text-danger">
+                      {errors.url_img?.message}
                     </Form.Text>
                   </Form.Group>
                 </div>

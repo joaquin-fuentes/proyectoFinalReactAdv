@@ -236,6 +236,19 @@
       "password": "javi456",
       "telefono": "3819567890",
       "rol": "Docente"
+    },
+    {
+      "rol": "Docente",
+      "apellido": "Santamarina",
+      "nombre": "Andrés",
+      "dni": "41275066",
+      "telefono": "3865608565",
+      "direccion": "Amancay 1683",
+      "email": "pruebaimagen@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "url_img": "https://static.vecteezy.com/system/resources/previews/002/275/847/non_2x/male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg",
+      "id": "SC8OeHm"
     }
   ],
   "cursos": [
