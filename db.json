@@ -47,42 +47,6 @@
       "id": "4"
     },
     {
-      "rol": "Administrador",
-      "apellido": "Santamarina",
-      "nombre": "Andrés",
-      "dni": "41275066",
-      "telefono": "3865608565",
-      "direccion": "Amancay 1683",
-      "email": "santamarina@gmail.com",
-      "password": "123456",
-      "passwordConfirm": "123456",
-      "id": "5"
-    },
-    {
-      "rol": "Docente",
-      "apellido": "Santamarina",
-      "nombre": "Andrés",
-      "dni": "41275066",
-      "telefono": "3865608565",
-      "direccion": "Amancay 1683",
-      "email": "santamarina@gmail.com",
-      "password": "123456",
-      "passwordConfirm": "123456",
-      "id": "6"
-    },
-    {
-      "rol": "Alumno",
-      "apellido": "Santamarina",
-      "nombre": "Andrés",
-      "dni": "41275066",
-      "telefono": "3865608565",
-      "direccion": "Amancay 1683",
-      "email": "santamarina@gmail.com",
-      "password": "123456",
-      "passwordConfirm": "123456",
-      "id": "7"
-    },
-    {
       "rol": "Alumno",
       "apellido": "Santamarina",
       "nombre": "Ruben",
@@ -240,7 +204,7 @@
     {
       "rol": "Docente",
       "apellido": "Santamarina",
-      "nombre": "Andrés",
+      "nombre": "Eduardo",
       "dni": "41275066",
       "telefono": "3865608565",
       "direccion": "Amancay 1683",
@@ -371,6 +335,122 @@
         "15",
         "1"
       ]
+    },
+    {
+      "anio": "2",
+      "division": "A",
+      "turno": "Mañana",
+      "materias": [
+        "60dXjDM"
+      ],
+      "horarios": [
+        {
+          "dia": "Lunes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "2",
+          "materiaID": "60dXjDM"
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "4",
+          "materiaID": ""
+        }
+      ],
+      "alumnos": [
+        "8",
+        "11",
+        "10"
+      ],
+      "id": "KYAn83j"
     }
   ],
   "materias": [
@@ -381,6 +461,7 @@
       "division": "A",
       "turno": "Mañana",
       "docenteId": "3",
+      "cursoId": "aec8",
       "notas": [
         {
           "alumnoId": "1",
@@ -388,24 +469,6 @@
           "trimestre2": 6,
           "trimestre3": 8,
           "notaFinal": 7
-        }
-      ]
-    },
-    {
-      "id": "b06e",
-      "nombre": "Fisica",
-      "anio": "1",
-      "division": "A",
-      "turno": "Mañana",
-      "docenteId": "9",
-      "cursoId": "",
-      "notas": [
-        {
-          "alumnoId": "",
-          "trimestre1": 0,
-          "trimestre2": 0,
-          "trimestre3": 0,
-          "notaFinal": 0
         }
       ]
     },
@@ -424,42 +487,6 @@
       "id": "6511"
     },
     {
-      "id": "71b9",
-      "nombre": "Geografia",
-      "anio": "1",
-      "division": "B",
-      "turno": "Mañana",
-      "docenteId": "6",
-      "cursoId": "",
-      "notas": [
-        {
-          "alumnoId": "",
-          "trimestre1": 0,
-          "trimestre2": 0,
-          "trimestre3": 0,
-          "notaFinal": 0
-        }
-      ]
-    },
-    {
-      "id": "f8ca",
-      "nombre": "Dibujo",
-      "anio": "1",
-      "division": "C",
-      "turno": "Mañana",
-      "docenteId": "6",
-      "cursoId": "",
-      "notas": [
-        {
-          "alumnoId": "",
-          "trimestre1": 0,
-          "trimestre2": 0,
-          "trimestre3": 0,
-          "notaFinal": 0
-        }
-      ]
-    },
-    {
       "nombre": "Matematicas",
       "anio": "2",
       "division": "B",
@@ -467,13 +494,12 @@
       "id": "11ae"
     },
     {
-      "id": "5aaa",
-      "nombre": "Quimica",
-      "anio": "3",
+      "nombre": "Física",
+      "anio": "2",
       "division": "A",
       "turno": "Mañana",
-      "docenteId": "20",
-      "cursoId": "",
+      "docenteId": "3",
+      "cursoId": "KYAn83j",
       "notas": [
         {
           "alumnoId": "",
@@ -482,7 +508,8 @@
           "trimestre3": 0,
           "notaFinal": 0
         }
-      ]
+      ],
+      "id": "60dXjDM"
     }
   ],
   "novedades": [
