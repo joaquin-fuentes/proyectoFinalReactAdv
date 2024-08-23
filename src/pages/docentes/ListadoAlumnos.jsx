@@ -1,7 +1,7 @@
 import { Container, Form, Table } from "react-bootstrap";
 import "./Docentes.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useAlumnoStore from "../../stores/Alumnos-Store";
 import useCursosStore from "../../stores/Cursos-Store";
 import useDocenteStore from "../../stores/Docentes-Store";
@@ -14,6 +14,11 @@ const ListadoAlumnos = () => {
   const { docente, obtenerDocente } = useDocenteStore();
   const { materias, obtenerMaterias } = useMateriasStore();
   const { user } = useAuth();
+
+  const [busqueda, setBusqueda] = useState("");
+  const [filtroMateria, setFiltroMateria] = useState("");
+  const [filtroAnio, setFiltroAnio] = useState("");
+  const [filtroDivision, setFiltroDivision] = useState("");
 
   useEffect(() => {
     obtenerDocente(user.id);
@@ -28,9 +33,33 @@ const ListadoAlumnos = () => {
   //   // if(!curso) return false
   // });
 
+  const normalizarTexto = (texto) => {
+    return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  };
+
   const materiasDelDocente = materias.filter(
     (materia) => materia.docenteId === user.id
   );
+
+  // const alumnosFiltrados = alumnos.filter((alumno) => {
+  //   const cursosDelAlumno = cursos.filter((curso) =>
+  //     curso.alumnos.includes(alumno.id)
+  //   );
+
+  //   return cursosDelAlumno.some((curso) =>
+  //     materiasDelDocente.some((materia) => materia.cursoId === curso.id)
+  //   );
+  // }).sort((a, b) => {
+  //   const cursoA = cursos.find((curso) => curso.alumnos.includes(a.id));
+  //   const cursoB = cursos.find((curso) => curso.alumnos.includes(b.id));
+
+  //   // Generar una clave de ordenación combinando año y división
+  //   const keyA = `${cursoA.anio}-${cursoA.division}`;
+  //   const keyB = `${cursoB.anio}-${cursoB.division}`;
+
+  //   // Ordenar primero por curso (año y división), luego por apellido
+  //   return keyA.localeCompare(keyB) || a.apellido.localeCompare(b.apellido);
+  // });
 
   const alumnosFiltrados = alumnos.filter((alumno) => {
     const cursosDelAlumno = cursos.filter((curso) =>
@@ -40,22 +69,41 @@ const ListadoAlumnos = () => {
     return cursosDelAlumno.some((curso) =>
       materiasDelDocente.some((materia) => materia.cursoId === curso.id)
     );
-  }).sort((a, b) => {
-    const cursoA = cursos.find((curso) => curso.alumnos.includes(a.id));
-    const cursoB = cursos.find((curso) => curso.alumnos.includes(b.id));
-
-    // Generar una clave de ordenación combinando año y división
-    const keyA = `${cursoA.anio}-${cursoA.division}`;
-    const keyB = `${cursoB.anio}-${cursoB.division}`;
-
-    // Ordenar primero por curso (año y división), luego por apellido
-    return keyA.localeCompare(keyB) || a.apellido.localeCompare(b.apellido);
   });
 
- 
+  const alumnosFiltradosYOrdenados = alumnosFiltrados
+    .filter((alumno) => {
+      const curso = cursos.find((curso) => curso.alumnos.includes(alumno.id));
+      const materiasDelCurso = materiasDelDocente.filter(
+        (materia) => materia.cursoId === curso.id
+      );
 
- 
-  
+      const nombreCompleto = normalizarTexto(
+        `${alumno.nombre} ${alumno.apellido}`
+      ).toLowerCase();
+      const busquedaNormalizada = normalizarTexto(busqueda).toLowerCase();
+
+      return (
+        (!busqueda || nombreCompleto.includes(busquedaNormalizada)) &&
+        (!filtroMateria ||
+          materiasDelCurso.some(
+            (materia) => materia.nombre === filtroMateria
+          )) &&
+        (!filtroAnio || curso.anio === filtroAnio) &&
+        (!filtroDivision || curso.division === filtroDivision)
+      );
+    })
+    .sort((a, b) => {
+      const cursoA = cursos.find((curso) => curso.alumnos.includes(a.id));
+      const cursoB = cursos.find((curso) => curso.alumnos.includes(b.id));
+
+      // Generar una clave de ordenación combinando año y división
+      const keyA = `${cursoA.anio}-${cursoA.division}`;
+      const keyB = `${cursoB.anio}-${cursoB.division}`;
+
+      // Ordenar primero por curso (año y división), luego por apellido
+      return keyA.localeCompare(keyB) || a.apellido.localeCompare(b.apellido);
+    });
 
   return (
     <>
@@ -70,6 +118,8 @@ const ListadoAlumnos = () => {
             type="text"
             placeholder="Nombre del alumno"
             className="w-50"
+            value={busqueda}
+            onChange={(e) => setBusqueda(e.target.value)}
           />
         </Form.Group>
 
@@ -83,29 +133,62 @@ const ListadoAlumnos = () => {
             <div className="row">
               <div className="col">
                 {" "}
-                <Form.Select aria-label="Default select example">
-                  <option>Materia</option>
-                  <option value="Matemáticas">Matemáticas</option>
-                  <option value="Física">Física</option>
-                  <option value="Química">Química</option>
+                <Form.Label>
+                  <span className="fw-bold buscarAlumno">MATERIAS</span>
+                </Form.Label>
+                <Form.Select
+                  aria-label="Filtrar por materia"
+                  value={filtroMateria}
+                  onChange={(e) => setFiltroMateria(e.target.value)}
+                >
+                  <option value="">Todas</option>
+                  {[...new Set(materiasDelDocente.map((m) => m.nombre))].map(
+                    (materia, index) => (
+                      <option key={index} value={materia}>
+                        {materia}
+                      </option>
+                    )
+                  )}
                 </Form.Select>
               </div>
               <div className="col">
                 {" "}
-                <Form.Select aria-label="Default select example">
-                  <option>Año</option>
-                  <option value="1">1°</option>
-                  <option value="2">2°</option>
-                  <option value="3">3°</option>
+                <Form.Label>
+                  <span className="fw-bold buscarAlumno">AÑO</span>
+                </Form.Label>
+                <Form.Select
+                  aria-label="Filtrar por año"
+                  value={filtroAnio}
+                  onChange={(e) => setFiltroAnio(e.target.value)}
+                >
+                  <option value="">Todos</option>
+                  {[...new Set(cursos.map((curso) => curso.anio))]
+                    .sort()
+                    .map((anio, index) => (
+                      <option key={index} value={anio}>
+                        {anio}
+                      </option>
+                    ))}
                 </Form.Select>
               </div>
               <div className="col">
                 {" "}
-                <Form.Select aria-label="Default select example">
-                  <option>División</option>
-                  <option value="A">A</option>
-                  <option value="B">B</option>
-                  <option value="C">C</option>
+                <Form.Label>
+                  <span className="fw-bold buscarAlumno">DIVISIÓN</span>
+                </Form.Label>
+                <Form.Select
+                  aria-label="Filtrar por división"
+                  value={filtroDivision}
+                  onChange={(e) => setFiltroDivision(e.target.value)}
+                >
+                  <option value="">Todas</option>
+                  {[...new Set(cursos.map((curso) => curso.division))]
+                    .sort()
+                    .map((division, index) => (
+                      <option key={index} value={division}>
+                        {division}
+                      </option>
+                    ))}
                 </Form.Select>
               </div>
             </div>
@@ -125,56 +208,66 @@ const ListadoAlumnos = () => {
             </tr>
           </thead>
           <tbody>
-            {alumnosFiltrados.map((alumno) => {
-              const curso = cursos.find((curso) =>
-                curso.alumnos.includes(alumno.id)
-              );
-              const materiasDelCurso = materiasDelDocente.filter(
-                (materia) => materia.cursoId === curso.id
-              );
-              const notas = materiasDelCurso.reduce((acc, materia) => {
-                const nota = materia.notas.find(
-                  (nota) => nota.alumnoId === alumno.id
+            {alumnosFiltradosYOrdenados.length === 0 ? (
+              <tr>
+                <td colSpan="7" className="text-center">
+                  No hay alumnos para mostrar
+                </td>
+              </tr>
+            ) : (
+              alumnosFiltradosYOrdenados.map((alumno) => {
+                const curso = cursos.find((curso) =>
+                  curso.alumnos.includes(alumno.id)
                 );
-                if (nota) {
-                  acc.push(nota);
-                }
-                return acc;
-              }, []);
+                const materiasDelCurso = materiasDelDocente.filter(
+                  (materia) => materia.cursoId === curso.id
+                );
+                const notas = materiasDelCurso.reduce((acc, materia) => {
+                  const nota = materia.notas.find(
+                    (nota) => nota.alumnoId === alumno.id
+                  );
+                  if (nota) {
+                    acc.push(nota);
+                  }
+                  return acc;
+                }, []);
 
-              return (
-                <tr key={alumno.id}>
-                  <td className="tableMaterias">{alumno.apellido} {alumno.nombre}</td>
-                  <td className="tableMaterias">
-                    {materiasDelCurso.map((materia) => (
-                      <span key={materia.id}>{materia.nombre} </span>
-                    ))}
-                  </td>
-                  <td className="tableMaterias">{curso?.anio}</td>
-                  <td className="tableMaterias">{curso?.division}</td>
-                  <td className="tableMaterias">100%</td>
-                  <td className="tableMaterias">
-                    {notas.map((nota) => (
-                      <div key={nota.alumnoId}>
-                        Trimestre 1: {nota.trimestre1} <br />
-                        Trimestre 2: {nota.trimestre2} <br />
-                        Trimestre 3: {nota.trimestre3} <br />
-                      </div>
-                    ))}
-                    <button className="btn">
-                      <i className="bi bi-pencil-square iconoEditar"></i>
-                    </button>
-                  </td>
-                  <td className="tableMaterias">
-                    {notas.map((nota) => nota.notaFinal).join(", ") || "N/A"}{" "}
-                    {/* {notas.map((nota) => nota.notaFinal)} */}
-                    {/* <button className="btn">
+                return (
+                  <tr key={alumno.id}>
+                    <td className="tableMaterias">
+                      {alumno.apellido} {alumno.nombre}
+                    </td>
+                    <td className="tableMaterias">
+                      {materiasDelCurso.map((materia) => (
+                        <span key={materia.id}>{materia.nombre} </span>
+                      ))}
+                    </td>
+                    <td className="tableMaterias">{curso?.anio}</td>
+                    <td className="tableMaterias">{curso?.division}</td>
+                    <td className="tableMaterias">100%</td>
+                    <td className="tableMaterias">
+                      {notas.map((nota) => (
+                        <div key={nota.alumnoId}>
+                          Trimestre 1: {nota.trimestre1} <br />
+                          Trimestre 2: {nota.trimestre2} <br />
+                          Trimestre 3: {nota.trimestre3} <br />
+                        </div>
+                      ))}
+                      <button className="btn">
+                        <i className="bi bi-pencil-square iconoEditar"></i>
+                      </button>
+                    </td>
+                    <td className="tableMaterias">
+                      {notas.map((nota) => nota.notaFinal).join(", ") || "N/A"}{" "}
+                      {/* {notas.map((nota) => nota.notaFinal)} */}
+                      {/* <button className="btn">
                       <i className="bi bi-pencil-square iconoEditar"></i>
                     </button> */}
-                  </td>
-                </tr>
-              );
-            })}
+                    </td>
+                  </tr>
+                );
+              })
+            )}
           </tbody>
           {/* <tbody>
             {alumnosFiltrados.map((alumno) => {
