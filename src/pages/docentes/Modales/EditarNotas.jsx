@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Button, Modal, Form } from "react-bootstrap";
+import { Modal, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useMateriasStore from "../../../stores/Materias-Store";
@@ -46,14 +46,14 @@ const EditarNotas = ({ show, handleClose, notaSeleccionada }) => {
     const trimestre1 = parseFloat(data.trimestre1);
     const trimestre2 = parseFloat(data.trimestre2);
     const trimestre3 = parseFloat(data.trimestre3);
-  
+
     const promedio = ((trimestre1 + trimestre2 + trimestre3) / 3).toFixed(2);
 
     const datosConPromedio = {
       trimestre1: trimestre1,
       trimestre2: trimestre2,
       trimestre3: trimestre3,
-      notaFinal: parseFloat(promedio)
+      notaFinal: parseFloat(promedio),
     };
 
     try {
@@ -97,7 +97,9 @@ const EditarNotas = ({ show, handleClose, notaSeleccionada }) => {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Editar Notas</Modal.Title>
+        <Modal.Title>
+          <span className="titulo">EDITAR NOTAS</span>{" "}
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit(onSubmit)}>
@@ -105,44 +107,90 @@ const EditarNotas = ({ show, handleClose, notaSeleccionada }) => {
             <Form.Label>Trimestre 1</Form.Label>
             <Form.Control
               type="number"
-              {...register("trimestre1", { required: true })}
+              placeholder="Nota del Trimestre 1"
+              {...register("trimestre1", {
+                required: "Este campo es requerido",
+                min: {
+                  value: 1,
+                  message: "La nota debe ser al menos 1",
+                },
+                max: {
+                  value: 10,
+                  message: "La nota no puede ser mayor a 10",
+                },
+              })}
+              min="1"
+              max="10"
               isInvalid={!!errors.trimestre1}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.trimestre1 && "Este campo es requerido"}
+              {errors.trimestre1?.message}
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group controlId="trimestre2">
             <Form.Label>Trimestre 2</Form.Label>
             <Form.Control
               type="number"
-              {...register("trimestre2", { required: true })}
+              placeholder="Nota del Trimestre 2"
+              {...register("trimestre2", {
+                required: "Este campo es requerido",
+                min: {
+                  value: 1,
+                  message: "La nota debe ser al menos 1",
+                },
+                max: {
+                  value: 10,
+                  message: "La nota no puede ser mayor a 10",
+                },
+              })}
+              min="1"
+              max="10"
               isInvalid={!!errors.trimestre2}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.trimestre2 && "Este campo es requerido"}
+              {errors.trimestre2?.message}
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group controlId="trimestre3">
             <Form.Label>Trimestre 3</Form.Label>
             <Form.Control
               type="number"
-              {...register("trimestre3", { required: true })}
+              placeholder="Nota del Trimestre 3"
+              {...register("trimestre3", {
+                required: "Este campo es requerido",
+                min: {
+                  value: 1,
+                  message: "La nota debe ser al menos 1",
+                },
+                max: {
+                  value: 10,
+                  message: "La nota no puede ser mayor a 10",
+                },
+              })}
+              min="1"
+              max="10"
               isInvalid={!!errors.trimestre3}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.trimestre3 && "Este campo es requerido"}
+              {errors.trimestre3?.message}
             </Form.Control.Feedback>
           </Form.Group>
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
+        <button
+          type="button"
+          onClick={handleClose}
+          className="m-2 p-2 rounded btnCancelar"
+        >
           Cancelar
-        </Button>
-        <Button variant="primary" onClick={handleSubmit(onSubmit)}>
+        </button>
+        <button
+          className="m-2 p-2 rounded btnGuardar"
+          onClick={handleSubmit(onSubmit)}
+        >
           Guardar
-        </Button>
+        </button>
       </Modal.Footer>
     </Modal>
   );

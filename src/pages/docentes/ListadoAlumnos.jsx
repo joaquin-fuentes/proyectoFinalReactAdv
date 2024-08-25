@@ -1,4 +1,4 @@
-import { Container, Form, Table, Button } from "react-bootstrap";
+import { Container, Form, Table} from "react-bootstrap";
 import "./Docentes.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useEffect, useState } from "react";
@@ -24,7 +24,7 @@ const ListadoAlumnos = () => {
   const [notaSeleccionada, setNotaSeleccionada] = useState(null);
 
   const handleEditarClick = (materia, nota) => {
-    setNotaSeleccionada({materia, nota});
+    setNotaSeleccionada({ materia, nota });
     setShowModal(true);
   };
 
@@ -79,11 +79,9 @@ const ListadoAlumnos = () => {
       const cursoA = cursos.find((curso) => curso.alumnos.includes(a.id));
       const cursoB = cursos.find((curso) => curso.alumnos.includes(b.id));
 
-      // Generar una clave de ordenación combinando año y división
       const keyA = `${cursoA.anio}-${cursoA.division}`;
       const keyB = `${cursoB.anio}-${cursoB.division}`;
 
-      // Ordenar primero por curso (año y división), luego por apellido
       return keyA.localeCompare(keyB) || a.apellido.localeCompare(b.apellido);
     });
 
@@ -230,20 +228,22 @@ const ListadoAlumnos = () => {
                           );
                         }
                         return (
-                          <div key={materia.id}>
-                            <strong>{materia.nombre}:</strong> <br />
+                          <div
+                            key={materia.id}
+                            className="d-flex justify-content-center"
+                          >
                             Trimestre 1: {nota.trimestre1} <br />
                             Trimestre 2: {nota.trimestre2} <br />
                             Trimestre 3: {nota.trimestre3} <br />
-                            <Button
-                              variant="outline-primary"
-                              size="sm"
-                              onClick={() => handleEditarClick(materia, nota)}
-                              className="mt-2"
-                            >
-                              <i className="bi bi-pencil-square iconoEditar"></i>{" "}
-                              Editar
-                            </Button>
+                            <div className="align-content-center ms-2">
+                              <button
+                                size="sm"
+                                onClick={() => handleEditarClick(materia, nota)}
+                                className="btn"
+                              >
+                                <i className="bi bi-pencil-square iconoEditar"></i>{" "}
+                              </button>
+                            </div>
                           </div>
                         );
                       })}
