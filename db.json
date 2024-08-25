@@ -223,7 +223,7 @@
       "turno": "Mañana",
       "materias": [
         "2c07",
-        "b06e",
+        "FjdFxGJ",
         "db57"
       ],
       "horarios": [
@@ -250,7 +250,7 @@
         {
           "dia": "Martes",
           "modulo": "1",
-          "materiaID": "b06e"
+          "materiaID": "FjdFxGJ"
         },
         {
           "dia": "Martes",
@@ -290,7 +290,7 @@
         {
           "dia": "Jueves",
           "modulo": "1",
-          "materiaID": "b06e"
+          "materiaID": "FjdFxGJ"
         },
         {
           "dia": "Jueves",
@@ -341,7 +341,7 @@
       "division": "A",
       "turno": "Mañana",
       "materias": [
-        "60dXjDM"
+        "FjdFxGJ"
       ],
       "horarios": [
         {
@@ -352,7 +352,7 @@
         {
           "dia": "Lunes",
           "modulo": "2",
-          "materiaID": "60dXjDM"
+          "materiaID": "FjdFxGJ"
         },
         {
           "dia": "Lunes",
@@ -469,6 +469,34 @@
           "trimestre2": 6,
           "trimestre3": 8,
           "notaFinal": 7
+        },
+        {
+          "alumnoId": "12",
+          "trimestre1": 6,
+          "trimestre2": 6,
+          "trimestre3": 8,
+          "notaFinal": 7
+        },
+        {
+          "alumnoId": "13",
+          "trimestre1": 6,
+          "trimestre2": 6,
+          "trimestre3": 8,
+          "notaFinal": 7
+        },
+        {
+          "alumnoId": "14",
+          "trimestre1": 6,
+          "trimestre2": 6,
+          "trimestre3": 8,
+          "notaFinal": 7
+        },
+        {
+          "alumnoId": "15",
+          "trimestre1": 6,
+          "trimestre2": 6,
+          "trimestre3": 8,
+          "notaFinal": 7
         }
       ]
     },
@@ -496,20 +524,34 @@
     {
       "nombre": "Física",
       "anio": "2",
-      "division": "A",
+      "division": "B",
       "turno": "Mañana",
       "docenteId": "3",
       "cursoId": "KYAn83j",
       "notas": [
         {
-          "alumnoId": "",
-          "trimestre1": 0,
-          "trimestre2": 0,
-          "trimestre3": 0,
+          "alumnoId": "8",
+          "trimestre1": 1,
+          "trimestre2": 6,
+          "trimestre3": 1,
+          "notaFinal": 2.67
+        },
+        {
+          "alumnoId": "11",
+          "trimestre1": 4,
+          "trimestre2": 4,
+          "trimestre3": 3,
+          "notaFinal": 0
+        },
+        {
+          "alumnoId": "10",
+          "trimestre1": 3,
+          "trimestre2": 3,
+          "trimestre3": 2,
           "notaFinal": 0
         }
       ],
-      "id": "60dXjDM"
+      "id": "FjdFxGJ"
     }
   ],
   "novedades": [

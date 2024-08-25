@@ -83,6 +83,34 @@ const useMateriasStore = create((set) => ({
       set({ error: error.message, loading: false });
     }
   },
+
+  editarNotasMateria: async (materiaId, alumnoId, nuevasNotas) => {
+    set({ loading: true, error: null });
+    try {
+        const materiaResp = await axios.get(`${URL_MATERIA}/${materiaId}`);
+        const materia = materiaResp.data;
+
+        const notasActualizadas = materia.notas.map(nota => 
+            nota.alumnoId === alumnoId ? { ...nota, ...nuevasNotas } : nota
+        );
+
+        const resp = await axios.patch(`${URL_MATERIA}/${materiaId}`, { notas: notasActualizadas });
+
+        set((state) => ({
+            materias: state.materias.map(materia => 
+                materia.id === materiaId ? { ...materia, notas: resp.data.notas } : materia
+            ),
+            loading: false,
+        }));
+
+        return resp.data
+    } catch (error) {
+        set({ error: error.message, loading: false });
+        console.error(error);
+        return null;
+    }
+}
+
 }));
 
 export default useMateriasStore;
