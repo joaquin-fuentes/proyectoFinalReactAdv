@@ -28,9 +28,6 @@ const EditarNotas = ({ show, handleClose, notaSeleccionada }) => {
 
   useEffect(() => {
     if (notaSeleccionada) {
-      console.log("notaSeleccionada:", notaSeleccionada);
-      console.log("Materia seleccionada:", materia.id);
-      console.log("Alumno seleccionado: ", notaSeleccionada.nota.alumnoId);
       setValue("trimestre1", nota.trimestre1);
       setValue("trimestre2", nota.trimestre2);
       setValue("trimestre3", nota.trimestre3);
@@ -38,10 +35,6 @@ const EditarNotas = ({ show, handleClose, notaSeleccionada }) => {
   }, [notaSeleccionada, setValue]);
 
   const onSubmit = async (data) => {
-    console.log("Datos enviados:", data);
-    console.log("Nota seleccionada:", notaSeleccionada);
-    console.log("Materia seleccionada:", materia.id);
-    console.log("Alumno seleccionado: ", notaSeleccionada.nota.alumnoId);
 
     const trimestre1 = parseFloat(data.trimestre1);
     const trimestre2 = parseFloat(data.trimestre2);
@@ -62,7 +55,6 @@ const EditarNotas = ({ show, handleClose, notaSeleccionada }) => {
         notaSeleccionada.nota.alumnoId,
         datosConPromedio
       );
-      console.log("respuesta de los datos editados: ", respuesta);
       if (respuesta) {
         Swal.fire({
           title: "¡Listo!",
@@ -79,7 +71,6 @@ const EditarNotas = ({ show, handleClose, notaSeleccionada }) => {
           confirmButtonColor: "#004b81",
           confirmButtonText: "Aceptar",
         });
-        console.log("no se edito la nota");
       }
     } catch (error) {
       Swal.fire({

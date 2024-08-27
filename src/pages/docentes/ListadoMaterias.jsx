@@ -55,7 +55,7 @@ const ListadoMaterias = () => {
   };
 
 
-  const filteredMaterias = materiasConHorarios.filter((materia) =>
+  const materiasFiltradas = materiasConHorarios.filter((materia) =>
     normalizarTexto(materia.nombre.toLowerCase()).includes(normalizarTexto(busqueda).toLowerCase())
   );
 
@@ -98,8 +98,8 @@ const ListadoMaterias = () => {
           </tr>
         </thead>
         <tbody>
-          {filteredMaterias.length > 0 ? (
-            filteredMaterias.map((materia) =>
+          {materiasFiltradas.length > 0 ? (
+            materiasFiltradas.map((materia) =>
               materia.horarios.map((horario, index) => (
                 <tr key={`${materia.id}-${index}`}>
                   <td className="tableMaterias">{materia.nombre}</td>
