@@ -1,7 +1,7 @@
 {
   "usuarios": [
     {
-      "id": 1,
+      "id": "1",
       "direccion": "España 2456",
       "nombre": "Joaquin",
       "apellido": "Fuentes",
@@ -12,7 +12,7 @@
       "rol": "alumno"
     },
     {
-      "id": 2,
+      "id": "2",
       "direccion": "direccion123",
       "nombre": "Georgina",
       "apellido": "Costilla",
@@ -23,12 +23,23 @@
       "rol": "administrador"
     },
     {
-      "id": 3,
+      "id": "3",
       "direccion": "direccion123",
       "nombre": "Andrés",
       "apellido": "Santamarina",
       "email": "andres@gmail.com",
       "dni": "39252525",
+      "password": "123456",
+      "telefono": "3814564564",
+      "rol": "docente"
+    },
+    {
+      "id": "4",
+      "direccion": "Gral Paz 1034",
+      "nombre": "Juan",
+      "apellido": "Toranzos",
+      "email": "toranzos628@gmail.com",
+      "dni": "44580616",
       "password": "123456",
       "telefono": "3814564564",
       "rol": "docente"
@@ -43,7 +54,7 @@
       "email": "santamarina@gmail.com",
       "password": "123456",
       "passwordConfirm": "123456",
-      "id": 4
+      "id": "4"
     },
     {
       "rol": "administrador",
@@ -55,7 +66,7 @@
       "email": "santamarina@gmail.com",
       "password": "123456",
       "passwordConfirm": "123456",
-      "id": 5
+      "id": "5"
     },
     {
       "rol": "alumno",
@@ -67,7 +78,7 @@
       "email": "santamarina@gmail.com",
       "password": "123456",
       "passwordConfirm": "123456",
-      "id": 6
+      "id": "6"
     },
     {
       "rol": "docente",
@@ -79,7 +90,7 @@
       "email": "santamarina@gmail.com",
       "password": "123456",
       "passwordConfirm": "123456",
-      "id": 7
+      "id": "7"
     },
     {
       "rol": "Alumno",
@@ -91,12 +102,12 @@
       "email": "santamarina@gmail.com",
       "password": "12",
       "passwordConfirm": "12",
-      "id": 8
+      "id": "8"
     }
   ],
   "materias": [
     {
-      "id": 1,
+      "id": "1",
       "nombre": "matematicas",
       "año": "1",
       "division": "A",
@@ -121,22 +132,274 @@
   ],
   "novedades": [
     {
-      "id": 1,
+      "id": "1",
       "titulo": "Nueva reunión de docentes",
       "url_img": "https://img.cronista.com/files/image/755/755407/65e75a12cf161_360_202!.webp?s=7c4586decbed712c6ef8026da51496b1&d=1709692543&oe=jpg",
       "destinatario": "docentes"
     },
     {
-      "id": 2,
+      "id": "2",
       "titulo": "Día de la bandera",
       "url_img": "https://www.epet1.edu.ar/wp-content/uploads/2015/06/Poster-20-de-Junio-1024x640.jpg",
       "destinatario": "alumnos"
     },
     {
-      "id": 3,
+      "id": "3",
       "titulo": "Actualización de Normativas",
       "url_img": "https://des-ers.infd.edu.ar/sitio/wp-content/uploads/2022/05/IMG-20220530-WA0048.jpg",
       "destinatario": "todos"
+    }
+  ],
+  "asistencias": [
+    {
+      "dia": "12/08/2024",
+      "alumnosPresentes": [
+        {
+          "alumnoID": 1
+        },
+        {
+          "alumnoID": 3
+        }
+      ],
+      "docentesPresentes": [
+        {
+          "docenteId": 1
+        }
+      ],
+      "id": "9c53"
+    },
+    {
+      "id": "e5a2",
+      "dia": "21/8/2024",
+      "materiaID": 1,
+      "alumnosPresentes": [
+        "1",
+        "2",
+        "3"
+      ],
+      "docentesPresentes": [
+        3
+      ]
+    },
+    {
+      "id": "a39c",
+      "dia": "21/8/2024",
+      "materiaID": 1,
+      "alumnosPresentes": [
+        "3"
+      ],
+      "docentesPresentes": []
+    },
+    {
+      "id": "2e1b",
+      "dia": "25/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "3",
+        "2",
+        "1"
+      ],
+      "docentesPresentes": []
+    },
+    {
+      "id": "83d5",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1",
+        "2"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "a70f",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1",
+        "3"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "4d23",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "987b",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "2d63",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1",
+        "2"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "943a",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "b259",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1",
+        "3",
+        "2"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "8cc7",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "3"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "444d",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "2"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "c783",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1",
+        "2",
+        "3"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "c7f0",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1",
+        "3"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "0ce6",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "939a",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1",
+        "2",
+        "3"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "2dc1",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "3",
+        "2"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "09a3",
+      "dia": "27/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "5962",
+      "dia": "27/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "2"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "869d",
+      "dia": "28/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1",
+        "2",
+        "3"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
     }
   ]
 }
