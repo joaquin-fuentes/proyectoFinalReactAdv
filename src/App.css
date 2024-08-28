@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
-/* Estilos generales */
+
 * {
   padding: 0;
   margin: 0;
@@ -40,34 +40,41 @@ html {
 body {
   background-color: var(--color-fondo);
 }
+
 .titulo {
   font-family: var(--fuente-principal);
   font-size: var(--fuente-tamanio-titulo);
   color: var(--color-primario);
 }
+
 /* HEADER */
 .imgAvatarHeader {
   width: 30px;
   border-radius: 50%;
 }
+
 .logout-btn {
   cursor: pointer;
-  color: var(--fuente-color-primario); /* Color por defecto */
+  color: var(--fuente-color-primario);
+  /* Color por defecto */
   display: flex;
   align-items: center;
   font-weight: bold;
 }
 
 .logout-btn:hover {
-  color: rgb(190, 188, 188); /* Cambia el color al hacer hover */
+  color: rgb(190, 188, 188);
+  /* Cambia el color al hacer hover */
 }
 
 .logout-btn svg {
-  margin-right: 4px; /* Espacio entre el icono y el texto */
+  margin-right: 4px;
+  /* Espacio entre el icono y el texto */
 }
 
 .logout-btn:active {
-  color: #e0e0e0; /* Cambia ligeramente el color cuando se presiona */
+  color: #e0e0e0;
+  /* Cambia ligeramente el color cuando se presiona */
 }
 
 /* Estilos del sidebar */
@@ -76,42 +83,52 @@ body {
   color: var(--fuente-color-primario);
   height: 100vh;
 }
+
 .bg-azulOscuro {
   background-color: var(--color-fondo);
 }
+
 .logoSidebar {
   /* height: 62px; */
   height: 120px;
   width: 50%;
   filter: drop-shadow(1px 1px rgba(255, 255, 255, 0.6));
 }
+
 /* OFFCANVAS */
 .logoOfCanvas {
   height: 60px;
 }
+
 .offcanvas-body {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
+
 .offcanvas-header .btn-close {
   filter: invert(1);
 }
+
 .sidebar-full-height {
   flex: 1;
   overflow-y: auto;
 }
+
 .btnSidebar:hover {
   color: var(--btn-color) !important;
   background-color: var(--color-primario);
   width: 100%;
 }
+
 .navBarMenu {
   background-color: var(--color-fondo) !important;
 }
+
 .tituloFooter {
   font-size: small;
 }
+
 .copyFooter {
   font-size: x-small;
 }
@@ -121,6 +138,7 @@ body {
   background-color: var(--color-fondo);
   color: var(--color-primario);
 }
+
 /* Sidebar para pantallas grandes */
 @media (min-width: 992px) {
   .sidebar {
@@ -142,6 +160,7 @@ body {
   .main-content {
     margin-left: 0;
   }
+
   .logoSidebar {
     /* height: 62px; */
     height: 150px;

@@ -29,7 +29,7 @@ const SeccionNovedades = () => {
     );
   }
   const novedadesDocente = novedades.filter(
-    (novedad) => novedad.destinatario != "alumnos"
+    (novedad) => novedad.destinatario != "Alumnos"
   );
 
   return (

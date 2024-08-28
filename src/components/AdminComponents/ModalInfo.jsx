@@ -3,9 +3,9 @@ import Modal from "react-bootstrap/Modal";
 import "../../pages/administrador/Administrador.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Container } from "react-bootstrap";
-import avatar from "../../assets/imagenes/avatarPerfil.jpeg";
+// import avatar from "../../assets/imagenes/avatarPerfil.jpeg";
 
-const ModalInfo = ({usuario}) => {
+const ModalInfo = ({ usuario }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -24,7 +24,11 @@ const ModalInfo = ({usuario}) => {
         </Modal.Header>
         <Modal.Body>
           <Container className="d-flex flex-column align-items-center justify-content-center py-md-3">
-            <img src={avatar} alt="avatar" className="avatarPerfil" />
+            <img
+              src={usuario.url_img}
+              alt="foto de perfil"
+              className="avatarPerfil"
+            />
             <article className="perfil-card-admin rounded py-2 mt-3 bg-datosAdmin text-light contenedorDatos">
               <div className="d-flex justify-content-md-between align-items-center px-2 px-md-5 py-2">
                 <h6 className="me-1 my-0 fw-bold">DNI</h6>
@@ -48,9 +52,7 @@ const ModalInfo = ({usuario}) => {
               <hr className="my-1 mx-2" />
               <div className="d-flex justify-content-md-between align-items-center px-2 px-md-5 py-2">
                 <h6 className="me-1 my-0 fw-bold">Dirección</h6>
-                <span className="ms-auto my-0">
-                  {usuario.direccion}
-                </span>
+                <span className="ms-auto my-0">{usuario.direccion}</span>
               </div>
               <hr className="my-1 mx-2" />
               <div className="d-flex justify-content-md-between align-items-center px-2 px-md-5 py-2">
