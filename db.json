@@ -582,10 +582,13 @@
   ],
   "asistencias": [
     {
-      "dia": "12/208/2024",
+      "dia": "12/08/2024",
       "alumnosPresentes": [
         {
           "alumnoID": 1
+        },
+        {
+          "alumnoID": 3
         }
       ],
       "docentesPresentes": [
@@ -593,7 +596,240 @@
           "docenteId": 1
         }
       ],
-      "id": "49e8"
+      "id": "9c53"
+    },
+    {
+      "id": "e5a2",
+      "dia": "21/8/2024",
+      "materiaID": 1,
+      "alumnosPresentes": [
+        "1",
+        "2",
+        "3"
+      ],
+      "docentesPresentes": [
+        3
+      ]
+    },
+    {
+      "id": "a39c",
+      "dia": "21/8/2024",
+      "materiaID": 1,
+      "alumnosPresentes": [
+        "3"
+      ],
+      "docentesPresentes": []
+    },
+    {
+      "id": "2e1b",
+      "dia": "25/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "3",
+        "2",
+        "1"
+      ],
+      "docentesPresentes": []
+    },
+    {
+      "id": "83d5",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1",
+        "2"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "a70f",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1",
+        "3"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "4d23",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "987b",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "2d63",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1",
+        "2"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "943a",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "b259",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1",
+        "3",
+        "2"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "8cc7",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "3"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "444d",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "2"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "c783",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1",
+        "2",
+        "3"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "c7f0",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1",
+        "3"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "0ce6",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "939a",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1",
+        "2",
+        "3"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "2dc1",
+      "dia": "26/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "3",
+        "2"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "09a3",
+      "dia": "27/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "5962",
+      "dia": "27/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "2"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "869d",
+      "dia": "28/8/2024",
+      "materiaID": "1",
+      "alumnosPresentes": [
+        "1",
+        "2",
+        "3"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
     }
   ]
 }
