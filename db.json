@@ -1,15 +1,16 @@
 {
   "usuarios": [
     {
-      "id": "1",
-      "direccion": "España 2456",
-      "nombre": "Joaquin",
       "apellido": "Fuentes",
-      "email": "joaquin@gmail.com",
+      "nombre": "Joaquin",
       "dni": "37423893",
-      "password": "123456",
       "telefono": "3816097754",
-      "rol": "Alumno"
+      "direccion": "España 2456",
+      "email": "joaquin@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "rol": "Alumno",
+      "id": "1"
     },
     {
       "rol": "Administrador",
