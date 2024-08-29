@@ -13,7 +13,6 @@
       "id": "1"
     },
     {
-      "rol": "Administrador",
       "apellido": "Costilla",
       "nombre": "Georgina",
       "dni": "381212112",
@@ -22,6 +21,7 @@
       "email": "georgina@gmail.com",
       "password": "123456",
       "passwordConfirm": "123456",
+      "rol": "Administrador",
       "id": "2"
     },
     {
