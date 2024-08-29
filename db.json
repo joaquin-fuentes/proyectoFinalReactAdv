@@ -1,15 +1,16 @@
 {
   "usuarios": [
     {
-      "id": "1",
-      "direccion": "España 2456",
-      "nombre": "Joaquin",
       "apellido": "Fuentes",
-      "email": "joaquin@gmail.com",
+      "nombre": "Joaquin",
       "dni": "37423893",
-      "password": "123456",
       "telefono": "3816097754",
-      "rol": "Alumno"
+      "direccion": "España 2456",
+      "email": "joaquin@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "rol": "Alumno",
+      "id": "1"
     },
     {
       "rol": "Administrador",
@@ -45,6 +46,42 @@
       "password": "1234",
       "passwordConfirm": "1234",
       "id": "4"
+    },
+    {
+      "rol": "Administrador",
+      "apellido": "Santamarina",
+      "nombre": "Andrés",
+      "dni": "41275066",
+      "telefono": "3865608565",
+      "direccion": "Amancay 1683",
+      "email": "santamarina@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "id": "5"
+    },
+    {
+      "rol": "Docente",
+      "apellido": "Santamarina",
+      "nombre": "Andrés",
+      "dni": "41275066",
+      "telefono": "3865608565",
+      "direccion": "Amancay 1683",
+      "email": "santamarina@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "id": "6"
+    },
+    {
+      "rol": "Alumno",
+      "apellido": "Santamarina",
+      "nombre": "Andrés",
+      "dni": "41275066",
+      "telefono": "3865608565",
+      "direccion": "Amancay 1683",
+      "email": "santamarina@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "id": "7"
     },
     {
       "rol": "Alumno",
@@ -204,7 +241,7 @@
     {
       "rol": "Docente",
       "apellido": "Santamarina",
-      "nombre": "Eduardo",
+      "nombre": "Andrés",
       "dni": "41275066",
       "telefono": "3865608565",
       "direccion": "Amancay 1683",
@@ -223,7 +260,7 @@
       "turno": "Mañana",
       "materias": [
         "2c07",
-        "FjdFxGJ",
+        "b06e",
         "db57"
       ],
       "horarios": [
@@ -250,7 +287,7 @@
         {
           "dia": "Martes",
           "modulo": "1",
-          "materiaID": "FjdFxGJ"
+          "materiaID": "b06e"
         },
         {
           "dia": "Martes",
@@ -290,7 +327,7 @@
         {
           "dia": "Jueves",
           "modulo": "1",
-          "materiaID": "FjdFxGJ"
+          "materiaID": "b06e"
         },
         {
           "dia": "Jueves",
@@ -335,122 +372,6 @@
         "15",
         "1"
       ]
-    },
-    {
-      "anio": "2",
-      "division": "A",
-      "turno": "Mañana",
-      "materias": [
-        "FjdFxGJ"
-      ],
-      "horarios": [
-        {
-          "dia": "Lunes",
-          "modulo": "1",
-          "materiaID": ""
-        },
-        {
-          "dia": "Lunes",
-          "modulo": "2",
-          "materiaID": "FjdFxGJ"
-        },
-        {
-          "dia": "Lunes",
-          "modulo": "3",
-          "materiaID": ""
-        },
-        {
-          "dia": "Lunes",
-          "modulo": "4",
-          "materiaID": ""
-        },
-        {
-          "dia": "Martes",
-          "modulo": "1",
-          "materiaID": ""
-        },
-        {
-          "dia": "Martes",
-          "modulo": "2",
-          "materiaID": ""
-        },
-        {
-          "dia": "Martes",
-          "modulo": "3",
-          "materiaID": ""
-        },
-        {
-          "dia": "Martes",
-          "modulo": "4",
-          "materiaID": ""
-        },
-        {
-          "dia": "Miércoles",
-          "modulo": "1",
-          "materiaID": ""
-        },
-        {
-          "dia": "Miércoles",
-          "modulo": "2",
-          "materiaID": ""
-        },
-        {
-          "dia": "Miércoles",
-          "modulo": "3",
-          "materiaID": ""
-        },
-        {
-          "dia": "Miércoles",
-          "modulo": "4",
-          "materiaID": ""
-        },
-        {
-          "dia": "Jueves",
-          "modulo": "1",
-          "materiaID": ""
-        },
-        {
-          "dia": "Jueves",
-          "modulo": "2",
-          "materiaID": ""
-        },
-        {
-          "dia": "Jueves",
-          "modulo": "3",
-          "materiaID": ""
-        },
-        {
-          "dia": "Jueves",
-          "modulo": "4",
-          "materiaID": ""
-        },
-        {
-          "dia": "Viernes",
-          "modulo": "1",
-          "materiaID": ""
-        },
-        {
-          "dia": "Viernes",
-          "modulo": "2",
-          "materiaID": ""
-        },
-        {
-          "dia": "Viernes",
-          "modulo": "3",
-          "materiaID": ""
-        },
-        {
-          "dia": "Viernes",
-          "modulo": "4",
-          "materiaID": ""
-        }
-      ],
-      "alumnos": [
-        "8",
-        "11",
-        "10"
-      ],
-      "id": "KYAn83j"
     }
   ],
   "materias": [
@@ -461,7 +382,6 @@
       "division": "A",
       "turno": "Mañana",
       "docenteId": "3",
-      "cursoId": "aec8",
       "notas": [
         {
           "alumnoId": "1",
@@ -469,34 +389,24 @@
           "trimestre2": 6,
           "trimestre3": 8,
           "notaFinal": 7
-        },
+        }
+      ]
+    },
+    {
+      "id": "b06e",
+      "nombre": "Fisica",
+      "anio": "1",
+      "division": "A",
+      "turno": "Mañana",
+      "docenteId": "9",
+      "cursoId": "",
+      "notas": [
         {
-          "alumnoId": "12",
-          "trimestre1": 6,
-          "trimestre2": 6,
-          "trimestre3": 8,
-          "notaFinal": 7
-        },
-        {
-          "alumnoId": "13",
-          "trimestre1": 6,
-          "trimestre2": 6,
-          "trimestre3": 8,
-          "notaFinal": 7
-        },
-        {
-          "alumnoId": "14",
-          "trimestre1": 6,
-          "trimestre2": 6,
-          "trimestre3": 8,
-          "notaFinal": 7
-        },
-        {
-          "alumnoId": "15",
-          "trimestre1": 6,
-          "trimestre2": 6,
-          "trimestre3": 8,
-          "notaFinal": 7
+          "alumnoId": "",
+          "trimestre1": 0,
+          "trimestre2": 0,
+          "trimestre3": 0,
+          "notaFinal": 0
         }
       ]
     },
@@ -515,6 +425,42 @@
       "id": "6511"
     },
     {
+      "id": "71b9",
+      "nombre": "Geografia",
+      "anio": "1",
+      "division": "B",
+      "turno": "Mañana",
+      "docenteId": "6",
+      "cursoId": "",
+      "notas": [
+        {
+          "alumnoId": "",
+          "trimestre1": 0,
+          "trimestre2": 0,
+          "trimestre3": 0,
+          "notaFinal": 0
+        }
+      ]
+    },
+    {
+      "id": "f8ca",
+      "nombre": "Dibujo",
+      "anio": "1",
+      "division": "C",
+      "turno": "Mañana",
+      "docenteId": "6",
+      "cursoId": "",
+      "notas": [
+        {
+          "alumnoId": "",
+          "trimestre1": 0,
+          "trimestre2": 0,
+          "trimestre3": 0,
+          "notaFinal": 0
+        }
+      ]
+    },
+    {
       "nombre": "Matematicas",
       "anio": "2",
       "division": "B",
@@ -522,36 +468,22 @@
       "id": "11ae"
     },
     {
-      "nombre": "Física",
-      "anio": "2",
-      "division": "B",
+      "id": "5aaa",
+      "nombre": "Quimica",
+      "anio": "3",
+      "division": "A",
       "turno": "Mañana",
-      "docenteId": "3",
-      "cursoId": "KYAn83j",
+      "docenteId": "20",
+      "cursoId": "",
       "notas": [
         {
-          "alumnoId": "8",
-          "trimestre1": 1,
-          "trimestre2": 9,
-          "trimestre3": 1,
-          "notaFinal": 3.67
-        },
-        {
-          "alumnoId": "11",
-          "trimestre1": 4,
-          "trimestre2": 4,
-          "trimestre3": 3,
-          "notaFinal": 0
-        },
-        {
-          "alumnoId": "10",
-          "trimestre1": 3,
-          "trimestre2": 3,
-          "trimestre3": 2,
+          "alumnoId": "",
+          "trimestre1": 0,
+          "trimestre2": 0,
+          "trimestre3": 0,
           "notaFinal": 0
         }
-      ],
-      "id": "FjdFxGJ"
+      ]
     }
   ],
   "novedades": [
@@ -582,13 +514,10 @@
   ],
   "asistencias": [
     {
-      "dia": "12/08/2024",
+      "dia": "12/208/2024",
       "alumnosPresentes": [
         {
           "alumnoID": 1
-        },
-        {
-          "alumnoID": 3
         }
       ],
       "docentesPresentes": [
@@ -596,240 +525,7 @@
           "docenteId": 1
         }
       ],
-      "id": "9c53"
-    },
-    {
-      "id": "e5a2",
-      "dia": "21/8/2024",
-      "materiaID": 1,
-      "alumnosPresentes": [
-        "1",
-        "2",
-        "3"
-      ],
-      "docentesPresentes": [
-        3
-      ]
-    },
-    {
-      "id": "a39c",
-      "dia": "21/8/2024",
-      "materiaID": 1,
-      "alumnosPresentes": [
-        "3"
-      ],
-      "docentesPresentes": []
-    },
-    {
-      "id": "2e1b",
-      "dia": "25/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "3",
-        "2",
-        "1"
-      ],
-      "docentesPresentes": []
-    },
-    {
-      "id": "83d5",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1",
-        "2"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "a70f",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1",
-        "3"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "4d23",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "987b",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "2d63",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1",
-        "2"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "943a",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "b259",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1",
-        "3",
-        "2"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "8cc7",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "3"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "444d",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "2"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "c783",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1",
-        "2",
-        "3"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "c7f0",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1",
-        "3"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "0ce6",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "939a",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1",
-        "2",
-        "3"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "2dc1",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "3",
-        "2"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "09a3",
-      "dia": "27/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "5962",
-      "dia": "27/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "2"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "869d",
-      "dia": "28/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1",
-        "2",
-        "3"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
+      "id": "49e8"
     }
   ]
 }
