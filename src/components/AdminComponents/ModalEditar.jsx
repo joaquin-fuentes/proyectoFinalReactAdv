@@ -113,6 +113,20 @@ const ModalEditar = ({ usuario }) => {
                       placeholder="Ingresar apellido"
                       {...register("apellido", {
                         required: "El apellido es obligatorio",
+                        minLength: {
+                          value: 3,
+                          message:
+                            "Ingrese un apellido con un mínimo de 3 caracteres",
+                        },
+                        maxLength: {
+                          value: 50,
+                          message:
+                            "El apellido no puede tener más de 50 caracteres",
+                        },
+                        pattern: {
+                          value: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/i,
+                          message: "El apellido solo puede contener letras",
+                        },
                       })}
                     />
                     <Form.Text className="text-danger">
@@ -126,6 +140,20 @@ const ModalEditar = ({ usuario }) => {
                       placeholder="Ingresar nombre"
                       {...register("nombre", {
                         required: "El nombre es obligatorio",
+                        minLength: {
+                          value: 3,
+                          message:
+                            "Ingrese un nombre con un mínimo de 3 caracteres",
+                        },
+                        maxLength: {
+                          value: 50,
+                          message:
+                            "El nombre no puede tener más de 50 caracteres",
+                        },
+                        pattern: {
+                          value: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/i,
+                          message: "El nombre solo puede contener letras",
+                        },
                       })}
                     />
                     <Form.Text className="text-danger">
@@ -135,10 +163,18 @@ const ModalEditar = ({ usuario }) => {
                   <Form.Group className="mb-3" controlId="formDNI">
                     <Form.Label>DNI</Form.Label>
                     <Form.Control
-                      type="text"
+                      type="number"
                       placeholder="Ingresar DNI"
                       {...register("dni", {
                         required: "El DNI es obligatorio",
+                        min: {
+                          value: 10000000,
+                          message: "Ingrese un dni valido",
+                        },
+                        max: {
+                          value: 99999999,
+                          message: "Ingrese un dni valido",
+                        },
                       })}
                     />
                     <Form.Text className="text-danger">
@@ -152,6 +188,11 @@ const ModalEditar = ({ usuario }) => {
                       placeholder="3865123456"
                       {...register("telefono", {
                         required: "El teléfono es obligatorio",
+                        pattern: {
+                          value: /^\d{10,15}$/,
+                          message:
+                            "El teléfono debe tener entre 10 y 15 dígitos",
+                        },
                       })}
                     />
                     <Form.Text className="text-danger">
@@ -167,6 +208,16 @@ const ModalEditar = ({ usuario }) => {
                       placeholder="Calle 123"
                       {...register("direccion", {
                         required: "La dirección es obligatoria",
+                        minLength: {
+                          value: 5,
+                          message:
+                            "Ingrese una dirección con un mínimo de 5 caracteres",
+                        },
+                        maxLength: {
+                          value: 50,
+                          message:
+                            "La dirección no puede tener más de 50 caracteres",
+                        },
                       })}
                     />
                     <Form.Text className="text-danger">
@@ -180,6 +231,10 @@ const ModalEditar = ({ usuario }) => {
                       placeholder="ejemplo@gmail.com"
                       {...register("email", {
                         required: "El email es obligatorio",
+                        pattern: {
+                          value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
+                          message: "Debe ingresar un email válido",
+                        },
                       })}
                     />
                     <Form.Text className="text-danger">
@@ -193,6 +248,16 @@ const ModalEditar = ({ usuario }) => {
                       placeholder="Ingresar contraseña"
                       {...register("password", {
                         required: "Contraseña obligatoria",
+                        minLength: {
+                          value: 6,
+                          message:
+                            "La contraseña debe tener al menos 6 caracteres",
+                        },
+                        pattern: {
+                          value: /^(?=.*[A-Z])(?=.*[!@#$%^&*])/,
+                          message:
+                            "La contraseña debe tener al menos una letra mayúscula y un carácter especial",
+                        },
                       })}
                     />
                     <Form.Text className="text-danger">
