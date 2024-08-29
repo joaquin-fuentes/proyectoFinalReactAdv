@@ -75,7 +75,7 @@ const ModalProfileEdit = ({ usuario, onUserUpdated }) => {
   return (
     <>
       <button className="btn btnEditar m-1" onClick={handleShow}>
-        <span className="h5">Editar Perfil </span>
+        <span className="h5">Editar Perfil</span>
         <i className="bi bi-pencil-square iconoEditar"></i>
       </button>
 
