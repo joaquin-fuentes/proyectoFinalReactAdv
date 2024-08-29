@@ -25,15 +25,16 @@
       "id": "2"
     },
     {
-      "id": "3",
-      "direccion": "direccion123",
-      "nombre": "Andrés",
       "apellido": "Santamarina",
-      "email": "andres@gmail.com",
+      "nombre": "Andrés",
       "dni": "39252525",
-      "password": "123456",
       "telefono": "3814564564",
-      "rol": "Docente"
+      "direccion": "direccion123",
+      "email": "andres@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "rol": "Docente",
+      "id": "3"
     },
     {
       "rol": "Alumno",
