@@ -133,3 +133,19 @@
     transform: scale(1.05);
   }
 }
+
+.iconoEditar {
+  color: var(--color-primario);
+}
+
+.btnEditar {
+  background: var(--color-fondo) !important;
+  /* text-align: right; */
+  font-family: var(--fuente-secundaria);
+  font-weight: bold;
+  color: var(--color-primario) !important;
+}
+
+.modalUsuario {
+  font-family: var(--fuente-principal);
+}

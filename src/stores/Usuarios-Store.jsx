@@ -13,7 +13,6 @@ const useUsuarios = create((set) => ({
     set({ loading: true, error: null });
     try {
       const resp = await axios.get(`${URL_USUARIO}`);
-      console.log(resp.data);
       set({ usuarios: resp.data, loading: false });
     } catch (error) {
       set({ error: error.message, loading: false });
@@ -38,7 +37,6 @@ const useUsuarios = create((set) => ({
         usuarios: [...state.usuarios, resp.data],
         loading: false,
       }));
-      //devuelvo true o false para saber si el usuario se crea o no, creo que se lo puede hacer manejando el error directamente, A MODIFICAR
       return true;
     } catch (error) {
       set({ error: error.message, loading: false });
@@ -54,9 +52,9 @@ const useUsuarios = create((set) => ({
         usuarios: state.usuarios.map((usuario) =>
           usuario.id === id ? resp.data : usuario
         ),
+        usuario: state.usuario?.id === id ? resp.data : state.usuario,
         loading: false,
       }));
-      //devuelvo true o false para saber si el usuario se edita o no, creo que se lo puede hacer manejando el error directamente, A MODIFICAR
       return true;
     } catch (error) {
       set({ error: error.message, loading: false });
