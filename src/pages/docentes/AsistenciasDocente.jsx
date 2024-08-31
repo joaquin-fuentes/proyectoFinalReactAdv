@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Modal, Button, Table, Form, Container, Pagination } from 'react-bootstrap';
 import useStore from '../../stores/Asistencias-Store';
-import "bootstrap-icons/font/bootstrap-icons.css";
 import Swal from 'sweetalert2';
 
 const AsistenciasDocente = () => {
-  const { usuarios, materias, fetchUsuarios, fetchMaterias, marcarAsistencia, historialAsistencias, fetchHistorial } = useStore();
+  const { usuarios, materias, fetchUsuarios, fetchMaterias, marcarAsistencia, historialAsistencias, fetchHistorial, cursos, fetchCursos } = useStore();
   const [showModal, setShowModal] = useState(false);
   const [showDetailModal, setShowDetailModal] = useState(false);
   const [selectedMateria, setSelectedMateria] = useState(null);
@@ -18,7 +17,9 @@ const AsistenciasDocente = () => {
     fetchUsuarios();
     fetchMaterias();
     fetchHistorial();
-  }, [fetchUsuarios, fetchMaterias, fetchHistorial]);
+    fetchCursos();
+    console.log(usuarios, materias, historialAsistencias);
+  }, [fetchUsuarios, fetchMaterias, fetchHistorial, fetchCursos]);
 
   const handleCheckboxChange = (type, id) => {
     if (type === 'alumno') {
@@ -78,9 +79,6 @@ const AsistenciasDocente = () => {
     setSelectedAsistencia(asistencia);
     setShowDetailModal(true);
   };
-
-
-
   return (
     <>
       <Container className="asistencias-container pt-md-3">
@@ -89,34 +87,36 @@ const AsistenciasDocente = () => {
           <thead>
             <tr>
               <th style={{ backgroundColor: '#071f40', color: 'white' }}>Año</th>
+              <th style={{ backgroundColor: '#071f40', color: 'white' }}>Materia</th>
               <th style={{ backgroundColor: '#071f40', color: 'white' }}>División</th>
-              <th style={{ backgroundColor: '#071f40', color: 'white' }}>Lista de Alumnos</th>
+              <th style={{ backgroundColor: '#071f40', color: 'white' }}>Lista de Alumnos y docentes</th>
             </tr>
           </thead>
           <tbody>
             {materias.map((materia) => (
               <tr style={{ backgroundColor: '#071f40', color: 'white' }} key={materia.id}>
-                <td style={{ backgroundColor: '#071f40', color: 'white' }}>{materia.año}</td>
+                <td style={{ backgroundColor: '#071f40', color: 'white' }}>{materia.anio}</td>
+                <td style={{ backgroundColor: '#071f40', color: 'white' }}>{materia.nombre}</td>
                 <td style={{ backgroundColor: '#071f40', color: 'white' }}>{materia.division}</td>
                 <td style={{ backgroundColor: '#071f40', color: 'white' }}>
                   <Button
                     variant="outline-light"
                     size="sm"
                     className=" m-2 p-2"
-                    
+
                     onClick={() => {
                       setSelectedMateria(materia.id);
                       setShowModal(true);
                     }}
                   >
-                    Ver <i className="bi bi-box-arrow-up-right"></i>
+                    Ver →
                   </Button>
                 </td>
               </tr>
             ))}
           </tbody>
         </Table>
-        
+
         <Modal show={showModal} onHide={() => setShowModal(false)}>
           <Modal.Header closeButton>
             <Modal.Title>Tomar Asistencia</Modal.Title>
@@ -129,28 +129,29 @@ const AsistenciasDocente = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            {materias.find(m => m.id === selectedMateria)?.listadoAlumnos
-              .filter(alumno => {
-                const alumnoData = usuarios.find(u => u.id === alumno.alumnoID);
-                const nombreCompleto = alumnoData ? `${alumnoData.nombre} ${alumnoData.apellido}` : '';
+            {cursos?.find(c => c.materias.includes(selectedMateria))?.alumnos
+              ?.filter(alumnoId => {
+                const alumnoData = usuarios.find(u => u.id === alumnoId);
+                if (!alumnoData) return false;
+                const nombreCompleto = `${alumnoData.nombre} ${alumnoData.apellido}`;
                 return nombreCompleto.toLowerCase().includes(searchTerm.toLowerCase());
               })
-              .map((alumno) => {
-                const alumnoData = usuarios.find(u => u.id === alumno.alumnoID);
+              .map(alumnoId => {
+                const alumnoData = usuarios.find(u => u.id === alumnoId);
                 return (
                   <Form.Check
-                    key={alumno.alumnoID}
+                    key={alumnoId}
                     type="checkbox"
                     label={alumnoData ? `${alumnoData.nombre} ${alumnoData.apellido}` : 'Alumno no encontrado'}
-                    onChange={() => handleCheckboxChange('alumno', alumno.alumnoID)}
+                    onChange={() => handleCheckboxChange('alumno', alumnoId)}
                   />
                 );
               })}
             <h5>Docentes</h5>
             {usuarios
               .filter((usuario) =>
-                usuario.rol === 'docente' &&
-                usuario.id === materias.find(m => m.id === selectedMateria)?.docenteID
+                usuario.rol === 'Docente' &&
+                usuario.id === materias.find(m => m.id === selectedMateria)?.docenteId
               )
               .map((docente) => (
                 <Form.Check
@@ -179,7 +180,7 @@ const AsistenciasDocente = () => {
       <section>
         <h1 className="text-center mb-4 p-3" style={{ color: '#071f40' }}>Historial de Asistencias</h1>
         <Container className="asistencias-container pt-md-3">
-          
+
           <Table striped bordered hover className="text-center rounded mt-3">
             <thead>
               <tr>
@@ -190,7 +191,7 @@ const AsistenciasDocente = () => {
             </thead>
             <tbody>
               {paginatedAsistencias.reverse().map((asistencia) => {
-                const materia = materias.find((m) => m.id === asistencia.materiaID);
+                let materia = materias.find((m) => m.id === asistencia.materiaID);
 
                 return (
                   <tr key={asistencia.id}>
@@ -202,7 +203,7 @@ const AsistenciasDocente = () => {
                         size="sm"
                         onClick={() => openDetailModal(asistencia)}
                       >
-                         Ver <i className="bi bi-box-arrow-up-right"></i>
+                        Ver  →
                       </Button>
                     </td>
                   </tr>
