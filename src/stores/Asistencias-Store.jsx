@@ -5,6 +5,8 @@ const URL_ASISTENCIA = import.meta.env.VITE_API_ASISTENCIA;
 const URL_USUARIO = import.meta.env.VITE_API_USUARIO;
 const URL_MATERIA = import.meta.env.VITE_API_MATERIA;
 
+const URL_CURSO = import.meta.env.VITE_API_CURSO;
+
 
 const useStore = create((set) => ({
   usuarios: [],
@@ -13,30 +15,40 @@ const useStore = create((set) => ({
   historialAsistencias: [],
 
   fetchUsuarios: async () => {
-    const response = await axios.get(`${URL_USUARIO}`);
+    const response = await axios.get(URL_USUARIO);
     set({ usuarios: response.data });
   },
 
   fetchMaterias: async () => {
-    const response = await axios.get(`${URL_MATERIA}`);
+    const response = await axios.get(URL_MATERIA);
     set({ materias: response.data });
   },
 
   fetchAsistencias: async () => {
-    const response = await axios.get(`${URL_ASISTENCIA}`);
+    const response = await axios.get(URL_ASISTENCIA);
     set({ asistencias: response.data });
   },
-   fetchHistorial: async () => {  // Nueva función para obtener el historial de asistencias
-    const response = await axios.get(`${URL_ASISTENCIA}`);
+  fetchHistorial: async () => {  // Nueva función para obtener el historial de asistencias
+    const response = await axios.get(URL_ASISTENCIA);
+    
     set({ historialAsistencias: response.data });
+  },
+  fetchCursos: async () => {
+    const response = await axios.get(URL_CURSO);
+    set({ cursos: response.data });
   },
 
   marcarAsistencia: (dia, materiaID, alumnosPresentes, docentesPresentes) => {
-    const nuevaAsistencia = { dia, materiaID, alumnosPresentes, docentesPresentes };
+    const nuevaAsistencia = {
+      dia,
+      materiaID: String(materiaID),
+      alumnosPresentes,
+      docentesPresentes
+    };
     set((state) => ({
       asistencias: [...state.asistencias, nuevaAsistencia],
     }));
-    axios.post(`${URL_ASISTENCIA}`, nuevaAsistencia);
+    axios.post(URL_ASISTENCIA, nuevaAsistencia);
   },
 }));
 

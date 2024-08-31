@@ -830,6 +830,21 @@
       "docentesPresentes": [
         "3"
       ]
+    },
+    {
+      "id": "acf8",
+      "dia": "30/8/2024",
+      "materiaID": "FjdFxGJ",
+      "alumnosPresentes": [
+        "12",
+        "13",
+        "14",
+        "15",
+        "1"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
     }
   ]
 }
