@@ -1,4 +1,4 @@
-# Bienvenido a SGE - Sistema de gestión educativa
+# Bienvenidos a SGE - Sistema de gestión educativa
 <img src="https://github.com/joaquin-fuentes/proyectoFinalReactAdv/blob/dev/src/assets/imagenes/logo-sge-circle.png"></img>
 
 > Nuestro sitio web ofrece una experiencia intuitiva para gestionar el control académico de manera efectiva. Permite a los usuarios interactuar con el sistema de diferentes formas según su rol. 
@@ -11,7 +11,7 @@
 ## Información del proyecto <a name="informacion"></a> 
   
   ### Descripción
-  Este sistema de gestión académica está diseñado para facilitar la administración de usuarios, materias, cursos, asistencia y novedades de la institución. Los usuarios pueden iniciar sesión con diferentes roles que definen sus permisos y funcionalidades disponibles:
+  Este sistema de gestión académica está diseñado para facilitar la administración de usuarios, materias, cursos, asistencia y novedades de una institución educativa de nivel secundario. Los usuarios pueden iniciar sesión con diferentes roles que definen sus permisos y funcionalidades disponibles:
 
 - **Administrador**: Acceso completo. Puede registrar nuevos usuarios, materias, cursos, horarios, gestionar la asistencia y novedades del sitio.
 - **Alumno**: Acceso solo de visualización. Puede ver datos pero no editar ni eliminar.
