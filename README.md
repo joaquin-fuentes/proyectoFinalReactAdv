@@ -32,13 +32,13 @@
   ### Página principal:
   - La página de inicio presenta una interfaz de login donde los usuarios pueden ingresar como Administrador, Alumno o Docente.
     
-    <img src="https://github.com/joaquin-fuentes/proyectoFinalReactAdv/blob/dev/src/assets/img-REAME.md/captura-login.png"></img>
+    <img src="https://github.com/joaquin-fuentes/proyectoFinalReactAdv/blob/dev/src/assets/img-README.md/captura-login.png"></img>
 
 ### Página de administración:
 
 - El administrador tiene acceso a una interfaz completa para gestionar usuarios, materias, cursos, horarios, asistencia y novedades. A continuación se presenta una vista de ejemplo del menú del Administrador:
 
-  <img src="https://github.com/joaquin-fuentes/proyectoFinalReactAdv/blob/dev/src/assets/img-REAME.md/captura-perfilAdmin.png"></img>
+  <img src="https://github.com/joaquin-fuentes/proyectoFinalReactAdv/blob/dev/src/assets/img-README.md/captura-perfilAdmin.png"></img>
   
 ## Roles y permisos 
 
