@@ -988,6 +988,46 @@
       "docentesPresentes": [
         "3"
       ]
+    },
+    {
+      "id": "2456",
+      "dia": "2/9/2024",
+      "materiaID": "2c07",
+      "alumnosPresentes": [
+        "1"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "36c8",
+      "dia": "2/9/2024",
+      "materiaID": "2c07",
+      "alumnosPresentes": [
+        "1",
+        "15",
+        "14",
+        "13",
+        "12"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
+    },
+    {
+      "id": "5049",
+      "dia": "2/9/2024",
+      "materiaID": "2c07",
+      "alumnosPresentes": [
+        "12",
+        "13",
+        "1",
+        "15"
+      ],
+      "docentesPresentes": [
+        "3"
+      ]
     }
   ]
 }
