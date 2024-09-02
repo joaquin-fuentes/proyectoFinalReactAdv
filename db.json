@@ -554,6 +554,24 @@
           "notaFinal": 0
         }
       ]
+    },
+    {
+      "id": "d002",
+      "nombre": "Matematicassdf",
+      "anio": "1",
+      "division": "A",
+      "turno": "Mañana",
+      "docenteId": "",
+      "cursoId": "",
+      "notas": [
+        {
+          "alumnoId": "",
+          "trimestre1": 0,
+          "trimestre2": 0,
+          "trimestre3": 0,
+          "notaFinal": 0
+        }
+      ]
     }
   ],
   "novedades": [

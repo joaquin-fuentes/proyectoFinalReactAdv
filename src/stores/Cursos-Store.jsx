@@ -29,7 +29,22 @@ const useCursosStore = create((set) => ({
       set({ error: error.message, loading: false });
     }
   },
-
+  verificarCursoExistente: async (anio, division, turno) => {
+    try {
+      const resp = await axios.get(URL_CURSO);
+      const cursoExistente = resp.data.find((curso) => {
+        const coincideTurno = turno
+          ? curso.turno.toLowerCase() === turno.toLowerCase()
+          : true; // Si turno no está definido, siempre devuelve true
+        return (
+          curso.anio === anio && curso.division === division && coincideTurno
+        );
+      });
+      return !!cursoExistente; // Retorna true si existe, false si no
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  },
   crearCurso: async (nuevoCurso) => {
     set({ loading: true, error: null });
     try {
@@ -57,7 +72,6 @@ const useCursosStore = create((set) => ({
       set({ error: error.message, loading: false });
     }
   },
-
 
   borrarCurso: async (id) => {
     set({ loading: true, error: null });

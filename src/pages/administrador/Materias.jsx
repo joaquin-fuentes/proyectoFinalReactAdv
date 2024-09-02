@@ -109,9 +109,9 @@ const Materias = () => {
             </tr>
           </thead>
           <tbody>
-            {materiasFiltradas.map((materia) => {
+            {materiasFiltradas.map((materia, index) => {
               return (
-                <tr key={materia.id}>
+                <tr key={index}>
                   <td className="tableMaterias">{materia.nombre}</td>
                   <td className="tableMaterias">{materia.anio}°</td>
                   <td className="tableMaterias">{materia.division}</td>
