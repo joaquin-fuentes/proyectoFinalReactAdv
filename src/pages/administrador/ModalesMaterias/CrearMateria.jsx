@@ -12,12 +12,13 @@ const CrearMateria = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const { crearMateria } = useMateriasStore();
+  const { crearMateria, verificarMateriaExistente } = useMateriasStore();
   const { docentes, obtenerDocentes } = useDocenteStore();
 
   useEffect(() => {
     obtenerDocentes();
   }, [obtenerDocentes]);
+
   // Esquema de validación con Yup
   const validationSchema = Yup.object().shape({
     nombre: Yup.string().required("El nombre es obligatorio"),
@@ -37,20 +38,34 @@ const CrearMateria = () => {
 
   // Manejo del envío del formulario
   const handleSubmit = async (values, { resetForm }) => {
-    const newData = {
-      ...values,
-      cursoId: "",
-      notas: [
-        {
-          alumnoId: "",
-          trimestre1: 0,
-          trimestre2: 0,
-          trimestre3: 0,
-          notaFinal: 0,
-        },
-      ],
-    };
     try {
+      const existe = await verificarMateriaExistente(
+        values.nombre,
+        values.anio,
+        values.division
+      );
+      if (existe) {
+        Swal.fire({
+          title: "Materia duplicada",
+          text: "Ya existe una materia con este nombre, año, división y turno.",
+          icon: "warning",
+          confirmButtonText: "Cerrar",
+        });
+        return; // Detener el proceso si la materia ya existe
+      }
+      const newData = {
+        ...values,
+        cursoId: "",
+        notas: [
+          {
+            alumnoId: "",
+            trimestre1: 0,
+            trimestre2: 0,
+            trimestre3: 0,
+            notaFinal: 0,
+          },
+        ],
+      };
       await crearMateria(newData); // Aquí puedes enviar los datos al store o hacer alguna otra acción
       handleClose(); // Cerrar el modal después del envío
 

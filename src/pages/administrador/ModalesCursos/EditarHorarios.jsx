@@ -9,25 +9,36 @@ const EditarHorarios = ({ curso }) => {
   const [show, setShow] = useState(false);
   const [horarios, setHorarios] = useState([]);
   const [materiasCompletas, setMateriasCompletas] = useState([]);
-
+  const [loadingMaterias, setLoadingMaterias] = useState(false); // Definimos el estado loadingMaterias
   const { actualizarCurso, obtenerCursos } = useCursosStore();
-  const { obtenerMateriaPorId } = useMateriasStore(); // Obtener la función para obtener materias por ID
+  const { obtenerMateriaPorId } = useMateriasStore();
 
   useEffect(() => {
-    setHorarios(curso.horarios || []);
+    if (curso && curso.horarios) {
+      setHorarios(curso.horarios || []);
 
-    const fetchMaterias = async () => {
-      try {
-        const materiasData = await Promise.all(
-          curso.materias.map((id) => obtenerMateriaPorId(id))
-        );
-        setMateriasCompletas(materiasData);
-      } catch (error) {
-        console.error("Error al obtener materias:", error.message);
+      const fetchMaterias = async () => {
+        try {
+          setLoadingMaterias(true); // Inicia la carga de materias
+          console.log(curso)
+          const materiasData = await Promise.all(
+            curso.materias.map(async (id) => {
+              const materia = await obtenerMateriaPorId(id);
+              return materia; // Retorna null si la materia no existe
+            })
+          );
+          setMateriasCompletas(materiasData.filter((m) => m !== null)); // Filtra los `null`
+        } catch (error) {
+          console.error("Error general al obtener materias:", error.message);
+        } finally {
+          setLoadingMaterias(false); // Finaliza la carga de materias
+        }
+      };
+
+      if (curso.materias && curso.materias.length > 0) {
+        fetchMaterias();
       }
-    };
-
-    fetchMaterias();
+    }
   }, [curso, obtenerMateriaPorId]);
 
   const handleClose = () => setShow(false);
@@ -45,9 +56,37 @@ const EditarHorarios = ({ curso }) => {
     );
   };
 
+  const liberarHorario = (dia, modulo) => {
+    setHorarios((prevHorarios) =>
+      prevHorarios.map((h) =>
+        h.dia === dia && h.modulo === modulo ? { ...h, materiaID: "" } : h
+      )
+    );
+  };
+
   const renderSelectMateria = (dia, modulo) => {
     const horario =
       horarios.find((h) => h.dia === dia && h.modulo === modulo) || {};
+    const materia = materiasCompletas.find((m) => m.id === horario.materiaID);
+    if (loadingMaterias) {
+      return <p>Cargando materias...</p>; // Muestra un mensaje de carga mientras se cargan las materias
+    }
+
+    if (!materia && horario.materiaID) {
+      // Si la materia fue eliminada
+      return (
+        <>
+          <p className="text-danger">Materia eliminada</p>
+          <Button
+            variant="outline-danger"
+            onClick={() => liberarHorario(dia, modulo)}
+          >
+            Liberar Horario
+          </Button>
+        </>
+      );
+    }
+
     return (
       <Form.Control
         as="select"
@@ -67,9 +106,8 @@ const EditarHorarios = ({ curso }) => {
   const handleGuardar = async () => {
     try {
       await actualizarCurso(curso.id, { ...curso, horarios });
-      await obtenerCursos(); // Volver a obtener los cursos actualizados
-      handleClose(); // Cerrar el modal después de guardar
-      // Mostrar SweetAlert de éxito
+      await obtenerCursos();
+      handleClose();
       Swal.fire({
         title: "Horarios actualizados",
         text: "Los horarios se actualizaron con éxito.",
@@ -78,7 +116,6 @@ const EditarHorarios = ({ curso }) => {
         showConfirmButton: false,
       });
     } catch (error) {
-      // Mostrar SweetAlert de error
       Swal.fire({
         title: "Error",
         text: error.message || "Algo salió mal al editar los horarios.",

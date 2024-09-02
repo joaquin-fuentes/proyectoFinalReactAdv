@@ -12,7 +12,7 @@ const CrearCurso = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const { crearCurso } = useCursosStore();
+  const { crearCurso, verificarCursoExistente } = useCursosStore();
   const { materias, obtenerMaterias } = useMateriasStore();
 
   useEffect(() => {
@@ -35,52 +35,63 @@ const CrearCurso = () => {
 
   // Manejo del envío del formulario
   const handleSubmit = async (values, { resetForm }) => {
-    // Filtrar materias que coinciden con el año y división seleccionados
-    const materiasCurso = materias
-      .filter(
-        (materia) =>
-          materia.anio === values.anio &&
-          materia.division === values.division &&
-          materia.turno === values.turno
-      )
-      .map((materia) => materia.id); // Extraer solo los IDs de las materias
-
-    // Crear un nuevo curso con los valores del formulario y los IDs de las materias filtradas
-    console.log(materiasCurso);
-    const nuevoCurso = {
-      ...values,
-      materias: materiasCurso, // Aquí solo se almacenan los IDs de las materias
-      horarios: [
-        { dia: "Lunes", modulo: "1", materiaID: "" },
-        { dia: "Lunes", modulo: "2", materiaID: "" },
-        { dia: "Lunes", modulo: "3", materiaID: "" },
-        { dia: "Lunes", modulo: "4", materiaID: "" },
-        { dia: "Martes", modulo: "1", materiaID: "" },
-        { dia: "Martes", modulo: "2", materiaID: "" },
-        { dia: "Martes", modulo: "3", materiaID: "" },
-        { dia: "Martes", modulo: "4", materiaID: "" },
-        { dia: "Miércoles", modulo: "1", materiaID: "" },
-        { dia: "Miércoles", modulo: "2", materiaID: "" },
-        { dia: "Miércoles", modulo: "3", materiaID: "" },
-        { dia: "Miércoles", modulo: "4", materiaID: "" },
-        { dia: "Jueves", modulo: "1", materiaID: "" },
-        { dia: "Jueves", modulo: "2", materiaID: "" },
-        { dia: "Jueves", modulo: "3", materiaID: "" },
-        { dia: "Jueves", modulo: "4", materiaID: "" },
-        { dia: "Viernes", modulo: "1", materiaID: "" },
-        { dia: "Viernes", modulo: "2", materiaID: "" },
-        { dia: "Viernes", modulo: "3", materiaID: "" },
-        { dia: "Viernes", modulo: "4", materiaID: "" },
-      ],
-      alumnos: [],
-    };
-
-    console.log(nuevoCurso);
     try {
-      await crearCurso(nuevoCurso); // Enviar los datos al store o realizar otra acción
-      handleClose(); // Cerrar el modal después del envío
+      const existe = await verificarCursoExistente(
+        values.anio,
+        values.division,
+        values.turno
+      );
 
-      // Mostrar SweetAlert de éxito
+      if (existe) {
+        Swal.fire({
+          title: "Curso duplicado",
+          text: "Ya existe un curso con este año, división y turno.",
+          icon: "warning",
+          confirmButtonText: "Cerrar",
+        });
+        return; // Detener el proceso si el curso ya existe
+      }
+
+      const materiasCurso = materias
+        .filter(
+          (materia) =>
+            materia.anio === values.anio &&
+            materia.division === values.division &&
+            materia.turno === values.turno
+        )
+        .map((materia) => materia.id);
+
+      const nuevoCurso = {
+        ...values,
+        materias: materiasCurso,
+        horarios: [
+          { dia: "Lunes", modulo: "1", materiaID: "" },
+          { dia: "Lunes", modulo: "2", materiaID: "" },
+          { dia: "Lunes", modulo: "3", materiaID: "" },
+          { dia: "Lunes", modulo: "4", materiaID: "" },
+          { dia: "Martes", modulo: "1", materiaID: "" },
+          { dia: "Martes", modulo: "2", materiaID: "" },
+          { dia: "Martes", modulo: "3", materiaID: "" },
+          { dia: "Martes", modulo: "4", materiaID: "" },
+          { dia: "Miércoles", modulo: "1", materiaID: "" },
+          { dia: "Miércoles", modulo: "2", materiaID: "" },
+          { dia: "Miércoles", modulo: "3", materiaID: "" },
+          { dia: "Miércoles", modulo: "4", materiaID: "" },
+          { dia: "Jueves", modulo: "1", materiaID: "" },
+          { dia: "Jueves", modulo: "2", materiaID: "" },
+          { dia: "Jueves", modulo: "3", materiaID: "" },
+          { dia: "Jueves", modulo: "4", materiaID: "" },
+          { dia: "Viernes", modulo: "1", materiaID: "" },
+          { dia: "Viernes", modulo: "2", materiaID: "" },
+          { dia: "Viernes", modulo: "3", materiaID: "" },
+          { dia: "Viernes", modulo: "4", materiaID: "" },
+        ],
+        alumnos: [],
+      };
+
+      await crearCurso(nuevoCurso);
+      handleClose();
+
       Swal.fire({
         title: "Curso creado",
         text: "El curso se ha creado con éxito.",
@@ -89,9 +100,8 @@ const CrearCurso = () => {
         showConfirmButton: false,
       });
 
-      resetForm(); // Limpiar el formulario después de la creación
+      resetForm();
     } catch (error) {
-      // Mostrar SweetAlert de error
       Swal.fire({
         title: "Error",
         text: error.message || "Algo salió mal al crear el curso.",

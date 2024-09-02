@@ -10,12 +10,16 @@ const ListadoHorarios = ({ curso }) => {
   const { materias, obtenerMaterias, loading, error } = useMateriasStore();
 
   useEffect(() => {
-    setHorarios(curso.horarios || []);
+    if (curso && curso.horarios) {
+      setHorarios(curso.horarios);
+    }
   }, [curso]);
 
   useEffect(() => {
-    obtenerMaterias();
-  }, [obtenerMaterias]);
+    if (curso && curso.materias && curso.materias.length > 0 && materias.length === 0) {
+      obtenerMaterias();
+    }
+  }, [curso, obtenerMaterias, materias.length]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -23,7 +27,7 @@ const ListadoHorarios = ({ curso }) => {
   const dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
 
   const obtenerNombreDeMateria = (id) => {
-    const materia = materias.find((m) => m.id == id);
+    const materia = materias.find((m) => m.id === id);
     return materia ? materia.nombre : "Libre";
   };
 

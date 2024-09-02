@@ -25,7 +25,12 @@ const useMateriasStore = create((set) => ({
       const resp = await axios.get(`${URL_MATERIA}/${id}`);
       return resp.data;
     } catch (error) {
-      throw new Error(error.message);
+      if (error.response && error.response.status === 404) {
+        console.error(`Materia con ID ${id} no encontrada`);
+        return null; // Retorna null si la materia no existe
+      } else {
+        throw new Error(error.message);
+      }
     }
   },
 
@@ -42,7 +47,24 @@ const useMateriasStore = create((set) => ({
       throw new Error(error.message);
     }
   },
-
+  verificarMateriaExistente: async (nombre, anio, division, turno) => {
+    try {
+      const resp = await axios.get(URL_MATERIA);
+      const coincideTurno = turno
+        ? materia.turno.toLowerCase() === turno.toLowerCase()
+        : true; // Si turno no está definido, siempre devuelve true
+      const materiaExistente = resp.data.find(
+        (materia) =>
+          materia.nombre.toLowerCase() === nombre.toLowerCase() &&
+          materia.anio === anio &&
+          materia.division === division &&
+          coincideTurno
+      );
+      return !!materiaExistente; // Retorna true si existe, false si no
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  },
   crearMateria: async (nuevaMateria) => {
     set({ loading: true, error: null });
     try {
@@ -87,30 +109,33 @@ const useMateriasStore = create((set) => ({
   editarNotasMateria: async (materiaId, alumnoId, nuevasNotas) => {
     set({ loading: true, error: null });
     try {
-        const materiaResp = await axios.get(`${URL_MATERIA}/${materiaId}`);
-        const materia = materiaResp.data;
+      const materiaResp = await axios.get(`${URL_MATERIA}/${materiaId}`);
+      const materia = materiaResp.data;
 
-        const notasActualizadas = materia.notas.map(nota => 
-            nota.alumnoId === alumnoId ? { ...nota, ...nuevasNotas } : nota
-        );
+      const notasActualizadas = materia.notas.map((nota) =>
+        nota.alumnoId === alumnoId ? { ...nota, ...nuevasNotas } : nota
+      );
 
-        const resp = await axios.patch(`${URL_MATERIA}/${materiaId}`, { notas: notasActualizadas });
+      const resp = await axios.patch(`${URL_MATERIA}/${materiaId}`, {
+        notas: notasActualizadas,
+      });
 
-        set((state) => ({
-            materias: state.materias.map(materia => 
-                materia.id === materiaId ? { ...materia, notas: resp.data.notas } : materia
-            ),
-            loading: false,
-        }));
+      set((state) => ({
+        materias: state.materias.map((materia) =>
+          materia.id === materiaId
+            ? { ...materia, notas: resp.data.notas }
+            : materia
+        ),
+        loading: false,
+      }));
 
-        return resp.data
+      return resp.data;
     } catch (error) {
-        set({ error: error.message, loading: false });
-        console.error(error);
-        return null;
+      set({ error: error.message, loading: false });
+      console.error(error);
+      return null;
     }
-}
-
+  },
 }));
 
 export default useMateriasStore;

@@ -9,7 +9,7 @@ const EditarAlumnos = ({ curso }) => {
   const [show, setShow] = useState(false);
   const [alumnosCurso, setAlumnosCurso] = useState([]);
   const [alumnosDisponibles, setAlumnosDisponibles] = useState([]);
-  const { actualizarCurso } = useCursosStore();
+  const { actualizarCurso, cursos, obtenerCursos } = useCursosStore();
   const { alumnos, obtenerAlumnos, loading, error } = useAlumnoStore();
 
   const handleClose = () => setShow(false);
@@ -21,21 +21,28 @@ const EditarAlumnos = ({ curso }) => {
   }, [obtenerAlumnos]);
 
   useEffect(() => {
-    if (!loading && alumnos.length > 0 && curso.alumnos) {
-      // Filtrar los alumnos que ya están en el curso usando los IDs en curso.alumnos
-      const alumnosFiltrados = alumnos.filter((alumno) =>
+    if (!loading && alumnos.length > 0) {
+      // Obtener todos los IDs de alumnos que ya están en algún curso
+      const alumnosAsignados = new Set(
+        cursos.reduce((acc, curso) => {
+          return acc.concat(curso.alumnos);
+        }, [])
+      );
+
+      // Filtrar los alumnos que ya están en algún curso
+      const alumnosNoAsignados = alumnos.filter(
+        (alumno) => !alumnosAsignados.has(alumno.id)
+      );
+
+      // Filtrar los alumnos que ya están en el curso actual
+      const alumnosEnCurso = alumnos.filter((alumno) =>
         curso.alumnos.includes(alumno.id)
       );
 
-      // Filtrar los alumnos que no están en el curso
-      const alumnosNoAsignados = alumnos.filter(
-        (alumno) => !curso.alumnos.includes(alumno.id)
-      );
-
-      setAlumnosCurso(alumnosFiltrados);
+      setAlumnosCurso(alumnosEnCurso);
       setAlumnosDisponibles(alumnosNoAsignados);
     }
-  }, [alumnos, curso, loading]);
+  }, [alumnos, curso, loading, cursos]);
 
   const eliminarAlumno = (alumnoID) => {
     Swal.fire({
