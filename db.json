@@ -225,7 +225,6 @@
       "turno": "Mañana",
       "materias": [
         "2c07",
-        "FjdFxGJ",
         "db57"
       ],
       "horarios": [
@@ -252,7 +251,7 @@
         {
           "dia": "Martes",
           "modulo": "1",
-          "materiaID": "FjdFxGJ"
+          "materiaID": "2c07"
         },
         {
           "dia": "Martes",
@@ -262,7 +261,7 @@
         {
           "dia": "Martes",
           "modulo": "3",
-          "materiaID": ""
+          "materiaID": "db57"
         },
         {
           "dia": "Martes",
@@ -292,7 +291,7 @@
         {
           "dia": "Jueves",
           "modulo": "1",
-          "materiaID": "FjdFxGJ"
+          "materiaID": "db57"
         },
         {
           "dia": "Jueves",
@@ -333,18 +332,18 @@
       "alumnos": [
         "12",
         "13",
-        "14",
-        "15",
         "1",
         "11"
       ]
     },
     {
+      "id": "9602",
       "anio": "2",
       "division": "A",
       "turno": "Mañana",
       "materias": [
-        "FjdFxGJ"
+        "5096",
+        "222c"
       ],
       "horarios": [
         {
@@ -355,7 +354,120 @@
         {
           "dia": "Lunes",
           "modulo": "2",
-          "materiaID": "FjdFxGJ"
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "2",
+          "materiaID": "5096"
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "4",
+          "materiaID": ""
+        }
+      ],
+      "alumnos": []
+    },
+    {
+      "id": "618d",
+      "anio": "2",
+      "division": "B",
+      "turno": "Mañana",
+      "materias": [
+        "a73a",
+        "c090"
+      ],
+      "horarios": [
+        {
+          "dia": "Lunes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "2",
+          "materiaID": ""
         },
         {
           "dia": "Lunes",
@@ -448,12 +560,7 @@
           "materiaID": ""
         }
       ],
-      "alumnos": [
-        "8",
-        "11",
-        "10"
-      ],
-      "id": "KYAn83j"
+      "alumnos": []
     }
   ],
   "materias": [
@@ -518,50 +625,66 @@
       "id": "6511"
     },
     {
+      "id": "5096",
       "nombre": "Matematicas",
       "anio": "2",
-      "division": "B",
-      "docenteId": "21",
-      "id": "11ae"
-    },
-    {
-      "nombre": "Física",
-      "anio": "2",
-      "division": "B",
+      "division": "A",
       "turno": "Mañana",
-      "docenteId": "3",
-      "cursoId": "KYAn83j",
+      "docenteId": "19",
+      "cursoId": "",
       "notas": [
         {
-          "alumnoId": "8",
-          "trimestre1": 1,
-          "trimestre2": 9,
-          "trimestre3": 1,
-          "notaFinal": 3.67
-        },
-        {
-          "alumnoId": "11",
-          "trimestre1": 4,
-          "trimestre2": 4,
-          "trimestre3": 3,
-          "notaFinal": 0
-        },
-        {
-          "alumnoId": "10",
-          "trimestre1": 3,
-          "trimestre2": 3,
-          "trimestre3": 2,
+          "alumnoId": "",
+          "trimestre1": 0,
+          "trimestre2": 0,
+          "trimestre3": 0,
           "notaFinal": 0
         }
       ]
     },
     {
-      "id": "d002",
-      "nombre": "Matematicassdf",
-      "anio": "1",
+      "id": "222c",
+      "nombre": "Lenguas",
+      "anio": "2",
       "division": "A",
       "turno": "Mañana",
-      "docenteId": "",
+      "docenteId": "SC8OeHm",
+      "cursoId": "",
+      "notas": [
+        {
+          "alumnoId": "",
+          "trimestre1": 0,
+          "trimestre2": 0,
+          "trimestre3": 0,
+          "notaFinal": 0
+        }
+      ]
+    },
+    {
+      "id": "a73a",
+      "nombre": "Fisica",
+      "anio": "2",
+      "division": "B",
+      "turno": "Mañana",
+      "docenteId": "20",
+      "cursoId": "",
+      "notas": [
+        {
+          "alumnoId": "",
+          "trimestre1": 0,
+          "trimestre2": 0,
+          "trimestre3": 0,
+          "notaFinal": 0
+        }
+      ]
+    },
+    {
+      "id": "c090",
+      "nombre": "Quimica",
+      "anio": "2",
+      "division": "B",
+      "turno": "Mañana",
+      "docenteId": "18",
       "cursoId": "",
       "notas": [
         {

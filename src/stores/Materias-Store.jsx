@@ -25,7 +25,12 @@ const useMateriasStore = create((set) => ({
       const resp = await axios.get(`${URL_MATERIA}/${id}`);
       return resp.data;
     } catch (error) {
-      throw new Error(error.message);
+      if (error.response && error.response.status === 404) {
+        console.error(`Materia con ID ${id} no encontrada`);
+        return null; // Retorna null si la materia no existe
+      } else {
+        throw new Error(error.message);
+      }
     }
   },
 
