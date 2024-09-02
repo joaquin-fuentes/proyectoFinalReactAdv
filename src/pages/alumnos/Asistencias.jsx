@@ -1,48 +1,97 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import "./Alumnos.css";
+'use client'
 
-const Asistencias = () => {
-  return (
-    <Container className="asistencias-container pt-md-3">
-      <h4 className="text-center my-2 titulo">Asistencias</h4>
-      <Row className="row-asistencias d-flex justify-content-center">
-        <Col xs={12} md={6} lg={5}>
-          <article className="mb-3 p-3 p-lg-2 asistencia-card text-center">
-            <p className=" text-light my-2 my-lg-1">Total días de clases</p>
-            <p className="fs-1 text-light my-2 my-lg-1">150</p>
-          </article>
-          <article className="mb-3 p-3 p-lg-2 asistencia-card text-center">
-            <p className=" text-light my-2 my-lg-1">Total inasistencias</p>
-            <p className="fs-1 text-light my-2 my-lg-1">10</p>
-          </article>
-          <article className="mb-3 p-3 p-lg-2 asistencia-card text-center">
-            <p className=" text-light my-2 my-lg-1">Inasistencias justificadas</p>
-            <p className="fs-1 text-light my-2 my-lg-1">2</p>
-          </article>
-        </Col>
-        <Col xs={12} md={6} lg={5}>
-          <div className="d-flex justify-content-center ">
-            <article className="mb-3 p-3 p-lg-2  asistencia-card  inasistencias-fechas text-center">
-              <p className="fechas-titulo">Fechas inasistencias:</p>
-              <ol>
-                <li>26/07/2024</li>
-                <li>26/07/2024</li>
-                <li>26/07/2024 (justificada)</li>
-                <li>26/07/2024 (justificada)</li>
-                <li>26/07/2024</li>
-                <li>26/07/2024</li>
-                <li>26/07/2024</li>
-                <li>26/07/2024</li>
-                <li>26/07/2024</li>
-                <li>26/07/2024</li>
-              </ol>
-            </article>
-          </div>
-        </Col>
-      </Row>
-    </Container>
+import { useState, useEffect } from 'react';
+import { Card, Button, Badge, Spinner } from 'react-bootstrap';
+import useStore from '../../stores/Asistencias-Store';
+import useAuth from '../../stores/Auth-Store';
+
+export default function Component() {
+  const { asistencias, fetchAsistencias, usuarios, fetchUsuarios, materias, fetchMaterias } = useStore();
+  const { user }= useAuth() 
+  const [alumnoId, setAlumnoId] = useState('1'); // Suponiendo que el ID del alumno actual es '1'
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        await fetchAsistencias();
+        await fetchUsuarios();
+        await fetchMaterias();
+        setIsLoading(false);
+      } catch (err) {
+        setError(err);
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [fetchAsistencias, fetchUsuarios, fetchMaterias, asistencias]);
+ console.log(asistencias)
+ console.log(materias)
+ console.log(user.id)
+  if (isLoading) {
+    return (
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Cargando...</span>
+      </Spinner>
+    );
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  const alumno = usuarios.find(u => u.id === alumnoId);
+  const alumnoAsistencias = asistencias.filter(a =>
+    Array.isArray(a.alumnosPresentes) && a.alumnosPresentes.includes(alumnoId)
   );
-};
 
-export default Asistencias;
+  const asistenciasDelDia = alumnoAsistencias.filter(a => {
+    const asistenciaDate = new Date(a.dia);
+    return selectedDate &&
+      asistenciaDate.getDate() === selectedDate.getDate() &&
+      asistenciaDate.getMonth() === selectedDate.getMonth() &&
+      asistenciaDate.getFullYear() === selectedDate.getFullYear();
+  });
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
+
+  return (
+    <Card className="w-100 mx-auto" style={{ maxWidth: '800px' }}>
+      <Card.Header>
+        <Card.Title>Asistencias de {alumno?.nombre} {alumno?.apellido}</Card.Title>
+      </Card.Header>
+      <Card.Body className="d-flex flex-column flex-md-row gap-3">
+        <div className="flex-grow-1">
+         
+          <input
+            type="date"
+            className="form-control"
+            value={selectedDate.toISOString().split('T')[0]}
+            onChange={(e) => handleDateChange(new Date(e.target.value))}
+          />
+        </div>
+        <div className="flex-grow-1">
+          <h3 className="h5 mb-3">Asistencias del día</h3>
+          <div>
+            {
+              asistencias.map ((asistencia) => (
+                <Badge
+                  key={asistencia.id}
+                  className="m-1"
+                  bg={asistencia.alumnosPresentes.includes(alumnoId) ? 'success' : 'danger'}
+                >
+                  {asistencia.alumnosPresentes.includes(alumnoId) ? 'Presente' : 'Ausente'}
+                </Badge>
+              ))
+            }
+          </div>
+        </div>
+      </Card.Body>
+    </Card>
+  );
+}
