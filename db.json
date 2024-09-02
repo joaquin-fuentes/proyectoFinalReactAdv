@@ -356,7 +356,8 @@
         "13",
         "14",
         "15",
-        "1"
+        "1",
+        "11"
       ]
     }
   ],
@@ -470,6 +471,13 @@
           "notaFinal": 0
         }
       ]
+    },
+    {
+      "nombre": "Geografia",
+      "anio": "6",
+      "division": "A",
+      "docenteId": "19",
+      "id": "6d65"
     }
   ],
   "novedades": [
