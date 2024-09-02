@@ -1,45 +1,58 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import "../../pages/administrador/Administrador.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import useUsuarios from "../../stores/Usuarios-Store";
 import { useForm } from "react-hook-form";
+import useUsuarios from "../stores/Usuarios-Store";
 import Swal from "sweetalert2";
+import "../pages/alumnos/Alumnos.css"
 
-const ModalCrear = () => {
+const ModalProfileEdit = ({ usuario, onUserUpdated }) => {
   const [show, setShow] = useState(false);
-  const { createUsuario } = useUsuarios();
+  const { updateUsuario, usuario: usuarioEnStore, getUsuarioById } = useUsuarios();
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
-    reset,
     watch,
   } = useForm();
-
+  const handleShow = () => setShow(true);
   const handleClose = () => {
     setShow(false);
-    reset();
   };
 
-  const handleShow = () => setShow(true);
+  useEffect(() => {
+    if (usuario) {
+      setValue("rol", usuario.rol);
+      setValue("apellido", usuario.apellido);
+      setValue("nombre", usuario.nombre);
+      setValue("dni", usuario.dni);
+      setValue("telefono", usuario.telefono);
+      setValue("direccion", usuario.direccion);
+      setValue("email", usuario.email);
+      setValue("password", usuario.password);
+      setValue("passwordConfirm", usuario.passwordConfirm);
+      setValue("url_img", usuario.url_img);
+    }
+  }, [usuario, setValue]);
 
   const onSubmit = async (data) => {
     try {
-      const respuesta = await createUsuario(data);
+      const respuesta = await updateUsuario(usuario.id, data);
       if (respuesta) {
         Swal.fire({
           title: "¡Listo!",
-          text: "El usuario ha sido creado con éxito.",
+          text: "El usuario ha sido editado con éxito.",
           icon: "success",
           confirmButtonColor: "#004b81",
           confirmButtonText: "Aceptar",
         });
+        if (onUserUpdated) onUserUpdated(data);
       } else {
         Swal.fire({
           title: "Ocurrió un error",
-          text: "No se pudo crear el usuario. Intenta nuevamente.",
+          text: "No se pudo editar el usuario. Intenta nuevamente.",
           icon: "error",
           confirmButtonColor: "#004b81",
           confirmButtonText: "Aceptar",
@@ -48,7 +61,7 @@ const ModalCrear = () => {
     } catch (error) {
       Swal.fire({
         title: "Ocurrió un error",
-        text: "No se pudo crear el usuario. Intenta nuevamente.",
+        text: "No se pudo editar el usuario. Intenta nuevamente.",
         icon: "error",
         confirmButtonColor: "#004b81",
         confirmButtonText: "Aceptar",
@@ -61,15 +74,15 @@ const ModalCrear = () => {
 
   return (
     <>
-      <button className="p-2 rounded iconoCrear" onClick={handleShow}>
-        <i className="bi bi-file-earmark-plus-fill p-1"></i>
-        Nuevo usuario
+      <button className="btn btnEditar m-1" onClick={handleShow}>
+        <span className="h5">Editar Perfil</span>
+        <i className="bi bi-pencil-square iconoEditar"></i>
       </button>
 
       <Modal show={show} onHide={handleClose} className="modalUsuario">
         <Modal.Header closeButton>
           <Modal.Title>
-            <span className="titulo">CREAR USUARIO</span>{" "}
+            <span className="titulo">Editar Perfil</span>{" "}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -77,24 +90,6 @@ const ModalCrear = () => {
             <div className="container">
               <div className="row">
                 <div className="col">
-                  {" "}
-                  <Form.Group className="mb-3" controlId="formRol">
-                    <Form.Label>Categoría</Form.Label>
-                    <Form.Select
-                      aria-label="Select categoria"
-                      {...register("rol", {
-                        required: "La categoría es obligatoria",
-                      })}
-                    >
-                      <option value="">Seleccione una categoría</option>
-                      <option value="Docente">Docente</option>
-                      <option value="Alumno">Alumno</option>
-                      <option value="Administrador">Administrador</option>
-                    </Form.Select>
-                    <Form.Text className="text-danger">
-                      {errors.rol?.message}
-                    </Form.Text>
-                  </Form.Group>
                   <Form.Group className="mb-3" controlId="formApellido">
                     <Form.Label>Apellido</Form.Label>
                     <Form.Control
@@ -152,7 +147,7 @@ const ModalCrear = () => {
                   <Form.Group className="mb-3" controlId="formDNI">
                     <Form.Label>DNI</Form.Label>
                     <Form.Control
-                      type="number"
+                      type="text"
                       placeholder="Ingresar DNI"
                       {...register("dni", {
                         required: "El DNI es obligatorio",
@@ -268,8 +263,8 @@ const ModalCrear = () => {
                       {errors.passwordConfirm?.message}
                     </Form.Text>
                   </Form.Group>
-                  <Form.Group className="mb-3" controlId="formImagen">
-                    <Form.Label>URL de la imagen</Form.Label>
+                  {/* <Form.Group className="mb-3" controlId="formImagen">
+                    <Form.Label>URL de la Imagen</Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="Ingresar la URL de la imagen"
@@ -284,7 +279,7 @@ const ModalCrear = () => {
                     <Form.Text className="text-danger">
                       {errors.url_img?.message}
                     </Form.Text>
-                  </Form.Group>
+                  </Form.Group> */}
                 </div>
               </div>
             </div>
@@ -308,4 +303,5 @@ const ModalCrear = () => {
   );
 };
 
-export default ModalCrear;
+export default ModalProfileEdit;
+

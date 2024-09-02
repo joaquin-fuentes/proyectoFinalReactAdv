@@ -55,13 +55,13 @@
 
 .btnFormulario {
   width: 100%;
-  border-radius: 100px!important;
+  border-radius: 100px !important;
   height: 50px;
   margin-top: 30px;
-  background: var(--color-secundario)!important;
-  border: var(--color-secundario)!important;
-  color: var(--fuente-color-primario)!important;
-  font-family: var(--fuente-principal)!important;
+  background: var(--color-secundario) !important;
+  border: var(--color-secundario) !important;
+  color: var(--fuente-color-primario) !important;
+  font-family: var(--fuente-principal) !important;
 }
 
 .novedades {
@@ -74,6 +74,7 @@
   .tituloHome {
     margin-top: 15vh;
   }
+
   .formularioLogin {
     margin-top: 9vh;
   }
@@ -101,15 +102,19 @@
     left: auto;
     z-index: 1;
   }
+
   .parrafo {
     display: none;
   }
+
   #caja-2 {
     margin-top: 40px;
   }
+
   .formularioLogin {
     margin-top: 5vh;
   }
+
   .btnFormulario {
     margin-bottom: 20px;
   }

@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react';
 import { Container, Table, Form } from 'react-bootstrap';
 import useNovedadesStore from '../../stores/Novedades-Store.jsx';
-import Swal from 'sweetalert2';
 import CrearNovedades from './ModalesNovedades/CrearNovedades.jsx';
 import EditarNovedades from './ModalesNovedades/EditarNovedades.jsx';
 import useFilterByTitle from '../../hooks/useFilterByTitle.js';
+import useSweetAlert from '../../hooks/useSweetAlert.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './Administrador.css';
 
 const PanelAdminNovedades = () => {
-
   const novedades = useNovedadesStore((state) => state.novedades);
   const loading = useNovedadesStore((state) => state.loading);
   const error = useNovedadesStore((state) => state.error);
@@ -17,6 +16,8 @@ const PanelAdminNovedades = () => {
   const deleteNovedad = useNovedadesStore((state) => state.deleteNovedad);
 
   const { filterNovedades, setTitleFilter } = useFilterByTitle(novedades);
+
+  const { showAlert, showConfirmation } = useSweetAlert();
 
   useEffect(() => {
     getNovedades();
@@ -38,38 +39,16 @@ const PanelAdminNovedades = () => {
     );
   }
 
-  const handleDelete = (id) => {
-    Swal.fire({
-      title: "¿Está seguro?",
-      text: "Esta acción no se puede deshacer.",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#d33",
-      cancelButtonColor: "#004b81",
-      confirmButtonText: "Eliminar",
-      cancelButtonText: "Cancelar",
-    }).then(async (resultado) => {
-      if (resultado.isConfirmed) {
-        try {
-          await deleteNovedad(id);
-          Swal.fire({
-            title: "¡Eliminada!",
-            text: "La novedad ha sido eliminada.",
-            icon: "success",
-            confirmButtonColor: "#004b81",
-            confirmButtonText: "Aceptar",
-          });
-        } catch (error) {
-          Swal.fire({
-            title: "Ocurrió un error",
-            text: "No se pudo eliminar la novedad. Intenta nuevamente.",
-            icon: "error",
-            confirmButtonColor: "#004b81",
-            confirmButtonText: "Aceptar",
-          });
-        }
+  const handleDelete = async (id) => {
+    const result = await showConfirmation("¿Está seguro?", "Esta acción no se puede deshacer.");
+    if (result.isConfirmed) {
+      try {
+        await deleteNovedad(id);
+        await showAlert('success', "¡Eliminada!", "La novedad ha sido eliminada.");
+      } catch (error) {
+        await showAlert('error', "Ocurrió un error", "No se pudo eliminar la novedad. Intenta nuevamente.");
       }
-    });
+    }
   };
 
   return (

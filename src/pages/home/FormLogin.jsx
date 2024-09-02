@@ -8,7 +8,6 @@ import Swal from "sweetalert2";
 import "./Home.css";
 import logo from "../../assets/imagenes/logo-sge-dark-circle.png";
 
-// Validación con Yup
 const schema = yup.object().shape({
   email: yup
     .string()
@@ -24,18 +23,16 @@ const FormLogin = () => {
   const handleSubmit = async (data, { setSubmitting, setErrors }) => {
     console.log(data);
     try {
-      const user = await login(data); // Llama a la función de login desde el store
+      const user = await login(data); 
       sessionStorage.setItem("usuario", JSON.stringify(user));
       
-      // Mostrar mensaje de éxito con SweetAlert2
       Swal.fire({
         title: "Inicio de sesión exitoso",
         text: "Redirigiendo...",
         icon: "success",
-        timer: 1000, // Tiempo en milisegundos antes de redirigir
-        showConfirmButton: false, // Oculta el botón de confirmación
+        timer: 1000, 
+        showConfirmButton: false, 
         willClose: () => {
-          // Redirecciona según el rol después de que se cierra el SweetAlert
           if (user.rol === "Alumno") {
             navigate("/alumnos/perfil");
           } else if (user.rol === "Docente") {
