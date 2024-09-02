@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Card, Button, Badge, Spinner } from "react-bootstrap";
+import { Card, Badge, Spinner } from "react-bootstrap";
 import useStore from "../../stores/Asistencias-Store";
 import useAuth from "../../stores/Auth-Store";
 
-export default function Component() {
+export default function AsistenciasAlumno() {
   const {
     asistencias,
     fetchAsistencias,
@@ -15,8 +15,7 @@ export default function Component() {
     fetchMaterias,
   } = useStore();
   const { user } = useAuth();
-  const [alumnoId, setAlumnoId] = useState("1"); // Suponiendo que el ID del alumno actual es '1'
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -34,10 +33,8 @@ export default function Component() {
     };
 
     fetchData();
-  }, [fetchAsistencias, fetchUsuarios, fetchMaterias, asistencias]);
-  console.log(asistencias);
-  console.log(materias);
-  console.log(user.id);
+  }, [fetchAsistencias, fetchUsuarios, fetchMaterias]);
+
   if (isLoading) {
     return (
       <Spinner animation="border" role="status">
@@ -50,66 +47,93 @@ export default function Component() {
     return <div>Error: {error.message}</div>;
   }
 
-  const alumno = usuarios.find((u) => u.id === alumnoId);
+  // Filtra las asistencias del alumno en particular
   const alumnoAsistencias = asistencias.filter(
     (a) =>
-      Array.isArray(a.alumnosPresentes) && a.alumnosPresentes.includes(alumnoId)
+      Array.isArray(a.alumnosPresentes) &&
+      a.alumnosPresentes.some(
+        (alumno) => String(alumno.alumnoID || alumno) === String(user.id)
+      )
   );
 
-  const asistenciasDelDia = alumnoAsistencias.filter((a) => {
-    const asistenciaDate = new Date(a.dia);
-    return (
-      selectedDate &&
-      asistenciaDate.getDate() === selectedDate.getDate() &&
-      asistenciaDate.getMonth() === selectedDate.getMonth() &&
-      asistenciaDate.getFullYear() === selectedDate.getFullYear()
-    );
-  });
+  // Filtra por fecha si se selecciona una
+  const asistenciasFiltradas = selectedDate
+    ? asistencias.filter((a) => {
+        const asistenciaDate = new Date(a.dia);
+        return (
+          asistenciaDate.getDate() === selectedDate.getDate() &&
+          asistenciaDate.getMonth() === selectedDate.getMonth() &&
+          asistenciaDate.getFullYear() === selectedDate.getFullYear()
+        );
+      })
+    : asistencias;
+
+  // Cálculo de totales
+  const totalPresentes = alumnoAsistencias.length;
+  const totalAusentes = asistencias.length - totalPresentes;
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
 
   return (
-    <Card className="w-100 mx-auto" style={{ maxWidth: "800px" }}>
+    <Card className="container p-4 border">
       <Card.Header>
         <Card.Title>
-          Asistencias de {alumno?.nombre} {alumno?.apellido}
+          Asistencias de {user?.nombre} {user?.apellido}
         </Card.Title>
       </Card.Header>
-      <Card.Body className="d-flex flex-column flex-md-row gap-3">
-        <div className="flex-grow-1">
+      <Card.Body className="d-flex flex-column gap-3">
+        <div>
           <input
             type="date"
             className="form-control"
-            value={selectedDate.toISOString().split("T")[0]}
+            value={selectedDate ? selectedDate.toISOString().split("T")[0] : ""}
             onChange={(e) => handleDateChange(new Date(e.target.value))}
           />
         </div>
-        <div className="flex-grow-1">
+        <div>
+          <h3 className="h5 mb-3">Resumen de asistencias</h3>
+          <p>Total de presentes: {totalPresentes}</p>
+          <p>Total de ausentes: {totalAusentes}</p>
+        </div>
+        <div>
           <h3 className="h5 mb-3">Asistencias del día</h3>
-          <div>
-            {asistencias.map((asistencia) => (
-              <ul>
-                <li>
-                <span>{asistencia.dia}</span>
-                <Badge
-                  key={asistencia.id}
-                  className="m-1"
-                  bg={
-                    asistencia.alumnosPresentes.includes(alumnoId)
-                      ? "success"
-                      : "danger"
-                  }
-                >
-                  {asistencia.alumnosPresentes.includes(alumnoId)
-                    ? "Presente"
-                    : "Ausente"}
-                </Badge>
-                </li>
-             
-              </ul>
-            ))}
+          <div className="row">
+            {asistenciasFiltradas.length === 0 ? (
+              <p>No se encontraron asistencias para la fecha seleccionada.</p>
+            ) : (
+              asistenciasFiltradas.map((asistencia) => (
+                <div key={asistencia.id} className="col-md-4">
+                  <div>
+                    <h5>{asistencia.dia}</h5>
+                    <ul>
+                      {materias.map((materia) => {
+                        const presente = asistencia.alumnosPresentes.some(
+                          (alumno) =>
+                            String(alumno.alumnoID || alumno) ===
+                            String(user.id)
+                        );
+                        return (
+                          <div
+                            key={materia.id}
+                            className="d-flex justify-content-between align-items-center border-bottom py-2"
+                          >
+                            <span className="fw-bold">{materia.nombre}:</span>
+                            <Badge
+                              className="m-1"
+                              bg={presente ? "success" : "danger"}
+                            >
+                              {presente ? "Presente" : "Ausente"}
+                            </Badge>
+                          </div>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                </div>
+              ))
+            )}{" "}
           </div>
         </div>
       </Card.Body>

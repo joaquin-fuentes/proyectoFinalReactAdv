@@ -87,6 +87,7 @@ const CrearCurso = () => {
           { dia: "Viernes", modulo: "4", materiaID: "" },
         ],
         alumnos: [],
+        asistencias:[]
       };
 
       await crearCurso(nuevoCurso);
