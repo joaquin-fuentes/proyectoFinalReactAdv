@@ -82,7 +82,7 @@ const AsistenciasDocente = () => {
   return (
     <>
        <Container className="asistencias-container pt-md-3">
-        <h1 className="text-center mb-4 p-3" style={{ color: '#071f40' }}>Asistencias</h1>
+        <h1 className="text-center mb-4 p-3 disenoTitulo">Asistencias</h1>
         <Table striped bordered hover className="text-center rounded mt-3">
           <thead>
             <tr>
@@ -178,7 +178,7 @@ const AsistenciasDocente = () => {
       </Container>
       {/* historial de asistencias */}
       <section>
-        <h1 className="text-center mb-4 p-3" style={{ color: '#071f40' }}>Historial de Asistencias</h1>
+        <h1 className="text-center mb-4 p-3 disenoTitulo">Historial de Asistencias</h1>
         <Container className="asistencias-container pt-md-3">
 
           <Table striped bordered hover className="text-center rounded mt-3">
