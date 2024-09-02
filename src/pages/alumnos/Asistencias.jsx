@@ -1,142 +1,102 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import { Card, Badge, Spinner } from "react-bootstrap";
-import useStore from "../../stores/Asistencias-Store";
+import React, { useEffect, useState } from "react";
+import { Container, ProgressBar, Table } from "react-bootstrap";
+import useCursosStore from "../../stores/Cursos-Store";
 import useAuth from "../../stores/Auth-Store";
+import "./Alumnos.css"; // Asegúrate de ajustar la ruta si es necesario
 
-export default function AsistenciasAlumno() {
-  const {
-    asistencias,
-    fetchAsistencias,
-    usuarios,
-    fetchUsuarios,
-    materias,
-    fetchMaterias,
-  } = useStore();
+const Asistencias = () => {
   const { user } = useAuth();
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { cursos, obtenerCursos } = useCursosStore();
+  const [asistenciasAlumno, setAsistenciasAlumno] = useState([]);
+  const [totalAsistencias, setTotalAsistencias] = useState(0);
+  const [totalPresentes, setTotalPresentes] = useState(0);
+  const [totalAusentes, setTotalAusentes] = useState(0);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        await fetchAsistencias();
-        await fetchUsuarios();
-        await fetchMaterias();
-        setIsLoading(false);
-      } catch (err) {
-        setError(err);
-        setIsLoading(false);
+    obtenerCursos(); // Obtener todos los cursos al montar el componente
+  }, [obtenerCursos]);
+
+  useEffect(() => {
+    if (cursos.length > 0 && user) {
+      // Buscar el curso al que pertenece el alumno
+      const cursoAlumno = cursos.find((curso) =>
+        curso.alumnos.includes(user.id)
+      );
+
+      if (cursoAlumno) {
+        // Filtrar las asistencias del alumno actual
+        const asistenciasDelAlumno = cursoAlumno.asistencias || [];
+
+        const presentes = asistenciasDelAlumno.filter((asistencia) =>
+          asistencia.presentes.includes(user.id)
+        ).length;
+        const ausentes = asistenciasDelAlumno.filter((asistencia) =>
+          asistencia.ausentes.includes(user.id)
+        ).length;
+
+        setAsistenciasAlumno(asistenciasDelAlumno);
+        setTotalAsistencias(asistenciasDelAlumno.length);
+        setTotalPresentes(presentes);
+        setTotalAusentes(ausentes);
       }
-    };
+    }
+  }, [cursos, user]);
 
-    fetchData();
-  }, [fetchAsistencias, fetchUsuarios, fetchMaterias]);
-
-  if (isLoading) {
-    return (
-      <Spinner animation="border" role="status">
-        <span className="visually-hidden">Cargando...</span>
-      </Spinner>
-    );
-  }
-
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
-
-  // Filtra las asistencias del alumno en particular
-  const alumnoAsistencias = asistencias.filter(
-    (a) =>
-      Array.isArray(a.alumnosPresentes) &&
-      a.alumnosPresentes.some(
-        (alumno) => String(alumno.alumnoID || alumno) === String(user.id)
-      )
-  );
-
-  // Filtra por fecha si se selecciona una
-  const asistenciasFiltradas = selectedDate
-    ? asistencias.filter((a) => {
-        const asistenciaDate = new Date(a.dia);
-        return (
-          asistenciaDate.getDate() === selectedDate.getDate() &&
-          asistenciaDate.getMonth() === selectedDate.getMonth() &&
-          asistenciaDate.getFullYear() === selectedDate.getFullYear()
-        );
-      })
-    : asistencias;
-
-  // Cálculo de totales
-  const totalPresentes = alumnoAsistencias.length;
-  const totalAusentes = asistencias.length - totalPresentes;
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
+  const calcularPorcentajeAsistencia = () => {
+    if (totalAsistencias === 0) return 0;
+    return (totalPresentes / totalAsistencias) * 100;
   };
 
   return (
-    <Card className="container p-4 border">
-      <Card.Header>
-        <Card.Title>
-          Asistencias de {user?.nombre} {user?.apellido}
-        </Card.Title>
-      </Card.Header>
-      <Card.Body className="d-flex flex-column gap-3">
-        <div>
-          <input
-            type="date"
-            className="form-control"
-            value={selectedDate ? selectedDate.toISOString().split("T")[0] : ""}
-            onChange={(e) => handleDateChange(new Date(e.target.value))}
-          />
-        </div>
-        <div>
-          <h3 className="h5 mb-3">Resumen de asistencias</h3>
-          <p>Total de presentes: {totalPresentes}</p>
-          <p>Total de ausentes: {totalAusentes}</p>
-        </div>
-        <div>
-          <h3 className="h5 mb-3">Asistencias del día</h3>
-          <div className="row">
-            {asistenciasFiltradas.length === 0 ? (
-              <p>No se encontraron asistencias para la fecha seleccionada.</p>
-            ) : (
-              asistenciasFiltradas.map((asistencia) => (
-                <div key={asistencia.id} className="col-md-4">
-                  <div>
-                    <h5>{asistencia.dia}</h5>
-                    <ul>
-                      {materias.map((materia) => {
-                        const presente = asistencia.alumnosPresentes.some(
-                          (alumno) =>
-                            String(alumno.alumnoID || alumno) ===
-                            String(user.id)
-                        );
-                        return (
-                          <div
-                            key={materia.id}
-                            className="d-flex justify-content-between align-items-center border-bottom py-2"
-                          >
-                            <span className="fw-bold">{materia.nombre}:</span>
-                            <Badge
-                              className="m-1"
-                              bg={presente ? "success" : "danger"}
-                            >
-                              {presente ? "Presente" : "Ausente"}
-                            </Badge>
-                          </div>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                </div>
-              ))
-            )}{" "}
-          </div>
-        </div>
-      </Card.Body>
-    </Card>
+    <Container className="text-center px-md-5 py-md-2">
+      <h2 className="disenoTitulo my-5">Mis Asistencias</h2>
+
+      <div className="my-4">
+        <h4>Total de asistencias: {totalAsistencias}</h4>
+        <h4>Presentes: {totalPresentes}</h4>
+        <h4>Ausentes: {totalAusentes}</h4>
+      </div>
+
+      <div className="my-4">
+        <h5>Porcentaje de Asistencia</h5>
+        <ProgressBar
+          now={calcularPorcentajeAsistencia()}
+          label={`${calcularPorcentajeAsistencia().toFixed(2)}%`}
+        />
+      </div>
+
+      {asistenciasAlumno.length > 0 ? (
+        <Table striped hover responsive className="rounded">
+          <thead>
+            <tr>
+              <th className="tableMaterias fw-bold">Fecha</th>
+              <th className="tableMaterias fw-bold">Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            {asistenciasAlumno.map((asistencia) => (
+              <tr key={asistencia.fecha}>
+                <td className="tableMaterias">{asistencia.fecha}</td>
+                <td
+                  className={`tableMaterias ${
+                    asistencia.presentes.includes(user.id)
+                      ? "text-success" 
+                      : "text-danger" 
+                  }`}
+                >
+                  {asistencia.presentes.includes(user.id)
+                    ? "Presente"
+                    : "Ausente"}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      ) : (
+        <p>No se encontraron asistencias registradas.</p>
+      )}
+    </Container>
   );
-}
+};
+
+export default Asistencias;
