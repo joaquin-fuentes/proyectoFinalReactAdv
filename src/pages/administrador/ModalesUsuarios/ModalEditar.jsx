@@ -1,41 +1,53 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import "../../pages/administrador/Administrador.css";
+import "../Administrador.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import useUsuarios from "../../stores/Usuarios-Store";
 import { useForm } from "react-hook-form";
-import useSweetAlert from "../../hooks/useSweetAlert";
+import useUsuarios from "../../../stores/Usuarios-Store";
+import useSweetAlert from "../../../hooks/useSweetAlert";
 
-const ModalCrear = () => {
+const ModalEditar = ({ usuario }) => {
   const [show, setShow] = useState(false);
-  const { createUsuario } = useUsuarios();
+  const { updateUsuario } = useUsuarios();
   const { showAlert } = useSweetAlert();
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
-    reset,
     watch,
   } = useForm();
-
+  const handleShow = () => setShow(true);
   const handleClose = () => {
     setShow(false);
-    reset();
   };
 
-  const handleShow = () => setShow(true);
+  useEffect(() => {
+    if (usuario) {
+      setValue("rol", usuario.rol);
+      setValue("apellido", usuario.apellido);
+      setValue("nombre", usuario.nombre);
+      setValue("dni", usuario.dni);
+      setValue("telefono", usuario.telefono);
+      setValue("direccion", usuario.direccion);
+      setValue("email", usuario.email);
+      setValue("password", usuario.password);
+      setValue("passwordConfirm", usuario.passwordConfirm);
+      setValue("url_img", usuario.url_img);
+    }
+  }, [usuario, setValue]);
 
   const onSubmit = async (data) => {
     try {
-      const respuesta = await createUsuario(data);
+      const respuesta = await updateUsuario(usuario.id, data);
       if (respuesta) {
-        await showAlert("success", "¡Listo!", "El usuario ha sido creado con éxito.");
+        await showAlert("success", "¡Listo!", "El usuario ha sido editado con éxito.");
       } else {
-        await showAlert("error", "Ocurrió un error", "No se pudo crear el usuario. Intenta nuevamente.");
+        await showAlert("error", "Ocurrió un error", "No se pudo editar el usuario. Intenta nuevamente.");
       }
     } catch (error) {
-      await showAlert("error", "Ocurrió un error", "No se pudo crear el usuario. Intenta nuevamente.");
+      await showAlert("error", "Ocurrió un error", "No se pudo editar el usuario. Intenta nuevamente.");
     }
     handleClose();
   };
@@ -44,15 +56,14 @@ const ModalCrear = () => {
 
   return (
     <>
-      <button className="p-2 rounded iconoCrear" onClick={handleShow}>
-        <i className="bi bi-file-earmark-plus-fill p-1"></i>
-        Nuevo usuario
+      <button className="btn" onClick={handleShow}>
+        <i className="bi bi-pencil-square iconoEditar"></i>
       </button>
 
       <Modal show={show} onHide={handleClose} className="modalUsuario">
         <Modal.Header closeButton>
           <Modal.Title>
-            <span className="titulo">CREAR USUARIO</span>{" "}
+            <span className="titulo">EDITAR USUARIO</span>{" "}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -252,7 +263,7 @@ const ModalCrear = () => {
                     </Form.Text>
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formImagen">
-                    <Form.Label>URL de la imagen</Form.Label>
+                    <Form.Label>URL de la Imagen</Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="Ingresar la URL de la imagen"
@@ -291,4 +302,4 @@ const ModalCrear = () => {
   );
 };
 
-export default ModalCrear;
+export default ModalEditar;
