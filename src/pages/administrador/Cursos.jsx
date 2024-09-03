@@ -49,25 +49,6 @@ const Cursos = () => {
     <Container className="text-center px-md-5 py-md-2">
       <h2 className="my-5 disenoTitulo">Cursos</h2>
 
-      <Form.Group className="d-flex align-items-center justify-content-center w-md-50 ms-3">
-        <Form.Label className="m-0 p-2">
-          <span className="fw-bold buscarUsuario">Buscar curso:</span>
-        </Form.Label>
-        <Form.Select
-          className="w-25"
-          value={filtroAnio}
-          onChange={(e) => setFiltroAnio(e.target.value)}
-        >
-          <option value="">Todos los años</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-        </Form.Select>
-      </Form.Group>
-
       <div className="my-2 d-flex justify-content-start">
         <CrearCurso></CrearCurso>
       </div>

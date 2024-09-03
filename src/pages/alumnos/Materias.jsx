@@ -123,23 +123,6 @@ const Materias = () => {
           )}
         </tbody>
       </Table>
-
-      <section className="mt-4">
-        <h6 className="fs-5 text-primary-emphasis">
-          Listado Materias previas de año anterior (en caso de tener)
-        </h6>
-        <Table hover responsive className="my-3 rounded">
-          <thead>
-            <tr>
-              <th className="tableMaterias">Materia</th>
-              <th className="tableMaterias">Año</th>
-              <th className="tableMaterias">Docente</th>
-              <th className="tableMaterias">Estado</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </Table>
-      </section>
     </Container>
   );
 };

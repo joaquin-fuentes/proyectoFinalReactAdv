@@ -26,7 +26,6 @@ const useMateriasStore = create((set) => ({
       return resp.data;
     } catch (error) {
       if (error.response && error.response.status === 404) {
-        console.error(`Materia con ID ${id} no encontrada`);
         return null;
       } else {
         throw new Error(error.message);
