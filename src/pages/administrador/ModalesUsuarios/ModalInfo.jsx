@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
-import "../../pages/administrador/Administrador.css";
+import "../Administrador.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Container } from "react-bootstrap";
 // import avatar from "../../assets/imagenes/avatarPerfil.jpeg";

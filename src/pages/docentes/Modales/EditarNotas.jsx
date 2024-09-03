@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { Modal, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
 import useMateriasStore from "../../../stores/Materias-Store";
+import useSweetAlert from "../../../hooks/useSweetAlert";
 
 const EditarNotas = ({ show, handleClose, notaSeleccionada }) => {
   if (!notaSeleccionada || !notaSeleccionada.nota) {
@@ -12,6 +12,8 @@ const EditarNotas = ({ show, handleClose, notaSeleccionada }) => {
   const { materia, nota } = notaSeleccionada;
 
   const { editarNotasMateria } = useMateriasStore();
+
+  const { showAlert } = useSweetAlert();
 
   const {
     register,
@@ -35,7 +37,6 @@ const EditarNotas = ({ show, handleClose, notaSeleccionada }) => {
   }, [notaSeleccionada, setValue]);
 
   const onSubmit = async (data) => {
-
     const trimestre1 = parseFloat(data.trimestre1);
     const trimestre2 = parseFloat(data.trimestre2);
     const trimestre3 = parseFloat(data.trimestre3);
@@ -56,30 +57,24 @@ const EditarNotas = ({ show, handleClose, notaSeleccionada }) => {
         datosConPromedio
       );
       if (respuesta) {
-        Swal.fire({
-          title: "¡Listo!",
-          text: "La nota ha sido editada con éxito.",
-          icon: "success",
-          confirmButtonColor: "#004b81",
-          confirmButtonText: "Aceptar",
-        });
+        await showAlert(
+          "success",
+          "¡Listo!",
+          "La nota ha sido editada con éxito."
+        );
       } else {
-        Swal.fire({
-          title: "Ocurrió un error",
-          text: "No se pudo editar la nota. Intenta nuevamente.",
-          icon: "error",
-          confirmButtonColor: "#004b81",
-          confirmButtonText: "Aceptar",
-        });
+        await showAlert(
+          "error",
+          "Ocurrió un error",
+          "No se pudo editar la nota. Intenta nuevamente."
+        );
       }
     } catch (error) {
-      Swal.fire({
-        title: "Ocurrió un error",
-        text: "No se pudo editar la nota. Intenta nuevamente.",
-        icon: "error",
-        confirmButtonColor: "#004b81",
-        confirmButtonText: "Aceptar",
-      });
+      await showAlert(
+        "error",
+        "Ocurrió un error",
+        "No se pudo editar la nota. Intenta nuevamente."
+      );
       console.error(error);
     }
     handleClose();

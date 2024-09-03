@@ -1,8 +1,8 @@
-import { Container, Form, Table } from "react-bootstrap";
+import { Container, Form, Table, Pagination } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
-import ModalCrear from "../../components/AdminComponents/ModalCrear";
-import ModalEditar from "../../components/AdminComponents/ModalEditar";
-import ModalInfo from "../../components/AdminComponents/ModalInfo";
+import ModalCrear from "./ModalesUsuarios/ModalCrear";
+import ModalEditar from "./ModalesUsuarios/ModalEditar";
+import ModalInfo from "./ModalesUsuarios/ModalInfo";
 import useUsuarios from "../../stores/Usuarios-Store";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
@@ -16,6 +16,8 @@ const ListadoUsuarios = () => {
 
   const [tabSeleccionada, setTabSeleccionada] = useState("Todos");
   const [busqueda, setBusqueda] = useState("");
+  const [paginaActual, setPaginaActual] = useState(1);
+  const usuariosPorPagina = 10;
 
   useEffect(() => {
     getUsuarios();
@@ -23,10 +25,12 @@ const ListadoUsuarios = () => {
 
   const handleTabSeleccionada = (tab) => {
     setTabSeleccionada(tab);
+    setPaginaActual(1);
   };
 
   const handleBusqueda = (e) => {
     setBusqueda(e.target.value.toLowerCase());
+    setPaginaActual(1);
   };
 
   const normalizarTexto = (texto) => {
@@ -45,6 +49,18 @@ const ListadoUsuarios = () => {
 
     return categoriaSeleccionada && busquedaRealizada;
   });
+
+  const indiceUltimoUsuario = paginaActual * usuariosPorPagina;
+  const indicePrimertUsuario = indiceUltimoUsuario - usuariosPorPagina;
+  const usuariosActuales = filtrarUsuarios.slice(
+    indicePrimertUsuario,
+    indiceUltimoUsuario
+  );
+  const totalPaginas = Math.ceil(filtrarUsuarios.length / usuariosPorPagina);
+
+  const handlePaginacionClick = (numeroPagina) => {
+    setPaginaActual(numeroPagina);
+  };
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -125,7 +141,7 @@ const ListadoUsuarios = () => {
         <Nav.Item>
           <Nav.Link
             eventKey="Administrador"
-            active={tabSeleccionada === "Admin"}
+            active={tabSeleccionada === "Administrador"}
           >
             Admins
           </Nav.Link>
@@ -144,14 +160,14 @@ const ListadoUsuarios = () => {
           </tr>
         </thead>
         <tbody>
-          {filtrarUsuarios.length === 0 ? (
+          {usuariosActuales.length === 0 ? (
             <tr>
               <td colSpan="6" className="text-center">
                 No hay usuarios para mostrar
               </td>
             </tr>
           ) : (
-            filtrarUsuarios.map((usuario) => (
+            usuariosActuales.map((usuario) => (
               <tr key={usuario.id}>
                 <td className="tableMaterias">{usuario.apellido}</td>
                 <td className="tableMaterias">{usuario.nombre}</td>
@@ -173,6 +189,33 @@ const ListadoUsuarios = () => {
           )}
         </tbody>
       </Table>
+      <Pagination className="justify-content-center mt-4">
+        <Pagination.First
+          onClick={() => handlePaginacionClick(1)}
+          disabled={paginaActual === 1}
+        />
+        <Pagination.Prev
+          onClick={() => handlePaginacionClick(paginaActual - 1)}
+          disabled={paginaActual === 1}
+        />
+        {[...Array(totalPaginas)].map((_, index) => (
+          <Pagination.Item
+            key={index + 1}
+            active={index + 1 === paginaActual}
+            onClick={() => handlePaginacionClick(index + 1)}
+          >
+            {index + 1}
+          </Pagination.Item>
+        ))}
+        <Pagination.Next
+          onClick={() => handlePaginacionClick(paginaActual + 1)}
+          disabled={paginaActual === totalPaginas}
+        />
+        <Pagination.Last
+          onClick={() => handlePaginacionClick(totalPaginas)}
+          disabled={paginaActual === totalPaginas}
+        />
+      </Pagination>
     </Container>
   );
 };
