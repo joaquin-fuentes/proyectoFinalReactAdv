@@ -10,7 +10,7 @@ import useAuth from "../stores/Auth-Store";
 import Materias from "../pages/administrador/Materias";
 import Cursos from "../pages/administrador/Cursos";
 import PanelAdminNovedades from "../pages/administrador/PanelAdminNovedades";
-import Asistencias from "../pages/administrador/Asistencias";
+import Asistencias2 from "../pages/administrador/Asistencias2";
 
 const RutasAdministrador = () => {
   const { user } = useAuth();
@@ -56,7 +56,7 @@ const RutasAdministrador = () => {
           <Route path="/usuarios" element={<ListadoUsuarios />} />
           <Route path="/materias" element={<Materias />} />
           <Route path="/cursos" element={<Cursos />} />
-          <Route path="/asistencias" element={<Asistencias />} />
+          <Route path="/asistencias" element={<Asistencias2 />} />
           <Route path="/novedades" element={<PanelAdminNovedades />} />
           <Route path="*" element={<Error404 />} />
         </Routes>

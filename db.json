@@ -229,7 +229,7 @@
       ],
       "horarios": [
         {
-          "dia": "Lunes",
+          "fecha": "Lunes",
           "modulo": "1",
           "materiaID": "2c07"
         },
@@ -334,6 +334,40 @@
         "13",
         "1",
         "11"
+      ],
+      "asistencias": [
+        {
+          "fecha": "2024-09-02",
+          "presentes": [
+            "1",
+            "11",
+            "13"
+          ],
+          "ausentes": [
+            "12"
+          ]
+        },
+        {
+          "fecha": "2024-09-01",
+          "presentes": [
+            "1",
+            "11",
+            "12",
+            "13"
+          ],
+          "ausentes": []
+        },
+        {
+          "fecha": "2024-09-04",
+          "presentes": [
+            "11",
+            "12",
+            "13"
+          ],
+          "ausentes": [
+            "1"
+          ]
+        }
       ]
     },
     {
@@ -447,7 +481,8 @@
           "materiaID": ""
         }
       ],
-      "alumnos": []
+      "alumnos": [],
+      "asistencias": []
     },
     {
       "id": "618d",
@@ -560,7 +595,8 @@
           "materiaID": ""
         }
       ],
-      "alumnos": []
+      "alumnos": [],
+      "asistencias": []
     }
   ],
   "materias": [
@@ -725,309 +761,20 @@
   ],
   "asistencias": [
     {
-      "dia": "12/08/2024",
-      "alumnosPresentes": [
-        {
-          "alumnoID": 1
-        },
-        {
-          "alumnoID": 3
-        }
-      ],
+      "fecha": "2024-09-02",
       "docentesPresentes": [
-        {
-          "docenteId": 1
-        }
-      ],
-      "id": "9c53"
-    },
-    {
-      "id": "e5a2",
-      "dia": "21/8/2024",
-      "materiaID": 1,
-      "alumnosPresentes": [
-        "1",
-        "2",
-        "3"
-      ],
-      "docentesPresentes": [
-        3
-      ]
-    },
-    {
-      "id": "a39c",
-      "dia": "21/8/2024",
-      "materiaID": 1,
-      "alumnosPresentes": [
-        "3"
-      ],
-      "docentesPresentes": []
-    },
-    {
-      "id": "2e1b",
-      "dia": "25/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
         "3",
-        "2",
-        "1"
+        "9",
+        "17"
       ],
-      "docentesPresentes": []
-    },
-    {
-      "id": "83d5",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1",
-        "2"
+      "docentesAusentes": [
+        "18",
+        "19",
+        "20",
+        "21",
+        "SC8OeHm"
       ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "a70f",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1",
-        "3"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "4d23",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "987b",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "2d63",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1",
-        "2"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "943a",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "b259",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1",
-        "3",
-        "2"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "8cc7",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "3"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "444d",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "2"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "c783",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1",
-        "2",
-        "3"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "c7f0",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1",
-        "3"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "0ce6",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "939a",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1",
-        "2",
-        "3"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "2dc1",
-      "dia": "26/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "3",
-        "2"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "09a3",
-      "dia": "27/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "5962",
-      "dia": "27/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "2"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "869d",
-      "dia": "28/8/2024",
-      "materiaID": "1",
-      "alumnosPresentes": [
-        "1",
-        "2",
-        "3"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "acf8",
-      "dia": "30/8/2024",
-      "materiaID": "FjdFxGJ",
-      "alumnosPresentes": [
-        "12",
-        "13",
-        "14",
-        "15",
-        "1"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "2456",
-      "dia": "2/9/2024",
-      "materiaID": "2c07",
-      "alumnosPresentes": [
-        "1"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "36c8",
-      "dia": "2/9/2024",
-      "materiaID": "2c07",
-      "alumnosPresentes": [
-        "1",
-        "15",
-        "14",
-        "13",
-        "12"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
-    },
-    {
-      "id": "5049",
-      "dia": "2/9/2024",
-      "materiaID": "2c07",
-      "alumnosPresentes": [
-        "12",
-        "13",
-        "1",
-        "15"
-      ],
-      "docentesPresentes": [
-        "3"
-      ]
+      "id": "5b8d"
     }
   ]
 }
