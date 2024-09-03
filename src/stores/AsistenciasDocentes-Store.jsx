@@ -77,7 +77,6 @@ const useAsistenciasStore = create((set, get) => ({
       );
 
       if (existingAsistencia) {
-        // Si ya existe una asistencia para esta fecha, la actualizamos
         const updatedAsistencia = {
           ...existingAsistencia,
           docentesPresentes: presentes,
@@ -85,7 +84,6 @@ const useAsistenciasStore = create((set, get) => ({
         };
         return await get().updateAsistencia(existingAsistencia.id, updatedAsistencia);
       } else {
-        // Si no existe, creamos una nueva
         const newAsistencia = {
           fecha: fecha,
           docentesPresentes: presentes,

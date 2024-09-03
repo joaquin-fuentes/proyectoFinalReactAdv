@@ -18,7 +18,6 @@ const AsistenciasDocente = () => {
     fetchMaterias();
     fetchHistorial();
     fetchCursos();
-    console.log(usuarios, materias, historialAsistencias);
   }, [fetchUsuarios, fetchMaterias, fetchHistorial, fetchCursos]);
 
   const handleCheckboxChange = (type, id) => {
@@ -53,7 +52,6 @@ const AsistenciasDocente = () => {
     });
     setShowModal(false);
   };
-  // historial de asistencias logica 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
   const [sortConfig, setSortConfig] = useState({ key: 'dia', direction: 'ascending' });
@@ -176,7 +174,6 @@ const AsistenciasDocente = () => {
           </Modal.Footer>
         </Modal>
       </Container>
-      {/* historial de asistencias */}
       <section>
         <h1 className="text-center mb-4 p-3 disenoTitulo">Historial de Asistencias</h1>
         <Container className="asistencias-container pt-md-3">
@@ -218,7 +215,6 @@ const AsistenciasDocente = () => {
           </Pagination>
         </Container>
 
-        {/* Modal para ver detalles de asistencia */}
         <Modal show={showDetailModal} onHide={() => setShowDetailModal(false)}>
           <Modal.Header closeButton>
             <Modal.Title>Detalles de Asistencia</Modal.Title>

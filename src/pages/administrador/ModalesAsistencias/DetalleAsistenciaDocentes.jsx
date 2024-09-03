@@ -10,14 +10,14 @@ const DetalleAsistenciaDocentes = () => {
   const { asistencias, getAsistencias } = useAsistenciasStore();
 
   useEffect(() => {
-    obtenerDocentes(); // Cargar la lista de docentes al montar el componente
-    getAsistencias(); // Cargar las asistencias al montar el componente
+    obtenerDocentes();
+    getAsistencias();
   }, [obtenerDocentes, getAsistencias]);
 
   const handleShow = () => setShow(true);
   const handleClose = () => {
     setShow(false);
-    setDocenteSeleccionado(null); // Reiniciar la selección del docente al cerrar el modal
+    setDocenteSeleccionado(null);
   };
 
   const handleDocenteClick = (docenteId) => {

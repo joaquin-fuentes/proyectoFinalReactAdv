@@ -9,7 +9,7 @@ import Sidebar from "../components/Sidebar";
 import NavBarSmall from "../components/NavBarSmall";
 import Header from "../components/Header";
 import Error404 from "../pages/error404/Error404";
-import useAuth from "../stores/Auth-Store"; // Importa el store
+import useAuth from "../stores/Auth-Store";
 
 const RutasAlumnos = () => {
   const { user } = useAuth();
@@ -30,14 +30,12 @@ const RutasAlumnos = () => {
 
   const showSidebarAndHeader = validRoutes.includes(location.pathname);
 
-  // Redirigir si el usuario no es alumno
   if (user?.rol !== "Alumno") {
     return <Navigate to="/error" replace />;
   }
 
   return (
     <div className="d-flex flex-column flex-lg-row">
-      {/* Navbar for small screens */}
       {showSidebarAndHeader && (
         <NavBarSmall
           show={show}
@@ -46,7 +44,6 @@ const RutasAlumnos = () => {
         />
       )}
 
-      {/* Sidebar for large screens */}
       {showSidebarAndHeader && (
         <div className="sidebar d-none d-lg-block">
           <Sidebar />
@@ -62,7 +59,6 @@ const RutasAlumnos = () => {
           <Route path="asistencias" element={<Asistencias />} />
           <Route path="novedades" element={<Novedades />} />
           <Route path="contacto" element={<Contacto />} />
-          {/* Ruta para mostrar Error404 */}
           <Route path="*" element={<Error404 />} />
         </Routes>
       </div>

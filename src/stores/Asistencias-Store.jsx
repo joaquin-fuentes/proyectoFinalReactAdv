@@ -28,7 +28,7 @@ const useStore = create((set) => ({
     const response = await axios.get(URL_ASISTENCIA);
     set({ asistencias: response.data });
   },
-  fetchHistorial: async () => {  // Nueva función para obtener el historial de asistencias
+  fetchHistorial: async () => {
     const response = await axios.get(URL_ASISTENCIA);
 
     set({ historialAsistencias: response.data });

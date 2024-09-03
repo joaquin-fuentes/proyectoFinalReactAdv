@@ -16,25 +16,21 @@ const EditarAlumnos = ({ curso }) => {
   const handleShow = () => setShow(true);
 
   useEffect(() => {
-    // Obtén los alumnos cuando el componente se monta
     obtenerAlumnos();
   }, [obtenerAlumnos]);
 
   useEffect(() => {
     if (!loading && alumnos.length > 0) {
-      // Obtener todos los IDs de alumnos que ya están en algún curso
       const alumnosAsignados = new Set(
         cursos.reduce((acc, curso) => {
           return acc.concat(curso.alumnos);
         }, [])
       );
 
-      // Filtrar los alumnos que ya están en algún curso
       const alumnosNoAsignados = alumnos.filter(
         (alumno) => !alumnosAsignados.has(alumno.id)
       );
 
-      // Filtrar los alumnos que ya están en el curso actual
       const alumnosEnCurso = alumnos.filter((alumno) =>
         curso.alumnos.includes(alumno.id)
       );
@@ -57,17 +53,14 @@ const EditarAlumnos = ({ curso }) => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          // Eliminar el ID del alumno de la lista de IDs en curso.alumnos
           const nuevosAlumnos = curso.alumnos.filter((id) => id !== alumnoID);
 
-          // Actualizar el curso con los nuevos IDs de alumnos
           const cursoActualizado = {
             ...curso,
             alumnos: nuevosAlumnos,
           };
           await actualizarCurso(curso.id, cursoActualizado);
 
-          // Actualizar el estado local
           setAlumnosCurso(
             alumnosCurso.filter((alumno) => alumno.id !== alumnoID)
           );
@@ -93,14 +86,11 @@ const EditarAlumnos = ({ curso }) => {
     const alumnoSeleccionado = alumnos.find((alumno) => alumno.id === alumnoID);
 
     if (alumnoSeleccionado) {
-      // Agrega el ID del alumno seleccionado al listado del curso
       const cursoActualizado = {
         ...curso,
         alumnos: [...curso.alumnos, alumnoSeleccionado.id],
       };
       actualizarCurso(curso.id, cursoActualizado);
-
-      // Actualizar el estado local
       setAlumnosCurso([...alumnosCurso, alumnoSeleccionado]);
       setAlumnosDisponibles(
         alumnosDisponibles.filter((alumno) => alumno.id !== alumnoID)

@@ -13,7 +13,6 @@ const useAlumnoStore = create((set) => ({
     set({ loading: true, error: null });
     try {
       const resp = await axios.get(URL_USUARIO);
-      // Verifica si la propiedad 'usuarios' existe y es un array
       if (Array.isArray(resp.data)) {
         const alumnos = resp.data.filter((user) => user.rol === "Alumno");
         set({ alumnos, loading: false });

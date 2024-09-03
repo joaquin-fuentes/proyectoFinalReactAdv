@@ -27,7 +27,7 @@ const useMateriasStore = create((set) => ({
     } catch (error) {
       if (error.response && error.response.status === 404) {
         console.error(`Materia con ID ${id} no encontrada`);
-        return null; // Retorna null si la materia no existe
+        return null;
       } else {
         throw new Error(error.message);
       }
@@ -37,11 +37,9 @@ const useMateriasStore = create((set) => ({
   obtenerMateriasPorIds: async (ids) => {
     try {
       const resp = await axios.get(URL_MATERIA);
-      // Filtramos las materias que coincidan con los IDs proporcionados
       const materiasFiltradas = resp.data.filter((materia) =>
         ids.includes(materia.id)
       );
-      // Guardamos las materias filtradas en el estado `materiasCurso`
       set({ materiasCurso: materiasFiltradas });
     } catch (error) {
       throw new Error(error.message);
@@ -52,7 +50,7 @@ const useMateriasStore = create((set) => ({
       const resp = await axios.get(URL_MATERIA);
       const coincideTurno = turno
         ? materia.turno.toLowerCase() === turno.toLowerCase()
-        : true; // Si turno no está definido, siempre devuelve true
+        : true;
       const materiaExistente = resp.data.find(
         (materia) =>
           materia.nombre.toLowerCase() === nombre.toLowerCase() &&
@@ -60,7 +58,7 @@ const useMateriasStore = create((set) => ({
           materia.division === division &&
           coincideTurno
       );
-      return !!materiaExistente; // Retorna true si existe, false si no
+      return !!materiaExistente;
     } catch (error) {
       throw new Error(error.message);
     }

@@ -1,13 +1,13 @@
 import React from "react";
 import imgPerfil from "../assets/imagenes/avatarPerfil.jpeg";
 import { MdLogout } from "react-icons/md";
-import useAuth from "../stores/Auth-Store"; // Importar la tienda de autenticación
-import { useNavigate } from "react-router-dom"; // Para redirigir después de cerrar sesión
-import Swal from "sweetalert2"; // Importar SweetAlert
+import useAuth from "../stores/Auth-Store";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Header = () => {
-  const { logout } = useAuth(); // Obtener la función de logout desde el store
-  const navigate = useNavigate(); // Hook para la redirección
+  const { logout } = useAuth();
+  const navigate = useNavigate();
   const { user } = useAuth();
 
 
@@ -23,7 +23,7 @@ const Header = () => {
       cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
-        logout(); // Llamar a la función de logout
+        logout();
         Swal.fire({
           title: "Cerrando sesión",
           text: "Serás redirigido al inicio...",
@@ -31,7 +31,7 @@ const Header = () => {
           timerProgressBar: true,
           showConfirmButton: false,
           willClose: () => {
-            navigate("/"); // Redirigir al inicio después de 1 segundo
+            navigate("/");
           },
         });
       }

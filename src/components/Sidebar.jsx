@@ -24,7 +24,6 @@ const Sidebar = ({ handleClose }) => {
       <div className="sidebar-content flex-grow-1">
         <img src={logo} alt="imagen logo" className="logoSidebar my-5" />
         <nav className="navbar w-100 p-0">
-          {/* Mostrar opciones según el rol del usuario */}
           {userSession.rol === "Alumno" && (
             <ul className="navbar-nav w-100">
               <li className="nav-item text-center">

@@ -6,26 +6,23 @@ import useMateriasStore from "../../stores/Materias-Store";
 import useDocenteStore from "../../stores/Docentes-Store";
 
 const Materias = () => {
-  const { user } = useAuth(); // Obtener el usuario autenticado
-  const { cursos, obtenerCursos } = useCursosStore(); // Obtener cursos del store
-  const { obtenerMateriasPorIds, materiasCurso } = useMateriasStore(); // Obtener materias por IDs
-  const { docentes, obtenerDocentes } = useDocenteStore(); // Obtener docentes del store
-  const [busqueda, setBusqueda] = useState(""); // Estado para la búsqueda
+  const { user } = useAuth();
+  const { cursos, obtenerCursos } = useCursosStore();
+  const { obtenerMateriasPorIds, materiasCurso } = useMateriasStore();
+  const { docentes, obtenerDocentes } = useDocenteStore();
+  const [busqueda, setBusqueda] = useState("");
 
   useEffect(() => {
     const fetchCursosYMaterias = async () => {
-      await obtenerCursos(); // Obtener los cursos del store
-      await obtenerDocentes(); // Obtener la lista de docentes
+      await obtenerCursos();
+      await obtenerDocentes();
 
-      // Filtrar cursos donde el alumno está inscrito
       const cursosFiltrados = cursos.filter((curso) =>
         curso.alumnos.some((alumnoID) => alumnoID === user.id)
       );
 
-      // Obtener los IDs de las materias de los cursos filtrados
       const materiasIDs = cursosFiltrados.flatMap((curso) => curso.materias);
       if (materiasIDs.length > 0) {
-        // Obtener detalles de las materias usando sus IDs
         await obtenerMateriasPorIds(materiasIDs);
       }
     };
@@ -50,10 +47,10 @@ const Materias = () => {
 
   const obtenerNotasAlumno = (materia) => {
     if (!materia.notas) {
-      return {}; // Retornar un objeto vacío si no hay notas
+      return {};
     }
     const notaAlumno = materia.notas.find((nota) => nota.alumnoId === user.id);
-    return notaAlumno || {}; // Retornar un objeto vacío si no encuentra la nota del alumno
+    return notaAlumno || {};
   };
 
   return (
@@ -140,7 +137,7 @@ const Materias = () => {
               <th className="tableMaterias">Estado</th>
             </tr>
           </thead>
-          <tbody>{/* Lógica similar para materias previas */}</tbody>
+          <tbody></tbody>
         </Table>
       </section>
     </Container>

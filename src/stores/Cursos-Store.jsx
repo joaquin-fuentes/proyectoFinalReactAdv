@@ -1,7 +1,6 @@
 import axios from "axios";
 import { create } from "zustand";
 
-// Obtén la URL base para cursos del archivo de variables de entorno
 const URL_CURSO = import.meta.env.VITE_API_CURSO;
 
 const useCursosStore = create((set) => ({
@@ -35,12 +34,12 @@ const useCursosStore = create((set) => ({
       const cursoExistente = resp.data.find((curso) => {
         const coincideTurno = turno
           ? curso.turno.toLowerCase() === turno.toLowerCase()
-          : true; // Si turno no está definido, siempre devuelve true
+          : true;
         return (
           curso.anio === anio && curso.division === division && coincideTurno
         );
       });
-      return !!cursoExistente; // Retorna true si existe, false si no
+      return !!cursoExistente;
     } catch (error) {
       throw new Error(error.message);
     }

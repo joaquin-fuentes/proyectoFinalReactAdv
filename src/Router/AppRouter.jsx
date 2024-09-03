@@ -11,7 +11,6 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Rutas protegidas de administrador */}
         <Route
           path="administrador/*"
           element={
@@ -20,7 +19,6 @@ const AppRouter = () => {
             </RutasProtegidas>
           }
         />
-        {/* Rutas protegidas de docentes */}
         <Route
           path="docentes/*"
           element={
@@ -29,7 +27,6 @@ const AppRouter = () => {
             </RutasProtegidas>
           }
         />
-        {/* Rutas protegidas de alumnos */}
         <Route
           path="alumnos/*"
           element={
@@ -38,9 +35,7 @@ const AppRouter = () => {
             </RutasProtegidas>
           }
         />
-        {/* Ruta predeterminada redirigida a la página de inicio */}
         <Route path="/" element={<Home />} />
-        {/* Ruta para manejar cualquier ruta no definida */}
         <Route path="*" element={<Error404 />} />
       </Routes>
     </BrowserRouter>

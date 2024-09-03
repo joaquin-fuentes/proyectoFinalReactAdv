@@ -12,13 +12,11 @@ const ListadoAlumnos = ({ curso }) => {
   const handleShow = () => setShow(true);
 
   useEffect(() => {
-    // Obtén los alumnos cuando el componente se monta
     obtenerAlumnos();
   }, [obtenerAlumnos]);
 
   useEffect(() => {
     if (!loading && alumnos.length > 0 && curso.alumnos) {
-      // Filtrar los alumnos cuya ID coincida con algún ID en curso.alumnos
       const alumnosFiltrados = alumnos.filter((alumno) =>
         curso.alumnos.includes(alumno.id)
       );

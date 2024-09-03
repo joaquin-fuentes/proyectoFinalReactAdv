@@ -8,15 +8,15 @@ const RutasProtegidas = ({ children }) => {
 
   useEffect(() => {
     const verifyAuth = async () => {
-      await checkAuth(); // Verifica la autenticación
-      setLoading(false); // Cambia el estado de carga a falso una vez que se completa la verificación
+      await checkAuth();
+      setLoading(false);
     };
 
     verifyAuth();
   }, [checkAuth]);
 
   if (loading) {
-    return <div>Loading...</div>; // Puedes mostrar un spinner o mensaje de carga mientras se verifica la autenticación
+    return <div>Loading...</div>;
   }
 
   if (user === null) {

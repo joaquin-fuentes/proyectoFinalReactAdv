@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container, ProgressBar, Table } from "react-bootstrap";
 import useCursosStore from "../../stores/Cursos-Store";
 import useAuth from "../../stores/Auth-Store";
-import "./Alumnos.css"; // Asegúrate de ajustar la ruta si es necesario
+import "./Alumnos.css";
 
 const Asistencias = () => {
   const { user } = useAuth();
@@ -13,18 +13,16 @@ const Asistencias = () => {
   const [totalAusentes, setTotalAusentes] = useState(0);
 
   useEffect(() => {
-    obtenerCursos(); // Obtener todos los cursos al montar el componente
+    obtenerCursos();
   }, [obtenerCursos]);
 
   useEffect(() => {
     if (cursos.length > 0 && user) {
-      // Buscar el curso al que pertenece el alumno
       const cursoAlumno = cursos.find((curso) =>
         curso.alumnos.includes(user.id)
       );
 
       if (cursoAlumno) {
-        // Filtrar las asistencias del alumno actual
         const asistenciasDelAlumno = cursoAlumno.asistencias || [];
 
         const presentes = asistenciasDelAlumno.filter((asistencia) =>

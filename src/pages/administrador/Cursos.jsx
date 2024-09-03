@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Button, Container, Form, Table } from "react-bootstrap";
-// import EditarCurso from "./ModalesCursos/EditarCurso";
-// import CrearCurso from "./ModalesCursos/CrearCurso";
 import useCursosStore from "../../stores/Cursos-Store";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";

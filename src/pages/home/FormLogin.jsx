@@ -21,7 +21,6 @@ const FormLogin = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (data, { setSubmitting, setErrors }) => {
-    console.log(data);
     try {
       const user = await login(data); 
       sessionStorage.setItem("usuario", JSON.stringify(user));
