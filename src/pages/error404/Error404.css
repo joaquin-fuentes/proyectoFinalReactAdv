@@ -1,0 +1,34 @@
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.error-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.error-button {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #007bff;
+  background-color: #fff;
+  text-decoration: none;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.error-button:hover {
+  background-color: #0056b3;
+  color: #fff;
+}

@@ -1,48 +1,98 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Container, ProgressBar, Table } from "react-bootstrap";
+import useCursosStore from "../../stores/Cursos-Store";
+import useAuth from "../../stores/Auth-Store";
 import "./Alumnos.css";
 
 const Asistencias = () => {
+  const { user } = useAuth();
+  const { cursos, obtenerCursos } = useCursosStore();
+  const [asistenciasAlumno, setAsistenciasAlumno] = useState([]);
+  const [totalAsistencias, setTotalAsistencias] = useState(0);
+  const [totalPresentes, setTotalPresentes] = useState(0);
+  const [totalAusentes, setTotalAusentes] = useState(0);
+
+  useEffect(() => {
+    obtenerCursos();
+  }, [obtenerCursos]);
+
+  useEffect(() => {
+    if (cursos.length > 0 && user) {
+      const cursoAlumno = cursos.find((curso) =>
+        curso.alumnos.includes(user.id)
+      );
+
+      if (cursoAlumno) {
+        const asistenciasDelAlumno = cursoAlumno.asistencias || [];
+
+        const presentes = asistenciasDelAlumno.filter((asistencia) =>
+          asistencia.presentes.includes(user.id)
+        ).length;
+        const ausentes = asistenciasDelAlumno.filter((asistencia) =>
+          asistencia.ausentes.includes(user.id)
+        ).length;
+
+        setAsistenciasAlumno(asistenciasDelAlumno);
+        setTotalAsistencias(asistenciasDelAlumno.length);
+        setTotalPresentes(presentes);
+        setTotalAusentes(ausentes);
+      }
+    }
+  }, [cursos, user]);
+
+  const calcularPorcentajeAsistencia = () => {
+    if (totalAsistencias === 0) return 0;
+    return (totalPresentes / totalAsistencias) * 100;
+  };
+
   return (
-    <Container>
-      <h4 className="text-center my-3">Asistencias</h4>
-      <Row>
-        <Col md={3}>
-          <article className="border rounded p-4 mb-3 text-center">
-            <p className="fw-bold">Total dias de clases</p>
-            <p className="fs-1">150</p>
-          </article>
-        </Col>
-        <Col md={3}>
-          <article className="border rounded p-4 mb-3 text-center">
-            <p className="fw-bold">Total inasistencias</p>
-            <p className="fs-1">10</p>
-          </article>
-        </Col>
-        <Col md={3}>
-          <article className="border rounded p-4 mb-3 text-center">
-            <p className="fw-bold">Inasisencias justificadas</p>
-            <p className="fs-1">2</p>
-          </article>
-        </Col>
-        <Col md={3}>
-          <article className="border rounded  p-4 mb-3 d-flex flex-column align-items-center">
-            <p className="me-5">Fechas inasistencias:</p>
-            <ol>
-              <li className="">26/07/2024</li>
-              <li className="">26/07/2024</li>
-              <li className="">26/07/2024 (justificada)</li>
-              <li className="">26/07/2024 (justificada)</li>
-              <li className="">26/07/2024</li>
-              <li className="">26/07/2024</li>
-              <li className="">26/07/2024</li>
-              <li className="">26/07/2024</li>
-              <li className="">26/07/2024</li>
-              <li className="">26/07/2024</li>
-            </ol>
-          </article>
-        </Col>
-      </Row>
+    <Container className="text-center px-md-5 py-md-2">
+      <h2 className="disenoTitulo my-5">Mis Asistencias</h2>
+
+      <div className="my-4">
+        <h4>Total de asistencias: {totalAsistencias}</h4>
+        <h4>Presentes: {totalPresentes}</h4>
+        <h4>Ausentes: {totalAusentes}</h4>
+      </div>
+
+      <div className="my-4">
+        <h5>Porcentaje de Asistencia</h5>
+        <ProgressBar
+          now={calcularPorcentajeAsistencia()}
+          label={`${calcularPorcentajeAsistencia().toFixed(2)}%`}
+        />
+      </div>
+
+      {asistenciasAlumno.length > 0 ? (
+        <Table striped hover responsive className="rounded">
+          <thead>
+            <tr>
+              <th className="tableMaterias fw-bold">Fecha</th>
+              <th className="tableMaterias fw-bold">Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            {asistenciasAlumno.map((asistencia) => (
+              <tr key={asistencia.fecha}>
+                <td className="tableMaterias">{asistencia.fecha}</td>
+                <td
+                  className={`tableMaterias ${
+                    asistencia.presentes.includes(user.id)
+                      ? "text-success" 
+                      : "text-danger" 
+                  }`}
+                >
+                  {asistencia.presentes.includes(user.id)
+                    ? "Presente"
+                    : "Ausente"}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      ) : (
+        <p>No se encontraron asistencias registradas.</p>
+      )}
     </Container>
   );
 };

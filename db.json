@@ -1,0 +1,708 @@
+{
+  "usuarios": [
+    {
+      "apellido": "Fuentes",
+      "nombre": "Joaquin",
+      "dni": "37423893",
+      "telefono": "3816097754",
+      "direccion": "España 2456",
+      "email": "joaquin@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "rol": "Alumno",
+      "id": "1"
+    },
+    {
+      "apellido": "Costilla",
+      "nombre": "Georgina",
+      "dni": "381212112",
+      "telefono": "3815426254",
+      "direccion": "direccion123",
+      "email": "georgina@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "rol": "Administrador",
+      "id": "2"
+    },
+    {
+      "apellido": "Santamarina",
+      "nombre": "Andrés",
+      "dni": "39252525",
+      "telefono": "3814564564",
+      "direccion": "direccion123",
+      "email": "andres@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "rol": "Docente",
+      "id": "3"
+    },
+    {
+      "rol": "Alumno",
+      "apellido": "López",
+      "nombre": "María",
+      "dni": "40123456",
+      "telefono": "3816543210",
+      "direccion": "San Martín 1234",
+      "email": "maria.lopez@gmail.com",
+      "password": "1234",
+      "passwordConfirm": "1234",
+      "id": "4"
+    },
+    {
+      "rol": "Alumno",
+      "apellido": "Santamarina",
+      "nombre": "Ruben",
+      "dni": "41275066",
+      "telefono": "3865608565",
+      "direccion": "Amancay 1683",
+      "email": "santamarina@gmail.com",
+      "password": "12",
+      "passwordConfirm": "12",
+      "id": "8"
+    },
+    {
+      "id": "9",
+      "direccion": "Belgrano 458",
+      "nombre": "Carlos",
+      "apellido": "García",
+      "email": "carlos.garcia@gmail.com",
+      "dni": "40345678",
+      "password": "abcd1234",
+      "telefono": "3811234567",
+      "rol": "Docente"
+    },
+    {
+      "id": "10",
+      "direccion": "Alem 789",
+      "nombre": "Valentina",
+      "apellido": "Rossi",
+      "email": "valentina.rossi@gmail.com",
+      "dni": "41567890",
+      "password": "abcd1234",
+      "telefono": "3812345678",
+      "rol": "Alumno"
+    },
+    {
+      "id": "11",
+      "direccion": "Urquiza 1478",
+      "nombre": "Esteban",
+      "apellido": "Martínez",
+      "email": "esteban.martinez@gmail.com",
+      "dni": "42789012",
+      "password": "abcd1234",
+      "telefono": "3813456789",
+      "rol": "Alumno"
+    },
+    {
+      "id": "12",
+      "direccion": "Mitre 1234",
+      "nombre": "Lucía",
+      "apellido": "Pérez",
+      "email": "lucia.perez@gmail.com",
+      "dni": "43901234",
+      "password": "lucia123",
+      "telefono": "3814567890",
+      "rol": "Alumno"
+    },
+    {
+      "id": "13",
+      "direccion": "Rivadavia 567",
+      "nombre": "Matías",
+      "apellido": "Gómez",
+      "email": "matias.gomez@gmail.com",
+      "dni": "44123456",
+      "password": "matias456",
+      "telefono": "3815678901",
+      "rol": "Alumno"
+    },
+    {
+      "id": "14",
+      "direccion": "San Juan 891",
+      "nombre": "Sofía",
+      "apellido": "Ramírez",
+      "email": "sofia.ramirez@gmail.com",
+      "dni": "45345678",
+      "password": "sofia789",
+      "telefono": "3816789012",
+      "rol": "Alumno"
+    },
+    {
+      "id": "15",
+      "direccion": "Lavalle 345",
+      "nombre": "Gabriel",
+      "apellido": "Fernández",
+      "email": "gabriel.fernandez@gmail.com",
+      "dni": "46567890",
+      "password": "gabriel123",
+      "telefono": "3817890123",
+      "rol": "Alumno"
+    },
+    {
+      "id": "16",
+      "direccion": "Sarmiento 678",
+      "nombre": "Laura",
+      "apellido": "Mendoza",
+      "email": "laura.mendoza@gmail.com",
+      "dni": "47789012",
+      "password": "laura456",
+      "telefono": "3818901234",
+      "rol": "Alumno"
+    },
+    {
+      "id": "17",
+      "direccion": "Independencia 123",
+      "nombre": "Federico",
+      "apellido": "Gutiérrez",
+      "email": "federico.gutierrez@gmail.com",
+      "dni": "42345678",
+      "password": "fede123",
+      "telefono": "3819123456",
+      "rol": "Docente"
+    },
+    {
+      "id": "18",
+      "direccion": "Libertad 456",
+      "nombre": "Ana",
+      "apellido": "Moreno",
+      "email": "ana.moreno@gmail.com",
+      "dni": "43567890",
+      "password": "ana456",
+      "telefono": "3819234567",
+      "rol": "Docente"
+    },
+    {
+      "id": "19",
+      "direccion": "San Lorenzo 789",
+      "nombre": "Pablo",
+      "apellido": "Rodríguez",
+      "email": "pablo.rodriguez@gmail.com",
+      "dni": "44789012",
+      "password": "pablo789",
+      "telefono": "3819345678",
+      "rol": "Docente"
+    },
+    {
+      "id": "20",
+      "direccion": "Mitre 910",
+      "nombre": "Carolina",
+      "apellido": "Vázquez",
+      "email": "carolina.vazquez@gmail.com",
+      "dni": "45901234",
+      "password": "caro123",
+      "telefono": "3819456789",
+      "rol": "Docente"
+    },
+    {
+      "id": "21",
+      "direccion": "Belgrano 112",
+      "nombre": "Javier",
+      "apellido": "Martín",
+      "email": "javier.martin@gmail.com",
+      "dni": "46123456",
+      "password": "javi456",
+      "telefono": "3819567890",
+      "rol": "Docente"
+    },
+    {
+      "rol": "Docente",
+      "apellido": "Santamarina",
+      "nombre": "Eduardo",
+      "dni": "41275066",
+      "telefono": "3865608565",
+      "direccion": "Amancay 1683",
+      "email": "pruebaimagen@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "url_img": "https://static.vecteezy.com/system/resources/previews/002/275/847/non_2x/male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg",
+      "id": "SC8OeHm"
+    }
+  ],
+  "cursos": [
+    {
+      "id": "aec8",
+      "anio": "1",
+      "division": "A",
+      "turno": "Mañana",
+      "materias": [
+        "2c07",
+        "db57"
+      ],
+      "horarios": [
+        {
+          "fecha": "Lunes",
+          "modulo": "1",
+          "materiaID": "2c07"
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "1",
+          "materiaID": "2c07"
+        },
+        {
+          "dia": "Martes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "3",
+          "materiaID": "db57"
+        },
+        {
+          "dia": "Martes",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "1",
+          "materiaID": "db57"
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "1",
+          "materiaID": "db57"
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "1",
+          "materiaID": "2c07"
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "4",
+          "materiaID": ""
+        }
+      ],
+      "alumnos": [
+        "12",
+        "13",
+        "1",
+        "11"
+      ],
+      "asistencias": [
+        {
+          "fecha": "2024-09-02",
+          "presentes": [
+            "1",
+            "11",
+            "13"
+          ],
+          "ausentes": [
+            "12"
+          ]
+        },
+        {
+          "fecha": "2024-09-01",
+          "presentes": [
+            "1",
+            "11",
+            "12",
+            "13"
+          ],
+          "ausentes": []
+        },
+        {
+          "fecha": "2024-09-04",
+          "presentes": [
+            "11",
+            "12",
+            "13"
+          ],
+          "ausentes": [
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9602",
+      "anio": "2",
+      "division": "A",
+      "turno": "Mañana",
+      "materias": [
+        "5096",
+        "222c"
+      ],
+      "horarios": [
+        {
+          "dia": "Lunes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "2",
+          "materiaID": "5096"
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "4",
+          "materiaID": ""
+        }
+      ],
+      "alumnos": [],
+      "asistencias": []
+    },
+    {
+      "id": "618d",
+      "anio": "2",
+      "division": "B",
+      "turno": "Mañana",
+      "materias": [
+        "a73a",
+        "c090"
+      ],
+      "horarios": [
+        {
+          "dia": "Lunes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Lunes",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Martes",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Miércoles",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Jueves",
+          "modulo": "4",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "1",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "2",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "3",
+          "materiaID": ""
+        },
+        {
+          "dia": "Viernes",
+          "modulo": "4",
+          "materiaID": ""
+        }
+      ],
+      "alumnos": [],
+      "asistencias": []
+    }
+  ],
+  "materias": [
+    {
+      "id": "2c07",
+      "nombre": "Matematicas",
+      "anio": "1",
+      "division": "A",
+      "turno": "Mañana",
+      "docenteId": "3",
+      "cursoId": "aec8",
+      "notas": [
+        {
+          "alumnoId": "1",
+          "trimestre1": 6,
+          "trimestre2": 6,
+          "trimestre3": 8,
+          "notaFinal": 6.67
+        },
+        {
+          "alumnoId": "12",
+          "trimestre1": 6,
+          "trimestre2": 6,
+          "trimestre3": 8,
+          "notaFinal": 7
+        },
+        {
+          "alumnoId": "13",
+          "trimestre1": 6,
+          "trimestre2": 6,
+          "trimestre3": 8,
+          "notaFinal": 7
+        },
+        {
+          "alumnoId": "14",
+          "trimestre1": 6,
+          "trimestre2": 6,
+          "trimestre3": 8,
+          "notaFinal": 7
+        },
+        {
+          "alumnoId": "15",
+          "trimestre1": 6,
+          "trimestre2": 6,
+          "trimestre3": 8,
+          "notaFinal": 7
+        }
+      ]
+    },
+    {
+      "nombre": "Geografia",
+      "anio": "1",
+      "division": "A",
+      "docenteId": "18",
+      "id": "db57"
+    },
+    {
+      "nombre": "Matematicas",
+      "anio": "1",
+      "division": "B",
+      "docenteId": "21",
+      "id": "6511"
+    }
+  ],
+  "novedades": [
+    {
+      "id": "1",
+      "titulo": "Nueva reunión de Docentes",
+      "url_img": "https://i.pinimg.com/736x/9b/74/9f/9b749f29fcabb450db3043216c0c8663.jpg",
+      "destinatario": "Docentes"
+    },
+    {
+      "id": "2",
+      "titulo": "Día de la bandera",
+      "url_img": "https://www.epet1.edu.ar/wp-content/uploads/2015/06/Poster-20-de-Junio-1024x640.jpg",
+      "destinatario": "Alumnos"
+    },
+    {
+      "id": "3",
+      "titulo": "Actualización de Normativas",
+      "url_img": "https://des-ers.infd.edu.ar/sitio/wp-content/uploads/2022/05/IMG-20220530-WA0048.jpg",
+      "destinatario": "Todos"
+    },
+    {
+      "id": "1f22",
+      "titulo": "Día del estudiante",
+      "url_img": "https://mejorimagenes.com/wp-content/uploads/2016/09/estudiantefeliz.jpg8_.jpg",
+      "destinatario": "Alumnos"
+    }
+  ],
+  "asistencias": [
+    {
+      "fecha": "2024-09-02",
+      "docentesPresentes": [
+        "3",
+        "9",
+        "17"
+      ],
+      "docentesAusentes": [
+        "18",
+        "19",
+        "20",
+        "21",
+        "SC8OeHm"
+      ],
+      "id": "5b8d"
+    }
+  ]
+}
