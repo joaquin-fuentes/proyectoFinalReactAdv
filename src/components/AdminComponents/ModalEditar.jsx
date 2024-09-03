@@ -5,11 +5,12 @@ import "../../pages/administrador/Administrador.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useForm } from "react-hook-form";
 import useUsuarios from "../../stores/Usuarios-Store";
-import Swal from "sweetalert2";
+import useSweetAlert from "../../hooks/useSweetAlert";
 
 const ModalEditar = ({ usuario }) => {
   const [show, setShow] = useState(false);
   const { updateUsuario } = useUsuarios();
+  const { showAlert } = useSweetAlert();
   const {
     register,
     handleSubmit,
@@ -41,30 +42,12 @@ const ModalEditar = ({ usuario }) => {
     try {
       const respuesta = await updateUsuario(usuario.id, data);
       if (respuesta) {
-        Swal.fire({
-          title: "¡Listo!",
-          text: "El usuario ha sido editado con éxito.",
-          icon: "success",
-          confirmButtonColor: "#004b81",
-          confirmButtonText: "Aceptar",
-        });
+        await showAlert("success", "¡Listo!", "El usuario ha sido editado con éxito.");
       } else {
-        Swal.fire({
-          title: "Ocurrió un error",
-          text: "No se pudo editar el usuario. Intenta nuevamente.",
-          icon: "error",
-          confirmButtonColor: "#004b81",
-          confirmButtonText: "Aceptar",
-        });
+        await showAlert("error", "Ocurrió un error", "No se pudo editar el usuario. Intenta nuevamente.");
       }
     } catch (error) {
-      Swal.fire({
-        title: "Ocurrió un error",
-        text: "No se pudo editar el usuario. Intenta nuevamente.",
-        icon: "error",
-        confirmButtonColor: "#004b81",
-        confirmButtonText: "Aceptar",
-      });
+      await showAlert("error", "Ocurrió un error", "No se pudo editar el usuario. Intenta nuevamente.");
     }
     handleClose();
   };

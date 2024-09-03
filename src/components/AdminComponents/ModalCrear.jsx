@@ -5,11 +5,12 @@ import "../../pages/administrador/Administrador.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import useUsuarios from "../../stores/Usuarios-Store";
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
+import useSweetAlert from "../../hooks/useSweetAlert";
 
 const ModalCrear = () => {
   const [show, setShow] = useState(false);
   const { createUsuario } = useUsuarios();
+  const { showAlert } = useSweetAlert();
   const {
     register,
     handleSubmit,
@@ -29,30 +30,12 @@ const ModalCrear = () => {
     try {
       const respuesta = await createUsuario(data);
       if (respuesta) {
-        Swal.fire({
-          title: "¡Listo!",
-          text: "El usuario ha sido creado con éxito.",
-          icon: "success",
-          confirmButtonColor: "#004b81",
-          confirmButtonText: "Aceptar",
-        });
+        await showAlert("success", "¡Listo!", "El usuario ha sido creado con éxito.");
       } else {
-        Swal.fire({
-          title: "Ocurrió un error",
-          text: "No se pudo crear el usuario. Intenta nuevamente.",
-          icon: "error",
-          confirmButtonColor: "#004b81",
-          confirmButtonText: "Aceptar",
-        });
+        await showAlert("error", "Ocurrió un error", "No se pudo crear el usuario. Intenta nuevamente.");
       }
     } catch (error) {
-      Swal.fire({
-        title: "Ocurrió un error",
-        text: "No se pudo crear el usuario. Intenta nuevamente.",
-        icon: "error",
-        confirmButtonColor: "#004b81",
-        confirmButtonText: "Aceptar",
-      });
+      await showAlert("error", "Ocurrió un error", "No se pudo crear el usuario. Intenta nuevamente.");
     }
     handleClose();
   };

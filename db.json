@@ -578,7 +578,7 @@
           "trimestre1": 6,
           "trimestre2": 6,
           "trimestre3": 8,
-          "notaFinal": 7
+          "notaFinal": 6.67
         },
         {
           "alumnoId": "12",
@@ -623,78 +623,6 @@
       "division": "B",
       "docenteId": "21",
       "id": "6511"
-    },
-    {
-      "id": "5096",
-      "nombre": "Matematicas",
-      "anio": "2",
-      "division": "A",
-      "turno": "Mañana",
-      "docenteId": "19",
-      "cursoId": "",
-      "notas": [
-        {
-          "alumnoId": "",
-          "trimestre1": 0,
-          "trimestre2": 0,
-          "trimestre3": 0,
-          "notaFinal": 0
-        }
-      ]
-    },
-    {
-      "id": "222c",
-      "nombre": "Lenguas",
-      "anio": "2",
-      "division": "A",
-      "turno": "Mañana",
-      "docenteId": "SC8OeHm",
-      "cursoId": "",
-      "notas": [
-        {
-          "alumnoId": "",
-          "trimestre1": 0,
-          "trimestre2": 0,
-          "trimestre3": 0,
-          "notaFinal": 0
-        }
-      ]
-    },
-    {
-      "id": "a73a",
-      "nombre": "Fisica",
-      "anio": "2",
-      "division": "B",
-      "turno": "Mañana",
-      "docenteId": "20",
-      "cursoId": "",
-      "notas": [
-        {
-          "alumnoId": "",
-          "trimestre1": 0,
-          "trimestre2": 0,
-          "trimestre3": 0,
-          "notaFinal": 0
-        }
-      ]
-    },
-    {
-      "id": "c090",
-      "nombre": "Quimica",
-      "anio": "2",
-      "division": "B",
-      "turno": "Mañana",
-      "docenteId": "18",
-      "cursoId": "",
-      "notas": [
-        {
-          "alumnoId": "",
-          "trimestre1": 0,
-          "trimestre2": 0,
-          "trimestre3": 0,
-          "notaFinal": 0
-        }
-      ]
     }
   ],
   "novedades": [

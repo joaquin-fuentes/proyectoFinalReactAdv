@@ -6,7 +6,7 @@ import * as yup from "yup";
 import useAuth from "../../stores/Auth-Store";
 import Swal from "sweetalert2";
 import "./Home.css";
-import logo from "../../assets/imagenes/logo-sge-dark-circle.png";
+import logo from "../../assets/imagenes/logo-sge-dark-circle-simple.png";
 
 const schema = yup.object().shape({
   email: yup
