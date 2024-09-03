@@ -8,7 +8,7 @@ import CrearAsistenciaDocente from "./ModalesAsistencias/CrearAsistenciaDocente"
 import DetalleAsistenciaAlumnos from "./ModalesAsistencias/DetalleAsistenciaAlumnos";
 import DetalleAsistenciaDocentes from "./ModalesAsistencias/DetalleAsistenciaDocentes";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import "./Administrador.css"; // Asegúrate de ajustar la ruta si es necesario
+import "./Administrador.css";
 
 const Assitencias2 = () => {
   const { cursos, obtenerCursos } = useCursosStore();
@@ -17,8 +17,8 @@ const Assitencias2 = () => {
   const [selectedDate, setSelectedDate] = useState("");
 
   useEffect(() => {
-    obtenerCursos(); // Cargar los cursos al montar el componente
-    getAsistencias(); // Cargar las asistencias al montar el componente
+    obtenerCursos();
+    getAsistencias();
   }, []);
 
   const obtenerFechaActual = () => {
@@ -36,7 +36,6 @@ const Assitencias2 = () => {
     setShowDocenteModal(true);
   };
 
-  // Ordenar las asistencias por fecha desde el más antiguo al más actual
   const asistenciasOrdenadas = [...asistencias].sort((a, b) => {
     const fechaA = new Date(a.fecha.split("/").reverse().join("-"));
     const fechaB = new Date(b.fecha.split("/").reverse().join("-"));
@@ -45,7 +44,6 @@ const Assitencias2 = () => {
 
   return (
     <Container className="text-center px-md-5 py-md-2">
-      {/* ASISTENCIAS ALUMNOS */}
       <h2 className="disenoTitulo my-5">Asistencias Alumnos</h2>
 
       {cursos.length > 0 ? (
@@ -78,7 +76,6 @@ const Assitencias2 = () => {
         <p>No se encontraron cursos.</p>
       )}
 
-      {/* ASISTENCIAS DOCENTES */}
       <h2 className="disenoTitulo my-5">Asistencias Docentes</h2>
 
       <Table striped hover responsive className="rounded">

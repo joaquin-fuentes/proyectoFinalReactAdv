@@ -9,7 +9,7 @@ const EditarHorarios = ({ curso }) => {
   const [show, setShow] = useState(false);
   const [horarios, setHorarios] = useState([]);
   const [materiasCompletas, setMateriasCompletas] = useState([]);
-  const [loadingMaterias, setLoadingMaterias] = useState(false); // Definimos el estado loadingMaterias
+  const [loadingMaterias, setLoadingMaterias] = useState(false);
   const { actualizarCurso, obtenerCursos } = useCursosStore();
   const { obtenerMateriaPorId } = useMateriasStore();
 
@@ -19,19 +19,18 @@ const EditarHorarios = ({ curso }) => {
 
       const fetchMaterias = async () => {
         try {
-          setLoadingMaterias(true); // Inicia la carga de materias
-          console.log(curso)
+          setLoadingMaterias(true);
           const materiasData = await Promise.all(
             curso.materias.map(async (id) => {
               const materia = await obtenerMateriaPorId(id);
-              return materia; // Retorna null si la materia no existe
+              return materia;
             })
           );
-          setMateriasCompletas(materiasData.filter((m) => m !== null)); // Filtra los `null`
+          setMateriasCompletas(materiasData.filter((m) => m !== null));
         } catch (error) {
           console.error("Error general al obtener materias:", error.message);
         } finally {
-          setLoadingMaterias(false); // Finaliza la carga de materias
+          setLoadingMaterias(false);
         }
       };
 
@@ -69,11 +68,10 @@ const EditarHorarios = ({ curso }) => {
       horarios.find((h) => h.dia === dia && h.modulo === modulo) || {};
     const materia = materiasCompletas.find((m) => m.id === horario.materiaID);
     if (loadingMaterias) {
-      return <p>Cargando materias...</p>; // Muestra un mensaje de carga mientras se cargan las materias
+      return <p>Cargando materias...</p>;
     }
 
     if (!materia && horario.materiaID) {
-      // Si la materia fue eliminada
       return (
         <>
           <p className="text-danger">Materia eliminada</p>

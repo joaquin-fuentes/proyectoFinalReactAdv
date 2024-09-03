@@ -45,7 +45,6 @@ const Materias = () => {
     });
   };
 
-  // Filtrado de materias según los filtros de nombre y año
   const materiasFiltradas = materias.filter((materia) => {
     const coincideNombre = materia.nombre
       .toLowerCase()
@@ -57,9 +56,7 @@ const Materias = () => {
   });
 
   const obtenerNombreDocente = (id) => {
-    // Utilizamos find para buscar el docente con el ID correspondiente
     const docente = docentes.find((docente) => docente.id === id);
-    // Si se encuentra el docente, devolvemos su nombre; de lo contrario, devolvemos "Libre"
     return docente ? docente.nombre + " " + docente.apellido : "Libre";
   };
 

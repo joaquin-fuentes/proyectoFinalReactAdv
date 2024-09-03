@@ -28,7 +28,7 @@ const useAuth = create((set) => ({
         user,
         loading: false,
       });
-      sessionStorage.setItem("usuario", JSON.stringify(user)); // Guardar en sessionStorage
+      sessionStorage.setItem("usuario", JSON.stringify(user));
       return user;
     } catch (error) {
       set({ error: error.message, loading: false });

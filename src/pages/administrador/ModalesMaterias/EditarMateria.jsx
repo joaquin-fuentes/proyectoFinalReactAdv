@@ -19,15 +19,12 @@ const EditarMateria = ({ materia }) => {
     obtenerDocentes();
   }, [obtenerDocentes]);
 
-  // Esquema de validación con Yup
   const validationSchema = Yup.object().shape({
     nombre: Yup.string().required("El nombre es obligatorio"),
     anio: Yup.string().required("El año es obligatorio"),
     division: Yup.string().required("La división es obligatoria"),
-    // docenteId: Yup.string().required("El docente a cargo es obligatorio"),
   });
 
-  // Valores iniciales del formulario (se cargan los datos de la materia a editar)
   const initialValues = {
     nombre: materia.nombre || "",
     anio: materia.anio || "",
@@ -35,13 +32,11 @@ const EditarMateria = ({ materia }) => {
     docenteId: materia.docenteId || "",
   };
 
-  // Manejo del envío del formulario
   const handleSubmit = async (values, { resetForm }) => {
     try {
-      await actualizarMateria(materia.id, values); // Edita la materia en el store
-      handleClose(); // Cierra el modal después del envío
+      await actualizarMateria(materia.id, values);
+      handleClose();
 
-      // Muestra SweetAlert de éxito
       Swal.fire({
         title: "Materia editada",
         text: "La materia se ha editado con éxito.",
@@ -50,9 +45,8 @@ const EditarMateria = ({ materia }) => {
         showConfirmButton: false,
       });
 
-      resetForm(); // Limpia el formulario después de la edición
+      resetForm();
     } catch (error) {
-      // Muestra SweetAlert de error
       Swal.fire({
         title: "Error",
         text: error.message || "Algo salió mal al editar la materia.",

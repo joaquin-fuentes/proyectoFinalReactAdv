@@ -19,21 +19,18 @@ const CrearCurso = () => {
     obtenerMaterias();
   }, [obtenerMaterias]);
 
-  // Esquema de validación con Yup
   const validationSchema = Yup.object().shape({
     anio: Yup.string().required("El año es obligatorio"),
     division: Yup.string().required("La división es obligatoria"),
     turno: Yup.string().required("El turno es obligatorio"),
   });
 
-  // Valores iniciales del formulario
   const initialValues = {
     anio: "",
     division: "",
     turno: "",
   };
 
-  // Manejo del envío del formulario
   const handleSubmit = async (values, { resetForm }) => {
     try {
       const existe = await verificarCursoExistente(
@@ -49,7 +46,7 @@ const CrearCurso = () => {
           icon: "warning",
           confirmButtonText: "Cerrar",
         });
-        return; // Detener el proceso si el curso ya existe
+        return;
       }
 
       const materiasCurso = materias

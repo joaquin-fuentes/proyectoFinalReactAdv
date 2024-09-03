@@ -13,7 +13,6 @@ const useDocenteStore = create((set) => ({
     set({ loading: true, error: null });
     try {
       const resp = await axios.get(URL_USUARIO);
-      // Verifica si la propiedad 'usuarios' existe y es un array
       if (Array.isArray(resp.data)) {
         const docentes = resp.data.filter((user) => user.rol === "Docente");
         set({ docentes, loading: false });
@@ -35,7 +34,6 @@ const useDocenteStore = create((set) => ({
       const resp = await axios.get(`${URL_USUARIO}/${id}`);
       const usuario = resp.data;
 
-      // Verifica si el usuario tiene el rol "Docente"
       if (usuario && usuario.rol === "Docente") {
         set({ docente: usuario, loading: false });
       } else {

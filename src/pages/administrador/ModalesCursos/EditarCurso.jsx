@@ -13,34 +13,30 @@ const EditarCurso = ({ curso }) => {
 
   const { actualizarCurso } = useCursosStore();
 
-  // Esquema de validación con Yup
   const validationSchema = Yup.object().shape({
     anio: Yup.string().required("El año es obligatorio"),
     division: Yup.string().required("La división es obligatoria"),
     turno: Yup.string().required("El turno es obligatorio"),
   });
 
-  // Valores iniciales del formulario, prellenados con los datos actuales del curso
   const initialValues = {
     anio: curso.anio || "",
     division: curso.division || "",
     turno: curso.turno || "",
   };
 
-  // Manejo del envío del formulario
   const handleSubmit = async (values) => {
     const cursoEditado = {
-      ...curso, // Mantener el resto de los datos del curso
+      ...curso,
       anio: values.anio,
       division: values.division,
       turno: values.turno,
     };
 
     try {
-      await actualizarCurso(curso.id, cursoEditado); // Enviar los datos actualizados al store o realizar otra acción
-      handleClose(); // Cerrar el modal después del envío
+      await actualizarCurso(curso.id, cursoEditado);
+      handleClose(); 
 
-      // Mostrar SweetAlert de éxito
       Swal.fire({
         title: "Curso actualizado",
         text: "El curso se ha actualizado con éxito.",
@@ -49,7 +45,6 @@ const EditarCurso = ({ curso }) => {
         showConfirmButton: false,
       });
     } catch (error) {
-      // Mostrar SweetAlert de error
       Swal.fire({
         title: "Error",
         text: error.message || "Algo salió mal al actualizar el curso.",

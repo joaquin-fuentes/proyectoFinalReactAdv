@@ -13,12 +13,11 @@ const AsistenciasDocente = () => {
   const [totalAusentes, setTotalAusentes] = useState(0);
 
   useEffect(() => {
-    getAsistencias(); // Obtener todas las asistencias
+    getAsistencias();
   }, [getAsistencias]);
 
   useEffect(() => {
     if (asistencias.length > 0 && user) {
-      // Filtrar las asistencias del docente actual
       const asistenciasDelDocente = asistencias.filter(
         (asistencia) =>
           asistencia.docentesPresentes.includes(user.id) ||

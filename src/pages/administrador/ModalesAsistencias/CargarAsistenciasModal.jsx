@@ -10,7 +10,6 @@ const CargarAsistenciasModal = ({ curso }) => {
   const { actualizarCurso } = useCursosStore();
   const [alumnosDelCurso, setAlumnosDelCurso] = useState([]);
   
-  // Función para obtener la fecha actual
   const obtenerFechaActual = () => {
     const hoy = new Date();
     const dia = String(hoy.getDate()).padStart(2, '0');
@@ -24,9 +23,7 @@ const CargarAsistenciasModal = ({ curso }) => {
 
   const handleClose = () => {
     setShow(false);
-    // Reiniciar la fecha al cerrar el modal
     setFecha(obtenerFechaActual());
-    // Resetear las asistencias
     setAsistencias({});
   };
 
@@ -42,20 +39,17 @@ const CargarAsistenciasModal = ({ curso }) => {
       );
       setAlumnosDelCurso(alumnosFiltrados);
 
-      // Buscar si ya existe un registro de asistencia para la fecha seleccionada
       const asistenciaExistente = curso.asistencias.find(
         (asistencia) => asistencia.fecha === fecha
       );
 
       if (asistenciaExistente) {
-        // Si existe, cargar la asistencia existente
         const asistenciasIniciales = {};
         alumnosFiltrados.forEach((alumno) => {
           asistenciasIniciales[alumno.id] = asistenciaExistente.presentes.includes(alumno.id);
         });
         setAsistencias(asistenciasIniciales);
       } else {
-        // Si no existe, inicializar todos como ausentes por defecto (false)
         const inicialAsistencias = {};
         alumnosFiltrados.forEach((alumno) => {
           inicialAsistencias[alumno.id] = false;

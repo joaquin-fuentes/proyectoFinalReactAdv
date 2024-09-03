@@ -30,7 +30,6 @@ const RutasAdministrador = () => {
   ];
   const showSidebarAndHeader = validRoutes.includes(location.pathname);
 
-  // Redirigir si el usuario no es admin
   if (user?.rol !== "Administrador") {
     return <Navigate to="/error" replace />;
   }

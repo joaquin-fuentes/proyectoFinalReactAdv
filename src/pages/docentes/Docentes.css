@@ -7,14 +7,13 @@
   color: var(--color-fondo);
 }
 
-/* PERFIL DOCENTE */
 .avatarPerfil {
   margin-top: 60px;
   width: 150px;
 }
 
 .perfil-card {
-  width: 100%; /* Para dispositivos pequeños */
+  width: 100%;
   font-family: var(--fuente-principal);
   font-size: 14px;
 }
@@ -23,7 +22,6 @@
   background-color: var(--color-secundario);
 }
 
-/* MATERIAS DOCENTE */
 .tableMaterias {
   background-color: var(--color-fondo);
   color: var(--fuente-color-primario);
@@ -31,8 +29,6 @@
 .fuenteTabla {
   font-family: var(--fuente-principal);
 }
-
-/* ASISTENCIAS DOCENTE*/
 
 .asistencias-container {
   font-family: var(--fuente-principal);
@@ -65,8 +61,6 @@
   margin-bottom: 8px;
 }
 
-/*LISTADO DE ALUMNOS*/
-
 .iconoEditar {
   color: var(--color-primario);
 }
@@ -78,7 +72,6 @@
   font-family: var(--fuente-principal);
 }
 
-/* NOVEDADES */
 .cardNovedad {
   border: 1px solid var(--color-primario);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.488);
@@ -92,9 +85,8 @@
 .fuenteNovedades {
   font-family: var(--fuente-principal);
 }
-/* Dispositivos medianos (mínimo 769px) */
+
 @media (min-width: 767px) {
-  /* PERFIL */
   .avatarPerfil {
     margin-top: 80px;
     width: 200px;
@@ -103,7 +95,6 @@
     width: 95%;
     font-size: 16px;
   }
-  /* ASISTENCIAS */
   .row-asistencias {
     margin-top: 80px !important;
   }
@@ -115,9 +106,7 @@
   }
 }
 
-/* Dispositivos grandes (mínimo 993px) */
 @media (min-width: 993px) {
-  /* PERFIL */
   .avatarPerfil {
     margin-top: 0;
     width: 130px;
@@ -125,7 +114,6 @@
   .perfil-card {
     width: 70%;
   }
-  /* NOVEDADES */
   .imgNovedad {
     height: 350px;
   }

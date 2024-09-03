@@ -3,7 +3,6 @@ import Modal from "react-bootstrap/Modal";
 import "../Administrador.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Container } from "react-bootstrap";
-// import avatar from "../../assets/imagenes/avatarPerfil.jpeg";
 
 const ModalInfo = ({ usuario }) => {
   const [show, setShow] = useState(false);

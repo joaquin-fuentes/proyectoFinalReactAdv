@@ -12,13 +12,12 @@ const CargarAsistenciasDocentesModal = ({ asistencia }) => {
 
   useEffect(() => {
     if (show) {
-      obtenerDocentes(); // Cargar la lista de docentes al abrir el modal
+      obtenerDocentes();
     }
   }, [show, obtenerDocentes]);
 
   useEffect(() => {
     if (docentes.length > 0 && show) {
-      // Inicializar el estado de asistencia con los datos existentes
       const initialAsistencias = {};
       docentes.forEach((docente) => {
         initialAsistencias[docente.id] = asistencia.docentesPresentes.includes(
@@ -35,7 +34,7 @@ const CargarAsistenciasDocentesModal = ({ asistencia }) => {
   const handleAsistenciaChange = (docenteId) => {
     setAsistenciasDocentes((prev) => ({
       ...prev,
-      [docenteId]: !prev[docenteId], // Cambiar el estado de asistencia del docente
+      [docenteId]: !prev[docenteId],
     }));
   };
 

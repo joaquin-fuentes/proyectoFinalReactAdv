@@ -25,12 +25,11 @@ const CrearAsistenciaDocente = () => {
     };
 
     setFecha(obtenerFechaActual());
-    obtenerDocentes(); // Cargar la lista de docentes al montar el componente
-    getAsistencias(); // Cargar todas las asistencias
+    obtenerDocentes();
+    getAsistencias();
   }, [obtenerDocentes, getAsistencias]);
 
   const handleShow = () => {
-    // Verificar si ya existe una asistencia para la fecha seleccionada
     const asistenciaExistente = todasAsistencias.find(
       (asistencia) => asistencia.fecha === fecha
     );
@@ -38,13 +37,11 @@ const CrearAsistenciaDocente = () => {
     const inicialAsistencias = {};
 
     if (asistenciaExistente) {
-      // Si existe, marcar los docentes presentes y ausentes
       docentes.forEach((docente) => {
         inicialAsistencias[docente.id] =
           asistenciaExistente.docentesPresentes.includes(docente.id);
       });
     } else {
-      // Si no existe, inicializar todos como ausentes
       docentes.forEach((docente) => {
         inicialAsistencias[docente.id] = false;
       });
@@ -59,7 +56,7 @@ const CrearAsistenciaDocente = () => {
   const handleAsistenciaChange = (docenteId) => {
     setAsistencias((prev) => ({
       ...prev,
-      [docenteId]: !prev[docenteId], // Cambiar el estado de asistencia del docente
+      [docenteId]: !prev[docenteId],
     }));
   };
 

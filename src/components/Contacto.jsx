@@ -22,8 +22,6 @@ function Contacto() {
   });
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
-    // Aquí puedes enviar los datos a un servidor o realizar otra acción
     resetForm();
   };
 

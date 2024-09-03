@@ -19,7 +19,6 @@ const CrearMateria = () => {
     obtenerDocentes();
   }, [obtenerDocentes]);
 
-  // Esquema de validación con Yup
   const validationSchema = Yup.object().shape({
     nombre: Yup.string().required("El nombre es obligatorio"),
     anio: Yup.string().required("El año es obligatorio"),
@@ -27,7 +26,6 @@ const CrearMateria = () => {
     turno: Yup.string().required("El turno es obligatorio"),
   });
 
-  // Valores iniciales del formulario
   const initialValues = {
     nombre: "",
     anio: "",
@@ -36,7 +34,6 @@ const CrearMateria = () => {
     docenteId: "",
   };
 
-  // Manejo del envío del formulario
   const handleSubmit = async (values, { resetForm }) => {
     try {
       const existe = await verificarMateriaExistente(
@@ -51,7 +48,7 @@ const CrearMateria = () => {
           icon: "warning",
           confirmButtonText: "Cerrar",
         });
-        return; // Detener el proceso si la materia ya existe
+        return;
       }
       const newData = {
         ...values,
@@ -66,10 +63,9 @@ const CrearMateria = () => {
           },
         ],
       };
-      await crearMateria(newData); // Aquí puedes enviar los datos al store o hacer alguna otra acción
-      handleClose(); // Cerrar el modal después del envío
+      await crearMateria(newData);
+      handleClose();
 
-      // Mostrar SweetAlert de éxito
       Swal.fire({
         title: "Materia creada",
         text: "La materia se ha creado con éxito.",
@@ -78,9 +74,8 @@ const CrearMateria = () => {
         showConfirmButton: false,
       });
 
-      resetForm(); // Limpiar el formulario después de la creación
+      resetForm();
     } catch (error) {
-      // Mostrar SweetAlert de error
       Swal.fire({
         title: "Error",
         text: error.message || "Algo salió mal al crear la materia.",

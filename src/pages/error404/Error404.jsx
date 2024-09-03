@@ -7,7 +7,6 @@ const Error404 = () => {
   const {user} = useAuth()
 
   const buscarRuta =(usuario)=>{
-    console.log(usuario)
     if(usuario.rol === "Alumno"){
       return "/alumnos" 
     }

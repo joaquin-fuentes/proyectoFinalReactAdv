@@ -14,7 +14,7 @@ const DetalleAsistenciaAlumnos = ({ curso }) => {
 
   const handleClose = () => {
     setShow(false);
-    setAlumnoSeleccionado(null); // Reiniciar la selección del alumno al cerrar el modal
+    setAlumnoSeleccionado(null);
   };
 
   const handleAlumnoClick = (alumnoId) => {

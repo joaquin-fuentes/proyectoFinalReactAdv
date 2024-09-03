@@ -12,7 +12,6 @@
   color: var(--color-fondo);
 }
 
-/* PERFIL ADMINISTRADOR */
 .avatarPerfil {
   margin-top: 60px;
   width: 150px;
@@ -24,7 +23,6 @@
   font-size: 14px;
 }
 
-/* LISTADO DE USUARIOS */
 .modalUsuario {
   font-family: var(--fuente-principal);
 }
@@ -127,7 +125,6 @@
   color: var(--fuente-color-primario);
 }
 
-/* Cargador */
 .spinner {
   --size: 30px;
   --first-block-clr: #005bba;
@@ -204,10 +201,8 @@
   }
 }
 
-/* Dispositivos medianos (mínimo 769px) */
 @media (min-width: 767px) {
 
-  /* PERFIL */
   .avatarPerfil {
     margin-top: 80px;
     width: 200px;
@@ -219,10 +214,8 @@
   }
 }
 
-/* Dispositivos grandes (mínimo 993px) */
 @media (min-width: 993px) {
 
-  /* PERFIL */
   .avatarPerfil {
     margin-top: 0;
     width: 130px;
