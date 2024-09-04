@@ -29,11 +29,17 @@
   - Utilizar el proyecto desde: npm run dev
   - Para poder levantar la api con la base de datos es necesario seguir los siguientes pasos:
   - En la carpeta raiz del proyecto crear un archivo ".env" y agregar el siguiente contenido
+    
         VITE_API_USUARIO = http://localhost:3000/usuarios
+    
         VITE_API_MATERIA = http://localhost:3000/materias
+    
         VITE_API_CURSO= http://localhost:3000/cursos
+    
         VITE_API_NOVEDAD = http://localhost:3000/novedades
+    
         VITE_API_ASISTENCIA = http://localhost:3000/asistencias
+    
   - Luego en la terminal, debe acceder a la carpeta del proyecto e introducir el siguiente comando: json-server --watch db.json (esto iniciara una api de manera local y podrá interactuar desde el front con el archivo db.json donde se encuentra nuestra base de datos).
   - Si aún no tiene instalado json-server es necesario ingresar a la terminal e ingresar el siguiente comando: npm i json-server
 
