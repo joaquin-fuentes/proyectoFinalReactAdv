@@ -86,6 +86,7 @@ body {
   height: 120px;
   width: 50%;
   filter: drop-shadow(1px 1px rgba(255, 255, 255, 0.6));
+  object-fit: contain;
 }
 
 .logoOfCanvas {
