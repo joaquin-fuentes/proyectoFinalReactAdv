@@ -89,19 +89,29 @@ const CargarAsistenciasDocentesModal = ({ asistencia }) => {
           {docentes.length > 0 ? (
             <ListGroup className="mt-3">
               {docentes.map((docente) => (
-                <ListGroup.Item
-                  key={docente.id}
-                  className="d-flex justify-content-between align-items-center"
-                >
-                  <span>
-                    {docente.nombre} {docente.apellido}
-                  </span>
-                  <Form.Check
-                    type="checkbox"
-                    label="Presente"
-                    checked={asistenciasDocentes[docente.id] || false}
-                    onChange={() => handleAsistenciaChange(docente.id)}
-                  />
+                <ListGroup.Item key={docente.id}>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div className="flex-grow-1">
+                      <span>
+                        {docente.nombre} {docente.apellido}
+                      </span>
+                    </div>
+                    <div className="d-flex align-items-center">
+                      <Form.Check
+                        type="checkbox"
+                        id={docente.id}
+                        checked={asistenciasDocentes[docente.id] || false}
+                        onChange={() => handleAsistenciaChange(docente.id)}
+                      />
+                      <Form.Label
+                        htmlFor={docente.id}
+                        className="mb-0 ms-2"
+                        style={{ cursor: "pointer" }}
+                      >
+                        Presente
+                      </Form.Label>
+                    </div>
+                  </div>
                 </ListGroup.Item>
               ))}
             </ListGroup>

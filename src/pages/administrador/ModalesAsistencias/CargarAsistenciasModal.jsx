@@ -9,11 +9,11 @@ const CargarAsistenciasModal = ({ curso }) => {
   const { alumnos, obtenerAlumnos, loading, error } = useAlumnoStore();
   const { actualizarCurso } = useCursosStore();
   const [alumnosDelCurso, setAlumnosDelCurso] = useState([]);
-  
+
   const obtenerFechaActual = () => {
     const hoy = new Date();
-    const dia = String(hoy.getDate()).padStart(2, '0');
-    const mes = String(hoy.getMonth() + 1).padStart(2, '0');
+    const dia = String(hoy.getDate()).padStart(2, "0");
+    const mes = String(hoy.getMonth() + 1).padStart(2, "0");
     const anio = hoy.getFullYear();
     return `${anio}-${mes}-${dia}`;
   };
@@ -46,7 +46,8 @@ const CargarAsistenciasModal = ({ curso }) => {
       if (asistenciaExistente) {
         const asistenciasIniciales = {};
         alumnosFiltrados.forEach((alumno) => {
-          asistenciasIniciales[alumno.id] = asistenciaExistente.presentes.includes(alumno.id);
+          asistenciasIniciales[alumno.id] =
+            asistenciaExistente.presentes.includes(alumno.id);
         });
         setAsistencias(asistenciasIniciales);
       } else {
@@ -136,16 +137,29 @@ const CargarAsistenciasModal = ({ curso }) => {
           ) : alumnosDelCurso.length > 0 ? (
             <ListGroup>
               {alumnosDelCurso.map((alumno) => (
-                <ListGroup.Item key={alumno.id} className="d-flex justify-content-between align-items-center">
-                  <span>
-                    {alumno.nombre} {alumno.apellido}
-                  </span>
-                  <Form.Check
-                    type="checkbox"
-                    label="Presente"
-                    checked={asistencias[alumno.id]}
-                    onChange={() => handleAsistenciaChange(alumno.id)}
-                  />
+                <ListGroup.Item key={alumno.id}>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div className="flex-grow-1">
+                      <span>
+                        {alumno.nombre} {alumno.apellido}
+                      </span>
+                    </div>
+                    <div className="d-flex align-items-center">
+                      <Form.Check
+                        type="checkbox"
+                        id={alumno.id}
+                        checked={asistencias[alumno.id]}
+                        onChange={() => handleAsistenciaChange(alumno.id)}
+                      />
+                      <Form.Label
+                        htmlFor={alumno.id}
+                        className="mb-0 ms-2"
+                        style={{ cursor: "pointer" }}
+                      >
+                        Presente
+                      </Form.Label>
+                    </div>
+                  </div>
                 </ListGroup.Item>
               ))}
             </ListGroup>
