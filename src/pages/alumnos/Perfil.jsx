@@ -5,26 +5,31 @@ import "./Alumnos.css";
 import useAuth from "../../stores/Auth-Store";
 import useUsuarios from "../../stores/Usuarios-Store";
 import ModalProfileEdit from "../../components/ModalProfileEdit";
+import useCursosStore from "../../stores/Cursos-Store";
 
 const Perfil = () => {
-  const { user } = useAuth(state => ({ user: state.user }));
-  const { usuario, getUsuarioById, updateUsuario } = useUsuarios(state => ({
+  const { user } = useAuth((state) => ({ user: state.user }));
+  const { usuario, getUsuarioById, updateUsuario } = useUsuarios((state) => ({
     usuario: state.usuario,
     getUsuarioById: state.getUsuarioById,
-    updateUsuario: state.updateUsuario
+    updateUsuario: state.updateUsuario,
   }));
+  const { cursos, obtenerCursos } = useCursosStore();
 
   useEffect(() => {
     if (user?.id) {
       getUsuarioById(user.id);
     }
-  }, [user?.id, getUsuarioById]);
+    obtenerCursos();
+  }, [user?.id, getUsuarioById, obtenerCursos]);
 
   const handleUserUpdated = async (updatedUser) => {
     if (user?.id) {
       await updateUsuario(user.id, updatedUser);
     }
   };
+
+  const cursoAlumno = cursos.find((curso) => curso.alumnos.includes(user.id));
 
   return (
     <Container className="d-flex flex-column align-items-center justify-content-cente py-md-3">
@@ -38,12 +43,18 @@ const Perfil = () => {
         <hr className="my-1 mx-2" />
         <div className="d-flex justify-content-md-between align-items-center px-2 px-md-5 py-2">
           <h6 className="me-1 my-0 fw-bold">Nombre Completo</h6>
-          <span>{usuario?.nombre} {usuario?.apellido}</span>
+          <span>
+            {usuario?.nombre} {usuario?.apellido}
+          </span>
         </div>
         <hr className="my-1 mx-2" />
         <div className="d-flex justify-content-md-between align-items-center px-2 px-md-5 py-2">
           <h6 className="me-1 my-0 fw-bold">Curso</h6>
-          <span>3° C</span>
+          <span>
+            {cursoAlumno
+              ? `${cursoAlumno.anio}° ${cursoAlumno.division}`
+              : "Sin curso asignado"}
+          </span>
         </div>
         <hr className="my-1 mx-2" />
         <div className="d-flex justify-content-md-between align-items-center px-2 px-md-5 py-2">
